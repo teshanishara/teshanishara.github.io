@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://teshanishara.github.io/sitemap.xml
