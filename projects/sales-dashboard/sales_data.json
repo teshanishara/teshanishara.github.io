@@ -1,0 +1,22 @@
+[
+  { "date": "2026-01-05", "region": "North", "category": "Technology", "product": "Pro Laptop", "sales": 1200, "quantity": 1, "profit": 350 },
+  { "date": "2026-01-12", "region": "East", "category": "Furniture", "product": "Office Chair", "sales": 450, "quantity": 2, "profit": 90 },
+  { "date": "2026-01-18", "region": "West", "category": "Office Supplies", "product": "Paper Reams", "sales": 80, "quantity": 5, "profit": 25 },
+  { "date": "2026-01-25", "region": "South", "category": "Technology", "product": "Tablet Pro", "sales": 650, "quantity": 1, "profit": 150 },
+  { "date": "2026-02-02", "region": "North", "category": "Furniture", "product": "Desk Organizer", "sales": 150, "quantity": 3, "profit": 40 },
+  { "date": "2026-02-10", "region": "East", "category": "Office Supplies", "product": "Gel Pens", "sales": 40, "quantity": 10, "profit": 15 },
+  { "date": "2026-02-17", "region": "West", "category": "Technology", "product": "Wireless Mouse", "sales": 120, "quantity": 2, "profit": 45 },
+  { "date": "2026-02-23", "region": "South", "category": "Furniture", "product": "Standing Desk", "sales": 850, "quantity": 1, "profit": 200 },
+  { "date": "2026-03-01", "region": "North", "category": "Technology", "product": "Smart Watch", "sales": 300, "quantity": 1, "profit": 75 },
+  { "date": "2026-03-08", "region": "East", "category": "Furniture", "product": "Bookshelf", "sales": 550, "quantity": 1, "profit": 110 },
+  { "date": "2026-03-15", "region": "West", "category": "Office Supplies", "product": "Filing Folders", "sales": 60, "quantity": 4, "profit": 18 },
+  { "date": "2026-03-22", "region": "South", "category": "Technology", "product": "USB Hub", "sales": 90, "quantity": 3, "profit": 30 },
+  { "date": "2026-04-03", "region": "North", "category": "Office Supplies", "product": "Notebook Pack", "sales": 110, "quantity": 5, "profit": 35 },
+  { "date": "2026-04-10", "region": "East", "category": "Technology", "product": "Monitor 24\"", "sales": 400, "quantity": 2, "profit": 120 },
+  { "date": "2026-04-17", "region": "West", "category": "Furniture", "product": "Ergonomic Desk", "sales": 950, "quantity": 1, "profit": 240 },
+  { "date": "2026-04-24", "region": "South", "category": "Office Supplies", "product": "Label Printer", "sales": 180, "quantity": 1, "profit": 50 },
+  { "date": "2026-05-02", "region": "North", "category": "Technology", "product": "Pro Keyboard", "sales": 150, "quantity": 1, "profit": 40 },
+  { "date": "2026-05-09", "region": "East", "category": "Office Supplies", "product": "Whiteboard", "sales": 220, "quantity": 2, "profit": 60 },
+  { "date": "2026-05-16", "region": "West", "category": "Furniture", "product": "Task Lamp", "sales": 90, "quantity": 2, "profit": 20 },
+  { "date": "2026-05-23", "region": "South", "category": "Technology", "product": "HD Webcam", "sales": 130, "quantity": 1, "profit": 35 }
+]

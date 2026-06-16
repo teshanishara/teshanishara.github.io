@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales & Operations Performance Dashboard</title>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-main: #0a0d14;
+      --bg-card: rgba(16, 22, 35, 0.7);
+      --bg-card-hover: rgba(22, 30, 48, 0.85);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --text-main: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent-green: #10b981;
+      --accent-blue: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --accent-purple: #8b5cf6;
+      --font-family: 'Outfit', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-family);
+      line-height: 1.5;
+      padding: 2rem;
+      background-image: 
+        radial-gradient(at 10% 20%, rgba(59, 130, 246, 0.08) 0px, transparent 50%),
+        radial-gradient(at 90% 80%, rgba(16, 185, 129, 0.06) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
+
+    /* Layout */
+    .dashboard-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #ffffff 30%, var(--accent-cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.2rem;
+    }
+
+    /* Filters Panel */
+    .filter-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(12px);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      align-items: end;
+    }
+
+    .filter-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .filter-group label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .filter-group select {
+      background: #141b2b;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      outline: none;
+      font-family: var(--font-family);
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .filter-group select:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+    }
+
+    .reset-btn {
+      background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-cyan) 100%);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-family: var(--font-family);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      height: 45px;
+    }
+
+    .reset-btn:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    /* KPI Cards */
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+      backdrop-filter: blur(12px);
+      transition: all 0.3s ease;
+    }
+
+    .kpi-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .kpi-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .kpi-value {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+
+    .kpi-trend {
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .kpi-trend.positive { color: var(--accent-green); }
+    .kpi-trend.neutral { color: var(--accent-blue); }
+
+    /* Chart Section */
+    .chart-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .chart-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .chart-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+      backdrop-filter: blur(12px);
+      min-height: 380px;
+    }
+
+    .chart-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+    }
+
+    .chart-wrapper {
+      position: relative;
+      height: 280px;
+      width: 100%;
+    }
+
+    /* Table Section */
+    .table-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 1.5rem;
+      backdrop-filter: blur(12px);
+      overflow: hidden;
+    }
+
+    .table-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .table-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      max-height: 400px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background: #141b2b;
+      padding: 1rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .badge-tech { background: rgba(59, 130, 246, 0.15); color: var(--accent-blue); }
+    .badge-furn { background: rgba(139, 92, 246, 0.15); color: var(--accent-purple); }
+    .badge-supp { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); }
+
+    .badge-region {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <header>
+      <div>
+        <h1>Sales & Operations Performance Dashboard</h1>
+        <p class="subtitle">Interactive Portfolio Project - Custom client dashboard demo</p>
+      </div>
+      <div>
+        <span style="font-size: 0.85rem; color: var(--text-muted);">Data updated: Live</span>
+      </div>
+    </header>
+
+    <!-- Filters Panel -->
+    <div class="filter-panel">
+      <div class="filter-group">
+        <label for="regionSelect">Region</label>
+        <select id="regionSelect">
+          <option value="All">All Regions</option>
+          <option value="North">North</option>
+          <option value="East">East</option>
+          <option value="West">West</option>
+          <option value="South">South</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="categorySelect">Product Category</label>
+        <select id="categorySelect">
+          <option value="All">All Categories</option>
+          <option value="Technology">Technology</option>
+          <option value="Furniture">Furniture</option>
+          <option value="Office Supplies">Office Supplies</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <button class="reset-btn" id="resetFilters">Reset Filters</button>
+      </div>
+    </div>
+
+    <!-- KPI Row -->
+    <div class="kpi-row">
+      <div class="kpi-card">
+        <p class="kpi-label">Total Revenue</p>
+        <p class="kpi-value" id="totalSalesVal">$0</p>
+        <p class="kpi-trend positive">▲ Target Achievement: 104%</p>
+      </div>
+      <div class="kpi-card">
+        <p class="kpi-label">Total Profit</p>
+        <p class="kpi-value" id="totalProfitVal">$0</p>
+        <p class="kpi-trend positive">▲ Margin Target Met</p>
+      </div>
+      <div class="kpi-card">
+        <p class="kpi-label">Profit Margin</p>
+        <p class="kpi-value" id="profitMarginVal">0.0%</p>
+        <p class="kpi-trend positive">▲ Strong performance</p>
+      </div>
+      <div class="kpi-card">
+        <p class="kpi-label">Transactions Count</p>
+        <p class="kpi-value" id="transCountVal">0</p>
+        <p class="kpi-trend neutral">● Active Sales Orders</p>
+      </div>
+    </div>
+
+    <!-- Chart Row -->
+    <div class="chart-row">
+      <div class="chart-card">
+        <h3 class="chart-title">Revenue & Profit by Category</h3>
+        <div class="chart-wrapper">
+          <canvas id="categoryChart"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3 class="chart-title">Sales Trends (Cumulative)</h3>
+        <div class="chart-wrapper">
+          <canvas id="trendChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Section -->
+    <div class="table-card">
+      <div class="table-header">
+        <h3 class="table-title">Raw Transactions Data</h3>
+        <span id="recordCount" style="font-size: 0.9rem; color: var(--text-muted);">Showing 0 records</span>
+      </div>
+      <div class="table-wrapper">
+        <table id="transactionsTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Product</th>
+              <th>Category</th>
+              <th>Region</th>
+              <th>Sales ($)</th>
+              <th>Qty</th>
+              <th>Profit ($)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dynamic rows will be inserted here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load Dashboard Logic -->
+  <script src="dashboard.js"></script>
+</body>
+</html>
