@@ -2029,3 +2029,83 @@ img {
         max-width: 95%;
     }
 }
+
+/* ==========================================================================
+   VERTICAL TYPOGRAPHY & SCROLL BUBBLES
+   ========================================================================== */
+.vertical-text-sidebar {
+    position: fixed;
+    left: 2rem;
+    top: 0;
+    height: 100vh;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 90;
+    pointer-events: none;
+    user-select: none;
+}
+
+@media (max-width: 1366px) {
+    .vertical-text-sidebar {
+        display: none; /* Hide on smaller screens or standard laptops to prevent overlaps */
+    }
+}
+
+.vertical-text-container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 1.25rem;
+    transform: rotate(-90deg);
+    white-space: nowrap;
+}
+
+.vertical-text-container .text-large {
+    font-family: var(--font-heading);
+    font-size: 5rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.04);
+    letter-spacing: 0.1em;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.vertical-text-container .text-small {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    opacity: 0.45;
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+}
+
+/* Scroll Bubbles Styling */
+.scroll-bubble {
+    position: fixed;
+    pointer-events: none;
+    z-index: 89;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.45), transparent), var(--bubble-color);
+    box-shadow: 0 0 14px var(--bubble-glow);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    animation: float-bubble 3s cubic-bezier(0.1, 0.8, 0.25, 1) forwards;
+}
+
+@keyframes float-bubble {
+    0% {
+        transform: translate(0, 0) scale(0.3);
+        opacity: 0;
+    }
+    12% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(var(--dx), var(--dy)) scale(1.15);
+        opacity: 0;
+    }
+}
