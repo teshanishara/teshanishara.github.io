@@ -642,8 +642,8 @@ const initScrollBubbles = () => {
         // Horizontal position starts around the left vertical text
         const startX = 35 + Math.random() * 40;
         
-        // Vertical position is distributed along the viewport center height (25vh to 75vh)
-        const startY = window.innerHeight * 0.25 + Math.random() * (window.innerHeight * 0.5);
+        // Vertical position is distributed along the vertical text height (extending upwards from bottom: 6rem)
+        const startY = window.innerHeight - 96 - Math.random() * 580;
         
         bubble.style.left = `${startX}px`;
         bubble.style.top = `${startY}px`;
