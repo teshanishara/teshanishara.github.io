@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize custom GIS Globe and Data Particles
     initParticles();
     initGlobe();
+    initScrollBubbles();
 
     // --- STICKY NAV ON SCROLL ---
     const header = document.querySelector('.header');
@@ -605,4 +606,72 @@ const initGlobe = () => {
     };
     
     drawGlobe();
+};
+
+// --- SCROLL-LINKED FLOATING BUBBLES ---
+const initScrollBubbles = () => {
+    let lastScrollTop = 0;
+    let lastBubbleTime = 0;
+    const bubbleThrottle = 80; // Min time in ms between bubble spawns
+    const scrollDistThreshold = 10; // Min scroll distance in px to spawn
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollDelta = Math.abs(scrollTop - lastScrollTop);
+        const now = Date.now();
+        
+        if (scrollDelta > scrollDistThreshold && (now - lastBubbleTime) > bubbleThrottle) {
+            spawnScrollBubble();
+            lastScrollTop = scrollTop;
+            lastBubbleTime = now;
+        }
+    });
+
+    const spawnScrollBubble = () => {
+        // Only run on desktop screen sizes where vertical-sidebar is visible
+        if (window.innerWidth <= 1366) return;
+        
+        const bubble = document.createElement('div');
+        bubble.classList.add('scroll-bubble');
+        
+        // Randomize bubble size (8px to 28px)
+        const size = Math.random() * 20 + 8;
+        bubble.style.width = `${size}px`;
+        bubble.style.height = `${size}px`;
+        
+        // Horizontal position starts around the left vertical text
+        const startX = 35 + Math.random() * 40;
+        
+        // Vertical position is distributed along the viewport center height (25vh to 75vh)
+        const startY = window.innerHeight * 0.25 + Math.random() * (window.innerHeight * 0.5);
+        
+        bubble.style.left = `${startX}px`;
+        bubble.style.top = `${startY}px`;
+        
+        // Harmonious neon theme colors
+        const colors = [
+            { main: 'rgba(0, 240, 255, 0.45)', glow: 'rgba(0, 240, 255, 0.5)' }, // Cyan
+            { main: 'rgba(0, 162, 255, 0.4)', glow: 'rgba(0, 162, 255, 0.45)' }, // Neon Blue
+            { main: 'rgba(20, 241, 188, 0.45)', glow: 'rgba(20, 241, 188, 0.5)' }, // Mint/Teal
+            { main: 'rgba(139, 92, 246, 0.4)', glow: 'rgba(139, 92, 246, 0.45)' }, // Purple
+            { main: 'rgba(255, 0, 127, 0.35)', glow: 'rgba(255, 0, 127, 0.4)' }  // Pink/Magenta
+        ];
+        
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        bubble.style.setProperty('--bubble-color', color.main);
+        bubble.style.setProperty('--bubble-glow', color.glow);
+        
+        // Randomize physics translation values (float to the right and slightly vertical)
+        const dx = Math.random() * 130 + 70; // moves right by 70px to 200px
+        const dy = (Math.random() - 0.5) * 120; // moves up or down slightly
+        bubble.style.setProperty('--dx', `${dx}px`);
+        bubble.style.setProperty('--dy', `${dy}px`);
+        
+        document.body.appendChild(bubble);
+        
+        // Auto cleanup of the bubble after animation finishes to prevent DOM leaks
+        setTimeout(() => {
+            bubble.remove();
+        }, 3000); // 3 seconds matching the CSS animation duration
+    };
 };
