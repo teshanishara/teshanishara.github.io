@@ -202,6 +202,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeBtn = document.getElementById('close-modal');
 
     projectCards.forEach(card => {
+        if (card.classList.contains('direct-link')) {
+            return;
+        }
         const imgWrap = card.querySelector('.project-image-wrap');
         const img = card.querySelector('.project-image');
         const title = card.querySelector('.project-info-box h3').innerText;
