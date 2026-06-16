@@ -2036,12 +2036,7 @@ img {
 .vertical-text-sidebar {
     position: fixed;
     left: 2rem;
-    top: 0;
-    height: 100vh;
-    width: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    bottom: 6rem; /* Position relative to the bottom edge of the viewport */
     z-index: 90;
     pointer-events: none;
     user-select: none;
@@ -2055,10 +2050,11 @@ img {
 
 .vertical-text-container {
     display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    gap: 1.25rem;
+    flex-direction: row; /* Normal order: EVERYTHING starts at bottom, quote extends upwards */
+    align-items: baseline;
+    gap: 1.5rem;
     transform: rotate(-90deg);
+    transform-origin: left top; /* Rotate around top-left corner upward */
     white-space: nowrap;
 }
 
