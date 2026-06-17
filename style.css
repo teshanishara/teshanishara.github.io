@@ -2115,8 +2115,8 @@ img {
 
 .publications-grid {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
     margin-top: 3.5rem;
 }
 
@@ -2128,6 +2128,7 @@ img {
     transition: var(--transition-normal);
     position: relative;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    min-width: 0; /* Prevents grid layout overflow */
 }
 
 .publications-card:hover {
@@ -2138,13 +2139,14 @@ img {
 
 /* Blogger Card (Centerpiece) styling */
 .blog-card {
-    grid-column: span 12;
-    padding: 2.5rem;
+    grid-column: 1 / -1;
+    padding: 3rem 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     background: linear-gradient(135deg, rgba(6, 22, 53, 0.75) 0%, rgba(5, 19, 45, 0.45) 100%);
     position: relative;
+    min-width: 0;
 }
 
 .blog-glow-edge {
@@ -2161,6 +2163,8 @@ img {
     display: flex;
     gap: 2.5rem;
     align-items: center;
+    min-width: 0;
+    width: 100%;
 }
 
 .blog-icon-wrap {
@@ -2170,10 +2174,17 @@ img {
     flex-shrink: 0;
 }
 
+.blog-info {
+    min-width: 0;
+    flex-grow: 1;
+}
+
 .blog-info h3 {
     font-size: 1.8rem;
     margin-bottom: 0.25rem;
     color: var(--text-primary);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .blog-domain {
@@ -2183,6 +2194,7 @@ img {
     margin-bottom: 1rem;
     font-family: var(--font-heading);
     font-weight: 500;
+    word-break: break-all;
 }
 
 .blog-desc {
@@ -2190,6 +2202,8 @@ img {
     margin-bottom: 1.5rem;
     font-size: 1.05rem;
     max-width: 800px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .blog-topics {
@@ -2215,10 +2229,11 @@ img {
 
 /* Book Cards styling */
 .book-card {
-    grid-column: span 3;
+    grid-column: auto;
     display: flex;
     flex-direction: column;
     height: 100%;
+    min-width: 0;
 }
 
 .book-cover-wrap {
@@ -2277,6 +2292,7 @@ img {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    min-width: 0;
 }
 
 .book-tag {
@@ -2291,10 +2307,20 @@ img {
 
 .book-info-box h3 {
     font-size: 1.15rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
     line-height: 1.3;
     font-family: var(--font-heading);
     color: var(--text-primary);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.book-author {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    display: block;
 }
 
 .book-subtitle {
@@ -2302,6 +2328,8 @@ img {
     color: var(--text-secondary);
     line-height: 1.4;
     margin-top: auto;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Specific Tag Colors */
@@ -2314,14 +2342,16 @@ img {
 
 /* Responsive adjustments for Publications */
 @media (max-width: 1200px) {
-    .book-card {
-        grid-column: span 4;
+    .publications-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
     }
 }
 
 @media (max-width: 992px) {
-    .book-card {
-        grid-column: span 6;
+    .publications-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
     
     .blog-card-content {
@@ -2335,13 +2365,14 @@ img {
     }
 }
 
-@media (max-width: 576px) {
-    .book-card {
-        grid-column: span 12;
+@media (max-width: 768px) {
+    .publications-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     
     .blog-card {
-        padding: 1.5rem;
+        padding: 2rem 1.5rem;
     }
     
     .blog-icon-wrap {
