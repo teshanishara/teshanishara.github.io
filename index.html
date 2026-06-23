@@ -1143,6 +1143,63 @@
         <div id="modal-caption" class="modal-caption"></div>
     </div>
 
+    <!-- AI Assistant Chatbot -->
+    <div class="ai-chatbot-container">
+        <!-- Floating Trigger Button -->
+        <button class="chat-trigger" id="chat-trigger" aria-label="Open AI Assistant">
+            <span class="chat-trigger-pulse"></span>
+            <i class="fa-solid fa-robot"></i>
+            <span class="chat-trigger-tooltip">Ask AI Assistant</span>
+        </button>
+
+        <!-- Chat Window -->
+        <div class="chat-window" id="chat-window" aria-hidden="true">
+            <!-- Header -->
+            <div class="chat-header">
+                <div class="bot-profile">
+                    <div class="bot-avatar">
+                        <i class="fa-solid fa-robot"></i>
+                        <span class="online-indicator"></span>
+                    </div>
+                    <div class="bot-details">
+                        <h4>Spatial AI Assistant</h4>
+                        <span>Online • Ready to Help</span>
+                    </div>
+                </div>
+                <button class="chat-close" id="chat-close" aria-label="Close Chat">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Messages Box -->
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        Hi! I'm Teshan's AI Assistant. 🌐 I can tell you all about his GIS mapping services, data analysis work, self-published books, or his personal finance blog. 
+                        <br><br>
+                        What would you like to explore?
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Suggestions -->
+            <div class="chat-suggestions" id="chat-suggestions">
+                <button class="suggestion-chip" data-topic="gis">GIS Services</button>
+                <button class="suggestion-chip" data-topic="books">Self-Published Books</button>
+                <button class="suggestion-chip" data-topic="blog">Blogger Site</button>
+                <button class="suggestion-chip" data-topic="contact">Get in Touch</button>
+            </div>
+
+            <!-- Input Bar -->
+            <div class="chat-input-area">
+                <input type="text" id="chat-input" placeholder="Type your question here..." aria-label="Chat input">
+                <button id="chat-send" aria-label="Send Message">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- Custom JS -->
     <script src="script.js"></script>
 </body>
