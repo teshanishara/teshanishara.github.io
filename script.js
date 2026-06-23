@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initParticles();
     initGlobe();
     initScrollBubbles();
+    initChatbot();
 
     // --- STICKY NAV ON SCROLL ---
     const header = document.querySelector('.header');
@@ -675,5 +676,172 @@ const initScrollBubbles = () => {
         setTimeout(() => {
             bubble.remove();
         }, 3000); // 3 seconds matching the CSS animation duration
+    };
+};
+
+// --- CHATBOT LOGIC (SIMULATION MODE) ---
+const initChatbot = () => {
+    const chatTrigger = document.getElementById('chat-trigger');
+    const chatWindow = document.getElementById('chat-window');
+    const chatClose = document.getElementById('chat-close');
+    const chatMessages = document.getElementById('chat-messages');
+    const chatInput = document.getElementById('chat-input');
+    const chatSend = document.getElementById('chat-send');
+    const suggestionChips = document.querySelectorAll('.suggestion-chip');
+
+    if (!chatTrigger || !chatWindow || !chatMessages || !chatInput || !chatSend) return;
+
+    // Toggle Chat Window
+    chatTrigger.addEventListener('click', () => {
+        const isActive = chatWindow.classList.toggle('active');
+        chatWindow.setAttribute('aria-hidden', !isActive);
+        if (isActive) {
+            chatInput.focus();
+            // Remove pulsing animation once opened
+            const pulse = chatTrigger.querySelector('.chat-trigger-pulse');
+            if (pulse) pulse.remove();
+        }
+    });
+
+    chatClose.addEventListener('click', () => {
+        chatWindow.classList.remove('active');
+        chatWindow.setAttribute('aria-hidden', 'true');
+    });
+
+    // Send Message on click
+    chatSend.addEventListener('click', () => {
+        handleUserMessage();
+    });
+
+    // Send Message on Enter key
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            handleUserMessage();
+        }
+    });
+
+    // Handle suggestion chips
+    suggestionChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+            const topic = chip.getAttribute('data-topic');
+            let userText = chip.innerText;
+            appendMessage(userText, 'user-message');
+            showTypingIndicator();
+            
+            setTimeout(() => {
+                removeTypingIndicator();
+                const response = getSimulatedResponse(topic);
+                appendMessage(response, 'bot-message');
+            }, 800);
+        });
+    });
+
+    const handleUserMessage = () => {
+        const text = chatInput.value.trim();
+        if (!text) return;
+
+        appendMessage(text, 'user-message');
+        chatInput.value = '';
+        
+        showTypingIndicator();
+
+        setTimeout(() => {
+            removeTypingIndicator();
+            const response = getBotResponse(text);
+            appendMessage(response, 'bot-message');
+        }, 1000);
+    };
+
+    const appendMessage = (text, className) => {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message', className);
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.classList.add('message-content');
+        contentDiv.innerHTML = text;
+        messageDiv.appendChild(contentDiv);
+
+        const timeSpan = document.createElement('span');
+        timeSpan.classList.add('message-time');
+        const now = new Date();
+        const hrs = String(now.getHours()).padStart(2, '0');
+        const mins = String(now.getMinutes()).padStart(2, '0');
+        timeSpan.innerText = `${hrs}:${mins}`;
+        messageDiv.appendChild(timeSpan);
+
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    };
+
+    let typingIndicatorElement = null;
+
+    const showTypingIndicator = () => {
+        if (typingIndicatorElement) return;
+        
+        typingIndicatorElement = document.createElement('div');
+        typingIndicatorElement.classList.add('message', 'bot-message');
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.classList.add('message-content');
+        contentDiv.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Writing...';
+        typingIndicatorElement.appendChild(contentDiv);
+        
+        chatMessages.appendChild(typingIndicatorElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    };
+
+    const removeTypingIndicator = () => {
+        if (typingIndicatorElement) {
+            typingIndicatorElement.remove();
+            typingIndicatorElement = null;
+        }
+    };
+
+    const getSimulatedResponse = (topic) => {
+        switch(topic) {
+            case 'gis':
+                return `<strong>GIS & Spatial Data Services:</strong><br>I specialize in high-precision GIS mapping, remote sensing, and statistical modeling. 🗺️<br><br>My expertise covers:<br>• Delineating <strong>wildfire fuel models</strong> & flood risk maps.<br>• <strong>Suitability Analysis</strong> & Multi-Criteria Evaluation (MCE).<br>• Custom GIS tools scripting using <strong>Python & R</strong>.<br>• SPSS academic data modeling.<br><br>Check out my active portfolio in the <strong>Projects</strong> section above!`;
+            case 'books':
+                return `<strong>Self-Published Author:</strong><br>I have written and published <strong>11 books</strong> on Amazon! 📚<br><br>Some key titles include:<br>• <em>Guardian of the Digital Self</em> (AI Safety)<br>• <em>The Sonic Gold Playbook</em> & <em>Suno AI Prompt Bundle</em> (AI Music)<br>• <em>Advanced GIS for Oceanography</em> (Marine Spatial Science)<br>• <em>250 Side Hustles for Wealth</em> (Finance)<br><br>You can click the <strong>"Buy on Amazon"</strong> buttons in the <strong>Publications</strong> section to grab your copy!`;
+            case 'blog':
+                return `<strong>Teshan Growth Academy:</strong><br>I run a blog focused on digital wealth creation. 📈<br><br>At <a href="https://teshangrowthacademy.blogspot.com/" target="_blank" style="color: var(--accent-teal); text-decoration: underline;">teshangrowthacademy.blogspot.com</a>, I write about:<br>• Building passive income streams.<br>• Advanced digital marketing workflows.<br>• Investment strategy & financial independence.<br><br>Check out the showcase card in the <strong>Publications</strong> section to visit directly!`;
+            case 'contact':
+                return `<strong>Let's Work Together!</strong> 🤝<br>You can contact me in any of these ways:<br>• Fill out the secure <strong>Contact Form</strong> below.<br>• Email me at <a href="mailto:teshan.ishara@gmail.com" style="color: var(--accent-teal); text-decoration: underline;">teshan.ishara@gmail.com</a>.<br>• WhatsApp chat at <a href="https://wa.me/94715298267" target="_blank" style="color: var(--accent-teal); text-decoration: underline;">+94 71 529 8267</a>.<br>• Visit my <a href="https://www.fiverr.com/s/AyNPwDX" target="_blank" style="color: var(--accent-teal); text-decoration: underline;">Fiverr Profile</a> to hire my services directly.`;
+            default:
+                return "How can I help you today?";
+        }
+    };
+
+    const getBotResponse = (input) => {
+        const query = input.toLowerCase();
+
+        if (query.includes('gis') || query.includes('map') || query.includes('arcgis') || query.includes('qgis') || query.includes('spatial') || query.includes('cartograph')) {
+            return getSimulatedResponse('gis');
+        }
+        if (query.includes('book') || query.includes('author') || query.includes('publish') || query.includes('amazon') || query.includes('suno') || query.includes('bible')) {
+            return getSimulatedResponse('books');
+        }
+        if (query.includes('blog') || query.includes('blogger') || query.includes('growth') || query.includes('academy') || query.includes('finance')) {
+            return getSimulatedResponse('blog');
+        }
+        if (query.includes('contact') || query.includes('hire') || query.includes('work') || query.includes('fiverr') || query.includes('whatsapp') || query.includes('email')) {
+            return getSimulatedResponse('contact');
+        }
+        if (query.includes('hello') || query.includes('hi') || query.includes('hey') || query.includes('greetings')) {
+            return `Hello! 😊 I am Teshan's virtual assistant. Ask me anything about his GIS mapping work, his 11 books, his Blogger site, or how to contact him.`;
+        }
+        if (query.includes('who are you') || query.includes('what is this') || query.includes('help')) {
+            return `I am an AI assistant designed to represent Teshan's portfolio. You can click on the topic chips below or type a query about his GIS services, writing, or blog!`;
+        }
+        if (query.includes('thank') || query.includes('thanks') || query.includes('cool') || query.includes('awesome')) {
+            return `You're very welcome! Let me know if you need any other information about Teshan's work. 👍`;
+        }
+
+        // Fallback response with helpful hints
+        return `I want to make sure I give you the right details. Ask me about:<br>
+        • <strong>GIS Services</strong> (mapping, analysis, coding)<br>
+        • <strong>Self-Published Books</strong> (11 Amazon titles)<br>
+        • <strong>Blogger</strong> (Teshan Growth Academy)<br>
+        • <strong>Contact Details</strong> (email, WhatsApp, Fiverr)`;
     };
 };
