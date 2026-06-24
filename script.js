@@ -1862,7 +1862,7 @@ function initLMS() {
             certificateModal.style.display = 'none';
         };
 
-        const downloadStudentsCsv = () => {
+        function downloadStudentsCsv() {
             const users = JSON.parse(localStorage.getItem('lms_users')) || {};
             let csvContent = "data:text/csv;charset=utf-8,";
             csvContent += "Name,Email,Password,Exam Score,Exam Date,Study Seconds\n";
@@ -1886,7 +1886,7 @@ function initLMS() {
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-        };
+        }
 
         btnCloseCert.addEventListener('click', closeCertificate);
         
