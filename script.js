@@ -96,6 +96,93 @@ const getQgisTechnicalAnswer = (query, lang) => {
         }
     }
 
+    // Area/Geometry Calculation / Field Calculator
+    if (clean.includes('area') || clean.includes('calculate') || clean.includes('field calculator') || clean.includes('perimeter') || clean.includes('length') || clean.includes('වර්ගඵලය') || clean.includes('ප්‍රමාණය ගණනය')) {
+        if (lang === 'en') {
+            return `<strong>How to Calculate Area or Geometry in QGIS:</strong><br>
+            To compute areas or perimeters for vector features:<br>
+            1. Right-click your vector layer and select <strong>Open Attribute Table</strong>.<br>
+            2. Click the <strong>Open Field Calculator</strong> button (abacus icon, or shortcut Ctrl+I).<br>
+            3. Check <strong>Create a new field</strong>, set Output field name (e.g. 'area_ha'), and change type to 'Decimal number (real)'.<br>
+            4. In the expression box, type:
+               - For Area in square meters: <code>$area</code>
+               - For Area in Hectares: <code>$area / 10000</code>
+               - For Perimeter or Line Length: <code>$length</code> or <code>$perimeter</code><br>
+            5. Click <strong>OK</strong>. Make sure your layer is in a Projected CRS (e.g. UTM) for correct metric calculations.`;
+        } else {
+            return `<strong>QGIS හි වර්ගඵලය හෝ ජ්‍යාමිතිය ගණනය කිරීම:</strong><br>
+            දත්ත ස්ථරයක වර්ගඵලය හෝ වටප්‍රමාණය සෙවීමට:<br>
+            1. Vector ස්ථරය මත right-click කර <strong>Open Attribute Table</strong> තෝරන්න.<br>
+            2. <strong>Open Field Calculator</strong> අයිකනය ක්ලික් කරන්න (Ctrl+I).<br>
+            3. 'Create a new field' තෝරා, field name එක (උදා. 'area_ha') සහ field type එක 'Decimal number' ලෙස ලබා දෙන්න.<br>
+            4. expression box එකෙහි මෙසේ ලියන්න:
+               - වර්ග මීටර් වලින් වර්ගඵලය සෙවීමට: <code>$area</code>
+               - හෙක්ටයාර වලින් වර්ගඵලය සෙවීමට: <code>$area / 10000</code>
+               - දිග හෝ වටප්‍රමාණය සෙවීමට: <code>$length</code> හෝ <code>$perimeter</code><br>
+            5. <strong>OK</strong> ක්ලික් කරන්න. (නිවැරදි මීටර් අගයන් ලබා ගැනීමට ස්ථරය Projected CRS එකක තිබිය යුතුය).`;
+        }
+    }
+
+    // Spatial Join / Join by Location
+    if (clean.includes('spatial join') || clean.includes('join by location') || clean.includes('combine layers') || clean.includes('සම්බන්ධ කරන්න')) {
+        if (lang === 'en') {
+            return `<strong>How to Perform a Spatial Join (Join Attributes by Location):</strong><br>
+            To transfer attribute information from one layer to another based on spatial overlap (e.g. finding which district a school is inside):<br>
+            1. Go to <strong>Vector -> Data Management Tools -> Join Attributes by Location</strong>.<br>
+            2. Set <strong>Join to target layer</strong> as the layer receiving data (e.g. schools).<br>
+            3. Set <strong>By comparing to join layer</strong> as the layer containing the attributes (e.g. districts).<br>
+            4. Under <strong>Geometric predicate</strong>, select 'intersects' or 'is within'.<br>
+            5. Select the join type (e.g. take attributes of the first matching feature).<br>
+            6. Click <strong>Run</strong>.`;
+        } else {
+            return `<strong>QGIS හි අවකාශීය සම්බන්ධතාවය (Spatial Join / Join by Location):</strong><br>
+            භූගෝලීය පිහිටීම මත පදනම්ව එක් ස්ථරයක ඇති තොරතුරු තවත් ස්ථරයකට එක් කිරීමට:<br>
+            1. <strong>Vector -> Data Management Tools -> Join Attributes by Location</strong> වෙත යන්න.<br>
+            2. <strong>Join to target layer</strong> එක ලෙස දත්ත ලබා ගන්නා ස්ථරය (උදා. පාසල්) තෝරන්න.<br>
+            3. <strong>By comparing to join layer</strong> එක ලෙස සම්බන්ධ කිරීමට බලාපොරොත්තු වන ස්ථරය (උදා. දිස්ත්‍රික් සීමා) තෝරන්න.<br>
+            4. Geometric predicate ලෙස 'intersects' හෝ 'is within' තෝරා <strong>Run</strong> ක්ලික් කරන්න.`;
+        }
+    }
+
+    // Georeferencing
+    if (clean.includes('georeferenc') || clean.includes('geo-referenc') || clean.includes('scanned map') || clean.includes('සිතියම් පෙළගැස්වීම')) {
+        if (lang === 'en') {
+            return `<strong>How to Georeference a Scanned Map in QGIS:</strong><br>
+            To align a raster image / scanned map with real-world geographic coordinates:<br>
+            1. Go to <strong>Layer -> Georeferencer</strong>.<br>
+            2. Click the <strong>Open Raster</strong> icon and select your scanned map image (JPEG/PNG/TIFF).<br>
+            3. Click on a known point (like a grid crosshair or boundary corner) on the map to add a point.<br>
+            4. Enter the known X and Y coordinates (or click 'From Map Canvas' to match a base map).<br>
+            5. Add at least 4 Ground Control Points (GCPs) distributed across the map.<br>
+            6. Go to <strong>Transformation Settings</strong> (gear icon), select Transformation type (usually 'Polynomial 1' or 'Thin Plate Spline'), Target CRS, and output file path.<br>
+            7. Click the green <strong>Start Georeferencing</strong> play button.`;
+        } else {
+            return `<strong>QGIS හි Georeferencer භාවිතයෙන් ස්කෑන් කළ සිතියමක් පෙළගැස්වීම:</strong><br>
+            ස්කෑන් කරන ලද සිතියම් පින්තූරයක් නිවැරදි භූගෝලීය පිහිටීමට සකස් කර ගැනීමට:<br>
+            1. <strong>Layer -> Georeferencer</strong> වෙත යන්න.<br>
+            2. <strong>Open Raster</strong> ක්ලික් කර ඔබගේ සිතියම් පින්තූරය තෝරන්න.<br>
+            3. සිතියමේ ඛණ්ඩාංක දන්නා ලක්ෂ්‍යයක් මත ක්ලික් කර (Add Point), එහි X සහ Y අගයන් ඇතුළත් කරන්න (නැතහොත් 'From Map Canvas' තෝරා දැනට ඇති සිතියමකින් ලක්ෂ්‍ය ලබා ගන්න).<br>
+            4. මේ ආකාරයට අවම වශයෙන් ලක්ෂ්‍ය 4ක් (GCPs) සිතියම පුරා තබන්න.<br>
+            5. Transformation Settings (රෝද සලකුණ) වෙත ගොස්, Transformation type සහ Target CRS සකසා ගන්න.<br>
+            6. කොළ පැහැති <strong>Start Georeferencing</strong> (Play) බොත්තම ක්ලික් කරන්න.`;
+        }
+    }
+
+    // WMS/XYZ/OSM Base maps
+    if (clean.includes('wms') || clean.includes('wfs') || clean.includes('base map') || clean.includes('osm') || clean.includes('google maps') || clean.includes('open street map') || clean.includes('සිතියම් පසුබිම')) {
+        if (lang === 'en') {
+            return `<strong>How to Add Base Maps (OSM, Google Maps, WMS) in QGIS:</strong><br>
+            • <strong>OpenStreetMap (OSM):</strong> In the Browser Panel, expand <strong>XYZ Tiles</strong> and double-click <strong>OpenStreetMap</strong>.<br>
+            • <strong>Google Hybrid/Satellite:</strong> Right-click <strong>XYZ Tiles</strong> in the Browser Panel, select <strong>New Connection</strong>. Give it a name (e.g. 'Google Satellite') and paste this URL: <code>https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}</code>, then click OK.<br>
+            • <strong>WMS/WFS Services:</strong> Right-click 'WMS/WMTS' in the Browser Panel, select 'New Connection', enter the organization's server URL, click OK, then drag the layers onto your canvas.`;
+        } else {
+            return `<strong>QGIS වෙත පසුබිම් සිතියම් (Base Maps/OSM) එක් කිරීම:</strong><br>
+            • <strong>OpenStreetMap (OSM):</strong> Browser Panel එකෙහි ඇති <strong>XYZ Tiles</strong> යටතේ ඇති <strong>OpenStreetMap</strong> මත double-click කරන්න.<br>
+            • <strong>Google Satellite සිතියම:</strong> XYZ Tiles මත right-click කර <strong>New Connection</strong> තෝරන්න. නමක් ලබා දී URL එකට <code>https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}</code> ඇතුලත් කර OK ක්ලික් කරන්න.<br>
+            • <strong>WMS/WFS සේවා:</strong> Browser Panel හි WMS/WMTS මත right-click කර 'New Connection' තෝරා අදාළ සේවාදායකයේ (Server) URL එක ලබා දී සම්බන්ධ කරන්න.`;
+        }
+    }
+
     return null;
 };
 
