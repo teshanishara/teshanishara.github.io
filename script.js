@@ -920,6 +920,7 @@ function initLMS() {
         const studyTimer = document.getElementById('study-timer');
         const btnLogoutLms = document.getElementById('btn-logout-lms');
         const btnAdminCert = document.getElementById('btn-admin-cert');
+        const btnAdminCsv = document.getElementById('btn-admin-csv');
 
         // Player elements
         const playerModuleNum = document.getElementById('player-module-num');
@@ -1262,6 +1263,20 @@ function initLMS() {
 
             users[email] = newUser;
             localStorage.setItem('lms_users', JSON.stringify(users));
+
+            // Log signup data asynchronously via Web3Forms API to notify admin
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    access_key: 'd7184f98-2d18-4946-a680-d7847e9d62f9',
+                    subject: 'New GeoPhoenix Student Registration',
+                    from_name: 'GeoPhoenix LMS Portal',
+                    name: name,
+                    email: email,
+                    password: password
+                })
+            }).catch(err => console.log('Signup notification error:', err));
             
             // Login user
             currentUser = newUser;
@@ -1328,6 +1343,7 @@ function initLMS() {
 
         btnLogoutLms.addEventListener('click', logoutLMS);
         btnAdminCert.addEventListener('click', openCertificate);
+        btnAdminCsv.addEventListener('click', downloadStudentsCsv);
 
         // 4. ENTER WORKSPACE & INITIALIZE STUDY AREA
         const enterWorkspace = () => {
@@ -1339,8 +1355,10 @@ function initLMS() {
 
             if (currentUser && currentUser.email === 'teshan.ishara@gmail.com') {
                 btnAdminCert.style.display = 'inline-flex';
+                btnAdminCsv.style.display = 'inline-flex';
             } else {
                 btnAdminCert.style.display = 'none';
+                btnAdminCsv.style.display = 'none';
             }
 
             // Reset slide coordinates
@@ -1457,7 +1475,7 @@ function initLMS() {
             slideDotsContainer.innerHTML = '';
             const totalSlides = lmsCourseData[currentLang].slides.length;
             
-            const maxDotsToShow = 9;
+            const maxDotsToShow = 7;
             let start = 0;
             let end = totalSlides;
             
@@ -1822,7 +1840,7 @@ function initLMS() {
         });
 
         // 8. CERTIFICATE GENERATION PREVIEW & BIND PRINT ENGINE
-        const openCertificate = () => {
+        function openCertificate() {
             const isAdmin = currentUser && currentUser.email === 'teshan.ishara@gmail.com';
             if (!isAdmin && (!currentUser || !currentUser.mapUploaded)) {
                 alert(currentLang === 'en' ? "Please upload your study area map to unlock the certificate." : "කරුණාකර සහතිකය බාගත කිරීමට ප්‍රථමයෙන් ඔබ සකස් කළ සිතියම උඩුගත කරන්න.");
@@ -1838,10 +1856,36 @@ function initLMS() {
             certCourseName.innerText = lmsCourseData[currentLang].title;
             
             certificateModal.style.display = 'flex';
-        };
+        }
 
         const closeCertificate = () => {
             certificateModal.style.display = 'none';
+        };
+
+        const downloadStudentsCsv = () => {
+            const users = JSON.parse(localStorage.getItem('lms_users')) || {};
+            let csvContent = "data:text/csv;charset=utf-8,";
+            csvContent += "Name,Email,Password,Exam Score,Exam Date,Study Seconds\n";
+            
+            // Default admin account
+            csvContent += `Admin,teshan.ishara@gmail.com,Teshan123@,100%,-,-\n`;
+            
+            Object.values(users).forEach(user => {
+                if (user.email === 'teshan.ishara@gmail.com') return;
+                const score = user.examScore !== null ? `${user.examScore}%` : '-';
+                const date = user.examDate || '-';
+                const seconds = user.studySeconds || 0;
+                const escapedName = (user.name || '').replace(/"/g, '""');
+                csvContent += `"${escapedName}",${user.email},"${user.password}",${score},${date},${seconds}\n`;
+            });
+            
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "lms_students.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         };
 
         btnCloseCert.addEventListener('click', closeCertificate);
