@@ -1509,22 +1509,22 @@ function initLMS() {
             let user = users[email];
 
             if (email === 'teshan.ishara@gmail.com') {
-                if (!user) {
-                    // Create admin user automatically on the fly if not exists
+                if (password === 'Teshan123@') {
+                    // Force align or create the admin user with this password
                     user = {
                         name: "Admin",
                         email: email,
-                        password: password,
+                        password: 'Teshan123@',
                         enrolled: true,
-                        completedSlides: [],
-                        studySeconds: 0,
-                        examScore: null,
-                        examDate: null
+                        completedSlides: user ? (user.completedSlides || []) : [],
+                        studySeconds: user ? (user.studySeconds || 0) : 0,
+                        examScore: user ? user.examScore : null,
+                        examDate: user ? user.examDate : null
                     };
                     users[email] = user;
                     localStorage.setItem('lms_users', JSON.stringify(users));
-                } else if (user.password !== password) {
-                    // Check password if it exists
+                } else {
+                    // Invalid password for admin
                     alert(currentLang === 'en' ? "Invalid password for admin." : "පරිපාලක සඳහා වැරදි මුරපදයක්.");
                     return;
                 }
