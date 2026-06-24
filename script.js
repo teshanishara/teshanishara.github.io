@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             header.classList.remove('scrolled');
         }
-    });
+    }, { passive: true });
 
     // --- MOBILE HAMBURGER MENU ---
     const hamburger = document.getElementById('hamburger');
@@ -369,6 +369,7 @@ const initParticles = () => {
     
     // Loop
     const animate = () => {
+        if (!isParticlesVisible) return;
         ctx.clearRect(0, 0, width, height);
         
         // Draw lines and update
@@ -411,6 +412,18 @@ const initParticles = () => {
         
         requestAnimationFrame(animate);
     };
+    
+    let isParticlesVisible = false;
+    const particlesObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const wasVisible = isParticlesVisible;
+            isParticlesVisible = entry.isIntersecting;
+            if (isParticlesVisible && !wasVisible) {
+                requestAnimationFrame(animate);
+            }
+        });
+    }, { threshold: 0.05 });
+    particlesObserver.observe(canvas);
     
     animate();
 };
@@ -513,6 +526,7 @@ const initGlobe = () => {
     };
     
     const drawGlobe = () => {
+        if (!isGlobeVisible) return;
         ctx.clearRect(0, 0, width, height);
         
         // Background sphere glow
@@ -607,6 +621,18 @@ const initGlobe = () => {
         requestAnimationFrame(drawGlobe);
     };
     
+    let isGlobeVisible = false;
+    const globeObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const wasVisible = isGlobeVisible;
+            isGlobeVisible = entry.isIntersecting;
+            if (isGlobeVisible && !wasVisible) {
+                requestAnimationFrame(drawGlobe);
+            }
+        });
+    }, { threshold: 0.05 });
+    globeObserver.observe(canvas);
+    
     drawGlobe();
 };
 
@@ -627,7 +653,7 @@ const initScrollBubbles = () => {
             lastScrollTop = scrollTop;
             lastBubbleTime = now;
         }
-    });
+    }, { passive: true });
 
     const spawnScrollBubble = () => {
         // Only run on desktop screen sizes where vertical-sidebar is visible
@@ -853,6 +879,12 @@ const initChatbot = () => {
 function initLMS() {
         let currentLang = localStorage.getItem('lms_lang') || 'en';
         let currentUser = JSON.parse(localStorage.getItem('lms_current_user')) || null;
+        if (currentUser) {
+            currentUser.completedSlides = currentUser.completedSlides || [];
+            currentUser.studySeconds = currentUser.studySeconds || 0;
+            currentUser.examScore = currentUser.examScore !== undefined ? currentUser.examScore : null;
+            currentUser.examDate = currentUser.examDate !== undefined ? currentUser.examDate : null;
+        }
         let activeSlideIndex = 0;
         let activeFlashIndex = 0;
         let timerInterval = null;
@@ -1306,7 +1338,22 @@ function initLMS() {
         const certStudentName = document.getElementById('cert-student-name');
         const certGrade = document.getElementById('cert-grade');
         const certDate = document.getElementById('cert-date');
+        const certCourseName = document.getElementById('cert-course-name');
         const btnPrintCertificate = document.getElementById('btn-print-certificate');
+
+        const updateEnrollmentBtnText = (amount) => {
+            const enrollBtn = document.getElementById('btn-submit-enroll');
+            if (!enrollBtn) return;
+            if (amount === '0.00') {
+                enrollBtn.innerHTML = currentLang === 'en' ? 
+                    '<i class="fa-solid fa-graduation-cap"></i> Register & Start Learning (Free)' : 
+                    '<i class="fa-solid fa-graduation-cap"></i> ලියාපදිංචි වී ඉගෙනීම අරඹන්න (නොමිලේ)';
+            } else {
+                enrollBtn.innerHTML = currentLang === 'en' ? 
+                    '<i class="fa-solid fa-unlock"></i> Complete Enrollment & Unlock Course' : 
+                    '<i class="fa-solid fa-unlock"></i> ලියාපදිංචිය සම්පූර්ණ කර පාඨමාලාව විවෘත කරන්න';
+            }
+        };
 
         // 1. CHOOSE LANGUAGE & UPDATE METADATA
         const setLanguage = (lang) => {
@@ -1325,6 +1372,12 @@ function initLMS() {
             // Re-render tabs
             const activeTab = document.querySelector('.tab-header-btn.active').getAttribute('data-tab');
             renderTabContent(activeTab);
+
+            // Update enrollment button text based on active tier
+            const activeTierBtn = document.querySelector('.donate-tier-btn.active');
+            if (activeTierBtn) {
+                updateEnrollmentBtnText(activeTierBtn.getAttribute('data-amount'));
+            }
 
             if (currentUser) {
                 workspaceLangDisplay.innerText = lang === 'en' ? 'English' : 'සිංහල';
@@ -1380,11 +1433,20 @@ function initLMS() {
                 btn.classList.add('active');
                 
                 const customContainer = document.querySelector('.custom-amount-input-container');
-                if (btn.getAttribute('data-amount') === 'custom') {
+                const paymentWrapper = document.querySelector('.payment-gateway-wrapper');
+                
+                const amount = btn.getAttribute('data-amount');
+                if (amount === 'custom') {
                     customContainer.style.display = 'block';
+                    if (paymentWrapper) paymentWrapper.style.display = 'block';
+                } else if (amount === '0.00') {
+                    customContainer.style.display = 'none';
+                    if (paymentWrapper) paymentWrapper.style.display = 'none';
                 } else {
                     customContainer.style.display = 'none';
+                    if (paymentWrapper) paymentWrapper.style.display = 'block';
                 }
+                updateEnrollmentBtnText(amount);
             });
         });
 
@@ -1406,7 +1468,7 @@ function initLMS() {
 
             // Create and save user
             const users = JSON.parse(localStorage.getItem('lms_users')) || {};
-            if (users[email]) {
+            if (users[email] && email !== 'teshan.ishara@gmail.com') {
                 alert(currentLang === 'en' ? "An account with this email already exists." : "මෙම විද්‍යුත් තැපෑල සහිත ගිණුමක් දැනටමත් පවතී.");
                 return;
             }
@@ -1444,11 +1506,33 @@ function initLMS() {
             }
 
             const users = JSON.parse(localStorage.getItem('lms_users')) || {};
-            const user = users[email];
+            let user = users[email];
 
-            if (!user || user.password !== password) {
-                alert(currentLang === 'en' ? "Invalid email or password." : "වැරදි විද්‍යුත් තැපෑලක් හෝ මුරපදයක්.");
-                return;
+            if (email === 'teshan.ishara@gmail.com') {
+                if (!user) {
+                    // Create admin user automatically on the fly if not exists
+                    user = {
+                        name: "Admin",
+                        email: email,
+                        password: password,
+                        enrolled: true,
+                        completedSlides: [],
+                        studySeconds: 0,
+                        examScore: null,
+                        examDate: null
+                    };
+                    users[email] = user;
+                    localStorage.setItem('lms_users', JSON.stringify(users));
+                } else if (user.password !== password) {
+                    // Check password if it exists
+                    alert(currentLang === 'en' ? "Invalid password for admin." : "පරිපාලක සඳහා වැරදි මුරපදයක්.");
+                    return;
+                }
+            } else {
+                if (!user || user.password !== password) {
+                    alert(currentLang === 'en' ? "Invalid email or password." : "වැරදි විද්‍යුත් තැපෑලක් හෝ මුරපදයක්.");
+                    return;
+                }
             }
 
             currentUser = user;
@@ -1918,8 +2002,8 @@ function initLMS() {
         });
 
         // 10. AUTO-RESUME IF SESSION ALREADY ACTIVE
-        // Render initial landing tab content
-        renderTabContent('outcomes');
+        // Initialize language UI
+        setLanguage(currentLang);
         
         if (currentUser && currentUser.enrolled) {
             enterWorkspace();
