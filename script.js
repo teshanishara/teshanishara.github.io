@@ -891,388 +891,7 @@ function initLMS() {
         let totalSeconds = 0;
 
         // BILINGUAL COURSE DATASET
-        const lmsCourseData = {
-            en: {
-                title: "QGIS Fundamentals: Complete Beginner's Guide",
-                agreement: "I agree not to copy, redistribute, or republish the course content without the explicit permission of Teshan Ishara.",
-                outcomesTitle: "Course Learning Outcomes",
-                curriculumTitle: "Course Curriculum (5 Modules)",
-                careersTitle: "Available Opportunities & Careers",
-                tabs: {
-                    outcomes: `
-                        <h4>Course Learning Outcomes</h4>
-                        <ul>
-                            <li>Understand the fundamentals of GIS, vector and raster data types.</li>
-                            <li>Navigate the QGIS interface confidently and customize panel layouts.</li>
-                            <li>Understand Coordinate Reference Systems (CRS) and avoid common projection errors.</li>
-                            <li>Style vector layers using simple, categorized, and graduated symbology.</li>
-                            <li>Work with attribute tables, add new columns, and run geometry calculations.</li>
-                            <li>Run SQL-like queries and spatial selections to extract specific data.</li>
-                            <li>Create professional print layouts with legends, scale bars, and north arrows.</li>
-                        </ul>
-                    `,
-                    curriculum: `
-                        <h4>Course Curriculum</h4>
-                        <ul>
-                            <li><strong>Module 1:</strong> Introduction to QGIS & GIS Basics (3 slides)</li>
-                            <li><strong>Module 2:</strong> Spatial Data Sources & Coordinate Reference Systems (3 slides)</li>
-                            <li><strong>Module 3:</strong> Map Visualization & Cartographic Styling (3 slides)</li>
-                            <li><strong>Module 4:</strong> Working with Attribute Tables & Spatial Queries (3 slides)</li>
-                            <li><strong>Module 5:</strong> Designing Print Layouts & Map Exporting (3 slides)</li>
-                        </ul>
-                    `,
-                    careers: `
-                        <h4>Available Opportunities & Careers</h4>
-                        <p>Completing this course provides a strong foundation for various roles:</p>
-                        <ul>
-                            <li><strong>GIS Technician / Specialist:</strong> Manage mapping databases and build web maps.</li>
-                            <li><strong>Environmental Consultant:</strong> Perform spatial analysis and suitability modeling.</li>
-                            <li><strong>Urban Planner:</strong> Analyze service accessibility, zoning, and transport routing.</li>
-                            <li><strong>Research Assistant:</strong> Help academic projects with spatial data visualization.</li>
-                        </ul>
-                    `
-                },
-                slides: [
-                    // Module 1
-                    {
-                        module: "Module 1",
-                        moduleTitle: "Introduction to QGIS & GIS Basics",
-                        title: "What is GIS and QGIS?",
-                        text: "Geographic Information Systems (GIS) capture, store, manipulate, analyze, and present spatial or geographic data. QGIS is a leading, free, and open-source desktop GIS application. It allows you to create maps, perform spatial analysis, and manage spatial databases.",
-                        visual: "<strong>Core QGIS Capabilities:</strong><br>• Fully supports Vector (points, lines, polygons) and Raster (grids, imagery) formats.<br>• Integration with GRASS GIS, SAGA, and GDAL toolboxes.<br>• Extendable through thousands of community-developed plugins.",
-                        download: null
-                    },
-                    {
-                        module: "Module 1",
-                        moduleTitle: "Introduction to QGIS & GIS Basics",
-                        title: "Installing QGIS and Interface Tour",
-                        text: "To get started, install QGIS on your machine. The QGIS interface is highly customizable and composed of several key panels: the Map Canvas (where your map is drawn), the Layers List (shows all loaded datasets), the Browser Panel (to navigate files), and the toolbars.",
-                        visual: "<strong>Main Toolbar Shortcuts:</strong><br>• <code>Ctrl + Shift + V</code>: Add Vector Layer<br>• <code>Ctrl + Shift + R</code>: Add Raster Layer<br>• <code>Ctrl + Alt + T</code>: Open Toolbox<br>• Use the <strong>Settings -> Options</strong> menu to configure language and themes.",
-                        download: null
-                    },
-                    {
-                        module: "Module 1",
-                        moduleTitle: "Introduction to QGIS & GIS Basics",
-                        title: "Loading Your First Vector Layer",
-                        text: "Vector data is stored as coordinates. Points represent discrete locations (e.g., cities), lines represent linear features (e.g., rivers), and polygons represent enclosed areas (e.g., countries). We will load a sample vector dataset representing Alaska.",
-                        visual: "<strong>Practice Step:</strong><br>1. Download the Alaska dataset from the link below.<br>2. Extract the ZIP archive.<br>3. In QGIS, drag and drop the shapefile (.shp) into the Map Canvas, or go to <strong>Layer -> Add Layer -> Add Vector Layer</strong>.",
-                        download: {
-                            text: "Download Alaska Sample Dataset (ZIP, 3.2 MB)",
-                            url: "http://download.osgeo.org/qgis/data/qgis_sample_data.zip"
-                        }
-                    },
-                    // Module 2
-                    {
-                        module: "Module 2",
-                        moduleTitle: "Spatial Data Sources & CRS",
-                        title: "Understanding Vector vs Raster Formats",
-                        text: "GIS data is broadly categorized into Vector (discrete points, lines, or polygons representing features with attribute metadata) and Raster (cell-based grids representing continuous fields like temperature or elevation). Choosing the right format is essential for spatial analysis.",
-                        visual: "<strong>Format Comparisons:</strong><br>• <strong>Vector:</strong> ESRI Shapefiles (.shp), GeoPackage (.gpkg), GeoJSON (.geojson). Ideal for administrative boundaries.<br>• <strong>Raster:</strong> GeoTIFF (.tif), ASCII Grids. Ideal for digital elevation models (DEM) and satellite imagery.",
-                        download: null
-                    },
-                    {
-                        module: "Module 2",
-                        moduleTitle: "Spatial Data Sources & CRS",
-                        title: "Coordinate Reference Systems (CRS)",
-                        text: "The Earth is a 3D ellipsoid, but maps are flat 2D projections. A Coordinate Reference System (CRS) defines how your geographic coordinates map onto a flat surface. Misaligned CRS settings (e.g. projecting WGS 84 onto a local coordinate grid without correction) lead to incorrect distance and area measurements.",
-                        visual: "<strong>Key EPSG Codes to Remember:</strong><br>• <strong>EPSG:4326:</strong> WGS 84 - Geographic (degrees) used by GPS and web mapping.<br>• <strong>EPSG:3857:</strong> Web Mercator - Used by Google Maps & OpenStreetMap.<br>• Project CRS is displayed at the bottom right corner of the QGIS interface.",
-                        download: null
-                    },
-                    {
-                        module: "Module 2",
-                        moduleTitle: "Spatial Data Sources & CRS",
-                        title: "Reprojecting Layers in QGIS",
-                        text: "QGIS handles multiple coordinate systems on-the-fly, but for analytical operations (like buffering or intersection calculations), your layers must share the exact same Projected CRS. To change a layer's projection permanently, you must export it.",
-                        visual: "<strong>How to Reproject a Layer:</strong><br>1. Right-click the layer in the Layers panel.<br>2. Select <strong>Export -> Save Features As...</strong><br>3. Choose <strong>GeoPackage</strong> as format.<br>4. Under <strong>CRS</strong>, select the target projected coordinate system (e.g. UTM zone).<br>5. Click OK to save the reprojected layer.",
-                        download: null
-                    },
-                    // Module 3
-                    {
-                        module: "Module 3",
-                        moduleTitle: "Map Visualization & Styling",
-                        title: "Symbology and Layer Properties",
-                        text: "Symbology determines how features are visualized on your map canvas. In the Layer Properties panel, you can configure color, borders, opacity, and symbols. Standard styling modes include Single Symbol (all features styled identically) and Categorized (styling based on discrete attributes).",
-                        visual: "<strong>Categorized Styling Practice:</strong><br>1. Double-click your layer to open Layer Properties.<br>2. Go to the <strong>Symbology</strong> tab.<br>3. Change the dropdown from 'Single Symbol' to <strong>'Categorized'</strong>.<br>4. Select a classification field (e.g., 'class' or 'type').<br>5. Click <strong>Classify</strong> to generate unique colors for each type.",
-                        download: null
-                    },
-                    {
-                        module: "Module 3",
-                        moduleTitle: "Map Visualization & Styling",
-                        title: "Graduated Styling for Continuous Data",
-                        text: "Graduated symbology is used to map numerical continuous variables (like population density, elevation, or temperatures) using color gradients. Data is grouped into classes using classification modes like Equal Interval, Quantile, or Natural Breaks (Jenks).",
-                        visual: "<strong>Graduated Styling Tips:</strong><br>• Use <strong>Jenks (Natural Breaks)</strong> for data with high variances or non-normal distributions.<br>• Avoid using too many classes (5 to 7 classes is standard for human readability).<br>• Choose color ramps that are colorblind-friendly (e.g., Viridis or color palettes from ColorBrewer).",
-                        download: null
-                    },
-                    {
-                        module: "Module 3",
-                        moduleTitle: "Map Visualization & Styling",
-                        title: "Layer Labels and Rules",
-                        text: "Labels add text descriptions directly on the map. QGIS provides a sophisticated labeling system that prevents text overlaps. You can configure labels to display values from any attribute column and set maximum scale visibilities.",
-                        visual: "<strong>Configuring Labels:</strong><br>1. In Layer Properties, open the <strong>Labels</strong> tab.<br>2. Set dropdown to <strong>Single Labels</strong>.<br>3. In the 'Value' dropdown, select the field (e.g., 'NAME').<br>4. Adjust font size, add a <strong>Buffer</strong> (halo text) to make labels readable against complex backgrounds.",
-                        download: null
-                    },
-                    // Module 4
-                    {
-                        module: "Module 4",
-                        moduleTitle: "Attribute Tables & Spatial Queries",
-                        title: "Working with Attribute Tables",
-                        text: "Behind every vector feature is a database record. The Attribute Table stores attribute columns (fields) and rows (features). In QGIS, you can open the table to edit, sort, and inspect these non-spatial parameters.",
-                        visual: "<strong>Attribute Table Controls:</strong><br>• Right-click layer -> <strong>Open Attribute Table</strong>.<br>• Toggle <strong>Editing Mode</strong> (pencil icon) to modify values directly.<br>• Open the <strong>Field Calculator</strong> to calculate new columns using mathematical expressions.",
-                        download: null
-                    },
-                    {
-                        module: "Module 4",
-                        moduleTitle: "Attribute Tables & Spatial Queries",
-                        title: "The Field Calculator and Geometry Functions",
-                        text: "The Field Calculator is one of the most powerful tools in QGIS. It allows you to compute fields based on other columns or geographic properties, such as calculating the area of polygons or the length of lines in metric units.",
-                        visual: "<strong>Calculating Area in Hectares:</strong><br>1. Open Field Calculator.<br>2. Check 'Create a new field'. Name it <code>area_ha</code> (Decimal number).<br>3. Write the geometry expression: <code>$area / 10000</code><br>4. Click OK. (Note: geometry functions like <code>$area</code> calculate results in the unit of the layer's Projected CRS).",
-                        download: null
-                    },
-                    {
-                        module: "Module 4",
-                        moduleTitle: "Attribute Tables & Spatial Queries",
-                        title: "Query Builder and Select by Expression",
-                        text: "To filter data, you can write mathematical expressions. For example, selecting cities with a population greater than 500,000 or filtering counties within a specific state. QGIS features a 'Select by Expression' dialog to query features dynamically.",
-                        visual: "<strong>Sample Query Expressions:</strong><br>• Filter population: <code>\"pop_est\" > 500000</code><br>• Filter by string: <code>\"state_name\" = 'California'</code><br>• Combine queries: <code>\"elevation\" > 1000 AND \"type\" = 'Volcano'</code>",
-                        download: null
-                    },
-                    // Module 5
-                    {
-                        module: "Module 5",
-                        moduleTitle: "Print Layout & Exporting Maps",
-                        title: "Creating a Print Layout",
-                        text: "To export a professional map, you must use the Print Layout. It opens a canvas separate from the main workspace where you can arrange maps, scale bars, north arrows, legends, titles, and logos for publication.",
-                        visual: "<strong>Opening Print Layout:</strong><br>1. Go to <strong>Project -> New Print Layout...</strong><br>2. Give it a title (e.g., 'Alaska Map').<br>3. Use the <strong>Add Map</strong> tool in the sidebar to draw a bounding rectangle on the layout canvas where your QGIS layer will be rendered.",
-                        download: null
-                    },
-                    {
-                        module: "Module 5",
-                        moduleTitle: "Print Layout & Exporting Maps",
-                        title: "Adding Cartographic Elements",
-                        text: "Every map requires essential components: a Legend (explaining the colors), a Scale Bar (showing distance ratios), a North Arrow (orientation), and a Title. These elements can be styled and configured inside the Item Properties panel of your print layout.",
-                        visual: "<strong>Item Properties Adjustments:</strong><br>• <strong>Legend:</strong> Uncheck 'Auto update' to manually edit and rename layer titles.<br>• <strong>Scale Bar:</strong> Set units to Kilometers/Miles and configure segment divisions.<br>• <strong>Grid:</strong> Add coordinates lines (graticules) to map borders.",
-                        download: null
-                    },
-                    {
-                        module: "Module 5",
-                        moduleTitle: "Print Layout & Exporting Maps",
-                        title: "Exporting Your Final Map",
-                        text: "Once your layout is fully configured, QGIS allows you to export your cartographic output as a high-resolution print PDF, SVG vector file, or standard image format (PNG, JPEG). Typically, 300 DPI is the standard resolution for print publications.",
-                        visual: "<strong>Export Options:</strong><br>• <strong>Export as Image:</strong> Click the Image icon. Set resolution (DPI) to 300.<br>• <strong>Export as PDF:</strong> Click the PDF icon. Enable options like 'Vector export' to keep labels crisp.<br>• Save the outputs to your workspace directories.",
-                        download: null
-                    }
-                ],
-                flashcards: [
-                    { q: "What is the difference between Vector and Raster data?", a: "Vector data uses coordinates (points, lines, polygons) to represent discrete objects with attributes. Raster data uses grid cells (pixels) to represent continuous values like elevation or temperature." },
-                    { q: "Why is a Coordinate Reference System (CRS) critical?", a: "A CRS projects the Earth's 3D surface onto a 2D flat map. Choosing the wrong CRS leads to distorted shapes, incorrect distances, and invalid area calculations." },
-                    { q: "What EPSG code represents the global WGS 84 geographic CRS?", a: "EPSG:4326 is the standard code for WGS 84 geographic coordinates, which uses degrees for latitude and longitude." },
-                    { q: "How do you calculate area in the Field Calculator?", a: "Create a decimal field and write the geometry expression '$area'. If you need hectares, divide by 10,000 ('$area / 10000'). Make sure the layer CRS is projected." },
-                    { q: "Which tool in QGIS is used to export high-quality final maps?", a: "The Print Layout (Project -> New Print Layout) is used to compose maps, legends, scale bars, and export them as PDFs or images." }
-                ],
-                quiz: [
-                    { q: "What is QGIS?", o: ["A proprietary database software", "A free and open-source Desktop GIS application", "A web browser extension for Google Maps", "An operating system for spatial databases"], a: 1 },
-                    { q: "Which data type is composed of grid cells or pixels?", o: ["Vector", "Shapefile", "Raster", "Attribute Table"], a: 2 },
-                    { q: "What does CRS stand for in Geographic Information Systems?", o: ["Coordinate Reference System", "Cartographic Rendering Scale", "Central Raster Structure", "Calculation Reference System"], a: 0 },
-                    { q: "Which EPSG code is used for WGS 84 Web Mercator projection?", o: ["EPSG:4326", "EPSG:3857", "EPSG:32644", "EPSG:4240"], a: 1 },
-                    { q: "If you need to change a layer's projection permanently, you must:", o: ["Double click layer and change it in properties without saving", "Reproject using the 'Save Features As...' export function", "Rename the shapefile manually in file browser", "Change the QGIS project background theme"], a: 1 },
-                    { q: "Which styling method would you use to color a land-use layer containing classes like Forest, Water, and Urban?", o: ["Single Symbol", "Categorized", "Graduated", "Rule-based only"], a: 1 },
-                    { q: "In the Field Calculator, what does the expression '$area / 10000' compute?", o: ["Area in square meters", "Area in hectares", "Area in square kilometers", "Perimeter in kilometers"], a: 1 },
-                    { q: "To filter city features with populations exceeding 1,000,000, you would write:", o: ["\"population\" < 1000000", "\"population\" = 1000000", "\"population\" > 1000000", "\"population\" matches 1000000"], a: 2 },
-                    { q: "Where in QGIS do you compose and add map elements like legends, titles, and scale bars?", o: ["Layer panel", "Browser panel", "Print Layout editor", "Processing toolbox"], a: 2 },
-                    { q: "What is the recommended resolution (DPI) when exporting maps for print publications?", o: ["72 DPI", "150 DPI", "300 DPI", "1200 DPI"], a: 2 }
-                ]
-            },
-            si: {
-                title: "QGIS මූලධර්ම: සම්පූර්ණ ආධුනික මාර්ගෝපදේශය",
-                agreement: "මා විසින් මෙම පාඨමාලා අන්තර්ගතය ඉෂාර තේෂාන්ගේ පූර්ණ අවසරයකින් තොරව පිටපත් කිරීම, නැවත බෙදාහැරීම හෝ නැවත ප්‍රකාශයට පත් නොකරන බවට එකඟ වෙමි.",
-                outcomesTitle: "පාඨමාලා ඉගෙනුම් ප්‍රතිඵල",
-                curriculumTitle: "පාඨමාලා විෂය නිර්දේශය (මොඩියුල 5)",
-                careersTitle: "පවතින අවස්ථා සහ වෘත්තීන්",
-                tabs: {
-                    outcomes: `
-                        <h4>පාඨමාලා ඉගෙනුම් ප්‍රතිඵල</h4>
-                        <ul>
-                            <li>GIS හි මූලික කරුණු, vector සහ raster දත්ත වර්ග තේරුම් ගැනීම.</li>
-                            <li>QGIS අතුරු මුහුණත පහසුවෙන් හැසිරවීම සහ පැනල සකස් කිරීම.</li>
-                            <li>ඛණ්ඩාංක පද්ධති (CRS) තේරුම් ගැනීම සහ වැරදි නිරූපණ ගැටළු මඟහරවා ගැනීම.</li>
-                            <li>සරල, වර්ගීකරණය කළ (Categorized) සහ ශ්‍රේණිගත (Graduated) සංකේත භාවිතයෙන් දෛශික ස්ථර හැඩතල ගැන්වීම.</li>
-                            <li>ආරෝපණ වගු (Attribute Tables) සමඟ වැඩ කිරීම, නව තීරු එකතු කිරීම සහ ගණනය කිරීම් සිදු කිරීම.</li>
-                            <li>නිශ්චිත දත්ත ලබා ගැනීම සඳහා SQL වැනි විමසුම් සහ අවකාශීය තේරීම් සිදු කිරීම.</li>
-                            <li>සූචි, පරිමාණ තීරු සහ උතුරු ඊතල සහිත වෘත්තීය මට්ටමේ මුද්‍රණ සැලසුම් (Print Layout) නිර්මාණය කිරීම.</li>
-                        </ul>
-                    `,
-                    curriculum: `
-                        <h4>පාඨමාලා විෂය නිර්දේශය</h4>
-                        <ul>
-                            <li><strong>මොඩියුලය 1:</strong> QGIS හඳුන්වාදීම සහ GIS මූලික කරුණු (ස්ලයිඩ 3)</li>
-                            <li><strong>මොඩියුලය 2:</strong> අවකාශීය දත්ත මූලාශ්‍ර සහ ඛණ්ඩාංක පද්ධති (CRS) (ස්ලයිඩ 3)</li>
-                            <li><strong>මොඩියුලය 3:</strong> සිතියම් දෘශ්‍යකරණය සහ වර්ණ ගැන්වීම් (ස්ලයිඩ 3)</li>
-                            <li><strong>මොඩියුලය 4:</strong> ආරෝපණ වගු සහ අවකාශීය විමසුම් (ස්ලයිඩ 3)</li>
-                            <li><strong>මොඩියුලය 5:</strong> මුද්‍රණ සැලසුම් නිර්මාණය සහ සිතියම් අපනයනය (ස්ලයිඩ 3)</li>
-                        </ul>
-                    `,
-                    careers: `
-                        <h4>පවතින අවස්ථා සහ වෘත්තීන්</h4>
-                        <p>මෙම පාඨමාලාව සම්පූර්ණ කිරීමෙන් ඔබට පහත සඳහන් ක්ෂේත්‍රයන්හි රැකියා සඳහා ශක්තිමත් පදනමක් ලැබේ:</p>
-                        <ul>
-                            <li><strong>GIS තාක්ෂණවේදී / විශේෂඥ:</strong> සිතියම් දත්ත කළමනාකරණය සහ වෙබ් සිතියම් නිර්මාණය.</li>
-                            <li><strong>පරිසර උපදේශක:</strong> භූමි ප්‍රදේශ සහ යෝග්‍යතා ආකෘති නිර්මාණය.</li>
-                            <li><strong>නාගරික සැලසුම්කරු:</strong> සේවා ප්‍රවේශය, කලාපකරණය සහ ප්‍රවාහන මාර්ග විශ්ලේෂණය.</li>
-                            <li><strong>පර්යේෂණ සහකරු:</strong> අවකාශීය දෘශ්‍යකරණයන් සමඟ ශාස්ත්‍රීය අධ්‍යයන සඳහා සහාය වීම.</li>
-                        </ul>
-                    `
-                },
-                slides: [
-                    // Module 1
-                    {
-                        module: "මොඩියුලය 1",
-                        moduleTitle: "QGIS හඳුන්වාදීම සහ GIS මූලික කරුණු",
-                        title: "GIS සහ QGIS යනු කුමක්ද?",
-                        text: "භූගෝලීය තොරතුරු පද්ධති (GIS) මඟින් අවකාශීය හෝ භූගෝලීය දත්ත ග්‍රහණය කර ගැනීම, ගබඩා කිරීම, විශ්ලේෂණය කිරීම සහ ඉදිරිපත් කිරීම සිදු කරයි. QGIS යනු ප්‍රමුඛ පෙළේ, නොමිලේ ලබාදෙන සහ විවෘත කේත ඩෙස්ක්ටොප් GIS මෘදුකාංගයකි. එය මඟින් සිතියම් නිර්මාණය කිරීමට, විශ්ලේෂණය කිරීමට සහ අවකාශීය දත්ත සමුදායන් කළමනාකරණය කිරීමට හැකියාව ලැබේ.",
-                        visual: "<strong>ප්‍රධාන QGIS හැකියාවන්:</strong><br>• Vector (ලක්ෂ්‍ය, රේඛා, බහුඅස්‍ර) සහ Raster (පික්සෙල් ජාල, චන්ද්‍රිකා රූප) දත්ත සඳහා පූර්ණ සහාය දැක්වීම.<br>• GRASS GIS, SAGA, සහ GDAL මෙවලම් පෙට්ටි සමඟ ඒකාබද්ධ වීම.<br>• ප්‍රජාව විසින් සංවර්ධනය කරන ලද ප්ලගීන (Plugins) දහස් ගණනක් මඟින් ක්‍රියාකාරීත්වය පුළුල් කිරීමේ शक्यता.",
-                        download: null
-                    },
-                    {
-                        module: "මොඩියුලය 1",
-                        moduleTitle: "QGIS හඳුන්වාදීම සහ GIS මූලික කරුණු",
-                        title: "QGIS ස්ථාපනය සහ අතුරු මුහුණත හැඳින්වීම",
-                        text: "ආරම්භ කිරීමට, ඔබගේ පරිගණකයේ QGIS ස්ථාපනය කර ගන්න. QGIS අතුරු මුහුණත ඉතා පහසුවෙන් සකස් කර ගත හැකි අතර එය ප්‍රධාන කොටස් කිහිපයකින් සමන්විත වේ: Map Canvas (සිතියම ඇඳෙන ප්‍රදේශය), Layers List (දත්ත ස්ථර පෙන්වන ලැයිස්තුව), Browser Panel (ගොනු සෙවීම සඳහා), සහ Toolbars (මෙවලම් තීරු).",
-                        visual: "<strong>ප්‍රධාන කෙටිමං:</strong><br>• <code>Ctrl + Shift + V</code>: Vector ස්ථරයක් එකතු කිරීම<br>• <code>Ctrl + Shift + R</code>: Raster ස්ථරයක් එකතු කිරීම<br>• <code>Ctrl + Alt + T</code>: මෙවලම් පෙට්ටිය (Toolbox) විවෘත කිරීම<br>• භාෂාව සහ තේමාවන් වෙනස් කිරීමට <strong>Settings -> Options</strong> වෙත යන්න.",
-                        download: null
-                    },
-                    {
-                        module: "මොඩියුලය 1",
-                        moduleTitle: "QGIS හඳුන්වාදීම සහ GIS මූලික කරුණු",
-                        title: "පළමු දෛශික (Vector) ස්ථරය ඇතුලත් කිරීම",
-                        text: "දෛශික දත්ත ඛණ්ඩාංක ලෙස ගබඩා වේ. ලක්ෂ්‍ය (Points) මඟින් නිශ්චිත ස්ථාන (උදා. නගර), රේඛා (Lines) මඟින් දිගටි වස්තූන් (උදා. ගංගා), සහ බහුඅස්‍ර (Polygons) මඟින් සීමා සහිත ප්‍රදේශ (උදා. රටවල්) නිරූපණය වේ. අපි ඇලස්කාව නිරූපණය කරන නියැදි දෛශික දත්ත කට්ටලයක් ඇතුලත් කරමු.",
-                        visual: "<strong>ප්‍රායෝගික පියවර:</strong><br>1. පහත සබැඳියෙන් ඇලස්කා දත්ත කට්ටලය බාගත කරන්න.<br>2. ZIP ගොනුව දිග හරින්න (Extract).<br>3. QGIS හි, shapefile (.shp) ගොනුව Map Canvas එකට drag කරන්න, නැතහොත් <strong>Layer -> Add Layer -> Add Vector Layer</strong> වෙත යන්න.",
-                        download: {
-                            text: "ඇලස්කා නියැදි දත්ත කට්ටලය බාගන්න (ZIP, 3.2 MB)",
-                            url: "http://download.osgeo.org/qgis/data/qgis_sample_data.zip"
-                        }
-                    },
-                    // Module 2
-                    {
-                        module: "මොඩියුලය 2",
-                        moduleTitle: "අවකාශීය දත්ත මූලාශ්‍ර සහ CRS",
-                        title: "Vector සහ Raster දත්ත හඳුනාගැනීම",
-                        text: "GIS දත්ත ප්‍රධාන වශයෙන් Vector (තොරතුරු ගබඩා කර ඇති ලක්ෂ්‍ය, රේඛා හෝ බහුඅස්‍ර) සහ Raster (උෂ්ණත්වය හෝ උන්නතාංශය වැනි අඛණ්ඩ අගයන් නිරූපණය කරන පික්සෙල් ජාල) ලෙස වර්ග කෙරේ. නිවැරදි දත්ත වර්ගය තේරීම විශ්ලේෂණය සඳහා අතිශය වැදගත් වේ.",
-                        visual: "<strong>දත්ත ආකෘති සංසන්දනය:</strong><br>• <strong>Vector:</strong> ESRI Shapefiles (.shp), GeoPackage (.gpkg), GeoJSON (.geojson). පරිපාලන සීමාවන් සඳහා සුදුසුය.<br>• <strong>Raster:</strong> GeoTIFF (.tif), ASCII Grids. ඩිජිටල් උන්නතාංශ ආකෘති (DEM) සහ චන්ද්‍රිකා ඡායාරූප සඳහා සුදුසුය.",
-                        download: null
-                    },
-                    {
-                        module: "මොඩියුලය 2",
-                        moduleTitle: "අවකාශීය දත්ත මූලාශ්‍ර සහ CRS",
-                        title: "ඛණ්ඩාංක පද්ධති (Coordinate Reference Systems - CRS)",
-                        text: "පෘථිවිය ත්‍රිමාණ ඉලිප්සයිඩයක් වන නමුත් සිතියම් ද්විමාන තල වේ. ඛණ්ඩාංක පද්ධතියක් (CRS) මඟින් ත්‍රිමාණ පෘථිවිය ද්විමාන තලයකට නිරූපණය කරන ආකාරය අර්ථ දක්වයි. වැරදි CRS සැකසුම් නිසා දුර සහ වර්ගඵල මැනීමේදී වැරදි අගයන් ලැබිය හැකිය.",
-                        visual: "<strong>මතක තබා ගත යුතු ප්‍රධාන EPSG කේත:</strong><br>• <strong>EPSG:4326:</strong> WGS 84 - GPS සහ වෙබ් සිතියම්කරණයේදී බහුලව භාවිත වේ.<br>• <strong>EPSG:3857:</strong> Web Mercator - Google Maps සහ OpenStreetMap මඟින් භාවිත වේ.<br>• ව්‍යාපෘතියේ CRS අගය QGIS හි පහළ දකුණු කෙළවරේ දක්වා ඇත.",
-                        download: null
-                    },
-                    {
-                        module: "මොඩියුලය 2",
-                        moduleTitle: "අවකාශීය දත්ත මූලාශ්‍ර සහ CRS",
-                        title: "QGIS හි දත්ත ස්ථරවල CRS වෙනස් කිරීම (Reprojecting)",
-                        text: "QGIS මඟින් විවිධ CRS සහිත දත්ත එකවර පෙන්විය හැකි වුවද, බෆර (Buffering) හෝ ඡේදනය (Intersection) වැනි විශ්ලේෂණ වලදී සියලු දත්ත එකම CRS පද්ධතියක තිබීම අනිවාර්ය වේ. ස්ථරයක CRS එක ස්ථිරවම වෙනස් කිරීමට එය අපනයනය (Export) කළ යුතුය.",
-                        visual: "<strong>CRS වෙනස් කරන ආකාරය:</strong><br>1. Layers panel හි අදාළ ස්ථරය මත Right-click කරන්න.<br>2. <strong>Export -> Save Features As...</strong> තෝරන්න.<br>3. <strong>GeoPackage</strong> ආකෘතිය තෝරන්න.<br>4. <strong>CRS</strong> යටතේ අවශ්‍ය Projected CRS එක (උදා. UTM zone) තෝරන්න.<br>5. OK ක්ලික් කර සුරකින්න.",
-                        download: null
-                    },
-                    // Module 3
-                    {
-                        module: "මොඩියුලය 3",
-                        moduleTitle: "සිතියම් දෘශ්‍යකරණය සහ වර්ණ ගැන්වීම්",
-                        title: "සංකේත (Symbology) සහ ස්ථර ගුණාංග",
-                        text: "සංකේත මඟින් සිතියමේ දත්ත දෘශ්‍යමාන වන ආකාරය තීරණය වේ. Layer Properties හිදී ඔබට වර්ණය, මායිම්, විනිවිදභාවය සහ සංකේත සකස් කළ හැකිය. ප්‍රධාන ක්‍රම ලෙස Single Symbol (සියලු දත්ත එකම වර්ණයෙන්) සහ Categorized (නිශ්චිත ගුණාංග මත පදනම්ව වර්ණ ගැන්වීම) හැඳින්විය හැකිය.",
-                        visual: "<strong>වර්ගීකරණ සංකේත භාවිතය (Categorized Symbology):</strong><br>1. Layer Properties විවෘත කිරීමට ස්ථරය මත Double-click කරන්න.<br>2. <strong>Symbology</strong> ටැබය වෙත යන්න.<br>3. ඉහළින්ම ඇති 'Single Symbol' යන්න <strong>'Categorized'</strong> ලෙස වෙනස් කරන්න.<br>4. වර්ණ ගැන්වීමට අවශ්‍ය තීරුව 'Value' සඳහා තෝරන්න.<br>5. වර්ණ ජනනය කිරීමට <strong>Classify</strong> ක්ලික් කරන්න.",
-                        download: null
-                    },
-                    {
-                        module: "මොඩියුලය 3",
-                        moduleTitle: "සිතියම් දෘශ්‍යකරණය සහ වර්ණ ගැන්වීම්",
-                        title: "අඛණ්ඩ දත්ත සඳහා ශ්‍රේණිගත සංකේත (Graduated Symbology)",
-                        text: "ජනගහන ඝනත්වය, උන්නතාංශය හෝ උෂ්ණත්වය වැනි සංඛ්‍යාත්මක අඛණ්ඩ දත්ත පෙන්වීමට ශ්‍රේණිගත සංකේත (Graduated Symbology) භාවිත වේ. මෙහිදී දත්ත විවිධ පන්තිවලට (Classes) බෙදා දක්වනු ලැබේ.",
-                        visual: "<strong>ප්‍රයෝජනවත් උපදෙස්:</strong><br>• දත්ත විසිරීම වැඩි නම් <strong>Natural Breaks (Jenks)</strong> ක්‍රමය තෝරන්න.<br>• සිතියම කියවීමට පහසු වීම සඳහා පන්ති 5 ත් 7 ත් අතර ප්‍රමාණයක් තබා ගන්න.<br>• වර්ණ අන්ධ අයටද හඳුනාගත හැකි වර්ණ රටාවන් (Color Ramps) තෝරන්න (උදා. Viridis).",
-                        download: null
-                    },
-                    {
-                        module: "මොඩියුලය 3",
-                        moduleTitle: "සිතියම් දෘශ්‍යකරණය සහ වර්ණ ගැන්වීම්",
-                        title: "ලේබල් (Labels) එකතු කිරීම සහ රීති",
-                        text: "ලේබල් මඟින් සිතියමේ වස්තූන් අසල අදාළ නම හෝ අගය පෙළ (Text) ලෙස පෙන්වයි. QGIS හි ඇති labeling පද්ධතිය මඟින් ලේබල් එකිනෙක මත වැටීම වළක්වයි. ඔබට ඕනෑම දත්ත තීරුවකින් ලේබල් අගයන් තෝරාගත හැකිය.",
-                        visual: "<strong>ලේබල් සැකසීමේ පියවර:</strong><br>1. Layer Properties හි <strong>Labels</strong> ටැබය විවෘත කරන්න.<br>2. එය <strong>Single Labels</strong> ලෙස වෙනස් කරන්න.<br>3. 'Value' සඳහා ලේබල් කිරීමට අවශ්‍ය තීරුව (උදා. 'NAME') තෝරන්න.<br>4. පසුබිමට වඩා පැහැදිලිව පෙනීම සඳහා ලේබලයට <strong>Buffer</strong> එකක් එක් කරන්න.",
-                        download: null
-                    },
-                    // Module 4
-                    {
-                        module: "මොඩියුලය 4",
-                        moduleTitle: "ආරෝපණ වගු සහ අවකාශීය විමසුම්",
-                        title: "ආරෝපණ වගුව (Attribute Table) හැඳින්වීම",
-                        text: "සෑම දෛශික දත්ත ස්ථරයක් පිටුපසම දත්ත සමුදායක් පවතී. ආරෝපණ වගුවේ තීරු (Fields) සහ පේළි (Features) ලෙස දත්ත ගබඩා වේ. QGIS හිදී ඔබට මෙම වගුව විවෘත කර දත්ත සංස්කරණය කිරීමට සහ පරීක්ෂා කිරීමට හැකිය.",
-                        visual: "<strong>ආරෝපණ වගු පාලනය:</strong><br>• ස්ථරය මත Right-click -> <strong>Open Attribute Table</strong>.<br>• දත්ත සංස්කරණය කිරීමට <strong>Toggle Editing Mode</strong> (පැන්සල් ලකුණ) ක්ලික් කරන්න.<br>• නව තීරු සහ ගණනය කිරීම් සඳහා <strong>Field Calculator</strong> විවෘත කරන්න.",
-                        download: null
-                    },
-                    {
-                        module: "මොඩියුලය 4",
-                        moduleTitle: "ආරෝපණ වගු සහ අවකාශීය විමසුම්",
-                        title: "Field Calculator සහ ජ්‍යාමිතික ශ්‍රිත (Geometry Functions)",
-                        text: "Field Calculator මඟින් ගණිතමය සමීකරණ හෝ ජ්‍යාමිතික ලක්ෂණ මත පදනම්ව නව තීරු සෑදීමට හැකියාව ලැබේ. උදාහරණයක් ලෙස බහුඅස්‍රවල වර්ගඵලය හෝ මායිම්වල දිග මීටර් හෝ හෙක්ටයාර වලින් ගණනය කිරීම දැක්විය හැකිය.",
-                        visual: "<strong>හෙක්ටයාර වලින් වර්ගඵලය සෙවීම:</strong><br>1. Field Calculator විවෘත කරන්න.<br>2. 'Create a new field' තෝරා, නම <code>area_ha</code> ලෙස දෙන්න (Decimal number).<br>3. සමීකරණය ලියන්න: <code>$area / 10000</code><br>4. OK ක්ලික් කරන්න. (සටහන: <code>$area</code> ශ්‍රිතය මඟින් වර්ගඵලය සොයනු ලබන්නේ එම ස්ථරයේ CRS එකෙහි ඇති ඒකකයෙනි).",
-                        download: null
-                    },
-                    {
-                        module: "මොඩියුලය 4",
-                        moduleTitle: "ආරෝපණ වගු සහ අවකාශීය විමසුම්",
-                        title: "Query Builder සහ ප්‍රකාශන මඟින් තේරීම් කිරීම",
-                        text: "දත්ත පෙරීමට (Filter) ගණිතමය ප්‍රකාශන ලිවිය හැකිය. උදාහරණයක් ලෙස ජනගහනය 500,000 ට වැඩි නගර සෙවීම හෝ කිසියම් ප්‍රාන්තයක ඇති දිස්ත්‍රික්ක පමණක් පෙරීම දැක්විය හැකිය. මේ සඳහා 'Select by Expression' භාවිත වේ.",
-                        visual: "<strong>නියැදි ප්‍රකාශන (Sample Expressions):</strong><br>• ජනගහනය පෙරීමට: <code>\"pop_est\" > 500000</code><br>• අකුරු මඟින් පෙරීමට: <code>\"state_name\" = 'California'</code><br>• කොන්දේසි කිහිපයක් එක් කිරීමට: <code>\"elevation\" > 1000 AND \"type\" = 'Volcano'</code>",
-                        download: null
-                    },
-                    // Module 5
-                    {
-                        module: "මොඩියුලය 5",
-                        moduleTitle: "මුද්‍රණ සැලසුම් නිර්මාණය සහ සිතියම් අපනයනය",
-                        title: "මුද්‍රණ සැලසුම් කවුළුව (Print Layout) විවෘත කිරීම",
-                        text: "නිර්මාණය කළ සිතියම වෘත්තීය මට්ටමෙන් අපනයනය කිරීමට Print Layout භාවිත කරයි. මෙහිදී සිතියම්, පරිමාණ තීරු, උතුරු ඊතල, සූචි සහ මාතෘකා වෙන වෙනම සකසා මුද්‍රණය සඳහා සකස් කළ හැකිය.",
-                        visual: "<strong>මුද්‍රණ සැලසුමක් ඇරඹීම:</strong><br>1. <strong>Project -> New Print Layout...</strong> වෙත යන්න.<br>2. මාතෘකාවක් දෙන්න (උදා. 'Alaska Map').<br>3. පැති තීරුවේ ඇති <strong>Add Map</strong> මෙවලම භාවිතයෙන් මුද්‍රණ තලයේ සෘජුකෝණාස්‍රයක් ඇඳ සිතියම එක් කරන්න.",
-                        download: null
-                    },
-                    {
-                        module: "මොඩියුලය 5",
-                        moduleTitle: "මුද්‍රණ සැලසුම් නිර්මාණය සහ සිතියම් අපනයනය",
-                        title: "සිතියම් අංග (Cartographic Elements) එකතු කිරීම",
-                        text: "ඕනෑම සිතියමක ප්‍රධාන අංග තිබිය යුතුය: Legend (වර්ණ පැහැදිලි කිරීම), Scale Bar (දුර ප්‍රමාණය පෙන්වීමට), North Arrow (දිශාව), සහ Title (මාතෘකාව). මේවා Print Layout හි Item Properties මඟින් සැකසිය හැකිය.",
-                        visual: "<strong>සිතියම් අංග සැකසීම:</strong><br>• <strong>Legend:</strong> අනවශ්‍ය ස්ථර ඉවත් කිරීමට 'Auto update' අක්‍රිය කරන්න.<br>• <strong>Scale Bar:</strong> ඒකකය කිලෝමීටර් (Kilometers) ලෙස සකසා කොටස් (Segments) ප්‍රමාණය තීරණය කරන්න.<br>• <strong>Grid:</strong> සිතියම් මායිම්වල අක්ෂාංශ/දේශාංශ රේඛා එක් කිරීමට Grid භාවිත කරන්න.",
-                        download: null
-                    },
-                    {
-                        module: "මොඩියුලය 5",
-                        moduleTitle: "මොඩියුල 5: මුද්‍රණ සැලසුම් නිර්මාණය සහ සිතියම් අපනයනය",
-                        title: "අවසන් සිතියම අපනයනය කිරීම (Exporting)",
-                        text: "සියල්ල නිවැරදිව සැකසූ පසු, සිතියම උසස් තත්ත්වයේ PDF, SVG දෛශික ගොනුවක් හෝ සාමාන්‍ය රූපයක් (PNG, JPEG) ලෙස අපනයනය කළ හැකිය. මුද්‍රණ කටයුතු සඳහා 300 DPI ධාරිතාවය නිර්දේශ කෙරේ.",
-                        visual: "<strong>අපනයන විකල්ප:</strong><br>• <strong>රූපයක් ලෙස (Image):</strong> Export as Image ක්ලික් කර DPI අගය 300 ලෙස දෙන්න.<br>• <strong>PDF ගොනුවක් ලෙස:</strong> Export as PDF ක්ලික් කර සුරකින්න.<br>• ඔබගේ පරිගණකයේ අවශ්‍ය තැනක ගොනුව සුරකින්න.",
-                        download: null
-                    }
-                ],
-                flashcards: [
-                    { q: "Vector සහ Raster දත්ත අතර වෙනස කුමක්ද?", a: "Vector දත්ත ලක්ෂ්‍ය, රේඛා, බහුඅස්‍ර ලෙස දත්ත ගබඩා කරන අතර Raster දත්ත පික්සෙල් ජාල (පික්සෙල්) ලෙස අඛණ්ඩ අගයන් ගබඩා කරයි." },
-                    { q: "ඛණ්ඩාංක පද්ධතියක් (CRS) වැදගත් වන්නේ ඇයි?", a: "ත්‍රිමාණ පෘථිවිය ද්විමාන තලයකට හැරවීමේදී සිදුවන හැඩය, දුර සහ වර්ගඵල විකෘති වීම් වළක්වා ගැනීමට නිවැරදි CRS පද්ධතියක් අවශ්‍ය වේ." },
-                    { q: "WGS 84 භූගෝලීය CRS එක නියෝජනය කරන EPSG කේතය කුමක්ද?", a: "EPSG:4326 යනු GPS සහ පොදු භූගෝලීය ඛණ්ඩාංක සඳහා භාවිත වන සම්මත EPSG කේතයයි." },
-                    { q: "Field Calculator මඟින් වර්ගඵලය හෙක්ටයාර වලින් සොයන්නේ කෙසේද?", a: "decimal වර්ගයේ තීරුවක් සාදා <code>$area / 10000</code> යන සමීකරණය ලියන්න. ස්ථරය Projected CRS එකක තිබීම අනිවාර්ය වේ." },
-                    { q: "උසස් තත්ත්වයේ සිතියම් අපනයනය කිරීමට QGIS හි ඇති මෙවලම කුමක්ද?", a: "Print Layout (Project -> New Print Layout) මෙවලම භාවිතයෙන් සිතියම්, පරිමාණ තීරු සහ සූචි සකසා අපනයනය කළ හැකිය." }
-                ],
-                quiz: [
-                    { q: "QGIS යනු කුමක්ද?", o: ["භාවිතයට ගෙවිය යුතු දත්ත සමුදා මෘදුකාංගයකි", "නොමිලේ ලැබෙන විවෘත කේත ඩෙස්ක්ටොප් GIS මෘදුකාංගයකි", "Google Maps සඳහා වන බ්‍රවුසර් දිගුවකි", "අවකාශීය දත්ත සඳහා වන මෙහෙයුම් පද්ධතියකි"], a: 1 },
-                    { q: "පික්සෙල් ජාල හෝ කොටු වලින් සමන්විත දත්ත වර්ගය කුමක්ද?", o: ["Vector", "Shapefile", "Raster", "Attribute Table"], a: 2 },
-                    { q: "GIS හි CRS යන්නෙහි තේරුම කුමක්ද?", o: ["Coordinate Reference System (ඛණ්ඩාංක පද්ධතිය)", "Cartographic Rendering Scale", "Central Raster Structure", "Calculation Reference System"], a: 0 },
-                    { q: "WGS 84 Web Mercator නිරූපණය සඳහා භාවිත වන EPSG කේතය කුමක්ද?", o: ["EPSG:4326", "EPSG:3857", "EPSG:32644", "EPSG:4240"], a: 1 },
-                    { q: "ස්ථරයක (Layer) ඛණ්ඩාංක පද්ධතිය ස්ථිරවම වෙනස් කිරීමට ඔබ කළ යුත්තේ:", o: ["ස්ථරයේ properties වෙනස් කර සේව් නොකර වැසීම", "'Save Features As...' අපනයන මෙවලම මඟින් reproject කිරීම", "පරිගණකයේ ඇති shapefile එකෙහි නම අතින් වෙනස් කිරීම", "QGIS පසුබිම් වර්ණය වෙනස් කිරීම"], a: 1 },
-                    { q: "Forest, Water, සහ Urban වැනි විවිධ පන්ති සහිත භූමි පරිහරණ ස්ථරයක් වර්ණ ගැන්වීමට සුදුසුම ක්‍රමය කුමක්ද?", o: ["Single Symbol", "Categorized (වර්ගීකරණය)", "Graduated (ශ්‍රේණිගත)", "Rule-based only"], a: 1 },
-                    { q: "Field Calculator හි <code>$area / 10000</code> යන ප්‍රකාශනයෙන් ලැබෙන්නේ කුමක්ද?", o: ["වර්ග මීටර් වලින් වර්ගඵලය", "හෙක්ටයාර වලින් වර්ගඵලය", "වර්ග කිලෝමීටර් වලින් වර්ගඵලය", "පරිමිතිය කිලෝමීටර් වලින්"], a: 1 },
-                    { q: "ජනගහනය 1,000,000 ට වැඩි නගර පෙරීමට ඔබ ලියන ප්‍රකාශනය කුමක්ද?", o: ["\"population\" < 1000000", "\"population\" = 1000000", "\"population\" > 1000000", "\"population\" matches 1000000"], a: 2 },
-                    { q: "QGIS හි සූචි, මාතෘකා සහ පරිමාණ තීරු වැනි සිතියම් අංග එක් කරන්නේ කොතැනින්ද?", o: ["Layer panel", "Browser panel", "Print Layout (මුද්‍රණ සැලසුම් කවුළුව)", "Processing toolbox"], a: 2 },
-                    { q: "මුද්‍රණය සඳහා සිතියම් අපනයනය කිරීමේදී නිර්දේශිත ධාරිතාවය (DPI) කුමක්ද?", o: ["72 DPI", "150 DPI", "300 DPI", "1200 DPI"], a: 2 }
-                ]
-            }
-        };
+        const lmsCourseData = window.lmsCourseData;
 
         // DOM ELEMENTS REFERENCE
         const landingPanel = document.getElementById('lms-landing-panel');
@@ -1387,9 +1006,165 @@ function initLMS() {
             }
         };
 
+        // REVIEWS & RATINGS METHODS
+        const getReviews = () => {
+            let reviews = JSON.parse(localStorage.getItem('lms_reviews'));
+            if (!reviews) {
+                reviews = [
+                    { name: "Suresh Perera", rating: 5, comment: "මෙම පාඨමාලාව ඉතාමත් පැහැදිලි මට්ටමකින් සකසා ඇත. QGIS මූලධර්ම ඉගෙන ගැනීමට ඉතාමත් හොඳයි.", date: "2026-06-10" },
+                    { name: "Sarah Jenkins", rating: 5, comment: "The detailed UTM coordinate systems slide resolved all my alignment problems. Highly recommended!", date: "2026-06-15" },
+                    { name: "Pradeep Kumara", rating: 4, comment: "ප්‍රායෝගික පැවරුම් සහ නිබන්ධන ඉතාමත් වටිනවා. සහතිකය ලබා ගැනීමට ලැබීම සතුටක්.", date: "2026-06-20" }
+                ];
+                localStorage.setItem('lms_reviews', JSON.stringify(reviews));
+            }
+            return reviews;
+        };
+
+        const updateAggregatedRatingDisplay = () => {
+            const reviews = getReviews();
+            const count = reviews.length;
+            const sum = reviews.reduce((acc, r) => acc + r.rating, 0);
+            const avg = count > 0 ? (sum / count).toFixed(1) : "0.0";
+            
+            const avgBadge = document.getElementById('course-avg-rating-badge');
+            const countBadge = document.getElementById('course-review-count-badge');
+            if (avgBadge) avgBadge.innerText = avg;
+            if (countBadge) countBadge.innerText = count;
+        };
+
+        const renderReviewsTab = () => {
+            const reviews = getReviews();
+            const count = reviews.length;
+            const sum = reviews.reduce((acc, r) => acc + r.rating, 0);
+            const avg = count > 0 ? (sum / count).toFixed(1) : "0.0";
+            
+            let starsHTML = '';
+            const fullStars = Math.floor(avg);
+            for (let i = 0; i < 5; i++) {
+                if (i < fullStars) {
+                    starsHTML += '<i class="fa-solid fa-star"></i>';
+                } else {
+                    starsHTML += '<i class="fa-regular fa-star"></i>';
+                }
+            }
+
+            let formHTML = '';
+            if (currentUser) {
+                formHTML = `
+                    <div class="review-form-card">
+                        <h5 class="review-form-title">${currentLang === 'en' ? 'Submit Your Review' : 'ඔබේ අදහස එක් කරන්න'}</h5>
+                        <div class="star-rating-input" id="review-stars-select">
+                            <i class="fa-solid fa-star active" data-rating="1"></i>
+                            <i class="fa-solid fa-star active" data-rating="2"></i>
+                            <i class="fa-solid fa-star active" data-rating="3"></i>
+                            <i class="fa-solid fa-star active" data-rating="4"></i>
+                            <i class="fa-solid fa-star active" data-rating="5"></i>
+                        </div>
+                        <textarea class="review-form-textarea" id="review-comment-input" rows="3" placeholder="${
+                            currentLang === 'en' ? 'Write your review here...' : 'ඔබේ විචාරය මෙහි ලියන්න...'
+                        }" required></textarea>
+                        <button type="button" class="btn btn-primary btn-block" id="btn-submit-review">${
+                            currentLang === 'en' ? 'Submit Review' : 'විචාරය ඉදිරිපත් කරන්න'
+                        }</button>
+                    </div>
+                `;
+            } else {
+                formHTML = `
+                    <div class="review-form-card" style="text-align: center;">
+                        <p style="color: var(--text-secondary); margin-bottom: 0.5rem;">${
+                            currentLang === 'en' ? 'Please log in to leave a review.' : 'විචාරයක් ලිවීම සඳහා කරුණාකර ලොග් වන්න.'
+                        }</p>
+                        <button type="button" class="btn btn-outline btn-mini" id="btn-redirect-login">${
+                            currentLang === 'en' ? 'Login Now' : 'දැන් ලොග් වන්න'
+                        }</button>
+                    </div>
+                `;
+            }
+
+            tabContentArea.innerHTML = `
+                <div class="reviews-tab-container">
+                    <div class="reviews-left-col">
+                        <div class="rating-summary-card">
+                            <span class="big-rating-number">${avg}</span>
+                            <div class="rating-stars-display">${starsHTML}</div>
+                            <span class="rating-count-label">${currentLang === 'en' ? `Based on ${count} reviews` : `විචාර ${count} ක් මත පදනම්ව`}</span>
+                        </div>
+                        ${formHTML}
+                    </div>
+                    <div class="reviews-right-col">
+                        <div class="reviews-list-container">
+                            ${reviews.map(r => {
+                                let rStars = '';
+                                for (let i = 0; i < 5; i++) {
+                                    rStars += i < r.rating ? '<i class="fa-solid fa-star"></i>' : '<i class="fa-regular fa-star"></i>';
+                                }
+                                return `
+                                    <div class="review-card-item">
+                                        <div class="review-card-header">
+                                            <span class="reviewer-name">${r.name}</span>
+                                            <span class="review-date">${r.date}</span>
+                                        </div>
+                                        <div class="review-card-stars">${rStars}</div>
+                                        <p class="review-comment">${r.comment}</p>
+                                    </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // Bind events for custom star selecting
+            const starsContainer = document.getElementById('review-stars-select');
+            if (starsContainer) {
+                let selectedRating = 5;
+                const stars = starsContainer.querySelectorAll('i');
+                stars.forEach(star => {
+                    star.addEventListener('click', () => {
+                        selectedRating = parseInt(star.getAttribute('data-rating'));
+                        stars.forEach((s, idx) => {
+                            s.classList.toggle('active', idx < selectedRating);
+                        });
+                    });
+                });
+
+                document.getElementById('btn-submit-review').addEventListener('click', () => {
+                    const comment = document.getElementById('review-comment-input').value.trim();
+                    if (!comment) {
+                        alert(currentLang === 'en' ? "Please write a review comment." : "කරුණාකර අදහසක් ලියන්න.");
+                        return;
+                    }
+                    const newReview = {
+                        name: currentUser.name,
+                        rating: selectedRating,
+                        comment: comment,
+                        date: new Date().toISOString().split('T')[0]
+                    };
+                    const allReviews = getReviews();
+                    allReviews.unshift(newReview);
+                    localStorage.setItem('lms_reviews', JSON.stringify(allReviews));
+                    alert(currentLang === 'en' ? "Thank you for your review!" : "ඔබගේ විචාරයට ස්තූතියයි!");
+                    updateAggregatedRatingDisplay();
+                    renderReviewsTab();
+                });
+            }
+
+            const redirectBtn = document.getElementById('btn-redirect-login');
+            if (redirectBtn) {
+                redirectBtn.addEventListener('click', () => {
+                    document.getElementById('btn-show-login').click();
+                    window.location.hash = '#courses';
+                });
+            }
+        };
+
         // Tab Content Switching
         const renderTabContent = (tabName) => {
-            tabContentArea.innerHTML = lmsCourseData[currentLang].tabs[tabName];
+            if (tabName === 'reviews') {
+                renderReviewsTab();
+            } else {
+                tabContentArea.innerHTML = lmsCourseData[currentLang].tabs[tabName];
+            }
         };
 
         document.querySelectorAll('.tab-header-btn').forEach(btn => {
@@ -1774,6 +1549,102 @@ function initLMS() {
             }
         };
 
+        const handleMapUpload = (event) => {
+            const file = event.target.files[0];
+            if (!file) return;
+            
+            if (file.size > 15 * 1024 * 1024) {
+                alert(currentLang === 'en' ? "File size exceeds 15MB limit." : "ගොනු ප්‍රමාණය 15MB සීමාව ඉක්මවයි.");
+                return;
+            }
+            
+            currentUser.mapUploaded = {
+                name: file.name,
+                size: file.size,
+                type: file.type,
+                timestamp: Date.now()
+            };
+            saveUserState();
+            renderMapPreview(file);
+        };
+
+        const renderMapPreview = (file) => {
+            const previewContainer = document.getElementById('map-preview-container');
+            const viewCertBtn = document.getElementById('btn-trigger-cert-modal');
+            if (!previewContainer) return;
+            
+            previewContainer.innerHTML = '';
+            
+            if (file.type.startsWith('image/')) {
+                const img = document.createElement('img');
+                img.className = 'map-preview-img';
+                img.src = URL.createObjectURL(file);
+                previewContainer.appendChild(img);
+            } else if (file.type === 'application/pdf') {
+                previewContainer.innerHTML = `
+                    <div class="map-preview-pdf-icon"><i class="fa-solid fa-file-pdf"></i></div>
+                    <span class="file-name" style="color: var(--text-primary); font-size: 0.9rem;">${file.name}</span>
+                `;
+            }
+            
+            const statusDiv = document.createElement('div');
+            statusDiv.className = 'map-upload-status';
+            statusDiv.innerHTML = `<i class="fa-solid fa-circle-check"></i> ${
+                currentLang === 'en' ? 'Map uploaded and verified' : 'සිතියම සාර්ථකව උඩුගත කර තහවුරු කරන ලදී'
+            }`;
+            previewContainer.appendChild(statusDiv);
+            
+            if (viewCertBtn) {
+                viewCertBtn.disabled = false;
+                viewCertBtn.innerHTML = `<i class="fa-solid fa-award"></i> ${
+                    currentLang === 'en' ? 'View Certificate' : 'සහතිකය නරඹන්න'
+                }`;
+            }
+        };
+
+        const renderReviewList = (showCorrectOnly) => {
+            const listContainer = document.getElementById('review-list-box');
+            if (!listContainer) return;
+            listContainer.innerHTML = '';
+            
+            const quizList = lmsCourseData[currentLang].quiz;
+            const userAnswers = currentUser.userAnswers || [];
+            
+            let count = 0;
+            quizList.forEach((q, qIndex) => {
+                const userAns = userAnswers[qIndex];
+                const isCorrect = userAns === q.a;
+                
+                if (showCorrectOnly === isCorrect) {
+                    count++;
+                    const card = document.createElement('div');
+                    card.className = `review-item-card ${isCorrect ? 'correct' : 'incorrect'}`;
+                    
+                    const userChoiceText = userAns !== undefined && userAns >= 0 ? q.o[userAns] : (currentLang === 'en' ? "Unanswered" : "පිළිතුරු සපයා නැත");
+                    const correctChoiceText = q.o[q.a];
+                    
+                    card.innerHTML = `
+                        <div class="review-item-q">${qIndex + 1}. ${q.q}</div>
+                        <div class="review-item-ans ${isCorrect ? 'user-correct' : 'user-incorrect'}">
+                            <strong>${currentLang === 'en' ? 'Your Answer:' : 'ඔබේ පිළිතුර:'}</strong> ${userChoiceText}
+                        </div>
+                        ${!isCorrect ? `
+                        <div class="review-item-correct-ans">
+                            <strong>${currentLang === 'en' ? 'Correct Answer:' : 'නිවැරදි පිළිතුර:'}</strong> ${correctChoiceText}
+                        </div>
+                        ` : ''}
+                    `;
+                    listContainer.appendChild(card);
+                }
+            });
+            
+            if (count === 0) {
+                listContainer.innerHTML = `<p style="text-align: center; color: var(--text-secondary); margin-top: 1rem;">${
+                    currentLang === 'en' ? 'No questions in this category.' : 'මෙම ගණයෙහි ප්‍රශ්න කිසිවක් නැත.'
+                }</p>`;
+            }
+        };
+
         const displayQuizResults = (score) => {
             quizResultsBox.style.display = 'flex';
             quizResultsBox.className = 'quiz-results ' + (score >= 70 ? 'pass' : 'fail');
@@ -1785,51 +1656,139 @@ function initLMS() {
             
             const desc = passed ?
                 (currentLang === 'en' ? 
-                    "You have successfully certified in QGIS. You are now eligible to download your official GeoPhoenix e-Learning Certificate." : 
-                    "ඔබ QGIS පාඨමාලාව සාර්ථකව නිම කර ඇත. දැන් ඔබට නිල GeoPhoenix e-Learning සහතිකය බාගත කිරීමට හැකියාව ඇත.") :
+                    "You have successfully certified in QGIS. Complete Step 2 to download your official GeoPhoenix e-Learning Certificate." : 
+                    "ඔබ QGIS පාඨමාලා විභාගය සමත් වී ඇත. සහතිකය බාගත කිරීමට පියවර 2 සම්පූර්ණ කරන්න.") :
                 (currentLang === 'en' ? 
                     "A minimum score of 70% is required to pass. Read the modules and try again!" : 
                     "සමත් වීම සඳහා අවම වශයෙන් 70% ක ලකුණු ප්‍රමාණයක් අවශ්‍ය වේ. කරුණාකර නැවත අධ්‍යයනය කර උත්සාහ කරන්න!");
 
+            let mapUploadSectionHTML = '';
+            if (passed) {
+                const mapUploaded = currentUser.mapUploaded ? true : false;
+                mapUploadSectionHTML = `
+                    <div class="map-upload-container ${mapUploaded ? 'uploaded' : ''}" id="map-upload-box">
+                        <span class="map-upload-title">
+                            ${currentLang === 'en' ? 'Step 2: Upload Your Study Area Map' : 'පියවර 2: ඔබගේ සිතියම උඩුගත කරන්න'}
+                        </span>
+                        <p class="map-upload-subtitle">
+                            ${currentLang === 'en' ? 
+                                'To receive your certificate, you must upload a map of your study area (Image or PDF) prepared using the knowledge gained in this course.' : 
+                                'සහතිකය ලබා ගැනීමට නම්, මෙම පාඨමාලාවෙන් ලබාගත් දැනුම භාවිතයෙන් ඔබ සකස් කළ අධ්‍යයන ප්‍රදේශයේ සිතියමක් (රූපයක් හෝ PDF) උඩුගත කළ යුතුය.'}
+                        </p>
+                        <div class="map-upload-input-wrapper">
+                            <label class="map-upload-btn-label" for="lms-map-upload">
+                                <i class="fa-solid fa-cloud-arrow-up"></i> ${currentLang === 'en' ? 'Choose Map File' : 'සිතියම තෝරන්න'}
+                            </label>
+                            <input type="file" id="lms-map-upload" class="map-upload-input" accept="image/*,application/pdf">
+                        </div>
+                        <div class="map-preview-wrapper" id="map-preview-container">
+                            ${mapUploaded ? `
+                                <div class="map-upload-status">
+                                    <i class="fa-solid fa-circle-check"></i> ${
+                                        currentLang === 'en' ? `Uploaded: ${currentUser.mapUploaded.name}` : `උඩුගත කරන ලදී: ${currentUser.mapUploaded.name}`
+                                    }
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            }
+
+            const quizList = lmsCourseData[currentLang].quiz;
+            const correctCount = Math.round((score / 100) * quizList.length);
+            
+            const reviewHTML = `
+                <div class="quiz-review-container">
+                    <h5>${currentLang === 'en' ? 'Detailed Exam Review' : 'විභාගයේ සවිස්තරාත්මක සමාලෝචනය'}</h5>
+                    <div class="review-toggle-buttons">
+                        <button type="button" class="review-toggle-btn active" id="btn-toggle-incorrect">${
+                            currentLang === 'en' ? 'Incorrect Answers' : 'වැරදි පිළිතුරු'
+                        } (${quizList.length - correctCount})</button>
+                        <button type="button" class="review-toggle-btn" id="btn-toggle-correct">${
+                            currentLang === 'en' ? 'Correct Answers' : 'නිවැරදි පිළිතුරු'
+                        } (${correctCount})</button>
+                    </div>
+                    <div class="review-list" id="review-list-box">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+            `;
+
             let actionBtnHTML = passed ? 
-                `<button type="button" class="btn btn-primary" id="btn-trigger-cert-modal"><i class="fa-solid fa-award"></i> View Certificate</button>` : 
-                `<button type="button" class="btn btn-outline" id="btn-retake-quiz"><i class="fa-solid fa-rotate-right"></i> Retake Exam</button>`;
+                `<button type="button" class="btn btn-primary" id="btn-trigger-cert-modal" ${!currentUser.mapUploaded ? 'disabled' : ''}><i class="fa-solid fa-award"></i> ${
+                    currentLang === 'en' ? 'View Certificate' : 'සහතිකය නරඹන්න'
+                }</button>` : 
+                `<button type="button" class="btn btn-outline" id="btn-retake-quiz"><i class="fa-solid fa-rotate-right"></i> ${
+                    currentLang === 'en' ? 'Retake Exam' : 'නැවත උත්සාහ කරන්න'
+                }</button>`;
 
             quizResultsBox.innerHTML = `
                 <span class="quiz-results-title">${title}</span>
                 <div class="quiz-score-circle">${score}%</div>
                 <p class="quiz-results-text">${desc}</p>
+                ${mapUploadSectionHTML}
                 ${actionBtnHTML}
+                ${reviewHTML}
             `;
 
             // Bind triggers
             if (passed) {
-                document.getElementById('btn-trigger-cert-modal').addEventListener('click', openCertificate);
+                const viewBtn = document.getElementById('btn-trigger-cert-modal');
+                if (viewBtn) {
+                    viewBtn.addEventListener('click', openCertificate);
+                }
+                const mapInput = document.getElementById('lms-map-upload');
+                if (mapInput) {
+                    mapInput.addEventListener('change', handleMapUpload);
+                }
             } else {
                 document.getElementById('btn-retake-quiz').addEventListener('click', () => {
                     currentUser.examScore = null;
                     currentUser.examDate = null;
+                    currentUser.userAnswers = null;
                     saveUserState();
                     quizResultsBox.style.display = 'none';
                     renderQuiz();
                 });
             }
+
+            // Bind review toggles
+            const btnToggleIncorrect = document.getElementById('btn-toggle-incorrect');
+            const btnToggleCorrect = document.getElementById('btn-toggle-correct');
+            if (btnToggleIncorrect && btnToggleCorrect) {
+                btnToggleIncorrect.addEventListener('click', () => {
+                    btnToggleIncorrect.classList.add('active');
+                    btnToggleCorrect.classList.remove('active');
+                    renderReviewList(false);
+                });
+                btnToggleCorrect.addEventListener('click', () => {
+                    btnToggleCorrect.classList.add('active');
+                    btnToggleIncorrect.classList.remove('active');
+                    renderReviewList(true);
+                });
+            }
+
+            renderReviewList(false);
         };
 
         quizForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const quizList = lmsCourseData[currentLang].quiz;
             let correctCount = 0;
+            const userAnswers = [];
 
             quizList.forEach((q, qIndex) => {
                 const selectedOption = quizForm.querySelector(`input[name="quiz-q-${qIndex}"]:checked`);
-                if (selectedOption && parseInt(selectedOption.value) === q.a) {
+                const ansVal = selectedOption ? parseInt(selectedOption.value) : -1;
+                userAnswers.push(ansVal);
+                if (ansVal === q.a) {
                     correctCount++;
                 }
             });
 
             const finalScore = Math.round((correctCount / quizList.length) * 100);
             currentUser.examScore = finalScore;
+            currentUser.userAnswers = userAnswers;
             currentUser.examDate = new Date().toLocaleDateString(currentLang === 'en' ? 'en-US' : 'si-LK', {
                 year: 'numeric',
                 month: 'long',
@@ -1842,6 +1801,10 @@ function initLMS() {
 
         // 8. CERTIFICATE GENERATION PREVIEW & BIND PRINT ENGINE
         const openCertificate = () => {
+            if (!currentUser || !currentUser.mapUploaded) {
+                alert(currentLang === 'en' ? "Please upload your study area map to unlock the certificate." : "කරුණාකර සහතිකය බාගත කිරීමට ප්‍රථමයෙන් ඔබ සකස් කළ සිතියම උඩුගත කරන්න.");
+                return;
+            }
             certStudentName.innerText = currentUser.name.toUpperCase();
             certGrade.innerText = `${currentUser.examScore}%`;
             certDate.innerText = currentUser.examDate;
@@ -2002,6 +1965,10 @@ function initLMS() {
         });
 
         // 10. AUTO-RESUME IF SESSION ALREADY ACTIVE
+        // Initialize ratings display
+        updateAggregatedRatingDisplay();
+
+
         // Initialize language UI
         setLanguage(currentLang);
         
