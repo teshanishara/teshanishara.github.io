@@ -1,6 +1,103 @@
-/* ==========================================================================
-   PORTFOLIO INTERACTIVE LOGIC
-   ========================================================================== */
+const getQgisTechnicalAnswer = (query, lang) => {
+    const clean = query.toLowerCase();
+    
+    // Reproject / CRS / Projection
+    if (clean.includes('reproject') || clean.includes('re-project') || clean.includes('warp') || clean.includes('crs') || clean.includes('projection') || clean.includes('epsg') || clean.includes('utm') || clean.includes('coordinate') || clean.includes('ඛණ්ඩාංක')) {
+        if (lang === 'en') {
+            return `<strong>How to Reproject a Layer in QGIS:</strong><br>
+            Reprojecting changes the Coordinate Reference System (CRS) of a layer permanently:<br>
+            1. Go to the menu bar: <strong>Vector -> Data Management Tools -> Reproject Layer</strong> (for vectors) or <strong>Raster -> Projections -> Warp (Reproject)</strong> (for rasters).<br>
+            2. Select your <strong>Input Layer</strong>.<br>
+            3. In <strong>Target CRS</strong>, click the globe icon and search for the desired system (e.g. WGS 84 / UTM Zone 44N, or EPSG:32644). Projected systems are required for accurate distance/area calculations.<br>
+            4. Click <strong>Run</strong>. A temporary 'Reprojected' layer is created.<br>
+            5. To make it permanent, right-click the reprojected layer -> <strong>Export -> Save Features As...</strong>, choose file path, and click OK.`;
+        } else {
+            return `<strong>QGIS හි ස්ථරයක (Layer) CRS එක වෙනස් කිරීම (Reproject):</strong><br>
+            ස්ථරයක ඛණ්ඩාංක පද්ධතිය (CRS) ස්ථිරවම වෙනස් කිරීමට:<br>
+            1. මෙනුවෙන්: <strong>Vector -> Data Management Tools -> Reproject Layer</strong> (Vector දත්ත සඳහා) හෝ <strong>Raster -> Projections -> Warp (Reproject)</strong> (Raster දත්ත සඳහා) තෝරන්න.<br>
+            2. <strong>Input Layer</strong> එක ලෙස අදාළ ස්ථරය තෝරන්න.<br>
+            3. <strong>Target CRS</strong> සඳහා ඔබට අවශ්‍ය ඛණ්ඩාංක පද්ධතිය තෝරන්න (උදා. UTM Zone ඛණ්ඩාංක ක්‍රමය).<br>
+            4. <strong>Run</strong> ක්ලික් කරන්න. එවිට තාවකාලික 'Reprojected' ස්ථරයක් නිර්මාණය වේ.<br>
+            5. එය ස්ථිරව සුරැකීමට: right-click -> <strong>Export -> Save Features As...</strong> වෙත ගොස් සුරකින්න.`;
+        }
+    }
+    
+    // Buffer analysis
+    if (clean.includes('buffer') || clean.includes('proximity') || clean.includes('ප්‍රේරක') || clean.includes('බෆර්')) {
+        if (lang === 'en') {
+            return `<strong>How to Create a Buffer in QGIS:</strong><br>
+            Buffer zones are polygons created at a specified distance around features:<br>
+            1. Go to <strong>Vector -> Geoprocessing Tools -> Buffer</strong>.<br>
+            2. Select your Input vector layer.<br>
+            3. Set the <strong>Distance</strong> (e.g. 100 meters). *Note: If units are in degrees instead of meters, your layer is in a Geographic CRS (like WGS84). Reproject it to a Projected CRS (like UTM) first!*<br>
+            4. Check 'Dissolve results' if you want overlapping buffers to merge.<br>
+            5. Click <strong>Run</strong>.`;
+        } else {
+            return `<strong>QGIS හි ප්‍රේරක කලාප (Buffer) නිර්මාණය කිරීම:</strong><br>
+            යම් ලක්ෂ්‍යයක් හෝ රේඛාවක් වටා නියමිත දුරකින් ප්‍රේරක සීමාවක් සෑදීමට:<br>
+            1. <strong>Vector -> Geoprocessing Tools -> Buffer</strong> වෙත යන්න.<br>
+            2. Input layer එක තෝරා <strong>Distance</strong> (දුර) ඇතුලත් කරන්න (උදා. මීටර් 100). *සටහන: දුර ඒකකය මීටර් වෙනුවට අංශක (degrees) ලෙස පෙන්වයි නම්, ස්ථරය Projected CRS (UTM) ක්‍රමයට Reproject කර ගන්න.*<br>
+            3. overlapping buffers එකතු කිරීමට 'Dissolve results' තෝරා <strong>Run</strong> ක්ලික් කරන්න.`;
+        }
+    }
+    
+    // Clip / Intersect / Extract
+    if (clean.includes('clip') || clean.includes('intersect') || clean.includes('cut') || clean.includes('කපන්න') || clean.includes('ඡේදනය')) {
+        if (lang === 'en') {
+            return `<strong>How to Clip/Extract a Layer in QGIS:</strong><br>
+            Clipping cuts out an input layer based on the boundaries of an overlay polygon layer (like a cookie cutter):<br>
+            1. Go to <strong>Vector -> Geoprocessing Tools -> Clip</strong>.<br>
+            2. Set <strong>Input Layer</strong> as the layer you want to cut (e.g. roads, points).<br>
+            3. Set <strong>Overlay Layer</strong> as your boundary polygon (e.g. city limits, study boundary).<br>
+            4. Click <strong>Run</strong>. The output contains only features located inside the overlay boundaries.`;
+        } else {
+            return `<strong>QGIS හි ස්ථර කපා වෙන්කර ගැනීම (Clip):</strong><br>
+            boundary polygon එකක් භාවිතයෙන් වෙනත් ස්ථරයකින් කොටසක් කපා ගැනීමට:<br>
+            1. <strong>Vector -> Geoprocessing Tools -> Clip</strong> වෙත යන්න.<br>
+            2. <strong>Input Layer</strong> එක ලෙස කපා ගැනීමට අවශ්‍ය ස්ථරය (උදා. මාර්ග) තෝරන්න.<br>
+            3. <strong>Overlay Layer</strong> එක ලෙස සීමා මායිම් අඩංගු ස්ථරය (උදා. අධ්‍යයන සීමාව) තෝරන්න.<br>
+            4. <strong>Run</strong> ක්ලික් කරන්න.`;
+        }
+    }
+    
+    // Import CSV / Delimited text
+    if (clean.includes('csv') || clean.includes('import') || clean.includes('excel') || clean.includes('latitude') || clean.includes('longitude') || clean.includes('xy') || clean.includes('ඛණ්ඩාංක ඇතුලත්')) {
+        if (lang === 'en') {
+            return `<strong>How to Import CSV Coordinates in QGIS:</strong><br>
+            To load XY coordinates from a spreadsheet:<br>
+            1. Save your Excel sheet as a <strong>CSV (Comma Delimited)</strong> file.<br>
+            2. In QGIS, go to <strong>Layer -> Add Layer -> Add Delimited Text Layer</strong>.<br>
+            3. Click '...' to select your CSV file.<br>
+            4. Under <strong>Geometry Definition</strong>, choose 'Point coordinates'.<br>
+            5. Map the <strong>X field</strong> to Longitude (Easting) and <strong>Y field</strong> to Latitude (Northing).<br>
+            6. Select the appropriate <strong>Geometry CRS</strong> (usually EPSG:4326 WGS 84 for decimal degrees).<br>
+            7. Click <strong>Add</strong>.`;
+        } else {
+            return `<strong>QGIS වෙත CSV ඛණ්ඩාංක (Coordinates) ඇතුලත් කිරීම:</strong><br>
+            Excel වගුවක ඇති ලක්ෂ්‍ය ඛණ්ඩාංක සිතියමට එක් කිරීමට:<br>
+            1. Excel ගොනුව <strong>CSV (Comma Delimited)</strong> ආකාරයෙන් සුරකින්න.<br>
+            2. QGIS හි <strong>Layer -> Add Layer -> Add Delimited Text Layer</strong> වෙත යන්න.<br>
+            3. ඔබගේ CSV ගොනුව තෝරා, <strong>Geometry Definition</strong> යටතේ 'Point coordinates' තෝරන්න.<br>
+            4. <strong>X field</strong> එකට Longitude ද, <strong>Y field</strong> එකට Latitude ද සම්බන්ධ කරන්න.<br>
+            5. <strong>Geometry CRS</strong> ලෙස EPSG:4326 තෝරා <strong>Add</strong> ක්ලික් කරන්න.`;
+        }
+    }
+
+    // Load Shapefile / GeoPackage
+    if (clean.includes('shapefile') || clean.includes('shp') || clean.includes('gpkg') || clean.includes('geopackage') || clean.includes('load') || clean.includes('add layer')) {
+        if (lang === 'en') {
+            return `<strong>How to Load Shapefiles and GeoPackages:</strong><br>
+            • <strong>GeoPackage (.gpkg):</strong> Drag and drop the <code>.gpkg</code> file from your file manager directly into the QGIS canvas, or browse to it via the Browser Panel, expand it, and drag the individual layers.<br>
+            • <strong>Shapefile (.shp):</strong> Drag and drop the <code>.shp</code> file. Remember that a shapefile is a collection of files (including <code>.dbf, .shx, .prj</code>). Keep them in the same folder, otherwise QGIS cannot open the <code>.shp</code>!`;
+        } else {
+            return `<strong>Shapefiles සහ GeoPackages QGIS වෙත එක් කිරීම:</strong><br>
+            • <strong>GeoPackage (.gpkg):</strong> <code>.gpkg</code> ගොනුව සෘජුවම QGIS canvas එක මතට drag and drop කරන්න.<br>
+            • <strong>Shapefile (.shp):</strong> <code>.shp</code> දිගුව සහිත ගොනුව drag and drop කරන්න. *වැදගත්: shapefile එකක් යනු ගොනු කිහිපයක එකතුවකි (.shp, .dbf, .shx, .prj). මේ සියල්ල එකම ෆෝල්ඩරයක තිබිය යුතුය.*`;
+        }
+    }
+
+    return null;
+};
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -841,6 +938,10 @@ const initChatbot = () => {
 
     const getBotResponse = (input) => {
         const query = input.toLowerCase();
+
+        // Check for technical QGIS questions first
+        const techAnswer = getQgisTechnicalAnswer(query, 'en');
+        if (techAnswer) return techAnswer;
 
         if (query.includes('gis') || query.includes('map') || query.includes('arcgis') || query.includes('qgis') || query.includes('spatial') || query.includes('cartograph')) {
             return getSimulatedResponse('gis');
@@ -1853,7 +1954,7 @@ function initLMS() {
                 month: 'long',
                 day: 'numeric'
             });
-            certCourseName.innerText = lmsCourseData[currentLang].title;
+            certCourseName.innerText = lmsCourseData['en'].title;
             
             certificateModal.style.display = 'flex';
         }
@@ -1916,6 +2017,10 @@ function initLMS() {
 
         const getTutorResponse = (query) => {
             const clean = query.toLowerCase();
+
+            // Check for shared technical QGIS answers first
+            const techAnswer = getQgisTechnicalAnswer(query, currentLang);
+            if (techAnswer) return techAnswer;
 
             // English Answers
             if (currentLang === 'en') {
