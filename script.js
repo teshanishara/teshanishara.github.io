@@ -1789,7 +1789,7 @@ function initLMS() {
             const finalScore = Math.round((correctCount / quizList.length) * 100);
             currentUser.examScore = finalScore;
             currentUser.userAnswers = userAnswers;
-            currentUser.examDate = new Date().toLocaleDateString(currentLang === 'en' ? 'en-US' : 'si-LK', {
+            currentUser.examDate = new Date().toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric'
