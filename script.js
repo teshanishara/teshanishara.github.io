@@ -919,6 +919,7 @@ function initLMS() {
         const workspacePercentDisplay = document.getElementById('workspace-percent-display');
         const studyTimer = document.getElementById('study-timer');
         const btnLogoutLms = document.getElementById('btn-logout-lms');
+        const btnAdminCert = document.getElementById('btn-admin-cert');
 
         // Player elements
         const playerModuleNum = document.getElementById('player-module-num');
@@ -1326,6 +1327,7 @@ function initLMS() {
         };
 
         btnLogoutLms.addEventListener('click', logoutLMS);
+        btnAdminCert.addEventListener('click', openCertificate);
 
         // 4. ENTER WORKSPACE & INITIALIZE STUDY AREA
         const enterWorkspace = () => {
@@ -1334,6 +1336,12 @@ function initLMS() {
             
             userDisplayName.innerText = currentUser.name;
             workspaceLangDisplay.innerText = currentLang === 'en' ? 'English' : 'සිංහල';
+
+            if (currentUser && currentUser.email === 'teshan.ishara@gmail.com') {
+                btnAdminCert.style.display = 'inline-flex';
+            } else {
+                btnAdminCert.style.display = 'none';
+            }
 
             // Reset slide coordinates
             activeSlideIndex = 0;
@@ -1448,10 +1456,24 @@ function initLMS() {
         const renderSlideDots = () => {
             slideDotsContainer.innerHTML = '';
             const totalSlides = lmsCourseData[currentLang].slides.length;
-            for (let i = 0; i < totalSlides; i++) {
+            
+            const maxDotsToShow = 9;
+            let start = 0;
+            let end = totalSlides;
+            
+            if (totalSlides > maxDotsToShow) {
+                start = Math.max(0, activeSlideIndex - Math.floor(maxDotsToShow / 2));
+                end = Math.min(totalSlides, start + maxDotsToShow);
+                if (end - start < maxDotsToShow) {
+                    start = Math.max(0, end - maxDotsToShow);
+                }
+            }
+            
+            for (let i = start; i < end; i++) {
                 const dot = document.createElement('span');
                 dot.classList.add('slide-dot');
                 if (i === activeSlideIndex) dot.classList.add('active');
+                dot.setAttribute('title', `${currentLang === 'en' ? 'Slide' : 'ස්ලයිඩය'} ${i + 1}`);
                 dot.addEventListener('click', () => {
                     activeSlideIndex = i;
                     renderSlide();
@@ -1801,13 +1823,18 @@ function initLMS() {
 
         // 8. CERTIFICATE GENERATION PREVIEW & BIND PRINT ENGINE
         const openCertificate = () => {
-            if (!currentUser || !currentUser.mapUploaded) {
+            const isAdmin = currentUser && currentUser.email === 'teshan.ishara@gmail.com';
+            if (!isAdmin && (!currentUser || !currentUser.mapUploaded)) {
                 alert(currentLang === 'en' ? "Please upload your study area map to unlock the certificate." : "කරුණාකර සහතිකය බාගත කිරීමට ප්‍රථමයෙන් ඔබ සකස් කළ සිතියම උඩුගත කරන්න.");
                 return;
             }
             certStudentName.innerText = currentUser.name.toUpperCase();
-            certGrade.innerText = `${currentUser.examScore}%`;
-            certDate.innerText = currentUser.examDate;
+            certGrade.innerText = isAdmin && currentUser.examScore === null ? "100%" : `${currentUser.examScore}%`;
+            certDate.innerText = currentUser.examDate || new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
             certCourseName.innerText = lmsCourseData[currentLang].title;
             
             certificateModal.style.display = 'flex';
