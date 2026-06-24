@@ -845,11 +845,12 @@ const initChatbot = () => {
         • <strong>Blogger</strong> (Teshan Growth Academy)<br>
         • <strong>Contact Details</strong> (email, WhatsApp, Fiverr)`;
     };
+};
 
-    // ==========================================================================
-    // LMS PLATFORM LOGIC (QGIS COURSE PLATFORM)
-    // ==========================================================================
-    function initLMS() {
+// ==========================================================================
+// LMS PLATFORM LOGIC (QGIS COURSE PLATFORM)
+// ==========================================================================
+function initLMS() {
         let currentLang = localStorage.getItem('lms_lang') || 'en';
         let currentUser = JSON.parse(localStorage.getItem('lms_current_user')) || null;
         let activeSlideIndex = 0;
@@ -1252,6 +1253,7 @@ const initChatbot = () => {
         const btnShowLogin = document.getElementById('btn-show-login');
         const signupForm = document.getElementById('signup-payment-form');
         const loginForm = document.getElementById('login-form');
+        const btnSubmitLogin = document.getElementById('btn-submit-login');
         
         // Forms inputs
         const regName = document.getElementById('lms-reg-name');
@@ -1922,6 +1924,5 @@ const initChatbot = () => {
         if (currentUser && currentUser.enrolled) {
             enterWorkspace();
         }
-    };
-};
+}
 
