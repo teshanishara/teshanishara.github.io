@@ -197,3 +197,44 @@ img {
     box-shadow: var(--shadow-glow);
     transform: translateY(-4px);
 }
+
+/* Global Form Controls Styling */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 0.75rem var(--space-4);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-emerald);
+    background: rgba(16, 185, 129, 0.02);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
+}
+
+select option {
+    background-color: #080b11;
+    color: var(--text-primary);
+}
+
+input[type="checkbox"] {
+    accent-color: var(--accent-emerald);
+    cursor: pointer;
+}
