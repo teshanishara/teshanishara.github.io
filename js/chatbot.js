@@ -332,10 +332,10 @@ export const initChatbot = () => {
             return getSimulatedResponse('contact');
         }
         if (query.includes('hello') || query.includes('hi') || query.includes('hey') || query.includes('greetings')) {
-            return `Hello! 😊 I am Teshan's virtual assistant. Ask me anything about his GIS mapping work, his 11 books, his Blogger site, or how to contact him.`;
+            return `Hello! 😊 I am the GeoPhoenix AI Assistant. Ask me anything about Teshan's GIS mapping work, his 11 books, his Blogger site, or how to contact him.`;
         }
         if (query.includes('who are you') || query.includes('what is this') || query.includes('help')) {
-            return `I am an AI assistant designed to represent Teshan's portfolio. You can click on the topic chips below or type a query about his GIS services, writing, or blog!`;
+            return `I am the GeoPhoenix AI Assistant, designed to represent Teshan's portfolio. You can click on the topic chips below or type a query about his GIS services, writing, or blog!`;
         }
         if (query.includes('thank') || query.includes('thanks') || query.includes('cool') || query.includes('awesome')) {
             return `You're very welcome! Let me know if you need any other information about Teshan's work. 👍`;

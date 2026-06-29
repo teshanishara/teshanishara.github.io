@@ -152,7 +152,7 @@ export const initGlobe = () => {
     let width = canvas.width = canvas.offsetWidth;
     let height = canvas.height = canvas.offsetHeight;
     
-    let radius = Math.min(width, height) * 0.42;
+    let radius = Math.min(width, height) * 0.47;
     let centerX = width / 2;
     let centerY = height / 2;
     
@@ -172,7 +172,7 @@ export const initGlobe = () => {
         if (!canvas.offsetWidth) return;
         width = canvas.width = canvas.offsetWidth;
         height = canvas.height = canvas.offsetHeight;
-        radius = Math.min(width, height) * 0.42;
+        radius = Math.min(width, height) * 0.47;
         centerX = width / 2;
         centerY = height / 2;
     });
