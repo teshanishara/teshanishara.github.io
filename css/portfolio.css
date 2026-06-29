@@ -316,8 +316,8 @@
 
 .globe-wrapper {
     position: relative;
-    width: 420px;
-    height: 420px;
+    width: 480px;
+    height: 480px;
     max-width: 100%;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(16, 185, 129, 0.02) 0%, rgba(16, 185, 129, 0.05) 60%, transparent 70%);
