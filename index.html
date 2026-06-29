@@ -32,15 +32,18 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css?v=1.7">
+    <!-- Custom CSS (Parallel Loading for Performance) -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/portfolio.css">
+    <link rel="stylesheet" href="css/lms.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="css/animations.css">
 
     <!-- JSON-LD Structured Data for SEO -->
     <script type="application/ld+json">
@@ -193,56 +196,58 @@
 
     <!-- About Me Section -->
     <section class="about-section" id="about">
-        <div class="container about-container">
-            <div class="about-visuals">
-                <div class="academic-badge">
-                    <div class="badge-inner">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                        <h3>BSc (Hons)</h3>
-                        <p>Fisheries & Marine Sciences</p>
-                    </div>
-                </div>
-                <div class="about-quote-box">
-                    <i class="fa-solid fa-quote-left quote-icon"></i>
-                    <p>Merging ecological domain expertise with spatial science allows me to craft data models that are
-                        both scientifically rigorous and visually compelling.</p>
-                </div>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Profile</span>
+                <h2 class="section-title">Bridging Ecological Science & Spatial Analytics</h2>
             </div>
-
-            <div class="about-text-content">
-                <div class="section-header">
-                    <span class="subtitle">About Me</span>
-                    <h2 class="section-title">Bridging Ecological Science & Spatial Analytics</h2>
-                    <div class="accent-line"></div>
+            
+            <div class="about-bento">
+                <!-- Card 1: Description (spans 2 columns) -->
+                <div class="glass-card bento-desc-card reveal-on-scroll slide-up">
+                    <p style="margin-bottom: var(--space-4); font-size: 1.05rem; color: var(--text-primary); font-weight: 500;">
+                        With a strong academic background in spatial analysis and data science, I have spent over 6 years
+                        delivering highly accurate GIS mapping, urban planning layouts, service area analysis, and
+                        statistical models for clients across the USA, UK, Europe, and Australia. I merge domain expertise
+                        in environmental systems with advanced geoprocessing to solve complex spatial challenges.
+                    </p>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                        Whether you need a flood risk vulnerability assessment, municipal suitability analysis, service
+                        accessibility mapping, or sophisticated scripting in Python, R, and SPSS to automate spatial
+                        workflows, I deliver professional-grade, publication-ready spatial outputs.
+                    </p>
                 </div>
 
-                <p class="about-description">
-                    With a strong academic background in spatial analysis and data science, I have spent over 6 years
-                    delivering highly accurate GIS mapping, urban planning layouts, service area analysis, and
-                    statistical models for clients across the USA, UK, Europe, and Australia. I merge domain expertise
-                    in environmental systems with advanced geoprocessing to solve complex spatial challenges.
-                </p>
+                <!-- Card 2: Academic Badge (spans 1 column) -->
+                <div class="glass-card bento-badge-card reveal-on-scroll slide-up">
+                    <div class="badge-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3>BSc (Hons)</h3>
+                    <p>Fisheries & Marine Sciences</p>
+                </div>
 
-                <p class="about-description">
-                    Whether you need a flood risk vulnerability assessment, municipal suitability analysis, service
-                    accessibility mapping, or sophisticated scripting in Python, R, and SPSS to automate spatial
-                    workflows, I deliver professional-grade, publication-ready spatial outputs.
-                </p>
+                <!-- Card 3: Quote (spans 1 column) -->
+                <div class="glass-card bento-quote-card reveal-on-scroll slide-up">
+                    <i class="fa-solid fa-quote-left quote-icon"></i>
+                    <p>Merging ecological domain expertise with spatial science allows me to craft data models that are both scientifically rigorous and visually compelling.</p>
+                </div>
 
-                <div class="about-key-points">
-                    <div class="key-point">
-                        <div class="point-icon"><i class="fa-solid fa-circle-check"></i></div>
-                        <div>
-                            <h4>Multidisciplinary GIS</h4>
-                            <p>Expertise spanning urban planning, routing, service area analysis, and environmental
-                                science.</p>
+                <!-- Card 4: Key Points (spans 2 columns) -->
+                <div class="glass-card bento-points-card reveal-on-scroll slide-up">
+                    <h3 style="margin-bottom: var(--space-3); font-size: 1.25rem;">Why Work With Me</h3>
+                    <div class="bento-points-grid">
+                        <div class="bento-point-item">
+                            <div class="point-icon"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h4>Multidisciplinary GIS</h4>
+                                <p>Expertise spanning urban planning, routing, service area analysis, and environmental science.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="key-point">
-                        <div class="point-icon"><i class="fa-solid fa-circle-check"></i></div>
-                        <div>
-                            <h4>Global Communication</h4>
-                            <p>Serving corporate, academic, and governmental clients with rapid turnaround.</p>
+                        <div class="bento-point-item">
+                            <div class="point-icon"><i class="fa-solid fa-circle-check"></i></div>
+                            <div>
+                                <h4>Global Communication</h4>
+                                <p>Serving corporate, academic, and governmental clients with rapid turnaround.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -561,252 +566,167 @@
                 </p>
             </div>
 
-            <!-- Publications Showcase Grid -->
-            <div class="publications-grid">
+            <!-- Publications Showcase Layout -->
+            <div class="publications-layout">
                 <!-- Centerpiece: Blogger Card -->
-                <div class="publications-card blog-card glass-card">
+                <div class="publications-card blog-card glass-card reveal-on-scroll slide-left">
                     <div class="blog-glow-edge"></div>
-                    <div class="card-badge recommended-badge">Personal Blog</div>
+                    <span class="blog-badge">Personal Blog</span>
                     <div class="blog-card-content">
-                        <div class="blog-icon-wrap">
+                        <div class="service-icon-wrap" style="margin-bottom: var(--space-4);">
                             <i class="fa-solid fa-square-rss"></i>
                         </div>
                         <div class="blog-info">
-                            <h3>Personal Finance & Digital Marketing</h3>
-                            <span class="blog-domain">teshangrowthacademy.blogspot.com</span>
-                            <p class="blog-desc">Explore practical insights on building passive income, investment
-                                secrets, digital marketing workflows, and self-growth strategies at Teshan Growth
-                                Academy.</p>
-                            <div class="blog-topics">
-                                <span class="topic-tag">Passive Income</span>
-                                <span class="topic-tag">Digital Marketing</span>
-                                <span class="topic-tag">Wealth Building</span>
+                            <h3 style="font-size: 1.5rem; margin-bottom: var(--space-2);">Personal Finance & Digital Marketing</h3>
+                            <span class="blog-domain" style="font-size: 0.85rem; color: var(--accent-mint); font-weight: 600; display: block; margin-bottom: var(--space-3);">teshangrowthacademy.blogspot.com</span>
+                            <p class="blog-desc" style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: var(--space-4);">Explore practical insights on building passive income, investment secrets, digital marketing workflows, and self-growth strategies at Teshan Growth Academy.</p>
+                            <div class="blog-topics" style="display: flex; gap: 0.4rem; margin-bottom: var(--space-6);">
+                                <span class="project-tag">Passive Income</span>
+                                <span class="project-tag">Digital Marketing</span>
+                                <span class="project-tag">Wealth Building</span>
                             </div>
-                            <a href="https://teshangrowthacademy.blogspot.com/" target="_blank"
-                                class="btn btn-primary blog-btn">
+                            <a href="https://teshangrowthacademy.blogspot.com/" target="_blank" class="btn btn-primary blog-btn">
                                 <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Growth Academy
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Book 1 -->
-                <div class="publications-card book-card glass-card">
-                    <div class="book-cover-wrap">
-                        <img src="assets/projects/book-deepfakes.jpg" alt="Guardian of the Digital Self book cover"
-                            class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <a href="https://www.amazon.com/dp/B0GZCK98VG" target="_blank"
-                                class="btn btn-outline book-buy-btn">
-                                <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                            </a>
+                <!-- Right Column: Horizontal book shelf carousel -->
+                <div class="books-slider-container reveal-on-scroll slide-right">
+                    <h3 style="margin-bottom: var(--space-4); font-size: 1.25rem; font-family: var(--font-heading);"><i class="fa-solid fa-book-open"></i> Published Amazon Books</h3>
+                    <div class="books-grid">
+                        <!-- Book 1 -->
+                        <div class="book-card">
+                            <img src="assets/projects/book-deepfakes.jpg" alt="Guardian of the Digital Self book cover" class="book-cover" loading="lazy">
+                            <div class="book-overlay">
+                                <h4>Guardian of the Digital Self</h4>
+                                <p>AI & Safety</p>
+                                <a href="https://www.amazon.com/dp/B0GZCK98VG" target="_blank" class="btn btn-primary btn-mini book-btn">
+                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="book-info-box">
-                        <span class="book-tag tag-cybersecurity">AI & Safety</span>
-                        <h3>Guardian of the Digital Self</h3>
-                        <span class="book-author">by Teshan Ishara</span>
-                        <p class="book-subtitle">Protecting your children from the rise of AI deepfakes.</p>
-                    </div>
-                </div>
 
-                <!-- Book 2 -->
-                <div class="publications-card book-card glass-card">
-                    <div class="book-cover-wrap">
-                        <img src="assets/projects/book-sonic-playbook.jpg" alt="The Sonic Gold Playbook book cover"
-                            class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <a href="https://www.amazon.com/dp/B0GZWGZC5G" target="_blank"
-                                class="btn btn-outline book-buy-btn">
-                                <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                            </a>
+                        <!-- Book 2 -->
+                        <div class="book-card">
+                            <img src="assets/projects/book-sonic-playbook.jpg" alt="The Sonic Gold Playbook book cover" class="book-cover" loading="lazy">
+                            <div class="book-overlay">
+                                <h4>The Sonic Gold Playbook</h4>
+                                <p>AI Music</p>
+                                <a href="https://www.amazon.com/dp/B0GZWGZC5G" target="_blank" class="btn btn-primary btn-mini book-btn">
+                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="book-info-box">
-                        <span class="book-tag tag-audio">AI Music</span>
-                        <h3>The Sonic Gold Playbook</h3>
-                        <span class="book-author">by Teshan Ishara</span>
-                        <p class="book-subtitle">Build, engineer, and monetize your AI music brand.</p>
-                    </div>
-                </div>
 
-                <!-- Book 3 -->
-                <div class="publications-card book-card glass-card">
-                    <div class="book-cover-wrap">
-                        <img src="assets/projects/book-sonic-branding.jpg" alt="Suno AI for Sonic Branding book cover"
-                            class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <a href="https://www.amazon.com/dp/B0GYB7FL5P" target="_blank"
-                                class="btn btn-outline book-buy-btn">
-                                <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                            </a>
+                        <!-- Book 3 -->
+                        <div class="book-card">
+                            <img src="assets/projects/book-sonic-branding.jpg" alt="Suno AI for Sonic Branding book cover" class="book-cover" loading="lazy">
+                            <div class="book-overlay">
+                                <h4>Suno AI for Sonic Branding</h4>
+                                <p>Sonic Branding</p>
+                                <a href="https://www.amazon.com/dp/B0GYB7FL5P" target="_blank" class="btn btn-primary btn-mini book-btn">
+                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="book-info-box">
-                        <span class="book-tag tag-audio">Sonic Branding</span>
-                        <h3>Suno AI for Sonic Branding</h3>
-                        <span class="book-author">by Teshan Ishara</span>
-                        <p class="book-subtitle">Creator's guide to building custom intro themes.</p>
-                    </div>
-                </div>
 
-                <!-- Book 4 -->
-                <div class="publications-card book-card glass-card">
-                    <div class="book-cover-wrap">
-                        <img src="assets/projects/book-cinematic-suno.jpg" alt="The Cinematic Suno Bible book cover"
-                            class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <a href="https://www.amazon.com/dp/B0GYWMFQ3T" target="_blank"
-                                class="btn btn-outline book-buy-btn">
-                                <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                            </a>
+                        <!-- Book 4 -->
+                        <div class="book-card">
+                            <img src="assets/projects/book-cinematic-suno.jpg" alt="The Cinematic Suno Bible book cover" class="book-cover" loading="lazy">
+                            <div class="book-overlay">
+                                <h4>The Cinematic Suno Bible</h4>
+                                <p>Cinematic AI</p>
+                                <a href="https://www.amazon.com/dp/B0GYWMFQ3T" target="_blank" class="btn btn-primary btn-mini book-btn">
+                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="book-info-box">
-                        <span class="book-tag tag-audio">Cinematic AI</span>
-                        <h3>The Cinematic Suno Bible</h3>
-                        <span class="book-author">by Teshan Ishara</span>
-                        <p class="book-subtitle">101 pro-grade prompts for film, YouTube, and scoring.</p>
-                    </div>
-                </div>
 
-                <!-- Book 5 -->
-                <div class="publications-card book-card glass-card">
-                    <div class="book-cover-wrap">
-                        <img src="assets/projects/book-ai-recruitment.jpg" alt="AI for HR and Recruitment book cover"
-                            class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <a href="https://www.amazon.com/dp/B0GYQM1KM3" target="_blank"
-                                class="btn btn-outline book-buy-btn">
-                                <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                            </a>
+                        <!-- Book 5 -->
+                        <div class="book-card">
+                            <img src="assets/projects/book-ai-recruitment.jpg" alt="AI for HR and Recruitment book cover" class="book-cover" loading="lazy">
+                            <div class="book-overlay">
+                                <h4>AI for HR and Recruitment</h4>
+                                <p>HR Automation</p>
+                                <a href="https://www.amazon.com/dp/B0GYQM1KM3" target="_blank" class="btn btn-primary btn-mini book-btn">
+                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="book-info-box">
-                        <span class="book-tag tag-business">HR Automation</span>
-                        <h3>AI for HR and Recruitment</h3>
-                        <span class="book-author">by Teshan Ishara</span>
-                        <p class="book-subtitle">The 2026 talent acquisition automation playbook.</p>
-                    </div>
-                </div>
 
-                <!-- Book 6 -->
-                <div class="publications-card book-card glass-card">
-                    <div class="book-cover-wrap">
-                        <img src="assets/projects/book-gis-oceanography.jpg"
-                            alt="Advanced GIS for Oceanography book cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <a href="https://www.amazon.com/dp/B0GKJ13P6K" target="_blank"
-                                class="btn btn-outline book-buy-btn">
-                                <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                            </a>
+                        <!-- Book 6 -->
+                        <div class="book-card">
+                            <img src="assets/projects/book-gis-oceanography.jpg" alt="Advanced GIS for Oceanography book cover" class="book-cover" loading="lazy">
+                            <div class="book-overlay">
+                                <h4>Advanced GIS for Oceanography</h4>
+                                <p>GIS & Oceans</p>
+                                <a href="https://www.amazon.com/dp/B0GKJ13P6K" target="_blank" class="btn btn-primary btn-mini book-btn">
+                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="book-info-box">
-                        <span class="book-tag tag-science">GIS & Oceans</span>
-                        <h3>Advanced GIS for Oceanography</h3>
-                        <span class="book-author">by Teshan Ishara</span>
-                        <p class="book-subtitle">A professional textbook for marine spatial analysis.</p>
-                    </div>
-                </div>
 
-                <!-- Book 7 -->
-                <div class="publications-card book-card glass-card">
-                    <div class="book-cover-wrap">
-                        <img src="assets/projects/book-suno-bundle.jpg" alt="Suno AI Prompt Guide Bundle book cover"
-                            class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <a href="https://www.amazon.com/dp/B0GNJPC35J" target="_blank"
-                                class="btn btn-outline book-buy-btn">
-                                <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                            </a>
+                        <!-- Book 7 -->
+                        <div class="book-card">
+                            <img src="assets/projects/book-suno-bundle.jpg" alt="Suno AI Prompt Guide Bundle book cover" class="book-cover" loading="lazy">
+                            <div class="book-overlay">
+                                <h4>Suno AI Prompt Guide Bundle</h4>
+                                <p>Prompt Bundle</p>
+                                <a href="https://www.amazon.com/dp/B0GNJPC35J" target="_blank" class="btn btn-primary btn-mini book-btn">
+                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="book-info-box">
-                        <span class="book-tag tag-audio">Prompt Bundle</span>
-                        <h3>Suno AI Prompt Guide Bundle</h3>
-                        <span class="book-author">by Teshan Ishara</span>
-                        <p class="book-subtitle">250+ music prompts for AI song generation.</p>
-                    </div>
-                </div>
 
-                <!-- Book 8 -->
-                <div class="publications-card book-card glass-card">
-                    <div class="book-cover-wrap">
-                        <img src="assets/projects/book-midnight-vibes.jpg"
-                            alt="Midnight Thoughts & Lonely Vibes book cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <a href="https://www.amazon.com/dp/B0GX34WZCD" target="_blank"
-                                class="btn btn-outline book-buy-btn">
-                                <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                            </a>
+                        <!-- Book 8 -->
+                        <div class="book-card">
+                            <img src="assets/projects/book-midnight-vibes.jpg" alt="Midnight Thoughts & Lonely Vibes book cover" class="book-cover" loading="lazy">
+                            <div class="book-overlay">
+                                <h4>Midnight Thoughts & Lonely Vibes</h4>
+                                <p>Creative Prompts</p>
+                                <a href="https://www.amazon.com/dp/B0GX34WZCD" target="_blank" class="btn btn-primary btn-mini book-btn">
+                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="book-info-box">
-                        <span class="book-tag tag-creative">Creative Prompts</span>
-                        <h3>Midnight Thoughts & Lonely Vibes</h3>
-                        <span class="book-author">by Teshan Ishara</span>
-                        <p class="book-subtitle">50 emotional Suno prompts for sad & romantic music.</p>
-                    </div>
-                </div>
 
-                <!-- Book 9 -->
-                <div class="publications-card book-card glass-card">
-                    <div class="book-cover-wrap">
-                        <img src="assets/projects/book-billionaire-hustles.jpg"
-                            alt="250 Side Hustles for Wealth book cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <a href="https://www.amazon.com/dp/B0GX55398S" target="_blank"
-                                class="btn btn-outline book-buy-btn">
-                                <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                            </a>
+                        <!-- Book 9 -->
+                        <div class="book-card">
+                            <img src="assets/projects/book-billionaire-hustles.jpg" alt="250 Side Hustles for Wealth book cover" class="book-cover" loading="lazy">
+                            <div class="book-overlay">
+                                <h4>250 Side Hustles for Wealth</h4>
+                                <p>Side Hustles</p>
+                                <a href="https://www.amazon.com/dp/B0GX55398S" target="_blank" class="btn btn-primary btn-mini book-btn">
+                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="book-info-box">
-                        <span class="book-tag tag-finance">Side Hustles</span>
-                        <h3>250 Side Hustles for Wealth</h3>
-                        <span class="book-author">by Teshan Ishara</span>
-                        <p class="book-subtitle">Proven wealth strategies and passive income streams.</p>
-                    </div>
-                </div>
 
-                <!-- Book 10 -->
-                <div class="publications-card book-card glass-card">
-                    <div class="book-cover-wrap">
-                        <img src="assets/projects/book-meditation-yoga.jpg"
-                            alt="Suno Prompts for Meditation & Yoga book cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <a href="https://www.amazon.com/dp/B0GX2Y8972" target="_blank"
-                                class="btn btn-outline book-buy-btn">
-                                <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                            </a>
+                        <!-- Book 10 -->
+                        <div class="book-card">
+                            <img src="assets/projects/book-meditation-yoga.jpg" alt="Suno Prompts for Meditation & Yoga book cover" class="book-cover" loading="lazy">
+                            <div class="book-overlay">
+                                <h4>Suno for Meditation & Yoga</h4>
+                                <p>Wellness Audio</p>
+                                <a href="https://www.amazon.com/dp/B0GX2Y8972" target="_blank" class="btn btn-primary btn-mini book-btn">
+                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="book-info-box">
-                        <span class="book-tag tag-audio">Wellness Audio</span>
-                        <h3>Suno for Meditation & Yoga</h3>
-                        <span class="book-author">by Teshan Ishara</span>
-                        <p class="book-subtitle">200+ prompts for healing soundscapes and chakra frequencies.</p>
-                    </div>
-                </div>
 
-                <!-- Book 11 -->
-                <div class="publications-card book-card glass-card">
-                    <div class="book-cover-wrap">
-                        <img src="assets/projects/book-lofi-handbook.jpg"
-                            alt="The Lo-Fi & Chillwave Suno Handbook book cover" class="book-cover" loading="lazy">
-                        <div class="book-overlay">
-                            <a href="https://www.amazon.com/dp/B0GXX2S8PJ" target="_blank"
-                                class="btn btn-outline book-buy-btn">
-                                <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                            </a>
+                        <!-- Book 11 -->
+                        <div class="book-card">
+                            <img src="assets/projects/book-lofi-handbook.jpg" alt="The Lo-Fi & Chillwave Suno Handbook book cover" class="book-cover" loading="lazy">
+                            <div class="book-overlay">
+                                <h4>Lo-Fi & Chillwave Handbook</h4>
+                                <p>Passive Income</p>
+                                <a href="https://www.amazon.com/dp/B0GXX2S8PJ" target="_blank" class="btn btn-primary btn-mini book-btn">
+                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div class="book-info-box">
-                        <span class="book-tag tag-audio">Passive Income</span>
-                        <h3>Lo-Fi & Chillwave Handbook</h3>
-                        <span class="book-author">by Teshan Ishara</span>
-                        <p class="book-subtitle">Complete faceless YouTube passive income system.</p>
                     </div>
                 </div>
             </div>
@@ -1699,7 +1619,7 @@
 
     <!-- Custom JS -->
     <script src="course_data.js?v=1.7"></script>
-    <script src="script.js?v=1.7"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 
 </html>
