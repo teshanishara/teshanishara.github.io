@@ -913,9 +913,14 @@
 .book-card h4 {
     font-size: 0.9rem;
     margin-bottom: 0.2rem;
-    white-space: nowrap;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 1.2;
+    height: 2.4em;
 }
 
 .book-card p {
@@ -1048,31 +1053,187 @@
     padding: var(--space-16) 0;
 }
 
-.fiverr-card {
+/* Fiverr Section Grid Overhaul */
+.fiverr-container {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: var(--space-8);
+    grid-template-columns: 1fr 1.2fr;
+    gap: var(--space-12);
     align-items: center;
 }
 
-.fiverr-badge {
+.fiverr-badge-column {
+    display: flex;
+    justify-content: center;
+}
+
+.fiverr-card {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: var(--space-8);
+    width: 100%;
+    max-width: 420px;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    text-align: center;
+}
+
+.fiverr-header-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(29, 191, 115, 0.08);
+    border: 1px solid rgba(29, 191, 115, 0.2);
+    padding: 0.4rem 1.2rem;
+    border-radius: 30px;
+    align-self: center;
+}
+
+.fiverr-logo-text {
+    font-weight: 900;
     color: #1dbf73;
-    font-family: var(--font-heading);
-    font-size: 1.8rem;
-    font-weight: 800;
+    font-size: 1.2rem;
     letter-spacing: -0.05em;
-    margin-bottom: var(--space-2);
 }
 
-.fiverr-card h3 {
-    font-size: 2rem;
-    margin-bottom: var(--space-4);
+.fiverr-pro {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-primary);
 }
 
-.fiverr-card p {
+.fiverr-rating-box {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.fiverr-stars {
+    color: #ffb000;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+}
+
+.fiverr-score {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.fiverr-score span {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.fiverr-reviews-count {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.fiverr-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    background: #1dbf73;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0.75rem var(--space-6);
+    border-radius: 8px;
+    transition: var(--transition-spring);
+}
+
+.fiverr-btn:hover {
+    background: #19a362;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(29, 191, 115, 0.3);
+}
+
+.fiverr-text-column .section-header {
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.fiverr-text-column .section-header .accent-line {
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.fiverr-text-desc {
     font-size: 1.1rem;
     color: var(--text-secondary);
     margin-bottom: var(--space-6);
+}
+
+/* Payment Methods Icons Horizontal Flex */
+.payment-methods {
+    margin-top: var(--space-6);
+}
+
+.payment-methods h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-3);
+}
+
+.payment-icons {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+
+.payment-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: var(--space-2) var(--space-4);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    transition: var(--transition-fast);
+}
+
+.payment-badge:hover {
+    border-color: var(--accent-emerald);
+    color: var(--text-primary);
+    background: rgba(16, 185, 129, 0.04);
+}
+
+.payment-badge i {
+    color: var(--accent-emerald);
+    font-size: 1rem;
+}
+
+@media (max-width: 992px) {
+    .fiverr-container {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+    }
+    
+    .fiverr-text-column .section-header {
+        text-align: center;
+    }
+    
+    .fiverr-text-column .section-header .accent-line {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 .testimonials-section {
@@ -1131,35 +1292,32 @@
     padding: var(--space-16) 0;
 }
 
-.contact-layout {
+.contact-container {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
+    grid-template-columns: 0.9fr 1.15fr;
     gap: var(--space-12);
 }
 
-.contact-info {
+.contact-info-column {
     display: flex;
     flex-direction: column;
     gap: var(--space-6);
 }
 
-.contact-info h3 {
-    font-size: 1.8rem;
-}
-
-.contact-info-list {
+.contact-details {
     display: flex;
     flex-direction: column;
     gap: var(--space-4);
+    margin-top: var(--space-6);
 }
 
-.contact-info-item {
+.contact-item {
     display: flex;
     align-items: center;
     gap: var(--space-4);
 }
 
-.contact-info-item .info-icon {
+.contact-icon {
     width: 44px;
     height: 44px;
     border-radius: 50%;
@@ -1170,15 +1328,34 @@
     justify-content: center;
     color: var(--accent-emerald);
     font-size: 1.1rem;
+    flex-shrink: 0;
 }
 
-.contact-info-item a:hover {
+.contact-item h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.1rem;
+}
+
+.contact-item p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.contact-item a:hover {
     color: var(--accent-mint);
 }
 
 .contact-form {
     display: flex;
     flex-direction: column;
+    gap: var(--space-4);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: var(--space-4);
 }
 
@@ -1194,24 +1371,6 @@
     color: var(--text-secondary);
 }
 
-.form-input {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
-    padding: 0.75rem var(--space-4);
-    color: var(--text-primary);
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    transition: var(--transition-fast);
-}
-
-.form-input:focus {
-    outline: none;
-    border-color: var(--accent-emerald);
-    background: rgba(16, 185, 129, 0.02);
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.1);
-}
-
 .form-disclaimer {
     font-size: 0.75rem;
     color: var(--text-muted);
@@ -1221,8 +1380,109 @@
 }
 
 @media (max-width: 992px) {
-    .contact-layout {
+    .contact-container {
         grid-template-columns: 1fr;
         gap: var(--space-8);
+    }
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
+   FOOTER STYLING
+   ========================================================================== */
+.footer {
+    background: #05080e;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    padding: var(--space-12) 0 var(--space-6) 0;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: var(--space-8);
+    align-items: start;
+    margin-bottom: var(--space-8);
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.footer-brand p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    max-width: 320px;
+}
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.footer-links h4,
+.footer-badges h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: var(--space-3);
+}
+
+.footer-links a {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--accent-emerald);
+}
+
+.footer-badges {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.fiverr-mini-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(29, 191, 115, 0.06);
+    border: 1px solid rgba(29, 191, 115, 0.15);
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #1dbf73;
+    font-weight: 600;
+    width: fit-content;
+}
+
+.fiverr-mini-badge i {
+    color: #ffb000;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    padding-top: var(--space-6);
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
     }
 }
