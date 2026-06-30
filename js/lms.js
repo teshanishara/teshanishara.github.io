@@ -1004,12 +1004,24 @@ export function initLMS() {
                 const element = document.getElementById('certificate-print-sheet');
                 const studentName = (currentUser ? currentUser.name : 'student').replace(/\s+/g, '_');
                 
+                // Store original styles to restore after print
+                const originalWidth = element.style.width;
+                const originalHeight = element.style.height;
+                const originalMaxWidth = element.style.maxWidth;
+                const originalBoxShadow = element.style.boxShadow;
+                
+                // Set exactly A4 Landscape dimensions in pixels (297mm x 210mm at 96 DPI)
+                element.style.width = '1122px';
+                element.style.height = '794px';
+                element.style.maxWidth = '1122px';
+                element.style.boxShadow = 'none';
+                
                 const opt = {
                     margin:       0,
                     filename:     `GeoPhoenix_QGIS_Certificate_${studentName}.pdf`,
                     image:        { type: 'jpeg', quality: 0.98 },
                     html2canvas:  { 
-                        scale: 2.5,
+                        scale: 2.0,
                         useCORS: true,
                         logging: false,
                         scrollY: 0,
@@ -1023,10 +1035,22 @@ export function initLMS() {
                 btnPrintCertificate.disabled = true;
                 
                 html2pdf().set(opt).from(element).save().then(() => {
+                    // Restore original styles
+                    element.style.width = originalWidth;
+                    element.style.height = originalHeight;
+                    element.style.maxWidth = originalMaxWidth;
+                    element.style.boxShadow = originalBoxShadow;
+                    
                     btnPrintCertificate.innerHTML = originalText;
                     btnPrintCertificate.disabled = false;
                 }).catch(err => {
                     console.error("PDF download failed:", err);
+                    // Restore original styles
+                    element.style.width = originalWidth;
+                    element.style.height = originalHeight;
+                    element.style.maxWidth = originalMaxWidth;
+                    element.style.boxShadow = originalBoxShadow;
+                    
                     btnPrintCertificate.innerHTML = originalText;
                     btnPrintCertificate.disabled = false;
                     // Fallback to printing dialog
