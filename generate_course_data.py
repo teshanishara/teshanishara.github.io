@@ -644,7 +644,194 @@ modules = [
     }
 ]
 
-# Ensure we have 30 topics per module, duplicate/interpolate if not to reach exactly 30 topics per module (making exactly 150 slides)
+# Helper to generate beautiful styled visual widgets
+def get_visual_widget(slide_idx, original_visual):
+    # Videos
+    if slide_idx == 0:
+        return original_visual + '''
+<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <video controls style="width: 100%; display: block; background: #000;">
+        <source src="assets/videos/QGIS_Quick_Start_–_The_Geographic_Foundation.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
+        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> QGIS Quick Start & Foundation
+    </div>
+</div>
+'''
+    elif slide_idx == 9:
+        return original_visual + '''
+<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <video controls style="width: 100%; display: block; background: #000;">
+        <source src="assets/videos/QGIS_ආරම්භය_සහ_අතුරුමුහුණත.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
+        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> QGIS ආරම්භය සහ අතුරුමුහුණත (Interface Overview)
+    </div>
+</div>
+'''
+    elif slide_idx == 11:
+        return original_visual + '''
+<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <video controls style="width: 100%; display: block; background: #000;">
+        <source src="assets/videos/QGIS_දත්ත_ගවේෂක.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
+        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> QGIS දත්ත ගවේෂක (Data Explorer Guide)
+    </div>
+</div>
+'''
+    elif slide_idx == 12:
+        return original_visual + '''
+<div class="shortcut-widget" style="margin-top: 15px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 12px; border-radius: 8px;">
+    <span style="font-weight: 700; font-size: 0.85rem; color: var(--accent-emerald); display: block; margin-bottom: 8px;"><i class="fa-solid fa-keyboard"></i> QGIS Navigation Cheat Sheet</span>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.78rem; text-align: left;">
+        <div><kbd style="background: rgba(255,255,255,0.1); padding: 2px 5px; border-radius: 3px; font-family: monospace;">Ctrl + Shift + F</kbd> Zoom Full</div>
+        <div><kbd style="background: rgba(255,255,255,0.1); padding: 2px 5px; border-radius: 3px; font-family: monospace;">Spacebar</kbd> Toggle Pan Mode</div>
+        <div><kbd style="background: rgba(255,255,255,0.1); padding: 2px 5px; border-radius: 3px; font-family: monospace;">Middle Click + Drag</kbd> Pan canvas</div>
+        <div><kbd style="background: rgba(255,255,255,0.1); padding: 2px 5px; border-radius: 3px; font-family: monospace;">Ctrl + Shift + B</kbd> Show Browser</div>
+    </div>
+</div>
+'''
+    elif slide_idx == 14:
+        return original_visual + '''
+<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <video controls style="width: 100%; display: block; background: #000;">
+        <source src="assets/videos/QGIS_ව්_යාපෘති_කළමනාකරණය.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
+        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> QGIS ව්‍යාපෘති කළමනාකරණය (Project Management)
+    </div>
+</div>
+'''
+    elif slide_idx == 49:
+        return original_visual + '''
+<div class="table-widget" style="margin-top: 15px; overflow-x: auto;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 0.78rem; text-align: left; border: 1px solid rgba(255,255,255,0.06);">
+        <thead>
+            <tr style="background: rgba(16, 185, 129, 0.08); border-bottom: 1px solid rgba(16, 185, 129, 0.2);">
+                <th style="padding: 6px;">EPSG Code</th>
+                <th style="padding: 6px;">CRS Name</th>
+                <th style="padding: 6px;">Units</th>
+                <th style="padding: 6px;">Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 6px; font-weight:700; color: var(--accent-emerald);">4326</td>
+                <td style="padding: 6px;">WGS 84 Geographic</td>
+                <td style="padding: 6px;">Degrees</td>
+                <td style="padding: 6px;">GPS Standard</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 6px; font-weight:700; color: var(--accent-emerald);">3857</td>
+                <td style="padding: 6px;">WGS 84 / Web Mercator</td>
+                <td style="padding: 6px;">Meters</td>
+                <td style="padding: 6px;">Web Tiles (OSM)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                <td style="padding: 6px; font-weight:700; color: var(--accent-emerald);">32644</td>
+                <td style="padding: 6px;">UTM Zone 44N</td>
+                <td style="padding: 6px;">Meters</td>
+                <td style="padding: 6px;">Projected (Local)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+'''
+    elif slide_idx == 60:
+        return original_visual + '''
+<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <video controls style="width: 100%; display: block; background: #000;">
+        <source src="assets/videos/QGIS_සිතියම්_දෘශ්_යකරණය.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
+        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> QGIS සිතියම් දෘශ්‍යකරණය (Map Visualization & Symbology)
+    </div>
+</div>
+'''
+    elif slide_idx == 61:
+        return original_visual + '''
+<div class="palette-widget" style="margin-top: 15px; background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(255, 255, 255, 0.04); padding: 12px; border-radius: 8px; text-align: left;">
+    <span style="font-weight: 700; font-size: 0.85rem; color: var(--accent-emerald); display: block; margin-bottom: 8px;"><i class="fa-solid fa-palette"></i> Cartographic Symbology Types</span>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 80px; background: rgba(29, 191, 115, 0.1); border: 1px solid rgba(29, 191, 115, 0.2); padding: 6px; border-radius: 4px; font-size: 0.72rem; text-align: center;">
+            <strong>Single Symbol</strong><br>Uniform styling
+        </div>
+        <div style="flex: 1; min-width: 80px; background: rgba(0, 240, 255, 0.1); border: 1px solid rgba(0, 240, 255, 0.2); padding: 6px; border-radius: 4px; font-size: 0.72rem; text-align: center;">
+            <strong>Categorized</strong><br>Qualitative columns
+        </div>
+        <div style="flex: 1; min-width: 80px; background: rgba(255, 179, 0, 0.1); border: 1px solid rgba(255, 179, 0, 0.2); padding: 6px; border-radius: 4px; font-size: 0.72rem; text-align: center;">
+            <strong>Graduated</strong><br>Quantitative bins
+        </div>
+    </div>
+</div>
+'''
+    elif slide_idx == 90:
+        return original_visual + '''
+<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <video controls style="width: 100%; display: block; background: #000;">
+        <source src="assets/videos/QGIS_ප්_රකාශන_භාවිතය.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
+        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> QGIS ප්‍රකාශන භාවිතය (Attributes & Expressions)
+    </div>
+</div>
+'''
+    elif slide_idx == 92:
+        return original_visual + '''
+<div class="code-widget" style="margin-top: 15px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-left: 3px solid var(--accent-emerald); padding: 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; text-align: left;">
+    <span style="color: #888; display: block; margin-bottom: 4px; font-family: var(--font-body); font-size: 0.75rem;">Common Field Calculator Geometry Expressions:</span>
+    <code>$area / 10000</code> <span style="color: #666;">-- Area in Hectares</span><br>
+    <code>$length / 1000</code> <span style="color: #666;">-- Length in Kilometers</span><br>
+    <code>x($geometry)</code> <span style="color: #666;">-- Retrieve Point X Coordinate</span><br>
+    <code>num_points($geometry)</code> <span style="color: #666;">-- Count vertices in line/poly</span>
+</div>
+'''
+    elif slide_idx == 120:
+        return original_visual + '''
+<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <video controls style="width: 100%; display: block; background: #000;">
+        <source src="assets/videos/QGIS_සැකසුම්_සහ_වාර්තා.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
+        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> QGIS සැකසුම් සහ වාර්තා (Settings & Layout Composer)
+    </div>
+</div>
+'''
+    elif slide_idx == 123:
+        return original_visual + '''
+<div class="layout-widget" style="margin-top: 15px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; text-align: left;">
+    <span style="font-weight: 700; font-size: 0.85rem; color: var(--accent-emerald); display: block; margin-bottom: 6px;"><i class="fa-solid fa-map"></i> Mandatory Layout Elements</span>
+    <ul style="font-size: 0.76rem; margin: 0; padding-left: 15px; color: var(--text-secondary); line-height: 1.4;">
+        <li><strong>Map Frame:</strong> Dynamic view with scale constraints.</li>
+        <li><strong>Scalebar:</strong> Configured in metric units (meters/km).</li>
+        <li><strong>Legend:</strong> Clean title with custom vector layer filters.</li>
+        <li><strong>North Arrow:</strong> Align map rotation angle.</li>
+    </ul>
+</div>
+'''
+    elif slide_idx == 149:
+        return original_visual + '''
+<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <video controls style="width: 100%; display: block; background: #000;">
+        <source src="assets/videos/Phase_3__The_Advanced_QGIS_Data_Pipeline.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
+        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> Phase 3: The Advanced QGIS Data Pipeline
+    </div>
+</div>
+'''
+    return original_visual
+
+# Ensure we have 30 topics per module
 final_slides_en = []
 final_slides_si = []
 
@@ -654,12 +841,14 @@ for mod_idx, mod in enumerate(modules):
     mod_title_si = mod["title_si"]
     topics = mod["topics"]
     
-    # We have exactly 30 topics defined in each module above
     print(f"Module {mod_id}: {len(topics)} topics")
     
     for i, topic in enumerate(topics):
         title, text, si_text, visual = topic
         slide_idx = mod_idx * 30 + i
+        
+        # Inject widgets dynamically
+        rich_visual = get_visual_widget(slide_idx, visual)
         
         # Determine if download link is needed (Module 1 Slide 24, Module 2 Slide 60, Module 4 Slide 120)
         download_en = None
@@ -698,7 +887,7 @@ for mod_idx, mod in enumerate(modules):
             "moduleTitle": mod_title_en,
             "title": title,
             "text": text,
-            "visual": visual,
+            "visual": rich_visual,
             "download": download_en
         })
         
@@ -706,13 +895,14 @@ for mod_idx, mod in enumerate(modules):
         final_slides_si.append({
             "module": f"මොඩියුලය {mod_idx + 1}",
             "moduleTitle": mod_title_si,
-            "title": title.replace("Overview", "දළ විශ්ලේෂණය").replace("Introduction", "හඳුන්වාදීම"), # Simple title fallback or translation
+            "title": title.replace("Overview", "දළ විශ්ලේෂණය").replace("Introduction", "හඳුන්වාදීම"),
             "text": si_text,
-            "visual": visual, # code blocks and layouts remain technical
+            "visual": rich_visual,
             "download": download_si
         })
 
 print(f"Total English Slides: {len(final_slides_en)}")
+print(f"Total Sinhala Slides: {len(final_slides_si)}")
 print(f"Total Sinhala Slides: {len(final_slides_si)}")
 
 # Create the 40 Questions Database in English and Sinhala
@@ -858,11 +1048,21 @@ lms_course_data = {
         },
         "slides": final_slides_en,
         "flashcards": [
-            { "q": "What is the difference between Vector and Raster data?", "a": "Vector data uses coordinates (points, lines, polygons) to represent discrete objects with attributes. Raster data uses grid cells (pixels) to represent continuous values like elevation or temperature." },
-            { "q": "Why is a Coordinate Reference System (CRS) critical?", "a": "A CRS projects the Earth's 3D surface onto a 2D flat map. Choosing the wrong CRS leads to distorted shapes, incorrect distances, and invalid area calculations." },
-            { "q": "What EPSG code represents the global WGS 84 geographic CRS?", "a": "EPSG:4326 is the standard code for WGS 84 geographic coordinates, which uses degrees for latitude and longitude." },
-            { "q": "How do you calculate area in the Field Calculator?", "a": "Create a decimal field and write the geometry expression '$area'. If you need hectares, divide by 10,000 ('$area / 10000'). Make sure the layer CRS is projected." },
-            { "q": "Which tool in QGIS is used to export high-quality final maps?", "a": "The Print Layout (Project -> New Print Layout) is used to compose maps, legends, scale bars, and export them as PDFs or images." }
+            { "q": "What is the difference between Vector and Raster data?", "a": "Vector data uses coordinates (points, lines, polygons) to represent discrete objects. Raster data uses continuous grid cell pixels to represent fields like elevation or temperature." },
+            { "q": "Why is a Coordinate Reference System (CRS) critical in GIS?", "a": "A CRS projects the 3D Earth surface onto a 2D flat map. Selecting the wrong CRS leads to distorted map geometry, distance measurement errors, and incorrect area calculations." },
+            { "q": "What EPSG code represents the global GPS WGS 84 geographic CRS?", "a": "EPSG:4326 is the standard code representing WGS 84 geographic coordinates, using latitude and longitude in degrees." },
+            { "q": "How do you calculate area in hectares inside the Field Calculator?", "a": "Create a decimal column and write the expression '$area / 10000'. Ensure your layer is in a Projected CRS (e.g. UTM) so calculations are in meters." },
+            { "q": "Which QGIS tool is used to compose and export high-quality publication maps?", "a": "The Print Layout (Project -> New Print Layout) is used to compose maps, legends, scale bars, north arrows, and export them as PDFs or images at 300 DPI." },
+            { "q": "How do you resolve coordinate alignment mismatches in a project?", "a": "Go to Project Properties -> CRS, set a project-wide CRS, and let QGIS perform 'on-the-fly' projection. If spatial tools fail, use Vector General -> Reproject Layer." },
+            { "q": "What is a spatial database index and why is it used?", "a": "A spatial index (like R-Tree) indexes bounding boxes of geometries. It speeds up rendering, spatial intersection queries, and geoprocessing operations on large layers." },
+            { "q": "Explain the difference between Categorized and Graduated symbology styles.", "a": "Categorized styles color features by unique text names (zoning types). Graduated styles color features by splitting numeric ranges into classification bins (Jenks breaks)." },
+            { "q": "What is the difference between WMS and WFS web mapping connections?", "a": "WMS (Web Map Service) renders static images on a server and displays them as read-only tiles. WFS (Web Feature Service) downloads the actual vector geometries." },
+            { "q": "Why does a 100-meter buffer query output a massive circle covering the globe?", "a": "If your layer uses a geographic coordinate system (degrees, EPSG:4326), a buffer distance of 100 is computed as 100 degrees instead of 100 meters. Reproject to UTM." },
+            { "q": "What is the primary function of the QGIS Atlas engine?", "a": "Atlas automates map page generation. It iterates through a 'coverage layer' (like district polygons) and exports a custom map view page for each feature." },
+            { "q": "What is a Digital Elevation Model (DEM)?", "a": "A DEM is a raster grid where pixel values represent elevation above a vertical datum. QGIS can convert DEMs into contour lines, slope angles, or hillshades." },
+            { "q": "What is georeferencing and how is it performed?", "a": "Georeferencing aligns unreferenced images (scanned maps, aerial photos) to geographic space by placing Ground Control Points (GCPs) on matching real-world coordinates." },
+            { "q": "What are the core legacy limits of the ESRI Shapefile format?", "a": "Shapefiles require at least 3 companion files (.shp, .dbf, .shx), columns are capped at 10 characters, and file size cannot exceed 2 GB. GeoPackage is the modern replacement." },
+            { "q": "What do the libraries GDAL and OGR do in the QGIS architecture?", "a": "GDAL is the core engine for reading and writing raster files, while OGR is the library for translating vector formats. They enable multi-format support." }
         ],
         "quiz": quiz_en
     },
@@ -910,11 +1110,21 @@ lms_course_data = {
         },
         "slides": final_slides_si,
         "flashcards": [
-            { "q": "Vector සහ Raster දත්ත අතර වෙනස කුමක්ද?", "a": "Vector දත්ත ලක්ෂ්‍ය, රේඛා, බහුඅස්‍ර ලෙස දත්ත ගබඩා කරන අතර Raster දත්ත පික්සෙල් ජාල (පික්සෙල්) ලෙස අඛණ්ඩ අගයන් ගබඩා කරයි." },
+            { "q": "Vector සහ Raster දත්ත අතර වෙනස කුමක්ද?", "a": "Vector දත්ත ලක්ෂ්‍ය, රේඛා, බහුඅස්‍ර ලෙස දත්ත ගබඩා කරන අතර Raster දත්ත පික්සෙල් ජාල (pixels) ලෙස අඛණ්ඩ අගයන් ගබඩා කරයි." },
             { "q": "ඛණ්ඩාංක පද්ධතියක් (CRS) වැදගත් වන්නේ ඇයි?", "a": "ත්‍රිමාණ පෘථිවිය ද්විමාන තලයකට හැරවීමේදී සිදුවන හැඩය, දුර සහ වර්ගඵල විකෘති වීම් වළක්වා ගැනීමට නිවැරදි CRS පද්ධතියක් අවශ්‍ය වේ." },
             { "q": "WGS 84 භූගෝලීය CRS එක නියෝජනය කරන EPSG කේතය කුමක්ද?", "a": "EPSG:4326 යනු GPS සහ පොදු භූගෝලීය ඛණ්ඩාංක සඳහා භාවිත වන සම්මත EPSG කේතයයි." },
-            { "q": "Field Calculator මඟින් වර්ගඵලය හෙක්ටයාර වලින් සොයන්නේ කෙසේද?", "a": "decimal වර්ගයේ තීරුවක් සාදා <code>$area / 10000</code> යන සමීකරණය ලියන්න. ස්ථරය Projected CRS එකක තිබීම අනිවාර්ය වේ." },
-            { "q": "උසස් තත්ත්වයේ සිතියම් අපනයනය කිරීමට QGIS හි ඇති මෙවලම කුමක්ද?", "a": "Print Layout (Project -> New Print Layout) මෙවලම භාවිතයෙන් සිතියම්, පරිමාණ තීරු සහ සූචි සකසා අපනයනය කළ හැකිය." }
+            { "q": "Field Calculator මඟින් වර්ගඵලය හෙක්ටයාර වලින් සොයන්නේ කෙසේද?", "a": "decimal වර්ගයේ තීරුවක් සාදා '$area / 10000' යන සමීකරණය ලියන්න. ස්ථරය Projected CRS එකක තිබීම අනිවාර්ය වේ." },
+            { "q": "උසස් තත්ත්වයේ සිතියම් අපනයනය කිරීමට QGIS හි ඇති මෙවලම කුමක්ද?", "a": "Print Layout (Project -> New Print Layout) මෙවලම භාවිතයෙන් සිතියම්, පරිමාණ තීරු සහ සූචි සකසා අපනයනය කළ හැකිය." },
+            { "q": "ව්‍යාපෘතියක දත්ත ගැලපීම් ගැටලු නිරාකරණය කරන්නේ කෙසේද?", "a": "Project Properties -> CRS වෙත ගොස් ව්‍යාපෘතියට පොදු CRS එකක් සකසන්න. මෙවලම් ක්‍රියා නොකරන්නේ නම් Vector General -> Reproject Layer කරන්න." },
+            { "q": "Spatial index එකක් යනු කුමක්ද සහ එය භාවිත කරන්නේ ඇයි?", "a": "R-Tree වැනි අවකාශීය දර්ශක මඟින් ජ්‍යාමිතික සීමා සලකුණු කරයි. එමඟින් විශාල දත්ත ස්ථරවල සිතියම් ඇඳීම සහ විශ්ලේෂණයන් වේගවත් කරයි." },
+            { "q": "Categorized සහ Graduated සංකේත ක්‍රම අතර වෙනස පැහැදිලි කරන්න.", "a": "Categorized ක්‍රමයෙන් පෙළ දත්ත (නගර නාම) අනුව වර්ණ ගන්වන අතර Graduated ක්‍රමයෙන් සංඛ්‍යාත්මක දත්ත පන්තිවලට (Jenks breaks) බෙදා වර්ණ ගන්වයි." },
+            { "q": "WMS සහ WFS සේවාවන් අතර වෙනස කුමක්ද?", "a": "WMS මඟින් සිතියම් ස්ථිතික රූප (images) ලෙස ලබා දෙන අතර WFS මඟින් සිතියමේ සැබෑ දෛශික ඛණ්ඩාංක (vector geometries) බාගත කිරීමට ඉඩ සලසයි." },
+            { "q": "මීටර් 100 ක buffer කලාපයක් ඉතා විශාල රවුමක් ලෙස සිතියමේ ඇඳෙන්නේ ඇයි?", "a": "දත්ත ස්ථරය geographic CRS (EPSG:4326) පද්ධතියක තිබේ නම් buffer දුර මීටර් වෙනුවට අංශක (degrees) වලින් ගණනය වේ. එය Projected CRS වෙත Reproject කරන්න." },
+            { "q": "QGIS Atlas එන්ජිමේ ප්‍රධාන කාර්යය කුමක්ද?", "a": "Atlas මඟින් සිතියම් පිටු විශාල ප්‍රමාණයක් සකසයි. එය දිස්ත්‍රික් සීමා වැනි ස්ථරයක් භාවිතයෙන් එක් එක් සීමාව සඳහා සිතියම් පිටුව බැගින් අපනයනය කරයි." },
+            { "q": "Digital Elevation Model (DEM) එකක් යනු කුමක්ද?", "a": "DEM යනු පික්සෙල් අගයන් මඟින් භූමියේ උස නිරූපණය කරන රාස්ටර් දත්තයකි. QGIS මඟින් contours, slope සිතියම් සැකසීමට DEM භාවිත කරයි." },
+            { "q": "Georeferencing යනු කුමක්ද සහ එය කරන්නේ කෙසේද?", "a": "භූගෝලීය ඛණ්ඩාංක නොමැති සිතියම් හෝ ගුවන් ඡායාරූප සැබෑ ලෝකයේ පිහිටීම්වලට (GCPs) අනුකූලව සිතියම් තලය මත ක්‍රමාංකනය කිරීම මෙයින් සිදු වේ." },
+            { "q": "ESRI Shapefile ආකෘතියේ ඇති ප්‍රධාන සීමාවන් මොනවාද?", "a": "Shapefiles සඳහා අවම වශයෙන් ගොනු 3ක් (.shp, .dbf, .shx) අවශ්‍ය වන අතර, තීරු නාම අකුරු 10කට සීමා වේ. උපරිම ධාරිතාව 2 GB වේ." },
+            { "q": "GDAL සහ OGR පුස්තකාල මඟින් QGIS තුල සිදු කරන්නේ කුමක්ද?", "a": "GDAL යනු raster දත්ත කියවීමට සහ ලිවීමට භාවිත වන පුස්තකාලය වන අතර OGR මඟින් vector දත්ත කියවීම සහ පරිවර්තනය සිදු කරයි." }
         ],
         "quiz": quiz_si
     }

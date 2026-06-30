@@ -308,4 +308,52 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // 11. Amazon Books Slider Horizontal Arrow Navigation
+    const booksGrid = document.querySelector('.books-grid');
+    const btnPrevBooks = document.getElementById('btn-prev-books');
+    const btnNextBooks = document.getElementById('btn-next-books');
+
+    if (booksGrid && btnPrevBooks && btnNextBooks) {
+        const scrollAmount = 240; // card size + gap
+        
+        btnPrevBooks.addEventListener('click', () => {
+            booksGrid.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        btnNextBooks.addEventListener('click', () => {
+            booksGrid.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        });
+
+        const updateArrows = () => {
+            const isAtStart = booksGrid.scrollLeft <= 5;
+            const isScrollable = booksGrid.scrollWidth > booksGrid.clientWidth;
+            
+            if (!isScrollable) {
+                btnPrevBooks.style.display = 'none';
+                btnNextBooks.style.display = 'none';
+            } else {
+                btnPrevBooks.style.display = 'flex';
+                btnNextBooks.style.display = 'flex';
+                
+                btnPrevBooks.style.opacity = isAtStart ? '0.2' : '1';
+                btnPrevBooks.style.pointerEvents = isAtStart ? 'none' : 'auto';
+                
+                const isAtMax = Math.abs(booksGrid.scrollWidth - booksGrid.clientWidth - booksGrid.scrollLeft) < 5;
+                btnNextBooks.style.opacity = isAtMax ? '0.2' : '1';
+                btnNextBooks.style.pointerEvents = isAtMax ? 'none' : 'auto';
+            }
+        };
+
+        booksGrid.addEventListener('scroll', updateArrows);
+        window.addEventListener('resize', updateArrows);
+        
+        setTimeout(updateArrows, 600);
+    }
 });

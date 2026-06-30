@@ -16,7 +16,7 @@ window.lmsCourseData = {
                 "moduleTitle": "Introduction to QGIS & GIS Basics",
                 "title": "Course Overview & Learning Objectives",
                 "text": "Welcome to QGIS Fundamentals. This course is designed to take you from a complete beginner to a confident GIS user. Over 5 comprehensive modules, you will master spatial data models, coordinate reference systems, symbology styling, spatial analysis, attribute queries, and professional map layout designs.",
-                "visual": "**Learning Paths:**<br>• Module 1-2: Interface & Projections<br>• Module 3-4: Cartography & Queries<br>• Module 5: Cartographic Output",
+                "visual": "**Learning Paths:**<br>• Module 1-2: Interface & Projections<br>• Module 3-4: Cartography & Queries<br>• Module 5: Cartographic Output\n<div class=\"video-container\" style=\"margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);\">\n    <video controls style=\"width: 100%; display: block; background: #000;\">\n        <source src=\"assets/videos/QGIS_Quick_Start_–_The_Geographic_Foundation.mp4\" type=\"video/mp4\">\n        Your browser does not support the video tag.\n    </video>\n    <div style=\"background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;\">\n        <i class=\"fa-solid fa-circle-play\" style=\"color: var(--accent-emerald);\"></i> <strong>Video Lesson:</strong> QGIS Quick Start & Foundation\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -88,7 +88,7 @@ window.lmsCourseData = {
                 "moduleTitle": "Introduction to QGIS & GIS Basics",
                 "title": "The User Interface Layout Overview",
                 "text": "When you open QGIS, the graphical user interface is clean but highly feature-rich. It contains a Menu Bar (top), Toolbars (below menu), Panels (left/right sidebars), Map Canvas (centerpiece rendering area), and Status Bar (bottom). Customizing this layout improves spatial drafting speed.",
-                "visual": "**Workspace Control:**<br>• View -> Panels (Toggle panels visibility)<br>• View -> Toolbars (Toggle toolbar items)<br>• Right-click empty grey space on menus to toggle widgets",
+                "visual": "**Workspace Control:**<br>• View -> Panels (Toggle panels visibility)<br>• View -> Toolbars (Toggle toolbar items)<br>• Right-click empty grey space on menus to toggle widgets\n<div class=\"video-container\" style=\"margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);\">\n    <video controls style=\"width: 100%; display: block; background: #000;\">\n        <source src=\"assets/videos/QGIS_ආරම්භය_සහ_අතුරුමුහුණත.mp4\" type=\"video/mp4\">\n        Your browser does not support the video tag.\n    </video>\n    <div style=\"background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;\">\n        <i class=\"fa-solid fa-circle-play\" style=\"color: var(--accent-emerald);\"></i> <strong>Video Lesson:</strong> QGIS ආරම්භය සහ අතුරුමුහුණත (Interface Overview)\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -104,7 +104,7 @@ window.lmsCourseData = {
                 "moduleTitle": "Introduction to QGIS & GIS Basics",
                 "title": "Managing Panels: The Browser Panel",
                 "text": "The Browser Panel operates as QGIS's built-in file explorer. It lets you navigate local directories, network drives, project directories, database connections (PostGIS, SpatiaLite, Spatialite), and web services (WMS, WFS, XYZ tiles) without leaving the interface. You can drag files directly from here onto the map.",
-                "visual": "**Browser Features:**<br>• Drag-and-drop loading<br>• Manage database schemas<br>• Store Favorite folders for quick access",
+                "visual": "**Browser Features:**<br>• Drag-and-drop loading<br>• Manage database schemas<br>• Store Favorite folders for quick access\n<div class=\"video-container\" style=\"margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);\">\n    <video controls style=\"width: 100%; display: block; background: #000;\">\n        <source src=\"assets/videos/QGIS_දත්ත_ගවේෂක.mp4\" type=\"video/mp4\">\n        Your browser does not support the video tag.\n    </video>\n    <div style=\"background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;\">\n        <i class=\"fa-solid fa-circle-play\" style=\"color: var(--accent-emerald);\"></i> <strong>Video Lesson:</strong> QGIS දත්ත ගවේෂක (Data Explorer Guide)\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -112,7 +112,7 @@ window.lmsCourseData = {
                 "moduleTitle": "Introduction to QGIS & GIS Basics",
                 "title": "Toolbars & Navigation Controls",
                 "text": "Toolbars provide one-click buttons for common actions. The Map Navigation Toolbar holds buttons for Zoom In, Zoom Out, Pan, Zoom Full Extent, and Zoom to Selection. Utilizing mouse scroll wheel zooming combined with middle-mouse button panning is the standard way to navigate spatial datasets.",
-                "visual": "**Navigation Shortcuts:**<br>• Scroll Wheel: Zoom In / Out<br>• Hold Wheel/Middle Button: Pan map canvas<br>• `Ctrl + Shift + F`: Zoom to full extent",
+                "visual": "**Navigation Shortcuts:**<br>• Scroll Wheel: Zoom In / Out<br>• Hold Wheel/Middle Button: Pan map canvas<br>• `Ctrl + Shift + F`: Zoom to full extent\n<div class=\"shortcut-widget\" style=\"margin-top: 15px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 12px; border-radius: 8px;\">\n    <span style=\"font-weight: 700; font-size: 0.85rem; color: var(--accent-emerald); display: block; margin-bottom: 8px;\"><i class=\"fa-solid fa-keyboard\"></i> QGIS Navigation Cheat Sheet</span>\n    <div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.78rem; text-align: left;\">\n        <div><kbd style=\"background: rgba(255,255,255,0.1); padding: 2px 5px; border-radius: 3px; font-family: monospace;\">Ctrl + Shift + F</kbd> Zoom Full</div>\n        <div><kbd style=\"background: rgba(255,255,255,0.1); padding: 2px 5px; border-radius: 3px; font-family: monospace;\">Spacebar</kbd> Toggle Pan Mode</div>\n        <div><kbd style=\"background: rgba(255,255,255,0.1); padding: 2px 5px; border-radius: 3px; font-family: monospace;\">Middle Click + Drag</kbd> Pan canvas</div>\n        <div><kbd style=\"background: rgba(255,255,255,0.1); padding: 2px 5px; border-radius: 3px; font-family: monospace;\">Ctrl + Shift + B</kbd> Show Browser</div>\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -128,7 +128,7 @@ window.lmsCourseData = {
                 "moduleTitle": "Introduction to QGIS & GIS Basics",
                 "title": "Setting Up Project Properties",
                 "text": "Every QGIS project is saved as a `.qgs` (XML) or `.qgz` (zipped XML + auxiliary data) file. Project properties can be configured under Project -> Properties. Here, you configure general metadata, background color, default CRS, project title, and coordinate display coordinates.",
-                "visual": "**Project Properties Tabs:**<br>• General (Title, colors)<br>• Metadata (Author, organization)<br>• CRS (Project-wide map coordinate projection)",
+                "visual": "**Project Properties Tabs:**<br>• General (Title, colors)<br>• Metadata (Author, organization)<br>• CRS (Project-wide map coordinate projection)\n<div class=\"video-container\" style=\"margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);\">\n    <video controls style=\"width: 100%; display: block; background: #000;\">\n        <source src=\"assets/videos/QGIS_ව්_යාපෘති_කළමනාකරණය.mp4\" type=\"video/mp4\">\n        Your browser does not support the video tag.\n    </video>\n    <div style=\"background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;\">\n        <i class=\"fa-solid fa-circle-play\" style=\"color: var(--accent-emerald);\"></i> <strong>Video Lesson:</strong> QGIS ව්‍යාපෘති කළමනාකරණය (Project Management)\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -411,7 +411,7 @@ window.lmsCourseData = {
                 "moduleTitle": "Spatial Data Sources, Formats & CRS",
                 "title": "Sri Lankan Local Projections",
                 "text": "Sri Lanka uses specific local projections: the historical Kandawala datum (EPSG:5223 or local grid system in yards/meters) and the modern Sri Lanka Datum 1999 (SLD99, EPSG:5224 Transverse Mercator). Using these local coordinate systems is critical for high-precision national mapping projects.",
-                "visual": "**EPSG Codes for Sri Lanka:**<br>• SLD99 / Sri Lanka Grid (EPSG:5224)<br>• Kandawala / Sri Lanka Grid (EPSG:5223)",
+                "visual": "**EPSG Codes for Sri Lanka:**<br>• SLD99 / Sri Lanka Grid (EPSG:5224)<br>• Kandawala / Sri Lanka Grid (EPSG:5223)\n<div class=\"table-widget\" style=\"margin-top: 15px; overflow-x: auto;\">\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 0.78rem; text-align: left; border: 1px solid rgba(255,255,255,0.06);\">\n        <thead>\n            <tr style=\"background: rgba(16, 185, 129, 0.08); border-bottom: 1px solid rgba(16, 185, 129, 0.2);\">\n                <th style=\"padding: 6px;\">EPSG Code</th>\n                <th style=\"padding: 6px;\">CRS Name</th>\n                <th style=\"padding: 6px;\">Units</th>\n                <th style=\"padding: 6px;\">Type</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr style=\"border-bottom: 1px solid rgba(255,255,255,0.03);\">\n                <td style=\"padding: 6px; font-weight:700; color: var(--accent-emerald);\">4326</td>\n                <td style=\"padding: 6px;\">WGS 84 Geographic</td>\n                <td style=\"padding: 6px;\">Degrees</td>\n                <td style=\"padding: 6px;\">GPS Standard</td>\n            </tr>\n            <tr style=\"border-bottom: 1px solid rgba(255,255,255,0.03);\">\n                <td style=\"padding: 6px; font-weight:700; color: var(--accent-emerald);\">3857</td>\n                <td style=\"padding: 6px;\">WGS 84 / Web Mercator</td>\n                <td style=\"padding: 6px;\">Meters</td>\n                <td style=\"padding: 6px;\">Web Tiles (OSM)</td>\n            </tr>\n            <tr style=\"border-bottom: 1px solid rgba(255,255,255,0.03);\">\n                <td style=\"padding: 6px; font-weight:700; color: var(--accent-emerald);\">32644</td>\n                <td style=\"padding: 6px;\">UTM Zone 44N</td>\n                <td style=\"padding: 6px;\">Meters</td>\n                <td style=\"padding: 6px;\">Projected (Local)</td>\n            </tr>\n        </tbody>\n    </table>\n</div>\n",
                 "download": null
             },
             {
@@ -502,7 +502,7 @@ window.lmsCourseData = {
                 "moduleTitle": "Map Visualization, Cartography & Styling",
                 "title": "Introduction to Module 3",
                 "text": "Map design is both science and art. In this module, you will learn how to apply cartographic design rules, manage qualitative and quantitative symbols, render continuous elevation models, and format readable dynamic map labels.",
-                "visual": "**Key topics:**<br>• Symbology classification<br>• Raster rendering (DEMs)<br>• Map labeling engine",
+                "visual": "**Key topics:**<br>• Symbology classification<br>• Raster rendering (DEMs)<br>• Map labeling engine\n<div class=\"video-container\" style=\"margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);\">\n    <video controls style=\"width: 100%; display: block; background: #000;\">\n        <source src=\"assets/videos/QGIS_සිතියම්_දෘශ්_යකරණය.mp4\" type=\"video/mp4\">\n        Your browser does not support the video tag.\n    </video>\n    <div style=\"background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;\">\n        <i class=\"fa-solid fa-circle-play\" style=\"color: var(--accent-emerald);\"></i> <strong>Video Lesson:</strong> QGIS සිතියම් දෘශ්‍යකරණය (Map Visualization & Symbology)\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -510,7 +510,7 @@ window.lmsCourseData = {
                 "moduleTitle": "Map Visualization, Cartography & Styling",
                 "title": "Principles of Cartographic Design",
                 "text": "Effective cartography ensures that the reader understands the map's theme immediately. You must maintain clear visual hierarchy (most important layers stand out), appropriate color contrast, legible typography, and avoid map clutter by filtering unnecessary details.",
-                "visual": "**Cartographic Design Rules:**<br>• Visual Hierarchy: High-priority data stands out<br>• Simplicity: Avoid background clutter<br>• Color Harmony: Match colors to thematic meanings (e.g. blue for water)",
+                "visual": "**Cartographic Design Rules:**<br>• Visual Hierarchy: High-priority data stands out<br>• Simplicity: Avoid background clutter<br>• Color Harmony: Match colors to thematic meanings (e.g. blue for water)\n<div class=\"palette-widget\" style=\"margin-top: 15px; background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(255, 255, 255, 0.04); padding: 12px; border-radius: 8px; text-align: left;\">\n    <span style=\"font-weight: 700; font-size: 0.85rem; color: var(--accent-emerald); display: block; margin-bottom: 8px;\"><i class=\"fa-solid fa-palette\"></i> Cartographic Symbology Types</span>\n    <div style=\"display: flex; gap: 8px; flex-wrap: wrap;\">\n        <div style=\"flex: 1; min-width: 80px; background: rgba(29, 191, 115, 0.1); border: 1px solid rgba(29, 191, 115, 0.2); padding: 6px; border-radius: 4px; font-size: 0.72rem; text-align: center;\">\n            <strong>Single Symbol</strong><br>Uniform styling\n        </div>\n        <div style=\"flex: 1; min-width: 80px; background: rgba(0, 240, 255, 0.1); border: 1px solid rgba(0, 240, 255, 0.2); padding: 6px; border-radius: 4px; font-size: 0.72rem; text-align: center;\">\n            <strong>Categorized</strong><br>Qualitative columns\n        </div>\n        <div style=\"flex: 1; min-width: 80px; background: rgba(255, 179, 0, 0.1); border: 1px solid rgba(255, 179, 0, 0.2); padding: 6px; border-radius: 4px; font-size: 0.72rem; text-align: center;\">\n            <strong>Graduated</strong><br>Quantitative bins\n        </div>\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -742,7 +742,7 @@ window.lmsCourseData = {
                 "moduleTitle": "Attribute Tables, Expressions & Spatial Queries",
                 "title": "Introduction to Module 4",
                 "text": "GIS is database-driven. In this module, you will learn to manage attribute tables, run mathematical expressions, perform spatial calculations, link tables, execute geoprocessing tasks, and build automated spatial workflows.",
-                "visual": "**Key elements:**<br>• Field Calculator formulas<br>• Geoprocessing overlay tools<br>• Table joins",
+                "visual": "**Key elements:**<br>• Field Calculator formulas<br>• Geoprocessing overlay tools<br>• Table joins\n<div class=\"video-container\" style=\"margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);\">\n    <video controls style=\"width: 100%; display: block; background: #000;\">\n        <source src=\"assets/videos/QGIS_ප්_රකාශන_භාවිතය.mp4\" type=\"video/mp4\">\n        Your browser does not support the video tag.\n    </video>\n    <div style=\"background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;\">\n        <i class=\"fa-solid fa-circle-play\" style=\"color: var(--accent-emerald);\"></i> <strong>Video Lesson:</strong> QGIS ප්‍රකාශන භාවිතය (Attributes & Expressions)\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -758,7 +758,7 @@ window.lmsCourseData = {
                 "moduleTitle": "Attribute Tables, Expressions & Spatial Queries",
                 "title": "Selecting Features on Map Canvas",
                 "text": "Selecting isolates data. QGIS provides: Selection by Rectangle (drag on screen), Selection by Polygon, Selection by Value (popup form matching), and Selection by Expression (building complex mathematical logic queries). Selected features turn yellow.",
-                "visual": "**Selection Rules:**<br>• Select by Value: Match exact column values<br>• Clear Selection button on attributes toolbar restores default display state",
+                "visual": "**Selection Rules:**<br>• Select by Value: Match exact column values<br>• Clear Selection button on attributes toolbar restores default display state\n<div class=\"code-widget\" style=\"margin-top: 15px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-left: 3px solid var(--accent-emerald); padding: 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; text-align: left;\">\n    <span style=\"color: #888; display: block; margin-bottom: 4px; font-family: var(--font-body); font-size: 0.75rem;\">Common Field Calculator Geometry Expressions:</span>\n    <code>$area / 10000</code> <span style=\"color: #666;\">-- Area in Hectares</span><br>\n    <code>$length / 1000</code> <span style=\"color: #666;\">-- Length in Kilometers</span><br>\n    <code>x($geometry)</code> <span style=\"color: #666;\">-- Retrieve Point X Coordinate</span><br>\n    <code>num_points($geometry)</code> <span style=\"color: #666;\">-- Count vertices in line/poly</span>\n</div>\n",
                 "download": null
             },
             {
@@ -985,7 +985,7 @@ window.lmsCourseData = {
                 "moduleTitle": "Designing Print Layouts & Map Exporting",
                 "title": "Introduction to Module 5",
                 "text": "A map is only as good as its final layout. In this module, you will master the QGIS Print Layout composer. You will learn to add maps, legends, dynamic scale bars, north arrows, coordinates grids, and build automated map series templates.",
-                "visual": "**Key metrics:**<br>• Map item layout properties<br>• Coordinates grid overlays<br>• QGIS Atlas mapbook serializing",
+                "visual": "**Key metrics:**<br>• Map item layout properties<br>• Coordinates grid overlays<br>• QGIS Atlas mapbook serializing\n<div class=\"video-container\" style=\"margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);\">\n    <video controls style=\"width: 100%; display: block; background: #000;\">\n        <source src=\"assets/videos/QGIS_සැකසුම්_සහ_වාර්තා.mp4\" type=\"video/mp4\">\n        Your browser does not support the video tag.\n    </video>\n    <div style=\"background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;\">\n        <i class=\"fa-solid fa-circle-play\" style=\"color: var(--accent-emerald);\"></i> <strong>Video Lesson:</strong> QGIS සැකසුම් සහ වාර්තා (Settings & Layout Composer)\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -1009,7 +1009,7 @@ window.lmsCourseData = {
                 "moduleTitle": "Designing Print Layouts & Map Exporting",
                 "title": "Adding the Main Map Item",
                 "text": "To place the QGIS map onto the page, click the 'Add Map' button on the layout toolbar. Click and drag a rectangular bounding box on the layout canvas. QGIS renders your active desktop layers within this item border.",
-                "visual": "**Map Item Parameters:**<br>• Set map scale (e.g. 10000)<br>• Click 'Update Preview' to redraw layers canvas in layout",
+                "visual": "**Map Item Parameters:**<br>• Set map scale (e.g. 10000)<br>• Click 'Update Preview' to redraw layers canvas in layout\n<div class=\"layout-widget\" style=\"margin-top: 15px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; text-align: left;\">\n    <span style=\"font-weight: 700; font-size: 0.85rem; color: var(--accent-emerald); display: block; margin-bottom: 6px;\"><i class=\"fa-solid fa-map\"></i> Mandatory Layout Elements</span>\n    <ul style=\"font-size: 0.76rem; margin: 0; padding-left: 15px; color: var(--text-secondary); line-height: 1.4;\">\n        <li><strong>Map Frame:</strong> Dynamic view with scale constraints.</li>\n        <li><strong>Scalebar:</strong> Configured in metric units (meters/km).</li>\n        <li><strong>Legend:</strong> Clean title with custom vector layer filters.</li>\n        <li><strong>North Arrow:</strong> Align map rotation angle.</li>\n    </ul>\n</div>\n",
                 "download": null
             },
             {
@@ -1217,30 +1217,70 @@ window.lmsCourseData = {
                 "moduleTitle": "Designing Print Layouts & Map Exporting",
                 "title": "Course Review & Examination Guide",
                 "text": "Congratulations! You have completed all 150 slides. In this final step, review all modules' concepts: Coordinate projections, data classifications, SQL selections, geometry expressions, layout grids, and cartographic design principles before starting the exam.",
-                "visual": "**Exam Checklist:**<br>• 40 Multiple choice questions<br>• 70% passing threshold<br>• Map assignment upload required for certificate",
+                "visual": "**Exam Checklist:**<br>• 40 Multiple choice questions<br>• 70% passing threshold<br>• Map assignment upload required for certificate\n<div class=\"video-container\" style=\"margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);\">\n    <video controls style=\"width: 100%; display: block; background: #000;\">\n        <source src=\"assets/videos/Phase_3__The_Advanced_QGIS_Data_Pipeline.mp4\" type=\"video/mp4\">\n        Your browser does not support the video tag.\n    </video>\n    <div style=\"background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;\">\n        <i class=\"fa-solid fa-circle-play\" style=\"color: var(--accent-emerald);\"></i> <strong>Video Lesson:</strong> Phase 3: The Advanced QGIS Data Pipeline\n    </div>\n</div>\n",
                 "download": null
             }
         ],
         "flashcards": [
             {
                 "q": "What is the difference between Vector and Raster data?",
-                "a": "Vector data uses coordinates (points, lines, polygons) to represent discrete objects with attributes. Raster data uses grid cells (pixels) to represent continuous values like elevation or temperature."
+                "a": "Vector data uses coordinates (points, lines, polygons) to represent discrete objects. Raster data uses continuous grid cell pixels to represent fields like elevation or temperature."
             },
             {
-                "q": "Why is a Coordinate Reference System (CRS) critical?",
-                "a": "A CRS projects the Earth's 3D surface onto a 2D flat map. Choosing the wrong CRS leads to distorted shapes, incorrect distances, and invalid area calculations."
+                "q": "Why is a Coordinate Reference System (CRS) critical in GIS?",
+                "a": "A CRS projects the 3D Earth surface onto a 2D flat map. Selecting the wrong CRS leads to distorted map geometry, distance measurement errors, and incorrect area calculations."
             },
             {
-                "q": "What EPSG code represents the global WGS 84 geographic CRS?",
-                "a": "EPSG:4326 is the standard code for WGS 84 geographic coordinates, which uses degrees for latitude and longitude."
+                "q": "What EPSG code represents the global GPS WGS 84 geographic CRS?",
+                "a": "EPSG:4326 is the standard code representing WGS 84 geographic coordinates, using latitude and longitude in degrees."
             },
             {
-                "q": "How do you calculate area in the Field Calculator?",
-                "a": "Create a decimal field and write the geometry expression '$area'. If you need hectares, divide by 10,000 ('$area / 10000'). Make sure the layer CRS is projected."
+                "q": "How do you calculate area in hectares inside the Field Calculator?",
+                "a": "Create a decimal column and write the expression '$area / 10000'. Ensure your layer is in a Projected CRS (e.g. UTM) so calculations are in meters."
             },
             {
-                "q": "Which tool in QGIS is used to export high-quality final maps?",
-                "a": "The Print Layout (Project -> New Print Layout) is used to compose maps, legends, scale bars, and export them as PDFs or images."
+                "q": "Which QGIS tool is used to compose and export high-quality publication maps?",
+                "a": "The Print Layout (Project -> New Print Layout) is used to compose maps, legends, scale bars, north arrows, and export them as PDFs or images at 300 DPI."
+            },
+            {
+                "q": "How do you resolve coordinate alignment mismatches in a project?",
+                "a": "Go to Project Properties -> CRS, set a project-wide CRS, and let QGIS perform 'on-the-fly' projection. If spatial tools fail, use Vector General -> Reproject Layer."
+            },
+            {
+                "q": "What is a spatial database index and why is it used?",
+                "a": "A spatial index (like R-Tree) indexes bounding boxes of geometries. It speeds up rendering, spatial intersection queries, and geoprocessing operations on large layers."
+            },
+            {
+                "q": "Explain the difference between Categorized and Graduated symbology styles.",
+                "a": "Categorized styles color features by unique text names (zoning types). Graduated styles color features by splitting numeric ranges into classification bins (Jenks breaks)."
+            },
+            {
+                "q": "What is the difference between WMS and WFS web mapping connections?",
+                "a": "WMS (Web Map Service) renders static images on a server and displays them as read-only tiles. WFS (Web Feature Service) downloads the actual vector geometries."
+            },
+            {
+                "q": "Why does a 100-meter buffer query output a massive circle covering the globe?",
+                "a": "If your layer uses a geographic coordinate system (degrees, EPSG:4326), a buffer distance of 100 is computed as 100 degrees instead of 100 meters. Reproject to UTM."
+            },
+            {
+                "q": "What is the primary function of the QGIS Atlas engine?",
+                "a": "Atlas automates map page generation. It iterates through a 'coverage layer' (like district polygons) and exports a custom map view page for each feature."
+            },
+            {
+                "q": "What is a Digital Elevation Model (DEM)?",
+                "a": "A DEM is a raster grid where pixel values represent elevation above a vertical datum. QGIS can convert DEMs into contour lines, slope angles, or hillshades."
+            },
+            {
+                "q": "What is georeferencing and how is it performed?",
+                "a": "Georeferencing aligns unreferenced images (scanned maps, aerial photos) to geographic space by placing Ground Control Points (GCPs) on matching real-world coordinates."
+            },
+            {
+                "q": "What are the core legacy limits of the ESRI Shapefile format?",
+                "a": "Shapefiles require at least 3 companion files (.shp, .dbf, .shx), columns are capped at 10 characters, and file size cannot exceed 2 GB. GeoPackage is the modern replacement."
+            },
+            {
+                "q": "What do the libraries GDAL and OGR do in the QGIS architecture?",
+                "a": "GDAL is the core engine for reading and writing raster files, while OGR is the library for translating vector formats. They enable multi-format support."
             }
         ],
         "quiz": [
@@ -1663,7 +1703,7 @@ window.lmsCourseData = {
                 "moduleTitle": "QGIS හඳුන්වාදීම සහ GIS මූලික කරුණු",
                 "title": "Course දළ විශ්ලේෂණය & Learning Objectives",
                 "text": "මෘදුකාංගය පිළිබඳ දළ විශ්ලේෂණයක් සහ පාඨමාලා අරමුණු. මෙම පාඨමාලාව සැලසුම් කර ඇත්තේ ආරම්භකයකුගේ සිට විශ්වාසදායක GIS පරිශීලකයෙකු දක්වා ඔබව රැගෙන යාමටයි. මෙහිදී ඛණ්ඩාංක පද්ධති, සිතියම් වර්ණ ගැන්වීම, අවකාශීය විශ්ලේෂණය සහ මුද්‍රණ සැලසුම් ඔබ ප්‍රගුණ කරනු ඇත.",
-                "visual": "**Learning Paths:**<br>• Module 1-2: Interface & Projections<br>• Module 3-4: Cartography & Queries<br>• Module 5: Cartographic Output",
+                "visual": "**Learning Paths:**<br>• Module 1-2: Interface & Projections<br>• Module 3-4: Cartography & Queries<br>• Module 5: Cartographic Output\n<div class=\"video-container\" style=\"margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);\">\n    <video controls style=\"width: 100%; display: block; background: #000;\">\n        <source src=\"assets/videos/QGIS_Quick_Start_–_The_Geographic_Foundation.mp4\" type=\"video/mp4\">\n        Your browser does not support the video tag.\n    </video>\n    <div style=\"background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;\">\n        <i class=\"fa-solid fa-circle-play\" style=\"color: var(--accent-emerald);\"></i> <strong>Video Lesson:</strong> QGIS Quick Start & Foundation\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -1735,7 +1775,7 @@ window.lmsCourseData = {
                 "moduleTitle": "QGIS හඳුන්වාදීම සහ GIS මූලික කරුණු",
                 "title": "The User Interface Layout දළ විශ්ලේෂණය",
                 "text": "පරිශීලක අතුරු මුහුණතේ දළ විශ්ලේෂණය. QGIS විවෘත කළ විට ඉහළින් මෙනු තීරුවද, මෙවලම් තීරුද, දෙපසින් පැනලද, මැදින් සිතියම් තලයද පහළින් තත්ත්ව තීරුවද දැකිය හැකිය.",
-                "visual": "**Workspace Control:**<br>• View -> Panels (Toggle panels visibility)<br>• View -> Toolbars (Toggle toolbar items)<br>• Right-click empty grey space on menus to toggle widgets",
+                "visual": "**Workspace Control:**<br>• View -> Panels (Toggle panels visibility)<br>• View -> Toolbars (Toggle toolbar items)<br>• Right-click empty grey space on menus to toggle widgets\n<div class=\"video-container\" style=\"margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);\">\n    <video controls style=\"width: 100%; display: block; background: #000;\">\n        <source src=\"assets/videos/QGIS_ආරම්භය_සහ_අතුරුමුහුණත.mp4\" type=\"video/mp4\">\n        Your browser does not support the video tag.\n    </video>\n    <div style=\"background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;\">\n        <i class=\"fa-solid fa-circle-play\" style=\"color: var(--accent-emerald);\"></i> <strong>Video Lesson:</strong> QGIS ආරම්භය සහ අතුරුමුහුණත (Interface Overview)\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -1751,7 +1791,7 @@ window.lmsCourseData = {
                 "moduleTitle": "QGIS හඳුන්වාදීම සහ GIS මූලික කරුණු",
                 "title": "Managing Panels: The Browser Panel",
                 "text": "Browser පැනලය හැසිරවීම. මෙය QGIS මෘදුකාංගය තුල ඇති ගොනු ගවේෂකය වන අතර පරිගණකයේ ඇති ගොනු, දත්ත සමුදායන් සහ වෙබ් සේවාවන් පහසුවෙන් සිතියමට drag කිරීමට මඟ පාදයි.",
-                "visual": "**Browser Features:**<br>• Drag-and-drop loading<br>• Manage database schemas<br>• Store Favorite folders for quick access",
+                "visual": "**Browser Features:**<br>• Drag-and-drop loading<br>• Manage database schemas<br>• Store Favorite folders for quick access\n<div class=\"video-container\" style=\"margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);\">\n    <video controls style=\"width: 100%; display: block; background: #000;\">\n        <source src=\"assets/videos/QGIS_දත්ත_ගවේෂක.mp4\" type=\"video/mp4\">\n        Your browser does not support the video tag.\n    </video>\n    <div style=\"background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;\">\n        <i class=\"fa-solid fa-circle-play\" style=\"color: var(--accent-emerald);\"></i> <strong>Video Lesson:</strong> QGIS දත්ත ගවේෂක (Data Explorer Guide)\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -1759,7 +1799,7 @@ window.lmsCourseData = {
                 "moduleTitle": "QGIS හඳුන්වාදීම සහ GIS මූලික කරුණු",
                 "title": "Toolbars & Navigation Controls",
                 "text": "මෙවලම් තීරු සහ සිතියම හැසිරවීම. මෙවලම් තීරු මඟින් සිතියම විශාල කිරීම (Zoom In), කුඩා කිරීම (Zoom Out), සහ මාරු කිරීම (Pan) වැනි දේ ක්ලික් කිරීම් මඟින් සිදු කිරීමට ඉඩ සලසයි.",
-                "visual": "**Navigation Shortcuts:**<br>• Scroll Wheel: Zoom In / Out<br>• Hold Wheel/Middle Button: Pan map canvas<br>• `Ctrl + Shift + F`: Zoom to full extent",
+                "visual": "**Navigation Shortcuts:**<br>• Scroll Wheel: Zoom In / Out<br>• Hold Wheel/Middle Button: Pan map canvas<br>• `Ctrl + Shift + F`: Zoom to full extent\n<div class=\"shortcut-widget\" style=\"margin-top: 15px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 12px; border-radius: 8px;\">\n    <span style=\"font-weight: 700; font-size: 0.85rem; color: var(--accent-emerald); display: block; margin-bottom: 8px;\"><i class=\"fa-solid fa-keyboard\"></i> QGIS Navigation Cheat Sheet</span>\n    <div style=\"display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 0.78rem; text-align: left;\">\n        <div><kbd style=\"background: rgba(255,255,255,0.1); padding: 2px 5px; border-radius: 3px; font-family: monospace;\">Ctrl + Shift + F</kbd> Zoom Full</div>\n        <div><kbd style=\"background: rgba(255,255,255,0.1); padding: 2px 5px; border-radius: 3px; font-family: monospace;\">Spacebar</kbd> Toggle Pan Mode</div>\n        <div><kbd style=\"background: rgba(255,255,255,0.1); padding: 2px 5px; border-radius: 3px; font-family: monospace;\">Middle Click + Drag</kbd> Pan canvas</div>\n        <div><kbd style=\"background: rgba(255,255,255,0.1); padding: 2px 5px; border-radius: 3px; font-family: monospace;\">Ctrl + Shift + B</kbd> Show Browser</div>\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -1775,7 +1815,7 @@ window.lmsCourseData = {
                 "moduleTitle": "QGIS හඳුන්වාදීම සහ GIS මූලික කරුණු",
                 "title": "Setting Up Project Properties",
                 "text": "ව්‍යාපෘති ගුණාංග සැකසීම. ව්‍යාපෘතියක් `.qgz` ගොනුවක් ලෙස සුරැකෙන අතර Project -> Properties මඟින් එහි මාතෘකාව, පසුබිම් වර්ණය සහ සම්මත ඛණ්ඩාංක පද්ධතිය සැකසිය හැකිය.",
-                "visual": "**Project Properties Tabs:**<br>• General (Title, colors)<br>• Metadata (Author, organization)<br>• CRS (Project-wide map coordinate projection)",
+                "visual": "**Project Properties Tabs:**<br>• General (Title, colors)<br>• Metadata (Author, organization)<br>• CRS (Project-wide map coordinate projection)\n<div class=\"video-container\" style=\"margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);\">\n    <video controls style=\"width: 100%; display: block; background: #000;\">\n        <source src=\"assets/videos/QGIS_ව්_යාපෘති_කළමනාකරණය.mp4\" type=\"video/mp4\">\n        Your browser does not support the video tag.\n    </video>\n    <div style=\"background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;\">\n        <i class=\"fa-solid fa-circle-play\" style=\"color: var(--accent-emerald);\"></i> <strong>Video Lesson:</strong> QGIS ව්‍යාපෘති කළමනාකරණය (Project Management)\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -2058,7 +2098,7 @@ window.lmsCourseData = {
                 "moduleTitle": "අවකාශීය දත්ත මූලාශ්‍ර, ආකෘති සහ ඛණ්ඩාංක පද්ධති",
                 "title": "Sri Lankan Local Projections",
                 "text": "ශ්‍රී ලංකාවේ දේශීය ප්‍රක්ෂේපණ පද්ධති. ශ්‍රී ලංකාවේ මිනුම් කටයුතු සඳහා Kandawala datum සහ නවීන ශ්‍රී ලංකා Datum 1999 (SLD99 - EPSG:5224) භාවිත වේ.",
-                "visual": "**EPSG Codes for Sri Lanka:**<br>• SLD99 / Sri Lanka Grid (EPSG:5224)<br>• Kandawala / Sri Lanka Grid (EPSG:5223)",
+                "visual": "**EPSG Codes for Sri Lanka:**<br>• SLD99 / Sri Lanka Grid (EPSG:5224)<br>• Kandawala / Sri Lanka Grid (EPSG:5223)\n<div class=\"table-widget\" style=\"margin-top: 15px; overflow-x: auto;\">\n    <table style=\"width: 100%; border-collapse: collapse; font-size: 0.78rem; text-align: left; border: 1px solid rgba(255,255,255,0.06);\">\n        <thead>\n            <tr style=\"background: rgba(16, 185, 129, 0.08); border-bottom: 1px solid rgba(16, 185, 129, 0.2);\">\n                <th style=\"padding: 6px;\">EPSG Code</th>\n                <th style=\"padding: 6px;\">CRS Name</th>\n                <th style=\"padding: 6px;\">Units</th>\n                <th style=\"padding: 6px;\">Type</th>\n            </tr>\n        </thead>\n        <tbody>\n            <tr style=\"border-bottom: 1px solid rgba(255,255,255,0.03);\">\n                <td style=\"padding: 6px; font-weight:700; color: var(--accent-emerald);\">4326</td>\n                <td style=\"padding: 6px;\">WGS 84 Geographic</td>\n                <td style=\"padding: 6px;\">Degrees</td>\n                <td style=\"padding: 6px;\">GPS Standard</td>\n            </tr>\n            <tr style=\"border-bottom: 1px solid rgba(255,255,255,0.03);\">\n                <td style=\"padding: 6px; font-weight:700; color: var(--accent-emerald);\">3857</td>\n                <td style=\"padding: 6px;\">WGS 84 / Web Mercator</td>\n                <td style=\"padding: 6px;\">Meters</td>\n                <td style=\"padding: 6px;\">Web Tiles (OSM)</td>\n            </tr>\n            <tr style=\"border-bottom: 1px solid rgba(255,255,255,0.03);\">\n                <td style=\"padding: 6px; font-weight:700; color: var(--accent-emerald);\">32644</td>\n                <td style=\"padding: 6px;\">UTM Zone 44N</td>\n                <td style=\"padding: 6px;\">Meters</td>\n                <td style=\"padding: 6px;\">Projected (Local)</td>\n            </tr>\n        </tbody>\n    </table>\n</div>\n",
                 "download": null
             },
             {
@@ -2149,7 +2189,7 @@ window.lmsCourseData = {
                 "moduleTitle": "සිතියම් දෘශ්‍යකරණය, සිතියම් විද්‍යාව සහ වර්ණ ගැන්වීම්",
                 "title": "හඳුන්වාදීම to Module 3",
                 "text": "මොඩියුලය 3 හඳුන්වාදීම. සිතියම් නිර්මාණය යනු විද්‍යාව සහ කලාව යන දෙකෙහිම එකතුවකි. මෙම මොඩියුලයෙන් සිතියම් වර්ණ ගැන්වීම්, උන්නතාංශ දෘශ්‍යකරණය සහ පැහැදිලි ලේබල් එකතු කිරීම ඉගෙන ගනිමු.",
-                "visual": "**Key topics:**<br>• Symbology classification<br>• Raster rendering (DEMs)<br>• Map labeling engine",
+                "visual": "**Key topics:**<br>• Symbology classification<br>• Raster rendering (DEMs)<br>• Map labeling engine\n<div class=\"video-container\" style=\"margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);\">\n    <video controls style=\"width: 100%; display: block; background: #000;\">\n        <source src=\"assets/videos/QGIS_සිතියම්_දෘශ්_යකරණය.mp4\" type=\"video/mp4\">\n        Your browser does not support the video tag.\n    </video>\n    <div style=\"background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;\">\n        <i class=\"fa-solid fa-circle-play\" style=\"color: var(--accent-emerald);\"></i> <strong>Video Lesson:</strong> QGIS සිතියම් දෘශ්‍යකරණය (Map Visualization & Symbology)\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -2157,7 +2197,7 @@ window.lmsCourseData = {
                 "moduleTitle": "සිතියම් දෘශ්‍යකරණය, සිතියම් විද්‍යාව සහ වර්ණ ගැන්වීම්",
                 "title": "Principles of Cartographic Design",
                 "text": "සිතියම් විද්‍යාත්මක සැලසුම් මූලධර්ම. සිතියම කියවන කෙනෙකුට එහි අරමුණ වහාම වැටහෙන සේ සැලසුම් කළ යුතුය. මේ සඳහා වර්ණ ගැලපීම, අකුරු ප්‍රමාණයන් සහ දෘශ්‍ය ශ්‍රේණිගත කිරීම් භාවිත කළ යුතුය.",
-                "visual": "**Cartographic Design Rules:**<br>• Visual Hierarchy: High-priority data stands out<br>• Simplicity: Avoid background clutter<br>• Color Harmony: Match colors to thematic meanings (e.g. blue for water)",
+                "visual": "**Cartographic Design Rules:**<br>• Visual Hierarchy: High-priority data stands out<br>• Simplicity: Avoid background clutter<br>• Color Harmony: Match colors to thematic meanings (e.g. blue for water)\n<div class=\"palette-widget\" style=\"margin-top: 15px; background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(255, 255, 255, 0.04); padding: 12px; border-radius: 8px; text-align: left;\">\n    <span style=\"font-weight: 700; font-size: 0.85rem; color: var(--accent-emerald); display: block; margin-bottom: 8px;\"><i class=\"fa-solid fa-palette\"></i> Cartographic Symbology Types</span>\n    <div style=\"display: flex; gap: 8px; flex-wrap: wrap;\">\n        <div style=\"flex: 1; min-width: 80px; background: rgba(29, 191, 115, 0.1); border: 1px solid rgba(29, 191, 115, 0.2); padding: 6px; border-radius: 4px; font-size: 0.72rem; text-align: center;\">\n            <strong>Single Symbol</strong><br>Uniform styling\n        </div>\n        <div style=\"flex: 1; min-width: 80px; background: rgba(0, 240, 255, 0.1); border: 1px solid rgba(0, 240, 255, 0.2); padding: 6px; border-radius: 4px; font-size: 0.72rem; text-align: center;\">\n            <strong>Categorized</strong><br>Qualitative columns\n        </div>\n        <div style=\"flex: 1; min-width: 80px; background: rgba(255, 179, 0, 0.1); border: 1px solid rgba(255, 179, 0, 0.2); padding: 6px; border-radius: 4px; font-size: 0.72rem; text-align: center;\">\n            <strong>Graduated</strong><br>Quantitative bins\n        </div>\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -2389,7 +2429,7 @@ window.lmsCourseData = {
                 "moduleTitle": "ආරෝපණ වගු, ප්‍රකාශන සහ අවකාශීය විමසුම්",
                 "title": "හඳුන්වාදීම to Module 4",
                 "text": "මොඩියුලය 4 හඳුන්වාදීම. GIS යනු දත්ත සමුදායකි. මෙම මොඩියුලයෙන් අපි Attribute Tables කළමනාකරණය, ගණිතමය ප්‍රකාශන ලිවීම, වගු එකිනෙක සම්බන්ධ කිරීම, සහ අවකාශීය විශ්ලේෂණ ක්‍රමවේද අධ්‍යයනය කරමු.",
-                "visual": "**Key elements:**<br>• Field Calculator formulas<br>• Geoprocessing overlay tools<br>• Table joins",
+                "visual": "**Key elements:**<br>• Field Calculator formulas<br>• Geoprocessing overlay tools<br>• Table joins\n<div class=\"video-container\" style=\"margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);\">\n    <video controls style=\"width: 100%; display: block; background: #000;\">\n        <source src=\"assets/videos/QGIS_ප්_රකාශන_භාවිතය.mp4\" type=\"video/mp4\">\n        Your browser does not support the video tag.\n    </video>\n    <div style=\"background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;\">\n        <i class=\"fa-solid fa-circle-play\" style=\"color: var(--accent-emerald);\"></i> <strong>Video Lesson:</strong> QGIS ප්‍රකාශන භාවිතය (Attributes & Expressions)\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -2405,7 +2445,7 @@ window.lmsCourseData = {
                 "moduleTitle": "ආරෝපණ වගු, ප්‍රකාශන සහ අවකාශීය විමසුම්",
                 "title": "Selecting Features on Map Canvas",
                 "text": "සිතියම් අංග තේරීම (Selection). සිතියමක අවශ්‍ය කොටස් තේරීමට QGIS හි Selection by Rectangle, Value, හෝ Expression භාවිත කළ හැකිය. තේරූ වස්තූන් කහ පැහැයෙන් දිස් වේ.",
-                "visual": "**Selection Rules:**<br>• Select by Value: Match exact column values<br>• Clear Selection button on attributes toolbar restores default display state",
+                "visual": "**Selection Rules:**<br>• Select by Value: Match exact column values<br>• Clear Selection button on attributes toolbar restores default display state\n<div class=\"code-widget\" style=\"margin-top: 15px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-left: 3px solid var(--accent-emerald); padding: 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; text-align: left;\">\n    <span style=\"color: #888; display: block; margin-bottom: 4px; font-family: var(--font-body); font-size: 0.75rem;\">Common Field Calculator Geometry Expressions:</span>\n    <code>$area / 10000</code> <span style=\"color: #666;\">-- Area in Hectares</span><br>\n    <code>$length / 1000</code> <span style=\"color: #666;\">-- Length in Kilometers</span><br>\n    <code>x($geometry)</code> <span style=\"color: #666;\">-- Retrieve Point X Coordinate</span><br>\n    <code>num_points($geometry)</code> <span style=\"color: #666;\">-- Count vertices in line/poly</span>\n</div>\n",
                 "download": null
             },
             {
@@ -2632,7 +2672,7 @@ window.lmsCourseData = {
                 "moduleTitle": "මුද්‍රණ සැලසුම් නිර්මාණය සහ සිතියම් අපනයනය",
                 "title": "හඳුන්වාදීම to Module 5",
                 "text": "මොඩියුලය 5 හඳුන්වාදීම. සිතියමක සාර්ථකත්වය එහි අවසන් මුද්‍රණ සැලසුම මත රඳා පවතී. මෙම මොඩියුලයෙන් Print Layout භාවිතය, සූචි, මායිම් ඛණ්ඩාංක සහ සිතියම් පොත් (Atlas) නිර්මාණය ඉගෙන ගනිමු.",
-                "visual": "**Key metrics:**<br>• Map item layout properties<br>• Coordinates grid overlays<br>• QGIS Atlas mapbook serializing",
+                "visual": "**Key metrics:**<br>• Map item layout properties<br>• Coordinates grid overlays<br>• QGIS Atlas mapbook serializing\n<div class=\"video-container\" style=\"margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);\">\n    <video controls style=\"width: 100%; display: block; background: #000;\">\n        <source src=\"assets/videos/QGIS_සැකසුම්_සහ_වාර්තා.mp4\" type=\"video/mp4\">\n        Your browser does not support the video tag.\n    </video>\n    <div style=\"background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;\">\n        <i class=\"fa-solid fa-circle-play\" style=\"color: var(--accent-emerald);\"></i> <strong>Video Lesson:</strong> QGIS සැකසුම් සහ වාර්තා (Settings & Layout Composer)\n    </div>\n</div>\n",
                 "download": null
             },
             {
@@ -2656,7 +2696,7 @@ window.lmsCourseData = {
                 "moduleTitle": "මුද්‍රණ සැලසුම් නිර්මාණය සහ සිතියම් අපනයනය",
                 "title": "Adding the Main Map Item",
                 "text": "ප්‍රධාන සිතියම එක් කිරීම. Print Layout එකට සිතියම එක් කිරීමට පැති තීරුවේ ඇති Add Map ක්ලික් කර පිටුව තුල සෘජුකෝණාස්‍රයක් ඇඳ ගන්න.",
-                "visual": "**Map Item Parameters:**<br>• Set map scale (e.g. 10000)<br>• Click 'Update Preview' to redraw layers canvas in layout",
+                "visual": "**Map Item Parameters:**<br>• Set map scale (e.g. 10000)<br>• Click 'Update Preview' to redraw layers canvas in layout\n<div class=\"layout-widget\" style=\"margin-top: 15px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; text-align: left;\">\n    <span style=\"font-weight: 700; font-size: 0.85rem; color: var(--accent-emerald); display: block; margin-bottom: 6px;\"><i class=\"fa-solid fa-map\"></i> Mandatory Layout Elements</span>\n    <ul style=\"font-size: 0.76rem; margin: 0; padding-left: 15px; color: var(--text-secondary); line-height: 1.4;\">\n        <li><strong>Map Frame:</strong> Dynamic view with scale constraints.</li>\n        <li><strong>Scalebar:</strong> Configured in metric units (meters/km).</li>\n        <li><strong>Legend:</strong> Clean title with custom vector layer filters.</li>\n        <li><strong>North Arrow:</strong> Align map rotation angle.</li>\n    </ul>\n</div>\n",
                 "download": null
             },
             {
@@ -2864,14 +2904,14 @@ window.lmsCourseData = {
                 "moduleTitle": "මුද්‍රණ සැලසුම් නිර්මාණය සහ සිතියම් අපනයනය",
                 "title": "Course Review & Examination Guide",
                 "text": "පාඨමාලා සමාලෝචනය සහ විභාග මාර්ගෝපදේශය. සුභ පැතුම්! ඔබ ස්ලයිඩ 150 ම අධ්‍යයනය කර ඇත. විභාගය ඇරඹීමට පෙර ඛණ්ඩාංක පද්ධති, වර්ණ ගැන්වීම්, දත්ත වගු ගණනය කිරීම් සහ මුද්‍රණ සැලසුම් නැවත වරක් මතක් කර ගන්න.",
-                "visual": "**Exam Checklist:**<br>• 40 Multiple choice questions<br>• 70% passing threshold<br>• Map assignment upload required for certificate",
+                "visual": "**Exam Checklist:**<br>• 40 Multiple choice questions<br>• 70% passing threshold<br>• Map assignment upload required for certificate\n<div class=\"video-container\" style=\"margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);\">\n    <video controls style=\"width: 100%; display: block; background: #000;\">\n        <source src=\"assets/videos/Phase_3__The_Advanced_QGIS_Data_Pipeline.mp4\" type=\"video/mp4\">\n        Your browser does not support the video tag.\n    </video>\n    <div style=\"background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;\">\n        <i class=\"fa-solid fa-circle-play\" style=\"color: var(--accent-emerald);\"></i> <strong>Video Lesson:</strong> Phase 3: The Advanced QGIS Data Pipeline\n    </div>\n</div>\n",
                 "download": null
             }
         ],
         "flashcards": [
             {
                 "q": "Vector සහ Raster දත්ත අතර වෙනස කුමක්ද?",
-                "a": "Vector දත්ත ලක්ෂ්‍ය, රේඛා, බහුඅස්‍ර ලෙස දත්ත ගබඩා කරන අතර Raster දත්ත පික්සෙල් ජාල (පික්සෙල්) ලෙස අඛණ්ඩ අගයන් ගබඩා කරයි."
+                "a": "Vector දත්ත ලක්ෂ්‍ය, රේඛා, බහුඅස්‍ර ලෙස දත්ත ගබඩා කරන අතර Raster දත්ත පික්සෙල් ජාල (pixels) ලෙස අඛණ්ඩ අගයන් ගබඩා කරයි."
             },
             {
                 "q": "ඛණ්ඩාංක පද්ධතියක් (CRS) වැදගත් වන්නේ ඇයි?",
@@ -2883,11 +2923,51 @@ window.lmsCourseData = {
             },
             {
                 "q": "Field Calculator මඟින් වර්ගඵලය හෙක්ටයාර වලින් සොයන්නේ කෙසේද?",
-                "a": "decimal වර්ගයේ තීරුවක් සාදා <code>$area / 10000</code> යන සමීකරණය ලියන්න. ස්ථරය Projected CRS එකක තිබීම අනිවාර්ය වේ."
+                "a": "decimal වර්ගයේ තීරුවක් සාදා '$area / 10000' යන සමීකරණය ලියන්න. ස්ථරය Projected CRS එකක තිබීම අනිවාර්ය වේ."
             },
             {
                 "q": "උසස් තත්ත්වයේ සිතියම් අපනයනය කිරීමට QGIS හි ඇති මෙවලම කුමක්ද?",
                 "a": "Print Layout (Project -> New Print Layout) මෙවලම භාවිතයෙන් සිතියම්, පරිමාණ තීරු සහ සූචි සකසා අපනයනය කළ හැකිය."
+            },
+            {
+                "q": "ව්‍යාපෘතියක දත්ත ගැලපීම් ගැටලු නිරාකරණය කරන්නේ කෙසේද?",
+                "a": "Project Properties -> CRS වෙත ගොස් ව්‍යාපෘතියට පොදු CRS එකක් සකසන්න. මෙවලම් ක්‍රියා නොකරන්නේ නම් Vector General -> Reproject Layer කරන්න."
+            },
+            {
+                "q": "Spatial index එකක් යනු කුමක්ද සහ එය භාවිත කරන්නේ ඇයි?",
+                "a": "R-Tree වැනි අවකාශීය දර්ශක මඟින් ජ්‍යාමිතික සීමා සලකුණු කරයි. එමඟින් විශාල දත්ත ස්ථරවල සිතියම් ඇඳීම සහ විශ්ලේෂණයන් වේගවත් කරයි."
+            },
+            {
+                "q": "Categorized සහ Graduated සංකේත ක්‍රම අතර වෙනස පැහැදිලි කරන්න.",
+                "a": "Categorized ක්‍රමයෙන් පෙළ දත්ත (නගර නාම) අනුව වර්ණ ගන්වන අතර Graduated ක්‍රමයෙන් සංඛ්‍යාත්මක දත්ත පන්තිවලට (Jenks breaks) බෙදා වර්ණ ගන්වයි."
+            },
+            {
+                "q": "WMS සහ WFS සේවාවන් අතර වෙනස කුමක්ද?",
+                "a": "WMS මඟින් සිතියම් ස්ථිතික රූප (images) ලෙස ලබා දෙන අතර WFS මඟින් සිතියමේ සැබෑ දෛශික ඛණ්ඩාංක (vector geometries) බාගත කිරීමට ඉඩ සලසයි."
+            },
+            {
+                "q": "මීටර් 100 ක buffer කලාපයක් ඉතා විශාල රවුමක් ලෙස සිතියමේ ඇඳෙන්නේ ඇයි?",
+                "a": "දත්ත ස්ථරය geographic CRS (EPSG:4326) පද්ධතියක තිබේ නම් buffer දුර මීටර් වෙනුවට අංශක (degrees) වලින් ගණනය වේ. එය Projected CRS වෙත Reproject කරන්න."
+            },
+            {
+                "q": "QGIS Atlas එන්ජිමේ ප්‍රධාන කාර්යය කුමක්ද?",
+                "a": "Atlas මඟින් සිතියම් පිටු විශාල ප්‍රමාණයක් සකසයි. එය දිස්ත්‍රික් සීමා වැනි ස්ථරයක් භාවිතයෙන් එක් එක් සීමාව සඳහා සිතියම් පිටුව බැගින් අපනයනය කරයි."
+            },
+            {
+                "q": "Digital Elevation Model (DEM) එකක් යනු කුමක්ද?",
+                "a": "DEM යනු පික්සෙල් අගයන් මඟින් භූමියේ උස නිරූපණය කරන රාස්ටර් දත්තයකි. QGIS මඟින් contours, slope සිතියම් සැකසීමට DEM භාවිත කරයි."
+            },
+            {
+                "q": "Georeferencing යනු කුමක්ද සහ එය කරන්නේ කෙසේද?",
+                "a": "භූගෝලීය ඛණ්ඩාංක නොමැති සිතියම් හෝ ගුවන් ඡායාරූප සැබෑ ලෝකයේ පිහිටීම්වලට (GCPs) අනුකූලව සිතියම් තලය මත ක්‍රමාංකනය කිරීම මෙයින් සිදු වේ."
+            },
+            {
+                "q": "ESRI Shapefile ආකෘතියේ ඇති ප්‍රධාන සීමාවන් මොනවාද?",
+                "a": "Shapefiles සඳහා අවම වශයෙන් ගොනු 3ක් (.shp, .dbf, .shx) අවශ්‍ය වන අතර, තීරු නාම අකුරු 10කට සීමා වේ. උපරිම ධාරිතාව 2 GB වේ."
+            },
+            {
+                "q": "GDAL සහ OGR පුස්තකාල මඟින් QGIS තුල සිදු කරන්නේ කුමක්ද?",
+                "a": "GDAL යනු raster දත්ත කියවීමට සහ ලිවීමට භාවිත වන පුස්තකාලය වන අතර OGR මඟින් vector දත්ත කියවීම සහ පරිවර්තනය සිදු කරයි."
             }
         ],
         "quiz": [

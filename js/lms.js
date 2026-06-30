@@ -911,7 +911,40 @@ export function initLMS() {
     
     if (btnPrintCertificate) {
         btnPrintCertificate.addEventListener('click', () => {
-            window.print();
+            if (typeof html2pdf !== 'undefined') {
+                const element = document.getElementById('certificate-print-sheet');
+                const studentName = (currentUser ? currentUser.name : 'student').replace(/\s+/g, '_');
+                
+                const opt = {
+                    margin:       0,
+                    filename:     `GeoPhoenix_QGIS_Certificate_${studentName}.pdf`,
+                    image:        { type: 'jpeg', quality: 0.98 },
+                    html2canvas:  { 
+                        scale: 3.5, // Ultra-high resolution text rendering
+                        useCORS: true,
+                        logging: false,
+                        letterRendering: true
+                    },
+                    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'landscape' }
+                };
+                
+                const originalText = btnPrintCertificate.innerHTML;
+                btnPrintCertificate.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generating PDF...';
+                btnPrintCertificate.disabled = true;
+                
+                html2pdf().set(opt).from(element).save().then(() => {
+                    btnPrintCertificate.innerHTML = originalText;
+                    btnPrintCertificate.disabled = false;
+                }).catch(err => {
+                    console.error("PDF download failed:", err);
+                    btnPrintCertificate.innerHTML = originalText;
+                    btnPrintCertificate.disabled = false;
+                    // Fallback to printing dialog
+                    window.print();
+                });
+            } else {
+                window.print();
+            }
         });
     }
 
