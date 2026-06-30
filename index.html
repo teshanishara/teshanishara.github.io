@@ -595,7 +595,9 @@
                 <!-- Right Column: Horizontal book shelf carousel -->
                 <div class="books-slider-container reveal-on-scroll slide-right">
                     <h3 style="margin-bottom: var(--space-4); font-size: 1.25rem; font-family: var(--font-heading);"><i class="fa-solid fa-book-open"></i> Published Amazon Books</h3>
-                    <div class="books-grid">
+                    <div class="books-slider-wrapper" style="position: relative; width: 100%;">
+                        <button class="slider-arrow prev" id="btn-prev-books" aria-label="Scroll left" type="button"><i class="fa-solid fa-chevron-left"></i></button>
+                        <div class="books-grid">
                         <!-- Book 1 -->
                         <div class="book-card">
                             <img src="assets/projects/book-deepfakes.jpg" alt="Guardian of the Digital Self book cover" class="book-cover" loading="lazy">
@@ -727,6 +729,7 @@
                                 </a>
                             </div>
                         </div>
+                        <button class="slider-arrow next" id="btn-next-books" aria-label="Scroll right" type="button"><i class="fa-solid fa-chevron-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -1614,6 +1617,8 @@
         </div>
     </div>
 
+    <!-- PDF Generation Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <!-- Custom JS -->
     <script src="course_data.js?v=1.7"></script>
     <script type="module" src="js/main.js"></script>

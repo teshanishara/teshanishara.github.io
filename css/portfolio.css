@@ -858,12 +858,67 @@
     gap: var(--space-6);
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* Hide scrollbar for clean carousel */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(16, 185, 129, 0.25) rgba(255, 255, 255, 0.02);
     padding-bottom: var(--space-4);
 }
 
 .books-grid::-webkit-scrollbar {
-    display: none; /* Hide scrollbar Chrome/Safari */
+    height: 6px;
+}
+
+.books-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 3px;
+}
+
+.books-grid::-webkit-scrollbar-thumb {
+    background: rgba(16, 185, 129, 0.25);
+    border-radius: 3px;
+}
+
+.books-grid::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-emerald);
+}
+
+/* Slider navigation arrows */
+.books-slider-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(8, 11, 17, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition-fast);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+.slider-arrow:hover {
+    background: var(--accent-emerald);
+    color: #020813;
+    border-color: transparent;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+}
+
+.slider-arrow.prev {
+    left: -18px;
+}
+
+.slider-arrow.next {
+    right: -18px;
 }
 
 .book-card {
