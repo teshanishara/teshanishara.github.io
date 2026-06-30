@@ -21,6 +21,72 @@ export function initLMS() {
 
     const lmsCourseData = window.lmsCourseData;
 
+    // Fetch and seed registered users from the CSV in the repository
+    const seedUsersFromCsv = async () => {
+        try {
+            const response = await fetch('lms_students.csv');
+            if (!response.ok) return;
+            const csvText = await response.text();
+            
+            // Simple CSV parser
+            const lines = csvText.split('\n');
+            if (lines.length < 2) return;
+            
+            const users = JSON.parse(localStorage.getItem('lms_users')) || {};
+            let updated = false;
+            
+            for (let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if (!line) continue;
+                
+                const cols = [];
+                let current = '';
+                let inQuotes = false;
+                for (let c = 0; c < line.length; c++) {
+                    const char = line[c];
+                    if (char === '"') {
+                        inQuotes = !inQuotes;
+                    } else if (char === ',' && !inQuotes) {
+                        cols.push(current.trim());
+                        current = '';
+                    } else {
+                        current += char;
+                    }
+                }
+                cols.push(current.trim());
+                
+                if (cols.length >= 3) {
+                    const name = cols[0].replace(/^"|"$/g, '');
+                    const email = cols[1].toLowerCase().replace(/^"|"$/g, '');
+                    const password = cols[2].replace(/^"|"$/g, '');
+                    
+                    if (email && password && !users[email]) {
+                        users[email] = {
+                            name: name || email.split('@')[0],
+                            email: email,
+                            password: password,
+                            enrolled: true,
+                            completedSlides: [],
+                            studySeconds: 0,
+                            examScore: null,
+                            examDate: null
+                        };
+                        updated = true;
+                    }
+                }
+            }
+            
+            if (updated) {
+                localStorage.setItem('lms_users', JSON.stringify(users));
+                console.log('Seeded local users database from repository CSV');
+            }
+        } catch (e) {
+            console.error('Failed to seed users from CSV:', e);
+        }
+    };
+    
+    seedUsersFromCsv();
+
     // DOM ELEMENTS REFERENCE
     const landingPanel = document.getElementById('lms-landing-panel');
     const workspacePanel = document.getElementById('lms-workspace-panel');
@@ -920,10 +986,11 @@ export function initLMS() {
                     filename:     `GeoPhoenix_QGIS_Certificate_${studentName}.pdf`,
                     image:        { type: 'jpeg', quality: 0.98 },
                     html2canvas:  { 
-                        scale: 3.5, // Ultra-high resolution text rendering
+                        scale: 2.5,
                         useCORS: true,
                         logging: false,
-                        letterRendering: true
+                        scrollY: 0,
+                        scrollX: 0
                     },
                     jsPDF:        { unit: 'mm', format: 'a4', orientation: 'landscape' }
                 };
@@ -935,9 +1002,12 @@ export function initLMS() {
                 // Clone the element to avoid glassmorphism filter, flex, modal overlay offsets, or scroll position interference
                 const clone = element.cloneNode(true);
                 clone.style.position = 'absolute';
-                clone.style.left = '-9999px';
-                clone.style.top = '0';
+                clone.style.left = '0px';
+                clone.style.top = '0px';
+                clone.style.zIndex = '-9999';
                 clone.style.display = 'block';
+                clone.style.visibility = 'visible';
+                clone.style.opacity = '1';
                 clone.style.width = '800px';
                 clone.style.height = '565px';
                 clone.style.transform = 'none';
