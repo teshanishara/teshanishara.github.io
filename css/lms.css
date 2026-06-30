@@ -1166,6 +1166,25 @@
     letter-spacing: 0.1em;
 }
 
+.cert-verify-block {
+    text-align: center;
+    width: 200px;
+}
+
+.cert-verify-line {
+    border-bottom: 1.5px solid rgba(15, 45, 30, 0.4);
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+}
+
+.cert-id-text {
+    font-family: monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #0f2d1e;
+    letter-spacing: 0.05em;
+}
+
 .cert-modal-actions {
     display: flex;
     flex-direction: column;

@@ -932,11 +932,27 @@ export function initLMS() {
                 btnPrintCertificate.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generating PDF...';
                 btnPrintCertificate.disabled = true;
                 
-                html2pdf().set(opt).from(element).save().then(() => {
+                // Clone the element to avoid glassmorphism filter, flex, modal overlay offsets, or scroll position interference
+                const clone = element.cloneNode(true);
+                clone.style.position = 'absolute';
+                clone.style.left = '-9999px';
+                clone.style.top = '0';
+                clone.style.display = 'block';
+                clone.style.width = '800px';
+                clone.style.height = '565px';
+                clone.style.transform = 'none';
+                clone.style.boxShadow = 'none';
+                document.body.appendChild(clone);
+                
+                html2pdf().set(opt).from(clone).save().then(() => {
+                    document.body.removeChild(clone);
                     btnPrintCertificate.innerHTML = originalText;
                     btnPrintCertificate.disabled = false;
                 }).catch(err => {
                     console.error("PDF download failed:", err);
+                    if (document.body.contains(clone)) {
+                        document.body.removeChild(clone);
+                    }
                     btnPrintCertificate.innerHTML = originalText;
                     btnPrintCertificate.disabled = false;
                     // Fallback to printing dialog
