@@ -645,10 +645,11 @@ modules = [
 ]
 
 # Helper to generate beautiful styled visual widgets
-def get_visual_widget(slide_idx, original_visual):
-    # Videos
-    if slide_idx == 0:
-        return original_visual + '''
+def get_visual_widget(slide_idx, original_visual, lang="en"):
+    # English Videos (Only display English-language videos)
+    if lang == "en":
+        if slide_idx == 0:
+            return original_visual + '''
 <div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
     <video controls style="width: 100%; display: block; background: #000;">
         <source src="assets/videos/QGIS_Quick_Start_–_The_Geographic_Foundation.mp4" type="video/mp4">
@@ -659,8 +660,35 @@ def get_visual_widget(slide_idx, original_visual):
     </div>
 </div>
 '''
-    elif slide_idx == 9:
-        return original_visual + '''
+        elif slide_idx == 149:
+            return original_visual + '''
+<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <video controls style="width: 100%; display: block; background: #000;">
+        <source src="assets/videos/Phase_3__The_Advanced_QGIS_Data_Pipeline.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
+        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> Phase 3: The Advanced QGIS Data Pipeline
+    </div>
+</div>
+'''
+    
+    # Sinhala Videos (Only display Sinhala-language videos, plus the English-language foundation & pipeline intros since those are the only copies)
+    elif lang == "si":
+        if slide_idx == 0:
+            return original_visual + '''
+<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <video controls style="width: 100%; display: block; background: #000;">
+        <source src="assets/videos/QGIS_Quick_Start_–_The_Geographic_Foundation.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
+        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> QGIS Quick Start & Foundation (English)
+    </div>
+</div>
+'''
+        elif slide_idx == 9:
+            return original_visual + '''
 <div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
     <video controls style="width: 100%; display: block; background: #000;">
         <source src="assets/videos/QGIS_ආරම්භය_සහ_අතුරුමුහුණත.mp4" type="video/mp4">
@@ -671,8 +699,8 @@ def get_visual_widget(slide_idx, original_visual):
     </div>
 </div>
 '''
-    elif slide_idx == 11:
-        return original_visual + '''
+        elif slide_idx == 11:
+            return original_visual + '''
 <div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
     <video controls style="width: 100%; display: block; background: #000;">
         <source src="assets/videos/QGIS_දත්ත_ගවේෂක.mp4" type="video/mp4">
@@ -683,7 +711,69 @@ def get_visual_widget(slide_idx, original_visual):
     </div>
 </div>
 '''
-    elif slide_idx == 12:
+        elif slide_idx == 14:
+            return original_visual + '''
+<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <video controls style="width: 100%; display: block; background: #000;">
+        <source src="assets/videos/QGIS_ව්_යාපෘති_කළමනාකරණය.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
+        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> QGIS ව්‍යාපෘති කළමනාකරණය (Project Management)
+    </div>
+</div>
+'''
+        elif slide_idx == 60:
+            return original_visual + '''
+<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <video controls style="width: 100%; display: block; background: #000;">
+        <source src="assets/videos/QGIS_සිතියම්_දෘශ්_යකරණය.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
+        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> QGIS සිතියම් දෘශ්‍යකරණය (Map Visualization & Symbology)
+    </div>
+</div>
+'''
+        elif slide_idx == 90:
+            return original_visual + '''
+<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <video controls style="width: 100%; display: block; background: #000;">
+        <source src="assets/videos/QGIS_ප්_රකාශන_භාවිතය.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
+        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> QGIS ප්‍රකාශන භාවිතය (Attributes & Expressions)
+    </div>
+</div>
+'''
+        elif slide_idx == 120:
+            return original_visual + '''
+<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <video controls style="width: 100%; display: block; background: #000;">
+        <source src="assets/videos/QGIS_සැකසුම්_සහ_වාර්තා.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
+        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> QGIS සැකසුම් සහ වාර්තා (Settings & Layout Composer)
+    </div>
+</div>
+'''
+        elif slide_idx == 149:
+            return original_visual + '''
+<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <video controls style="width: 100%; display: block; background: #000;">
+        <source src="assets/videos/Phase_3__The_Advanced_QGIS_Data_Pipeline.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
+        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> Phase 3: The Advanced QGIS Data Pipeline (English)
+    </div>
+</div>
+'''
+
+    # Non-video interactive widgets (same for both languages)
+    if slide_idx == 12:
         return original_visual + '''
 <div class="shortcut-widget" style="margin-top: 15px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 12px; border-radius: 8px;">
     <span style="font-weight: 700; font-size: 0.85rem; color: var(--accent-emerald); display: block; margin-bottom: 8px;"><i class="fa-solid fa-keyboard"></i> QGIS Navigation Cheat Sheet</span>
@@ -692,18 +782,6 @@ def get_visual_widget(slide_idx, original_visual):
         <div><kbd style="background: rgba(255,255,255,0.1); padding: 2px 5px; border-radius: 3px; font-family: monospace;">Spacebar</kbd> Toggle Pan Mode</div>
         <div><kbd style="background: rgba(255,255,255,0.1); padding: 2px 5px; border-radius: 3px; font-family: monospace;">Middle Click + Drag</kbd> Pan canvas</div>
         <div><kbd style="background: rgba(255,255,255,0.1); padding: 2px 5px; border-radius: 3px; font-family: monospace;">Ctrl + Shift + B</kbd> Show Browser</div>
-    </div>
-</div>
-'''
-    elif slide_idx == 14:
-        return original_visual + '''
-<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-    <video controls style="width: 100%; display: block; background: #000;">
-        <source src="assets/videos/QGIS_ව්_යාපෘති_කළමනාකරණය.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
-        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> QGIS ව්‍යාපෘති කළමනාකරණය (Project Management)
     </div>
 </div>
 '''
@@ -742,18 +820,6 @@ def get_visual_widget(slide_idx, original_visual):
     </table>
 </div>
 '''
-    elif slide_idx == 60:
-        return original_visual + '''
-<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-    <video controls style="width: 100%; display: block; background: #000;">
-        <source src="assets/videos/QGIS_සිතියම්_දෘශ්_යකරණය.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
-        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> QGIS සිතියම් දෘශ්‍යකරණය (Map Visualization & Symbology)
-    </div>
-</div>
-'''
     elif slide_idx == 61:
         return original_visual + '''
 <div class="palette-widget" style="margin-top: 15px; background: rgba(255, 255, 255, 0.01); border: 1px solid rgba(255, 255, 255, 0.04); padding: 12px; border-radius: 8px; text-align: left;">
@@ -771,18 +837,6 @@ def get_visual_widget(slide_idx, original_visual):
     </div>
 </div>
 '''
-    elif slide_idx == 90:
-        return original_visual + '''
-<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-    <video controls style="width: 100%; display: block; background: #000;">
-        <source src="assets/videos/QGIS_ප්_රකාශන_භාවිතය.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
-        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> QGIS ප්‍රකාශන භාවිතය (Attributes & Expressions)
-    </div>
-</div>
-'''
     elif slide_idx == 92:
         return original_visual + '''
 <div class="code-widget" style="margin-top: 15px; background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); border-left: 3px solid var(--accent-emerald); padding: 10px; border-radius: 4px; font-family: monospace; font-size: 0.78rem; text-align: left;">
@@ -791,18 +845,6 @@ def get_visual_widget(slide_idx, original_visual):
     <code>$length / 1000</code> <span style="color: #666;">-- Length in Kilometers</span><br>
     <code>x($geometry)</code> <span style="color: #666;">-- Retrieve Point X Coordinate</span><br>
     <code>num_points($geometry)</code> <span style="color: #666;">-- Count vertices in line/poly</span>
-</div>
-'''
-    elif slide_idx == 120:
-        return original_visual + '''
-<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-    <video controls style="width: 100%; display: block; background: #000;">
-        <source src="assets/videos/QGIS_සැකසුම්_සහ_වාර්තා.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
-        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> QGIS සැකසුම් සහ වාර්තා (Settings & Layout Composer)
-    </div>
 </div>
 '''
     elif slide_idx == 123:
@@ -815,18 +857,6 @@ def get_visual_widget(slide_idx, original_visual):
         <li><strong>Legend:</strong> Clean title with custom vector layer filters.</li>
         <li><strong>North Arrow:</strong> Align map rotation angle.</li>
     </ul>
-</div>
-'''
-    elif slide_idx == 149:
-        return original_visual + '''
-<div class="video-container" style="margin-top: 15px; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
-    <video controls style="width: 100%; display: block; background: #000;">
-        <source src="assets/videos/Phase_3__The_Advanced_QGIS_Data_Pipeline.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div style="background: rgba(255,255,255,0.02); padding: 8px 12px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.05); color: var(--text-secondary); text-align: left;">
-        <i class="fa-solid fa-circle-play" style="color: var(--accent-emerald);"></i> <strong>Video Lesson:</strong> Phase 3: The Advanced QGIS Data Pipeline
-    </div>
 </div>
 '''
     return original_visual
@@ -847,8 +877,9 @@ for mod_idx, mod in enumerate(modules):
         title, text, si_text, visual = topic
         slide_idx = mod_idx * 30 + i
         
-        # Inject widgets dynamically
-        rich_visual = get_visual_widget(slide_idx, visual)
+        # Inject widgets dynamically - separate for English and Sinhala
+        rich_visual_en = get_visual_widget(slide_idx, visual, lang="en")
+        rich_visual_si = get_visual_widget(slide_idx, visual, lang="si")
         
         # Determine if download link is needed (Module 1 Slide 24, Module 2 Slide 60, Module 4 Slide 120)
         download_en = None
@@ -887,7 +918,7 @@ for mod_idx, mod in enumerate(modules):
             "moduleTitle": mod_title_en,
             "title": title,
             "text": text,
-            "visual": rich_visual,
+            "visual": rich_visual_en,
             "download": download_en
         })
         
@@ -897,7 +928,7 @@ for mod_idx, mod in enumerate(modules):
             "moduleTitle": mod_title_si,
             "title": title.replace("Overview", "දළ විශ්ලේෂණය").replace("Introduction", "හඳුන්වාදීම"),
             "text": si_text,
-            "visual": rich_visual,
+            "visual": rich_visual_si,
             "download": download_si
         })
 
