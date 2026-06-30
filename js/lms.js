@@ -941,6 +941,29 @@ export function initLMS() {
         }
         if (certCourseName) certCourseName.innerText = lmsCourseData['en'].title;
         
+        // Generate or retrieve persistent verification ID
+        if (currentUser) {
+            if (!currentUser.certificateId) {
+                const chars = '0123456789ABCDEF';
+                let randomId = 'QG-';
+                for (let i = 0; i < 6; i++) {
+                    randomId += chars[Math.floor(Math.random() * chars.length)];
+                }
+                currentUser.certificateId = randomId;
+                
+                // Save to local storage DB
+                const users = JSON.parse(localStorage.getItem('lms_users')) || {};
+                if (users[currentUser.email]) {
+                    users[currentUser.email].certificateId = randomId;
+                    localStorage.setItem('lms_users', JSON.stringify(users));
+                }
+                localStorage.setItem('lms_current_user', JSON.stringify(currentUser));
+            }
+            
+            const certIdValue = document.getElementById('cert-id-value');
+            if (certIdValue) certIdValue.innerText = currentUser.certificateId;
+        }
+        
         if (certificateModal) certificateModal.style.display = 'flex';
     }
 
@@ -999,30 +1022,11 @@ export function initLMS() {
                 btnPrintCertificate.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Generating PDF...';
                 btnPrintCertificate.disabled = true;
                 
-                // Clone the element to avoid glassmorphism filter, flex, modal overlay offsets, or scroll position interference
-                const clone = element.cloneNode(true);
-                clone.style.position = 'absolute';
-                clone.style.left = '0px';
-                clone.style.top = '0px';
-                clone.style.zIndex = '-9999';
-                clone.style.display = 'block';
-                clone.style.visibility = 'visible';
-                clone.style.opacity = '1';
-                clone.style.width = '800px';
-                clone.style.height = '565px';
-                clone.style.transform = 'none';
-                clone.style.boxShadow = 'none';
-                document.body.appendChild(clone);
-                
-                html2pdf().set(opt).from(clone).save().then(() => {
-                    document.body.removeChild(clone);
+                html2pdf().set(opt).from(element).save().then(() => {
                     btnPrintCertificate.innerHTML = originalText;
                     btnPrintCertificate.disabled = false;
                 }).catch(err => {
                     console.error("PDF download failed:", err);
-                    if (document.body.contains(clone)) {
-                        document.body.removeChild(clone);
-                    }
                     btnPrintCertificate.innerHTML = originalText;
                     btnPrintCertificate.disabled = false;
                     // Fallback to printing dialog
