@@ -1320,3 +1320,17 @@
     border: 1px dashed rgba(16, 185, 129, 0.15);
     border-radius: 8px;
 }
+
+@media (max-width: 768px) {
+    .workspace-top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-3);
+    }
+    #admin-stats-badge {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        width: 100%;
+        justify-content: space-around;
+    }
+}

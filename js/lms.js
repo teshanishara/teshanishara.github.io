@@ -87,6 +87,48 @@ export function initLMS() {
     
     seedUsersFromCsv();
 
+    // Fetch and display admin hit counter statistics
+    const updateAdminAnalyticsDisplay = async () => {
+        const isAdmin = currentUser && currentUser.email === 'teshan.ishara@gmail.com';
+        const adminBadge = document.getElementById('admin-stats-badge');
+        if (!isAdmin || !adminBadge) {
+            if (adminBadge) adminBadge.style.display = 'none';
+            return;
+        }
+        
+        adminBadge.style.display = 'flex';
+        
+        try {
+            // Fetch visits
+            const resVisits = await fetch('https://api.counterapi.dev/v1/geophoenix/visits');
+            if (resVisits.ok) {
+                const data = await resVisits.json();
+                const visitsVal = document.getElementById('admin-visits-count');
+                if (visitsVal) visitsVal.innerText = data.count || 0;
+            }
+            
+            // Fetch enrollments
+            const resEnrolls = await fetch('https://api.counterapi.dev/v1/geophoenix/enrollments');
+            if (resEnrolls.ok) {
+                const data = await resEnrolls.json();
+                const enrollsVal = document.getElementById('admin-enrolls-count');
+                if (enrollsVal) enrollsVal.innerText = data.count || 0;
+            }
+        } catch (e) {
+            console.error('Failed to load admin stats:', e);
+        }
+    };
+
+    // Increment site visits session counter (ignore admin visits)
+    if (!sessionStorage.getItem('lms_visit_counted')) {
+        const isAdminLoggedIn = currentUser && currentUser.email === 'teshan.ishara@gmail.com';
+        if (!isAdminLoggedIn) {
+            fetch('https://api.counterapi.dev/v1/geophoenix/visits/up')
+                .then(() => sessionStorage.setItem('lms_visit_counted', 'true'))
+                .catch(err => console.log('Analytics error:', err));
+        }
+    }
+
     // DOM ELEMENTS REFERENCE
     const landingPanel = document.getElementById('lms-landing-panel');
     const workspacePanel = document.getElementById('lms-workspace-panel');
@@ -338,6 +380,10 @@ export function initLMS() {
                 })
             }).catch(err => console.log('Signup notification error:', err));
             
+            // Increment enrollment count asynchronously
+            fetch('https://api.counterapi.dev/v1/geophoenix/enrollments/up')
+                .catch(err => console.log('Enrollment count log error:', err));
+            
             currentUser = newUser;
             localStorage.setItem('lms_current_user', JSON.stringify(newUser));
             
@@ -416,9 +462,12 @@ export function initLMS() {
         if (currentUser && currentUser.email === 'teshan.ishara@gmail.com') {
             if (btnAdminCert) btnAdminCert.style.display = 'inline-flex';
             if (btnAdminCsv) btnAdminCsv.style.display = 'inline-flex';
+            updateAdminAnalyticsDisplay();
         } else {
             if (btnAdminCert) btnAdminCert.style.display = 'none';
             if (btnAdminCsv) btnAdminCsv.style.display = 'none';
+            const adminBadge = document.getElementById('admin-stats-badge');
+            if (adminBadge) adminBadge.style.display = 'none';
         }
 
         activeSlideIndex = 0;
