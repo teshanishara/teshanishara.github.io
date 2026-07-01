@@ -6,6 +6,10 @@ import { getQgisTechnicalAnswer } from './chatbot.js';
 import { getReviews, updateAggregatedRatingDisplay, renderReviewsTab } from './reviews.js';
 
 export function initLMS() {
+    // 💡 GOOGLE SHEETS LIVE DATABASE INTEGRATION URL:
+    // After deploying your Google Apps Script Web App, paste its URL here (e.g. 'https://script.google.com/macros/s/XXXXX/exec')
+    const GOOGLE_SCRIPT_URL = '';
+
     let currentLang = localStorage.getItem('lms_lang') || 'en';
     let currentUser = JSON.parse(localStorage.getItem('lms_current_user')) || null;
     if (currentUser) {
@@ -21,67 +25,101 @@ export function initLMS() {
 
     const lmsCourseData = window.lmsCourseData;
 
-    // Fetch and seed registered users from the CSV in the repository
+    // Fetch and seed registered users from the CSV in the repository or from the live Google Sheets Web App
     const seedUsersFromCsv = async () => {
         try {
-            const response = await fetch('lms_students.csv');
-            if (!response.ok) return;
-            const csvText = await response.text();
-            
-            // Simple CSV parser
-            const lines = csvText.split('\n');
-            if (lines.length < 2) return;
-            
-            const users = JSON.parse(localStorage.getItem('lms_users')) || {};
+            let users = JSON.parse(localStorage.getItem('lms_users')) || {};
             let updated = false;
             
-            for (let i = 1; i < lines.length; i++) {
-                const line = lines[i].trim();
-                if (!line) continue;
-                
-                const cols = [];
-                let current = '';
-                let inQuotes = false;
-                for (let c = 0; c < line.length; c++) {
-                    const char = line[c];
-                    if (char === '"') {
-                        inQuotes = !inQuotes;
-                    } else if (char === ',' && !inQuotes) {
-                        cols.push(current.trim());
-                        current = '';
-                    } else {
-                        current += char;
+            if (GOOGLE_SCRIPT_URL) {
+                console.log('Fetching live student database from Google Sheets...');
+                const response = await fetch(GOOGLE_SCRIPT_URL + '?action=getUsers');
+                if (response.ok) {
+                    const sheetUsers = await response.json();
+                    if (Array.isArray(sheetUsers)) {
+                        sheetUsers.forEach(su => {
+                            if (su.email && su.password) {
+                                const email = su.email.toLowerCase().trim();
+                                const existing = users[email] || {};
+                                users[email] = {
+                                    name: su.name || email.split('@')[0],
+                                    email: email,
+                                    password: su.password,
+                                    enrolled: true,
+                                    completedSlides: existing.completedSlides || [],
+                                    studySeconds: Math.max(su.studySeconds || 0, existing.studySeconds || 0),
+                                    examScore: su.examScore !== undefined ? su.examScore : (existing.examScore || null),
+                                    examDate: su.examDate || existing.examDate || null,
+                                    certificateId: su.certificateId || existing.certificateId || null
+                                };
+                                updated = true;
+                            }
+                        });
                     }
                 }
-                cols.push(current.trim());
+            } else {
+                console.log('Fetching student database from local CSV file...');
+                const response = await fetch('lms_students.csv');
+                if (!response.ok) return;
+                const csvText = await response.text();
                 
-                if (cols.length >= 3) {
-                    const name = cols[0].replace(/^"|"$/g, '');
-                    const email = cols[1].toLowerCase().replace(/^"|"$/g, '');
-                    const password = cols[2].replace(/^"|"$/g, '');
+                const lines = csvText.split('\n');
+                if (lines.length < 2) return;
+                
+                for (let i = 1; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    if (!line) continue;
                     
-                    if (email && password && !users[email]) {
-                        users[email] = {
-                            name: name || email.split('@')[0],
-                            email: email,
-                            password: password,
-                            enrolled: true,
-                            completedSlides: [],
-                            studySeconds: 0,
-                            examScore: null,
-                            examDate: null
-                        };
-                        updated = true;
+                    const cols = [];
+                    let current = '';
+                    let inQuotes = false;
+                    for (let c = 0; c < line.length; c++) {
+                        const char = line[c];
+                        if (char === '"') {
+                            inQuotes = !inQuotes;
+                        } else if (char === ',' && !inQuotes) {
+                            cols.push(current.trim());
+                            current = '';
+                        } else {
+                            current += char;
+                        }
+                    }
+                    cols.push(current.trim());
+                    
+                    if (cols.length >= 3) {
+                        const name = cols[0].replace(/^"|"$/g, '');
+                        const email = cols[1].toLowerCase().replace(/^"|"$/g, '');
+                        const password = cols[2].replace(/^"|"$/g, '');
+                        
+                        if (email && password && !users[email]) {
+                            users[email] = {
+                                name: name || email.split('@')[0],
+                                email: email,
+                                password: password,
+                                enrolled: true,
+                                completedSlides: [],
+                                studySeconds: 0,
+                                examScore: null,
+                                examDate: null
+                            };
+                            updated = true;
+                        }
                     }
                 }
             }
             
             if (updated) {
                 localStorage.setItem('lms_users', JSON.stringify(users));
-                console.log('Seeded local users database from repository CSV');
+                console.log('Synchronized local database successfully');
+                
+                // If current user is logged in, refresh their local reference from the fetched database
+                if (currentUser && users[currentUser.email.toLowerCase()]) {
+                    currentUser = users[currentUser.email.toLowerCase()];
+                    localStorage.setItem('lms_current_user', JSON.stringify(currentUser));
+                }
             }
         } catch (e) {
-            console.error('Failed to seed users from CSV:', e);
+            console.error('Failed to sync student database:', e);
         }
     };
     
@@ -128,6 +166,25 @@ export function initLMS() {
                 .catch(err => console.log('Analytics error:', err));
         }
     }
+
+    // Helper to send data to Google Sheets via serverless Apps Script Web App
+    const sendDataToGoogleSheets = (data) => {
+        if (!GOOGLE_SCRIPT_URL) return;
+        
+        const formBody = [];
+        for (const property in data) {
+            const encodedKey = encodeURIComponent(property);
+            const encodedValue = encodeURIComponent(data[property]);
+            formBody.push(encodedKey + "=" + encodedValue);
+        }
+        
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+            body: formBody.join("&"),
+            mode: 'no-cors' // Bypasses browser CORS redirect blockers
+        }).catch(err => console.log('Google Sheets sync error:', err));
+    };
 
     // DOM ELEMENTS REFERENCE
     const landingPanel = document.getElementById('lms-landing-panel');
@@ -384,6 +441,14 @@ export function initLMS() {
             fetch('https://api.counterapi.dev/v1/geophoenix/enrollments/up')
                 .catch(err => console.log('Enrollment count log error:', err));
             
+            // Sync new user to Google Sheets live database
+            sendDataToGoogleSheets({
+                action: 'register',
+                name: name,
+                email: email,
+                password: password
+            });
+            
             currentUser = newUser;
             localStorage.setItem('lms_current_user', JSON.stringify(newUser));
             
@@ -507,6 +572,13 @@ export function initLMS() {
             
             if (totalSeconds % 15 === 0) {
                 saveUserState();
+            }
+            if (totalSeconds % 60 === 0) {
+                sendDataToGoogleSheets({
+                    action: 'updateStudyTime',
+                    email: currentUser.email,
+                    studySeconds: totalSeconds
+                });
             }
         }, 1000);
     };
@@ -968,6 +1040,16 @@ export function initLMS() {
             });
 
             saveUserState();
+            
+            // Sync final exam results to Google Sheets live database
+            sendDataToGoogleSheets({
+                action: 'updateScore',
+                email: currentUser.email,
+                examScore: finalScore,
+                examDate: currentUser.examDate,
+                certificateId: currentUser.certificateId || ''
+            });
+            
             displayQuizResults(finalScore);
         });
     }
@@ -1007,6 +1089,15 @@ export function initLMS() {
                     localStorage.setItem('lms_users', JSON.stringify(users));
                 }
                 localStorage.setItem('lms_current_user', JSON.stringify(currentUser));
+                
+                // Sync newly generated certificate ID to Google Sheets live database
+                sendDataToGoogleSheets({
+                    action: 'updateScore',
+                    email: currentUser.email,
+                    examScore: currentUser.examScore || 0,
+                    examDate: currentUser.examDate || new Date().toLocaleDateString(),
+                    certificateId: randomId
+                });
             }
             
             const certIdValue = document.getElementById('cert-id-value');
