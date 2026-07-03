@@ -8,7 +8,7 @@ import { getReviews, updateAggregatedRatingDisplay, renderReviewsTab } from './r
 export function initLMS() {
     // 💡 GOOGLE SHEETS LIVE DATABASE INTEGRATION URL:
     // After deploying your Google Apps Script Web App, paste its URL here (e.g. 'https://script.google.com/macros/s/XXXXX/exec')
-    const GOOGLE_SCRIPT_URL = '';
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzPcgxguqazqRyCbobNKHCY1ci8it0JdkzORYRrej5WLMoxkj6rCnkRfi9zXjHCeM4m/exec';
 
     let currentLang = localStorage.getItem('lms_lang') || 'en';
     let currentUser = JSON.parse(localStorage.getItem('lms_current_user')) || null;
