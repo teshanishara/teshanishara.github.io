@@ -127,7 +127,7 @@ export function initLMS() {
 
     // Fetch and display admin hit counter statistics
     const updateAdminAnalyticsDisplay = async () => {
-        const isAdmin = currentUser && currentUser.email === 'teshan.ishara@gmail.com';
+        const isAdmin = currentUser && currentUser.email === 'contact@geophoenixgis.com';
         const adminBadge = document.getElementById('admin-stats-badge');
         if (!isAdmin || !adminBadge) {
             if (adminBadge) adminBadge.style.display = 'none';
@@ -159,7 +159,7 @@ export function initLMS() {
 
     // Increment site visits session counter (ignore admin visits)
     if (!sessionStorage.getItem('lms_visit_counted')) {
-        const isAdminLoggedIn = currentUser && currentUser.email === 'teshan.ishara@gmail.com';
+        const isAdminLoggedIn = currentUser && currentUser.email === 'contact@geophoenixgis.com';
         if (!isAdminLoggedIn) {
             fetch('https://api.counterapi.dev/v1/geophoenix/visits/up')
                 .then(() => sessionStorage.setItem('lms_visit_counted', 'true'))
@@ -404,7 +404,7 @@ export function initLMS() {
             }
 
             const users = JSON.parse(localStorage.getItem('lms_users')) || {};
-            if (users[email] && email !== 'teshan.ishara@gmail.com') {
+            if (users[email] && email !== 'contact@geophoenixgis.com') {
                 alert(currentLang === 'en' ? "An account with this email already exists." : "මෙම විද්‍යුත් තැපෑල සහිත ගිණුමක් දැනටමත් පවතී.");
                 return;
             }
@@ -471,7 +471,7 @@ export function initLMS() {
             const users = JSON.parse(localStorage.getItem('lms_users')) || {};
             let user = users[email];
 
-            if (email === 'teshan.ishara@gmail.com') {
+            if (email === 'contact@geophoenixgis.com') {
                 if (password === 'Teshan123@') {
                     user = {
                         name: "Admin",
@@ -524,7 +524,7 @@ export function initLMS() {
         if (userDisplayName) userDisplayName.innerText = currentUser.name;
         if (workspaceLangDisplay) workspaceLangDisplay.innerText = currentLang === 'en' ? 'English' : 'සිංහල';
 
-        if (currentUser && currentUser.email === 'teshan.ishara@gmail.com') {
+        if (currentUser && currentUser.email === 'contact@geophoenixgis.com') {
             if (btnAdminCert) btnAdminCert.style.display = 'inline-flex';
             if (btnAdminCsv) btnAdminCsv.style.display = 'inline-flex';
             updateAdminAnalyticsDisplay();
@@ -1056,7 +1056,7 @@ export function initLMS() {
 
     // 8. CERTIFICATE GENERATION PREVIEW
     function openCertificate() {
-        const isAdmin = currentUser && currentUser.email === 'teshan.ishara@gmail.com';
+        const isAdmin = currentUser && currentUser.email === 'contact@geophoenixgis.com';
         if (!isAdmin && (!currentUser || !currentUser.mapUploaded)) {
             alert(currentLang === 'en' ? "Please upload your study area map to unlock the certificate." : "කරුණාකර සහතිකය බාගත කිරීමට ප්‍රථමයෙන් ඔබ සකස් කළ සිතියම උඩුගත කරන්න.");
             return;
@@ -1116,10 +1116,10 @@ export function initLMS() {
         let csvContent = "data:text/csv;charset=utf-8,";
         csvContent += "Name,Email,Password,Exam Score,Exam Date,Study Seconds\n";
         
-        csvContent += `Admin,teshan.ishara@gmail.com,Teshan123@,100%,-,-\n`;
+        csvContent += `Admin,contact@geophoenixgis.com,Teshan123@,100%,-,-\n`;
         
         Object.values(users).forEach(user => {
-            if (user.email === 'teshan.ishara@gmail.com') return;
+            if (user.email === 'contact@geophoenixgis.com') return;
             const score = user.examScore !== null ? `${user.examScore}%` : '-';
             const date = user.examDate || '-';
             const seconds = user.studySeconds || 0;
