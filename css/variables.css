@@ -2,29 +2,30 @@
    DESIGN TOKENS & CSS VARIABLES - GEOPHOENIX LOGO PALETTE
    ========================================================================== */
 :root {
-    /* Color Palette - Logo-Based Colors (Phoenix Orange & Globe Emerald) */
-    --bg-primary: #080d16;
-    --bg-secondary: #0d1524;
-    --bg-card: rgba(15, 23, 38, 0.55);
-    --bg-card-hover: rgba(26, 38, 59, 0.75);
+    /* Color Palette - Logo-Based Colors (Phoenix Orange, Earth Teal, Obsidian Navy) */
+    --bg-primary: #050911;
+    --bg-secondary: #09101c;
+    --bg-card: rgba(13, 20, 34, 0.75);
+    --bg-card-hover: rgba(22, 33, 54, 0.88);
     
-    --accent-orange: #f97316;
-    --accent-amber: #ff8c00;
+    --accent-orange: #ff6b18;
+    --accent-amber: #ff8e25;
     --accent-emerald: #10b981;
-    --accent-mint: #34d399;
+    --accent-mint: #2dd4bf;
     --accent-teal: #0d9488;
     
-    --accent-glow: rgba(249, 115, 22, 0.18);
-    --accent-glow-strong: rgba(249, 115, 22, 0.35);
-    --accent-teal-glow: rgba(16, 185, 129, 0.18);
+    --accent-glow: rgba(255, 107, 24, 0.22);
+    --accent-glow-strong: rgba(255, 107, 24, 0.45);
+    --accent-teal-glow: rgba(13, 148, 136, 0.25);
     
     --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
     
-    --border-color: rgba(249, 115, 22, 0.18);
-    --border-color-strong: rgba(249, 115, 22, 0.35);
-    --border-glow: rgba(249, 115, 22, 0.45);
+    --border-color: rgba(255, 107, 24, 0.2);
+    --border-color-strong: rgba(255, 107, 24, 0.45);
+    --border-teal: rgba(13, 148, 136, 0.3);
+    --border-glow: rgba(255, 107, 24, 0.5);
     
     --font-heading: 'Plus Jakarta Sans', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -35,10 +36,10 @@
     --transition-spring-bouncy: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-glow: 0 0 20px rgba(249, 115, 22, 0.18);
+    --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 25px rgba(255, 107, 24, 0.22), 0 0 15px rgba(13, 148, 136, 0.15);
     
     /* Spacing Grid (8pt system) */
     --space-1: 0.25rem;
