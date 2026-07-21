@@ -1,25 +1,30 @@
 /* ==========================================================================
-   DESIGN TOKENS & CSS VARIABLES
+   DESIGN TOKENS & CSS VARIABLES - GEOPHOENIX LOGO PALETTE
    ========================================================================== */
 :root {
-    /* Color Palette - Obsidian Obsidian Theme with Emerald Accents */
-    --bg-primary: #080b11;
-    --bg-secondary: #0d131f;
-    --bg-card: rgba(17, 24, 39, 0.45);
-    --bg-card-hover: rgba(31, 41, 55, 0.6);
+    /* Color Palette - Logo-Based Colors (Phoenix Orange & Globe Emerald) */
+    --bg-primary: #080d16;
+    --bg-secondary: #0d1524;
+    --bg-card: rgba(15, 23, 38, 0.55);
+    --bg-card-hover: rgba(26, 38, 59, 0.75);
     
+    --accent-orange: #f97316;
+    --accent-amber: #ff8c00;
     --accent-emerald: #10b981;
     --accent-mint: #34d399;
-    --accent-glow: rgba(16, 185, 129, 0.15);
-    --accent-glow-strong: rgba(16, 185, 129, 0.3);
+    --accent-teal: #0d9488;
+    
+    --accent-glow: rgba(249, 115, 22, 0.18);
+    --accent-glow-strong: rgba(249, 115, 22, 0.35);
+    --accent-teal-glow: rgba(16, 185, 129, 0.18);
     
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
     --text-muted: #64748b;
     
-    --border-color: rgba(16, 185, 129, 0.12);
-    --border-color-strong: rgba(16, 185, 129, 0.25);
-    --border-glow: rgba(16, 185, 129, 0.35);
+    --border-color: rgba(249, 115, 22, 0.18);
+    --border-color-strong: rgba(249, 115, 22, 0.35);
+    --border-glow: rgba(249, 115, 22, 0.45);
     
     --font-heading: 'Plus Jakarta Sans', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -33,7 +38,7 @@
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-glow: 0 0 20px rgba(16, 185, 129, 0.1);
+    --shadow-glow: 0 0 20px rgba(249, 115, 22, 0.18);
     
     /* Spacing Grid (8pt system) */
     --space-1: 0.25rem;

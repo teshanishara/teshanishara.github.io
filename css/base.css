@@ -16,8 +16,8 @@ html {
 body {
     background-color: var(--bg-primary);
     background-image: 
-        radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.03) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.02) 0%, transparent 40%);
+        radial-gradient(circle at 10% 20%, rgba(249, 115, 22, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(13, 148, 136, 0.04) 0%, transparent 40%);
     background-attachment: fixed;
     color: var(--text-primary);
     font-family: var(--font-body);
@@ -70,7 +70,7 @@ img {
     border: 2px solid var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-emerald);
+    background: var(--accent-orange);
 }
 
 /* Section Header Utility */
@@ -84,7 +84,7 @@ img {
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
-    color: var(--accent-emerald);
+    color: var(--accent-orange);
     font-weight: 600;
     margin-bottom: var(--space-2);
     display: block;
@@ -102,7 +102,7 @@ img {
 
 /* Text glow */
 .text-glow {
-    background: linear-gradient(135deg, var(--accent-emerald), var(--accent-mint));
+    background: linear-gradient(135deg, var(--accent-orange), var(--accent-mint));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -138,13 +138,14 @@ img {
 }
 
 .btn-primary {
-    background: var(--accent-emerald);
-    color: #020813;
+    background: linear-gradient(135deg, var(--accent-orange), #ea580c);
+    color: #ffffff;
+    font-weight: 700;
 }
 
 .btn-primary:hover {
-    background: var(--accent-mint);
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+    background: linear-gradient(135deg, var(--accent-amber), var(--accent-orange));
+    box-shadow: 0 0 18px rgba(249, 115, 22, 0.45);
 }
 
 .btn-secondary {
