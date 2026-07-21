@@ -37,18 +37,20 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Custom CSS (Parallel Loading for Performance) -->
-    <link rel="stylesheet" href="css/variables.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/portfolio.css">
-    <link rel="stylesheet" href="css/lms.css">
-    <link rel="stylesheet" href="css/chatbot.css">
-    <link rel="stylesheet" href="css/animations.css">
+    <!-- Custom CSS (Parallel Loading for Performance with Cache-Busting) -->
+    <link rel="stylesheet" href="css/variables.css?v=2.0">
+    <link rel="stylesheet" href="css/base.css?v=2.0">
+    <link rel="stylesheet" href="css/portfolio.css?v=2.0">
+    <link rel="stylesheet" href="css/lms.css?v=2.0">
+    <link rel="stylesheet" href="css/chatbot.css?v=2.0">
+    <link rel="stylesheet" href="css/animations.css?v=2.0">
 
     <!-- JSON-LD Structured Data for SEO (Google Search Starter Guide Compliant) -->
     <script type="application/ld+json">
@@ -116,8 +118,10 @@
     <!-- Header / Navigation -->
     <header class="header">
         <div class="container nav-container">
-            <a href="#" class="logo" id="nav-logo" style="display: inline-flex; align-items: center; gap: var(--space-2);">
-                <img src="assets/geophoenix-logo.jpg" alt="GeoPhoenix Logo" style="height: 28px; width: 28px; border-radius: 6px; object-fit: cover;">
+            <a href="#" class="logo" id="nav-logo"
+                style="display: inline-flex; align-items: center; gap: var(--space-2);">
+                <img src="assets/geophoenix-logo.jpg" alt="GeoPhoenix Logo"
+                    style="height: 28px; width: 28px; border-radius: 6px; object-fit: cover;">
                 <span class="logo-text">GeoPhoenix</span>
             </a>
 
@@ -158,7 +162,9 @@
                 </h1>
 
                 <p class="hero-subtitle">
-                    Welcome to <strong class="name-highlight">GeoPhoenix</strong>. Founded and led by <strong class="name-highlight">Teshan Ishara</strong>, we deliver expert GIS tasks, professional data analysis research support, and custom spatial intelligence maps.
+                    Welcome to <strong class="name-highlight">GeoPhoenix</strong>. Founded and led by <strong
+                        class="name-highlight">Teshan Ishara</strong>, we deliver expert GIS tasks, professional data
+                    analysis research support, and custom spatial intelligence maps.
                 </p>
 
                 <div class="hero-actions">
@@ -234,19 +240,22 @@
                 <span class="section-subtitle">Profile</span>
                 <h2 class="section-title">Bridging Ecological Science & Spatial Analytics</h2>
             </div>
-            
+
             <div class="about-bento">
                 <!-- Card 1: Professional Profile Headshot (spans 1 column) -->
                 <div class="glass-card bento-image-card reveal-on-scroll slide-up">
-                    <img src="assets/teshan-profile.jpg" alt="Teshan Ishara - Founder & Lead GIS Specialist">
+                    <img src="assets/teshan-profile.jpg?v=2.0" alt="Teshan Ishara - Founder & Lead GIS Specialist">
                 </div>
 
                 <!-- Card 2: Description (spans 2 columns) -->
                 <div class="glass-card bento-desc-card reveal-on-scroll slide-up">
-                    <p style="margin-bottom: var(--space-4); font-size: 1.05rem; color: var(--text-primary); font-weight: 500;">
-                        With a strong academic background in spatial analysis and data science, I have spent over 6 years
+                    <p
+                        style="margin-bottom: var(--space-4); font-size: 1.05rem; color: var(--text-primary); font-weight: 500;">
+                        With a strong academic background in spatial analysis and data science, I have spent over 6
+                        years
                         delivering highly accurate GIS mapping, urban planning layouts, service area analysis, and
-                        statistical models for clients across the USA, UK, Europe, and Australia. I merge domain expertise
+                        statistical models for clients across the USA, UK, Europe, and Australia. I merge domain
+                        expertise
                         in environmental systems with advanced geoprocessing to solve complex spatial challenges.
                     </p>
                     <p style="color: var(--text-secondary); font-size: 0.95rem;">
@@ -265,17 +274,21 @@
 
                 <!-- Card 4: Research Assistant (spans 1 column) -->
                 <div class="glass-card bento-badge-card reveal-on-scroll slide-up">
-                    <div class="badge-icon" style="color: var(--accent-mint);"><i class="fa-solid fa-flask-vial"></i></div>
+                    <div class="badge-icon" style="color: var(--accent-mint);"><i class="fa-solid fa-flask-vial"></i>
+                    </div>
                     <h3>Research</h3>
-                    <p style="font-size: 0.85rem; line-height: 1.4; color: var(--text-secondary); max-width: 90%; margin: 0.5rem auto 0;">
-                        Research Assistant for University of Southampton projects, specializing in data analysis and geospatial research support.
+                    <p
+                        style="font-size: 0.85rem; line-height: 1.4; color: var(--text-secondary); max-width: 90%; margin: 0.5rem auto 0;">
+                        Research Assistant for University of Southampton projects, specializing in data analysis and
+                        geospatial research support.
                     </p>
                 </div>
 
                 <!-- Card 5: Quote (spans 1 column) -->
                 <div class="glass-card bento-quote-card reveal-on-scroll slide-up">
                     <i class="fa-solid fa-quote-left quote-icon"></i>
-                    <p>Merging ecological domain expertise with spatial science allows me to craft data models that are both scientifically rigorous and visually compelling.</p>
+                    <p>Merging ecological domain expertise with spatial science allows me to craft data models that are
+                        both scientifically rigorous and visually compelling.</p>
                 </div>
 
                 <!-- Card 6: Key Points (spans 3 columns) -->
@@ -286,7 +299,8 @@
                             <div class="point-icon"><i class="fa-solid fa-circle-check"></i></div>
                             <div>
                                 <h4>Multidisciplinary GIS</h4>
-                                <p>Expertise spanning urban planning, routing, service area analysis, and environmental science.</p>
+                                <p>Expertise spanning urban planning, routing, service area analysis, and environmental
+                                    science.</p>
                             </div>
                         </div>
                         <div class="bento-point-item">
@@ -300,7 +314,8 @@
                             <div class="point-icon"><i class="fa-solid fa-circle-check"></i></div>
                             <div>
                                 <h4>Academic Rigor</h4>
-                                <p>Specialized research support using advanced geostatistics and reproducible script pipelines.</p>
+                                <p>Specialized research support using advanced geostatistics and reproducible script
+                                    pipelines.</p>
                             </div>
                         </div>
                     </div>
@@ -531,14 +546,18 @@
                 <div class="resume-column">
                     <h3 class="column-title"><i class="fa-solid fa-briefcase"></i> Work Experience</h3>
                     <div class="timeline">
-                        <div class="timeline-item active-role glass-card" style="border-left: 2px solid var(--accent-mint);">
+                        <div class="timeline-item active-role glass-card"
+                            style="border-left: 2px solid var(--accent-mint);">
                             <span class="timeline-date">15/11/2025 – CURRENT</span>
                             <h4>Research Assistant (Spatial Intelligence)</h4>
                             <p class="timeline-location">University of Southampton, UK (Remote / Collaboration)</p>
                             <p class="timeline-details">
-                                Conducting data analysis, spatial modeling, and academic research support under the supervision of:
-                                <br><strong style="color: var(--accent-mint);">Mrs. Imali Manikarachchige, BSc (Sri Lanka), MSc (Sweden)</strong>
-                                <br><span style="font-size: 0.85rem; opacity: 0.9;">PhD Researcher, Faculty of Engineering and Physical Sciences, University of Southampton.</span>
+                                Conducting data analysis, spatial modeling, and academic research support under the
+                                supervision of:
+                                <br><strong style="color: var(--accent-mint);">Mrs. Imali Manikarachchige, BSc (Sri
+                                    Lanka), MSc (Sweden)</strong>
+                                <br><span style="font-size: 0.85rem; opacity: 0.9;">PhD Researcher, Faculty of
+                                    Engineering and Physical Sciences, University of Southampton.</span>
                             </p>
                         </div>
                         <div class="timeline-item glass-card">
@@ -641,15 +660,21 @@
                             <i class="fa-solid fa-square-rss"></i>
                         </div>
                         <div class="blog-info">
-                            <h3 style="font-size: 1.5rem; margin-bottom: var(--space-2);">Personal Finance & Digital Marketing</h3>
-                            <span class="blog-domain" style="font-size: 0.85rem; color: var(--accent-mint); font-weight: 600; display: block; margin-bottom: var(--space-3);">teshangrowthacademy.blogspot.com</span>
-                            <p class="blog-desc" style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: var(--space-4);">Explore practical insights on building passive income, investment secrets, digital marketing workflows, and self-growth strategies at Teshan Growth Academy.</p>
+                            <h3 style="font-size: 1.5rem; margin-bottom: var(--space-2);">Personal Finance & Digital
+                                Marketing</h3>
+                            <span class="blog-domain"
+                                style="font-size: 0.85rem; color: var(--accent-mint); font-weight: 600; display: block; margin-bottom: var(--space-3);">teshangrowthacademy.blogspot.com</span>
+                            <p class="blog-desc"
+                                style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: var(--space-4);">
+                                Explore practical insights on building passive income, investment secrets, digital
+                                marketing workflows, and self-growth strategies at Teshan Growth Academy.</p>
                             <div class="blog-topics" style="display: flex; gap: 0.4rem; margin-bottom: var(--space-6);">
                                 <span class="project-tag">Passive Income</span>
                                 <span class="project-tag">Digital Marketing</span>
                                 <span class="project-tag">Wealth Building</span>
                             </div>
-                            <a href="https://teshangrowthacademy.blogspot.com/" target="_blank" class="btn btn-primary blog-btn">
+                            <a href="https://teshangrowthacademy.blogspot.com/" target="_blank"
+                                class="btn btn-primary blog-btn">
                                 <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Growth Academy
                             </a>
                         </div>
@@ -658,146 +683,173 @@
 
                 <!-- Right Column: Horizontal book shelf carousel -->
                 <div class="books-slider-container reveal-on-scroll slide-right">
-                    <h3 style="margin-bottom: var(--space-4); font-size: 1.25rem; font-family: var(--font-heading);"><i class="fa-solid fa-book-open"></i> Published Amazon Books</h3>
+                    <h3 style="margin-bottom: var(--space-4); font-size: 1.25rem; font-family: var(--font-heading);"><i
+                            class="fa-solid fa-book-open"></i> Published Amazon Books</h3>
                     <div class="books-slider-wrapper" style="position: relative; width: 100%;">
-                        <button class="slider-arrow prev" id="btn-prev-books" aria-label="Scroll left" type="button"><i class="fa-solid fa-chevron-left"></i></button>
+                        <button class="slider-arrow prev" id="btn-prev-books" aria-label="Scroll left" type="button"><i
+                                class="fa-solid fa-chevron-left"></i></button>
                         <div class="books-grid">
-                        <!-- Book 1 -->
-                        <div class="book-card">
-                            <img src="assets/projects/book-deepfakes.jpg" alt="Guardian of the Digital Self book cover" class="book-cover" loading="lazy">
-                            <div class="book-overlay">
-                                <h4>Guardian of the Digital Self</h4>
-                                <p>AI & Safety</p>
-                                <a href="https://www.amazon.com/dp/B0GZCK98VG" target="_blank" class="btn btn-primary btn-mini book-btn">
-                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                                </a>
+                            <!-- Book 1 -->
+                            <div class="book-card">
+                                <img src="assets/projects/book-deepfakes.jpg"
+                                    alt="Guardian of the Digital Self book cover" class="book-cover" loading="lazy">
+                                <div class="book-overlay">
+                                    <h4>Guardian of the Digital Self</h4>
+                                    <p>AI & Safety</p>
+                                    <a href="https://www.amazon.com/dp/B0GZCK98VG" target="_blank"
+                                        class="btn btn-primary btn-mini book-btn">
+                                        <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Book 2 -->
-                        <div class="book-card">
-                            <img src="assets/projects/book-sonic-playbook.jpg" alt="The Sonic Gold Playbook book cover" class="book-cover" loading="lazy">
-                            <div class="book-overlay">
-                                <h4>The Sonic Gold Playbook</h4>
-                                <p>AI Music</p>
-                                <a href="https://www.amazon.com/dp/B0GZWGZC5G" target="_blank" class="btn btn-primary btn-mini book-btn">
-                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                                </a>
+                            <!-- Book 2 -->
+                            <div class="book-card">
+                                <img src="assets/projects/book-sonic-playbook.jpg"
+                                    alt="The Sonic Gold Playbook book cover" class="book-cover" loading="lazy">
+                                <div class="book-overlay">
+                                    <h4>The Sonic Gold Playbook</h4>
+                                    <p>AI Music</p>
+                                    <a href="https://www.amazon.com/dp/B0GZWGZC5G" target="_blank"
+                                        class="btn btn-primary btn-mini book-btn">
+                                        <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Book 3 -->
-                        <div class="book-card">
-                            <img src="assets/projects/book-sonic-branding.jpg" alt="Suno AI for Sonic Branding book cover" class="book-cover" loading="lazy">
-                            <div class="book-overlay">
-                                <h4>Suno AI for Sonic Branding</h4>
-                                <p>Sonic Branding</p>
-                                <a href="https://www.amazon.com/dp/B0GYB7FL5P" target="_blank" class="btn btn-primary btn-mini book-btn">
-                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                                </a>
+                            <!-- Book 3 -->
+                            <div class="book-card">
+                                <img src="assets/projects/book-sonic-branding.jpg"
+                                    alt="Suno AI for Sonic Branding book cover" class="book-cover" loading="lazy">
+                                <div class="book-overlay">
+                                    <h4>Suno AI for Sonic Branding</h4>
+                                    <p>Sonic Branding</p>
+                                    <a href="https://www.amazon.com/dp/B0GYB7FL5P" target="_blank"
+                                        class="btn btn-primary btn-mini book-btn">
+                                        <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Book 4 -->
-                        <div class="book-card">
-                            <img src="assets/projects/book-cinematic-suno.jpg" alt="The Cinematic Suno Bible book cover" class="book-cover" loading="lazy">
-                            <div class="book-overlay">
-                                <h4>The Cinematic Suno Bible</h4>
-                                <p>Cinematic AI</p>
-                                <a href="https://www.amazon.com/dp/B0GYWMFQ3T" target="_blank" class="btn btn-primary btn-mini book-btn">
-                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                                </a>
+                            <!-- Book 4 -->
+                            <div class="book-card">
+                                <img src="assets/projects/book-cinematic-suno.jpg"
+                                    alt="The Cinematic Suno Bible book cover" class="book-cover" loading="lazy">
+                                <div class="book-overlay">
+                                    <h4>The Cinematic Suno Bible</h4>
+                                    <p>Cinematic AI</p>
+                                    <a href="https://www.amazon.com/dp/B0GYWMFQ3T" target="_blank"
+                                        class="btn btn-primary btn-mini book-btn">
+                                        <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Book 5 -->
-                        <div class="book-card">
-                            <img src="assets/projects/book-ai-recruitment.jpg" alt="AI for HR and Recruitment book cover" class="book-cover" loading="lazy">
-                            <div class="book-overlay">
-                                <h4>AI for HR and Recruitment</h4>
-                                <p>HR Automation</p>
-                                <a href="https://www.amazon.com/dp/B0GYQM1KM3" target="_blank" class="btn btn-primary btn-mini book-btn">
-                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                                </a>
+                            <!-- Book 5 -->
+                            <div class="book-card">
+                                <img src="assets/projects/book-ai-recruitment.jpg"
+                                    alt="AI for HR and Recruitment book cover" class="book-cover" loading="lazy">
+                                <div class="book-overlay">
+                                    <h4>AI for HR and Recruitment</h4>
+                                    <p>HR Automation</p>
+                                    <a href="https://www.amazon.com/dp/B0GYQM1KM3" target="_blank"
+                                        class="btn btn-primary btn-mini book-btn">
+                                        <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Book 6 -->
-                        <div class="book-card">
-                            <img src="assets/projects/book-gis-oceanography.jpg" alt="Advanced GIS for Oceanography book cover" class="book-cover" loading="lazy">
-                            <div class="book-overlay">
-                                <h4>Advanced GIS for Oceanography</h4>
-                                <p>GIS & Oceans</p>
-                                <a href="https://www.amazon.com/dp/B0GKJ13P6K" target="_blank" class="btn btn-primary btn-mini book-btn">
-                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                                </a>
+                            <!-- Book 6 -->
+                            <div class="book-card">
+                                <img src="assets/projects/book-gis-oceanography.jpg"
+                                    alt="Advanced GIS for Oceanography book cover" class="book-cover" loading="lazy">
+                                <div class="book-overlay">
+                                    <h4>Advanced GIS for Oceanography</h4>
+                                    <p>GIS & Oceans</p>
+                                    <a href="https://www.amazon.com/dp/B0GKJ13P6K" target="_blank"
+                                        class="btn btn-primary btn-mini book-btn">
+                                        <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Book 7 -->
-                        <div class="book-card">
-                            <img src="assets/projects/book-suno-bundle.jpg" alt="Suno AI Prompt Guide Bundle book cover" class="book-cover" loading="lazy">
-                            <div class="book-overlay">
-                                <h4>Suno AI Prompt Guide Bundle</h4>
-                                <p>Prompt Bundle</p>
-                                <a href="https://www.amazon.com/dp/B0GNJPC35J" target="_blank" class="btn btn-primary btn-mini book-btn">
-                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                                </a>
+                            <!-- Book 7 -->
+                            <div class="book-card">
+                                <img src="assets/projects/book-suno-bundle.jpg"
+                                    alt="Suno AI Prompt Guide Bundle book cover" class="book-cover" loading="lazy">
+                                <div class="book-overlay">
+                                    <h4>Suno AI Prompt Guide Bundle</h4>
+                                    <p>Prompt Bundle</p>
+                                    <a href="https://www.amazon.com/dp/B0GNJPC35J" target="_blank"
+                                        class="btn btn-primary btn-mini book-btn">
+                                        <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Book 8 -->
-                        <div class="book-card">
-                            <img src="assets/projects/book-midnight-vibes.jpg" alt="Midnight Thoughts & Lonely Vibes book cover" class="book-cover" loading="lazy">
-                            <div class="book-overlay">
-                                <h4>Midnight Thoughts & Lonely Vibes</h4>
-                                <p>Creative Prompts</p>
-                                <a href="https://www.amazon.com/dp/B0GX34WZCD" target="_blank" class="btn btn-primary btn-mini book-btn">
-                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                                </a>
+                            <!-- Book 8 -->
+                            <div class="book-card">
+                                <img src="assets/projects/book-midnight-vibes.jpg"
+                                    alt="Midnight Thoughts & Lonely Vibes book cover" class="book-cover" loading="lazy">
+                                <div class="book-overlay">
+                                    <h4>Midnight Thoughts & Lonely Vibes</h4>
+                                    <p>Creative Prompts</p>
+                                    <a href="https://www.amazon.com/dp/B0GX34WZCD" target="_blank"
+                                        class="btn btn-primary btn-mini book-btn">
+                                        <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Book 9 -->
-                        <div class="book-card">
-                            <img src="assets/projects/book-billionaire-hustles.jpg" alt="250 Side Hustles for Wealth book cover" class="book-cover" loading="lazy">
-                            <div class="book-overlay">
-                                <h4>250 Side Hustles for Wealth</h4>
-                                <p>Side Hustles</p>
-                                <a href="https://www.amazon.com/dp/B0GX55398S" target="_blank" class="btn btn-primary btn-mini book-btn">
-                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                                </a>
+                            <!-- Book 9 -->
+                            <div class="book-card">
+                                <img src="assets/projects/book-billionaire-hustles.jpg"
+                                    alt="250 Side Hustles for Wealth book cover" class="book-cover" loading="lazy">
+                                <div class="book-overlay">
+                                    <h4>250 Side Hustles for Wealth</h4>
+                                    <p>Side Hustles</p>
+                                    <a href="https://www.amazon.com/dp/B0GX55398S" target="_blank"
+                                        class="btn btn-primary btn-mini book-btn">
+                                        <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Book 10 -->
-                        <div class="book-card">
-                            <img src="assets/projects/book-meditation-yoga.jpg" alt="Suno Prompts for Meditation & Yoga book cover" class="book-cover" loading="lazy">
-                            <div class="book-overlay">
-                                <h4>Suno for Meditation & Yoga</h4>
-                                <p>Wellness Audio</p>
-                                <a href="https://www.amazon.com/dp/B0GX2Y8972" target="_blank" class="btn btn-primary btn-mini book-btn">
-                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                                </a>
+                            <!-- Book 10 -->
+                            <div class="book-card">
+                                <img src="assets/projects/book-meditation-yoga.jpg"
+                                    alt="Suno Prompts for Meditation & Yoga book cover" class="book-cover"
+                                    loading="lazy">
+                                <div class="book-overlay">
+                                    <h4>Suno for Meditation & Yoga</h4>
+                                    <p>Wellness Audio</p>
+                                    <a href="https://www.amazon.com/dp/B0GX2Y8972" target="_blank"
+                                        class="btn btn-primary btn-mini book-btn">
+                                        <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                    </a>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Book 11 -->
-                        <div class="book-card">
-                            <img src="assets/projects/book-lofi-handbook.jpg" alt="The Lo-Fi & Chillwave Suno Handbook book cover" class="book-cover" loading="lazy">
-                            <div class="book-overlay">
-                                <h4>Lo-Fi & Chillwave Handbook</h4>
-                                <p>Passive Income</p>
-                                <a href="https://www.amazon.com/dp/B0GXX2S8PJ" target="_blank" class="btn btn-primary btn-mini book-btn">
-                                    <i class="fa-brands fa-amazon"></i> Buy on Amazon
-                                </a>
+                            <!-- Book 11 -->
+                            <div class="book-card">
+                                <img src="assets/projects/book-lofi-handbook.jpg"
+                                    alt="The Lo-Fi & Chillwave Suno Handbook book cover" class="book-cover"
+                                    loading="lazy">
+                                <div class="book-overlay">
+                                    <h4>Lo-Fi & Chillwave Handbook</h4>
+                                    <p>Passive Income</p>
+                                    <a href="https://www.amazon.com/dp/B0GXX2S8PJ" target="_blank"
+                                        class="btn btn-primary btn-mini book-btn">
+                                        <i class="fa-brands fa-amazon"></i> Buy on Amazon
+                                    </a>
+                                </div>
                             </div>
+                            <button class="slider-arrow next" id="btn-next-books" aria-label="Scroll right"
+                                type="button"><i class="fa-solid fa-chevron-right"></i></button>
                         </div>
-                        <button class="slider-arrow next" id="btn-next-books" aria-label="Scroll right" type="button"><i class="fa-solid fa-chevron-right"></i></button>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- Projects Portfolio Gallery -->
@@ -1258,21 +1310,23 @@
 
             <!-- LMS CONTAINER (Holds landing, login, payment, and workspace) -->
             <div class="lms-container" id="lms-container">
-                
+
                 <!-- STATE 1: LANDING & AUTH & CHECKOUT PANEL -->
                 <div id="lms-landing-panel" class="lms-panel">
                     <div class="lms-landing-grid">
-                        
+
                         <!-- Course Info Card -->
                         <div class="lms-card course-info-card">
                             <div class="course-header-badge">HOT & NEW</div>
                             <h3 id="landing-course-title">QGIS Fundamentals: Complete Beginner's Guide</h3>
                             <div class="course-meta-tags">
                                 <span><i class="fa-solid fa-book-open"></i> 5 Modules (150 Slides)</span>
-                                <span><i class="fa-solid fa-star" style="color: #ffb000;"></i> <strong id="course-avg-rating-badge">4.9</strong>/5.0 (<span id="course-review-count-badge">3</span> reviews)</span>
+                                <span><i class="fa-solid fa-star" style="color: #ffb000;"></i> <strong
+                                        id="course-avg-rating-badge">4.9</strong>/5.0 (<span
+                                        id="course-review-count-badge">3</span> reviews)</span>
                                 <span><i class="fa-solid fa-graduation-cap"></i> Certificate Included</span>
                             </div>
-                            
+
                             <div class="language-selection">
                                 <label>Select Learning Language / භාෂාව තෝරන්න:</label>
                                 <div class="lang-btn-group">
@@ -1292,14 +1346,15 @@
                                     <!-- Populated by JS -->
                                 </div>
                             </div>
-                            
+
                             <!-- Copyright agreement -->
                             <div class="copyright-agreement-box">
                                 <label class="checkbox-container">
                                     <input type="checkbox" id="lms-agreement-check">
                                     <span class="checkmark"></span>
                                     <span class="agreement-text" id="lms-agreement-text">
-                                        I agree not to copy, redistribute, or republish the course content without the explicit permission of Teshan Ishara.
+                                        I agree not to copy, redistribute, or republish the course content without the
+                                        explicit permission of Teshan Ishara.
                                     </span>
                                 </label>
                             </div>
@@ -1316,7 +1371,7 @@
                             <!-- Registration Form + Payment Checkout -->
                             <div id="signup-payment-form" class="auth-form-panel">
                                 <h4 class="form-title">Create Account & Enroll</h4>
-                                
+
                                 <div class="form-group">
                                     <label for="lms-reg-name">Full Name</label>
                                     <input type="text" id="lms-reg-name" placeholder="John Doe" required>
@@ -1332,8 +1387,9 @@
 
                                 <div class="payment-selection-box">
                                     <h5>Donation & Course Access</h5>
-                                    <p class="payment-desc">Suggested course value is <strong>$1.99</strong>. Feel free to support my work with a higher donation tier:</p>
-                                    
+                                    <p class="payment-desc">Suggested course value is <strong>$1.99</strong>. Feel free
+                                        to support my work with a higher donation tier:</p>
+
                                     <div class="donation-tiers">
                                         <button class="donate-tier-btn" data-amount="0.00">Free / නොමිලේ</button>
                                         <button class="donate-tier-btn active" data-amount="1.99">$1.99</button>
@@ -1342,23 +1398,28 @@
                                         <button class="donate-tier-btn" data-amount="custom">Custom</button>
                                     </div>
                                     <div class="custom-amount-input-container" style="display: none;">
-                                        <input type="number" id="custom-donation-amount" placeholder="Enter amount ($)" min="1.00" step="0.01">
+                                        <input type="number" id="custom-donation-amount" placeholder="Enter amount ($)"
+                                            min="1.00" step="0.01">
                                     </div>
 
                                     <!-- PayPal & QR Code integration -->
                                     <div class="payment-gateway-wrapper">
-                                        <a href="https://www.paypal.com/donate/?hosted_button_id=QBNTTSCXR7A7C" target="_blank" class="btn btn-paypal" id="paypal-donate-link">
+                                        <a href="https://www.paypal.com/donate/?hosted_button_id=QBNTTSCXR7A7C"
+                                            target="_blank" class="btn btn-paypal" id="paypal-donate-link">
                                             <i class="fa-brands fa-paypal"></i> Pay / Donate with PayPal
                                         </a>
-                                        
+
                                         <div class="qr-code-section">
                                             <span class="qr-label">Or Scan QR to Donate:</span>
-                                            <img src="assets/projects/paypal-qr.png" alt="PayPal Donation QR Code" class="paypal-qr-img">
+                                            <img src="assets/projects/paypal-qr.png" alt="PayPal Donation QR Code"
+                                                class="paypal-qr-img">
                                         </div>
                                     </div>
-                                    
+
                                     <div class="simulation-note">
-                                        <p><i class="fa-solid fa-circle-info"></i> Static Hosting Sandbox: Click the unlock button below to simulate successful payment validation after scanning/donating.</p>
+                                        <p><i class="fa-solid fa-circle-info"></i> Static Hosting Sandbox: Click the
+                                            unlock button below to simulate successful payment validation after
+                                            scanning/donating.</p>
                                     </div>
                                 </div>
 
@@ -1389,42 +1450,52 @@
 
                 <!-- STATE 2: ACTIVE STUDY WORKSPACE -->
                 <div id="lms-workspace-panel" class="lms-panel" style="display: none;">
-                    
+
                     <!-- Stats / Welcome Top Bar -->
                     <div class="workspace-top-bar">
                         <div class="user-greeting">
                             <h4>Welcome, <span id="user-display-name">Student</span>! 🚀</h4>
-                            <p>Language: <strong id="workspace-lang-display">English</strong> | Progress: <strong id="workspace-percent-display">0%</strong></p>
+                            <p>Language: <strong id="workspace-lang-display">English</strong> | Progress: <strong
+                                    id="workspace-percent-display">0%</strong></p>
                         </div>
-                        
+
                         <!-- Admin Analytics Badge -->
-                        <div id="admin-stats-badge" style="display: none; align-items: center; gap: var(--space-4); background: rgba(34, 211, 238, 0.08); border: 1px dashed rgba(34, 211, 238, 0.25); padding: 0.5rem 1.1rem; border-radius: 8px; margin-left: 1rem; margin-right: auto;">
-                            <div style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #22d3ee;">
+                        <div id="admin-stats-badge"
+                            style="display: none; align-items: center; gap: var(--space-4); background: rgba(34, 211, 238, 0.08); border: 1px dashed rgba(34, 211, 238, 0.25); padding: 0.5rem 1.1rem; border-radius: 8px; margin-left: 1rem; margin-right: auto;">
+                            <div
+                                style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #22d3ee;">
                                 <i class="fa-solid fa-eye"></i>
                                 <span>Visits: <strong id="admin-visits-count">...</strong></span>
                             </div>
-                            <div style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #10b981;">
+                            <div
+                                style="display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: #10b981;">
                                 <i class="fa-solid fa-user-graduate"></i>
                                 <span>Enrollments: <strong id="admin-enrolls-count">...</strong></span>
                             </div>
                         </div>
                         <div class="study-stats">
                             <div class="stat-item">
-                                <span class="stat-lbl"><i class="fa-solid fa-hourglass-half"></i> Active Study Time:</span>
+                                <span class="stat-lbl"><i class="fa-solid fa-hourglass-half"></i> Active Study
+                                    Time:</span>
                                 <span class="stat-val" id="study-timer">00m 00s</span>
                             </div>
-                            <button class="btn btn-primary" id="btn-admin-cert" style="display: none; margin-right: 0.5rem;"><i class="fa-solid fa-award"></i> View Certificate</button>
-                            <button class="btn btn-outline" id="btn-admin-csv" style="display: none; margin-right: 0.5rem; border-color: #22c55e; color: #22c55e; background: rgba(34, 197, 94, 0.05);"><i class="fa-solid fa-file-csv"></i> Download Students CSV</button>
-                            <button class="btn btn-outline" id="btn-logout-lms"><i class="fa-solid fa-power-off"></i> Logout</button>
+                            <button class="btn btn-primary" id="btn-admin-cert"
+                                style="display: none; margin-right: 0.5rem;"><i class="fa-solid fa-award"></i> View
+                                Certificate</button>
+                            <button class="btn btn-outline" id="btn-admin-csv"
+                                style="display: none; margin-right: 0.5rem; border-color: #22c55e; color: #22c55e; background: rgba(34, 197, 94, 0.05);"><i
+                                    class="fa-solid fa-file-csv"></i> Download Students CSV</button>
+                            <button class="btn btn-outline" id="btn-logout-lms"><i class="fa-solid fa-power-off"></i>
+                                Logout</button>
                         </div>
                     </div>
 
                     <!-- Main Workspace Grid -->
                     <div class="workspace-grid">
-                        
+
                         <!-- Left Side: Player, Flashcards, Quiz -->
                         <div class="workspace-main-column">
-                            
+
                             <!-- Slide Player -->
                             <div class="lms-card player-card">
                                 <div class="player-header">
@@ -1434,23 +1505,26 @@
                                     </div>
                                     <div class="player-progress">
                                         <div class="player-progress-bar-container">
-                                            <div class="player-progress-bar" id="player-progress-bar" style="width: 0%;"></div>
+                                            <div class="player-progress-bar" id="player-progress-bar"
+                                                style="width: 0%;"></div>
                                         </div>
                                         <span id="player-slide-counter">Slide 1 / 3</span>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Slide Content Box -->
                                 <div class="slide-content-area" id="slide-content-area">
                                     <!-- Rendered dynamically by JS -->
                                 </div>
 
                                 <div class="player-controls">
-                                    <button class="btn btn-player-nav" id="btn-prev-slide"><i class="fa-solid fa-chevron-left"></i> Previous</button>
+                                    <button class="btn btn-player-nav" id="btn-prev-slide"><i
+                                            class="fa-solid fa-chevron-left"></i> Previous</button>
                                     <div class="slide-dots" id="slide-dots">
                                         <!-- Dots rendered by JS -->
                                     </div>
-                                    <button class="btn btn-player-nav" id="btn-next-slide">Next <i class="fa-solid fa-chevron-right"></i></button>
+                                    <button class="btn btn-player-nav" id="btn-next-slide">Next <i
+                                            class="fa-solid fa-chevron-right"></i></button>
                                 </div>
                             </div>
 
@@ -1460,28 +1534,32 @@
                                     <h4><i class="fa-solid fa-lightbulb"></i> Active Recall Flashcards</h4>
                                     <p>Flip the card to test your QGIS memory.</p>
                                 </div>
-                                
+
                                 <div class="flashcard-container">
                                     <div class="flashcard" id="qgis-flashcard">
                                         <div class="flashcard-inner">
                                             <div class="flashcard-front">
                                                 <div class="flashcard-badge">Question</div>
                                                 <p id="flash-front-text">Front Content</p>
-                                                <span class="flip-hint">Click to Reveal <i class="fa-solid fa-rotate"></i></span>
+                                                <span class="flip-hint">Click to Reveal <i
+                                                        class="fa-solid fa-rotate"></i></span>
                                             </div>
                                             <div class="flashcard-back">
                                                 <div class="flashcard-badge">Answer</div>
                                                 <p id="flash-back-text">Back Content</p>
-                                                <span class="flip-hint">Click to Flip Back <i class="fa-solid fa-rotate"></i></span>
+                                                <span class="flip-hint">Click to Flip Back <i
+                                                        class="fa-solid fa-rotate"></i></span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="flashcard-controls">
-                                    <button class="btn btn-mini" id="btn-prev-flash"><i class="fa-solid fa-arrow-left"></i> Prev</button>
+                                    <button class="btn btn-mini" id="btn-prev-flash"><i
+                                            class="fa-solid fa-arrow-left"></i> Prev</button>
                                     <span id="flash-counter">Card 1 of 5</span>
-                                    <button class="btn btn-mini" id="btn-next-flash">Next <i class="fa-solid fa-arrow-right"></i></button>
+                                    <button class="btn btn-mini" id="btn-next-flash">Next <i
+                                            class="fa-solid fa-arrow-right"></i></button>
                                 </div>
                             </div>
 
@@ -1491,14 +1569,15 @@
                                     <h4><i class="fa-solid fa-graduation-cap"></i> Module Certification Exam</h4>
                                     <p>Pass with 70% or higher to earn your downloadable certificate. (40 Questions)</p>
                                 </div>
-                                
+
                                 <form id="lms-quiz-form">
                                     <div class="quiz-questions-container" id="quiz-questions-container">
                                         <!-- Rendered dynamically by JS -->
                                     </div>
-                                    <button type="submit" class="btn btn-primary btn-block" id="btn-submit-quiz">Submit Exam</button>
+                                    <button type="submit" class="btn btn-primary btn-block" id="btn-submit-quiz">Submit
+                                        Exam</button>
                                 </form>
-                                
+
                                 <div class="quiz-results" id="quiz-results-box" style="display: none;">
                                     <!-- Results display & Certificate unlock -->
                                 </div>
@@ -1516,19 +1595,23 @@
                                             <span>Context-Aware AI Assistant</span>
                                         </div>
                                     </div>
-                                    <button class="btn btn-mini" id="btn-clear-tutor" title="Clear Chat"><i class="fa-solid fa-trash-can"></i></button>
+                                    <button class="btn btn-mini" id="btn-clear-tutor" title="Clear Chat"><i
+                                            class="fa-solid fa-trash-can"></i></button>
                                 </div>
                                 <div class="tutor-chat-messages" id="tutor-messages">
                                     <div class="tutor-message bot">
-                                        <p>Hello! I am your personal QGIS tutor. I know all about the course modules, tool parameters, datasets, and CRS. Ask me any question related to QGIS!</p>
+                                        <p>Hello! I am your personal QGIS tutor. I know all about the course modules,
+                                            tool parameters, datasets, and CRS. Ask me any question related to QGIS!</p>
                                     </div>
                                 </div>
                                 <div class="tutor-suggestions" id="tutor-suggestions">
                                     <!-- Rendered dynamically by JS based on module -->
                                 </div>
                                 <div class="tutor-input-area">
-                                    <input type="text" id="tutor-input" placeholder="Ask a QGIS question..." aria-label="Tutor input">
-                                    <button id="tutor-send" aria-label="Send to Tutor"><i class="fa-solid fa-paper-plane"></i></button>
+                                    <input type="text" id="tutor-input" placeholder="Ask a QGIS question..."
+                                        aria-label="Tutor input">
+                                    <button id="tutor-send" aria-label="Send to Tutor"><i
+                                            class="fa-solid fa-paper-plane"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -1542,7 +1625,7 @@
     <div class="certificate-modal-overlay" id="certificate-modal" style="display: none;">
         <div class="certificate-container-wrapper">
             <button class="close-cert-modal" id="btn-close-cert">&times;</button>
-            
+
             <!-- The Certificate Template -->
             <div class="certificate-sheet" id="certificate-print-sheet">
                 <div class="cert-outer-border">
@@ -1556,17 +1639,19 @@
                                 </div>
                                 <div class="cert-main-title">CERTIFICATE OF COMPLETION</div>
                             </div>
-                            
+
                             <p class="cert-text-intro">This is to certify that</p>
                             <h2 class="cert-student-name" id="cert-student-name">JOHN DOE</h2>
                             <p class="cert-text-body">
                                 has successfully completed the course program and examinations for
                             </p>
-                            <h3 class="cert-course-name" id="cert-course-name">QGIS Fundamentals: Complete Beginner's Guide</h3>
+                            <h3 class="cert-course-name" id="cert-course-name">QGIS Fundamentals: Complete Beginner's
+                                Guide</h3>
                             <p class="cert-text-body">
-                                with a final grade of <strong id="cert-grade">90%</strong> on <span id="cert-date">June 24, 2026</span>.
+                                with a final grade of <strong id="cert-grade">90%</strong> on <span id="cert-date">June
+                                    24, 2026</span>.
                             </p>
-                            
+
                             <div class="cert-footer" style="justify-content: center; margin-top: var(--space-4);">
                                 <div class="cert-seal">
                                     <div class="cert-seal-inner">
@@ -1576,9 +1661,10 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Unique Certificate Verification ID -->
-                        <div class="cert-id-badge" style="position: absolute; bottom: 15px; left: 24px; font-family: monospace; font-size: 0.7rem; color: rgba(15, 45, 30, 0.45); letter-spacing: 0.05em;">
+                        <div class="cert-id-badge"
+                            style="position: absolute; bottom: 15px; left: 24px; font-family: monospace; font-size: 0.7rem; color: rgba(15, 45, 30, 0.45); letter-spacing: 0.05em;">
                             VERIFICATION ID: <span id="cert-id-value">QG-8A3F1D</span>
                         </div>
                     </div>
@@ -1587,8 +1673,10 @@
 
             <!-- Print Trigger Actions -->
             <div class="cert-modal-actions">
-                <button class="btn btn-primary" id="btn-print-certificate"><i class="fa-solid fa-print"></i> Print / Download PDF</button>
-                <p class="cert-print-hint">Make sure to enable background graphics and landscape orientation in your printer dialogue.</p>
+                <button class="btn btn-primary" id="btn-print-certificate"><i class="fa-solid fa-print"></i> Print /
+                    Download PDF</button>
+                <p class="cert-print-hint">Make sure to enable background graphics and landscape orientation in your
+                    printer dialogue.</p>
             </div>
         </div>
     </div>
@@ -1597,8 +1685,10 @@
     <footer class="footer">
         <div class="container footer-container">
             <div class="footer-brand">
-                <a href="#" class="logo" style="display: inline-flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-3);">
-                    <img src="assets/geophoenix-logo.jpg" alt="GeoPhoenix Logo" style="height: 28px; width: 28px; border-radius: 6px; object-fit: cover;">
+                <a href="#" class="logo"
+                    style="display: inline-flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-3);">
+                    <img src="assets/geophoenix-logo.jpg" alt="GeoPhoenix Logo"
+                        style="height: 28px; width: 28px; border-radius: 6px; object-fit: cover;">
                     <span class="logo-text">GeoPhoenix</span>
                 </a>
                 <p>Advanced spatial intelligence, high-fidelity cartography, and statistics matching international
@@ -1625,7 +1715,8 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 GeoPhoenix. All Rights Reserved. Lead Consultant: Teshan Ishara. Designed for global GIS excellence.</p>
+            <p>&copy; 2026 GeoPhoenix. All Rights Reserved. Lead Consultant: Teshan Ishara. Designed for global GIS
+                excellence.</p>
         </div>
     </footer>
 
@@ -1665,7 +1756,8 @@
             <div class="chat-messages" id="chat-messages">
                 <div class="message bot-message">
                     <div class="message-content">
-                        Hi! I'm the GeoPhoenix AI Assistant. 🌐 I can tell you all about GeoPhoenix's GIS mapping services, data
+                        Hi! I'm the GeoPhoenix AI Assistant. 🌐 I can tell you all about GeoPhoenix's GIS mapping
+                        services, data
                         analysis work, our books, and our e-learning platform. Founded and led by Teshan Ishara.
                         <br><br>
                         What would you like to explore?
