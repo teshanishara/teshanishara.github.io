@@ -159,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navigateTo(window.location.hash);
 
     // 6. Stats Count-Up Animation
-    const statsSection = document.querySelector('.stats-section');
+    const statsSection = document.querySelector('.stats-section') || document.querySelector('.stats-dashboard-panel');
     const counters = document.querySelectorAll('.counter');
     const floatCounters = document.querySelectorAll('.counter-float');
     let countersAnimated = false;
