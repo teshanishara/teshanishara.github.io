@@ -8,15 +8,15 @@
     --bg-card: rgba(255, 255, 255, 0.45);
     --bg-card-hover: rgba(255, 255, 255, 0.75);
     
-    --accent-orange: #ff6b18; /* GeoPhoenix Logo Orange Flame */
-    --accent-amber: #ff8e25;
+    --accent-orange: #0d9488; /* GeoPhoenix Logo Teal (Mapped to reduce colors) */
+    --accent-amber: #0f766e;
     --accent-emerald: #0052d4; /* Royal Blue from Hero Mockup */
     --accent-mint: #00b4db; /* Light Blue/Cyan Accent */
-    --accent-teal: #2563eb;
+    --accent-teal: #0052d4;
     
     --accent-glow: rgba(0, 82, 212, 0.05);
     --accent-glow-strong: rgba(0, 82, 212, 0.12);
-    --accent-teal-glow: rgba(0, 180, 219, 0.08);
+    --accent-teal-glow: rgba(0, 82, 212, 0.05);
     
     --text-primary: #0f172a; /* Slate 900 for dark readable headings */
     --text-secondary: #334155; /* Slate 700 for descriptions */
