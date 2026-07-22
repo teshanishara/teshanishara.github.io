@@ -16,8 +16,8 @@ html {
 body {
     background-color: var(--bg-primary);
     background-image: 
-        radial-gradient(circle at 10% 20%, rgba(249, 115, 22, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 90% 80%, rgba(13, 148, 136, 0.04) 0%, transparent 40%);
+        radial-gradient(circle at 10% 20%, rgba(0, 82, 212, 0.06) 0%, transparent 60%),
+        radial-gradient(circle at 90% 80%, rgba(0, 180, 219, 0.05) 0%, transparent 60%);
     background-attachment: fixed;
     color: var(--text-primary);
     font-family: var(--font-body);
@@ -138,37 +138,38 @@ img {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--accent-orange), #ea580c);
+    background: linear-gradient(135deg, var(--accent-emerald), var(--accent-teal));
     color: #ffffff;
     font-weight: 700;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, var(--accent-amber), var(--accent-orange));
-    box-shadow: 0 0 18px rgba(249, 115, 22, 0.45);
+    background: linear-gradient(135deg, var(--accent-mint), var(--accent-emerald));
+    box-shadow: 0 8px 25px rgba(0, 82, 212, 0.25);
 }
 
 .btn-secondary {
-    background: rgba(16, 185, 129, 0.05);
+    background: rgba(255, 255, 255, 0.55);
     border-color: var(--border-color);
     color: var(--text-primary);
 }
 
 .btn-secondary:hover {
-    background: rgba(16, 185, 129, 0.1);
+    background: rgba(255, 255, 255, 0.85);
     border-color: var(--border-color-strong);
-    color: var(--accent-mint);
+    color: var(--accent-emerald);
 }
 
 .btn-outline {
     background: transparent;
-    border-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(15, 23, 42, 0.2);
     color: var(--text-secondary);
 }
 
 .btn-outline:hover {
     border-color: var(--accent-emerald);
-    color: var(--text-primary);
+    color: var(--accent-emerald);
+    background: rgba(0, 82, 212, 0.03);
 }
 
 .btn-block {
@@ -185,17 +186,18 @@ img {
 /* Cards System */
 .glass-card {
     background: var(--bg-card);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
+    border-radius: 24px;
     padding: var(--space-6);
     transition: var(--transition-spring);
+    box-shadow: var(--shadow-sm);
 }
 
 .glass-card:hover {
     border-color: var(--border-color-strong);
-    box-shadow: var(--shadow-glow);
+    box-shadow: var(--shadow-md), var(--shadow-glow);
     transform: translateY(-4px);
 }
 
@@ -207,9 +209,9 @@ input[type="number"],
 select,
 textarea {
     width: 100%;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 12px;
     padding: 0.75rem var(--space-4);
     color: var(--text-primary);
     font-family: var(--font-body);
@@ -226,12 +228,12 @@ select:focus,
 textarea:focus {
     outline: none;
     border-color: var(--accent-emerald);
-    background: rgba(16, 185, 129, 0.02);
-    box-shadow: 0 0 10px rgba(16, 185, 129, 0.15);
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(0, 82, 212, 0.1);
 }
 
 select option {
-    background-color: #080b11;
+    background-color: var(--bg-secondary);
     color: var(--text-primary);
 }
 
