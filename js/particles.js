@@ -152,18 +152,17 @@ export const initGlobe = () => {
     let width = canvas.width = canvas.offsetWidth;
     let height = canvas.height = canvas.offsetHeight;
     
-    let radius = Math.min(width, height) * 0.47;
+    let radius = Math.min(width, height) * 0.46;
     let centerX = width / 2;
     let centerY = height / 2;
     
-    // Dynamic variables
     let rotX = 0.35; // Tilt
     let rotY = 0;    // Y rotation
     let baseSpeed = 0.0035;
     let rotationSpeed = baseSpeed;
     let isHovered = false;
     
-    // Interaction
+    // Dragging Interaction
     let isDragging = false;
     let lastMouseX = 0;
     let lastMouseY = 0;
@@ -172,14 +171,14 @@ export const initGlobe = () => {
         if (!canvas.offsetWidth) return;
         width = canvas.width = canvas.offsetWidth;
         height = canvas.height = canvas.offsetHeight;
-        radius = Math.min(width, height) * 0.47;
+        radius = Math.min(width, height) * 0.46;
         centerX = width / 2;
         centerY = height / 2;
     });
     
     canvas.addEventListener('mouseenter', () => {
         isHovered = true;
-        rotationSpeed = baseSpeed * 3;
+        rotationSpeed = baseSpeed * 2.5;
     });
     
     canvas.addEventListener('mouseleave', () => {
@@ -207,13 +206,48 @@ export const initGlobe = () => {
         lastMouseX = e.clientX;
         lastMouseY = e.clientY;
     });
+
+    // Simplified Continent Boundaries (Coordinates in degrees)
+    const eurasia = [
+        [70, -10], [72, 20], [75, 60], [70, 90], [70, 120], [60, 160], [50, 140], [35, 140], [20, 115],
+        [10, 105], [10, 80], [25, 65], [15, 45], [12, 43], [30, 32], [40, 26], [36, 15], [40, -10]
+    ];
+    const africa = [
+        [36, 10], [30, 32], [15, 39], [5, 48], [-15, 40], [-34, 18], [-15, 12], [5, 10], [5, -12], [15, -17], [32, -15], [37, 10]
+    ];
+    const northAmerica = [
+        [70, -160], [75, -120], [70, -80], [60, -60], [50, -50], [40, -75], [25, -80], [15, -90],
+        [15, -100], [25, -110], [35, -120], [45, -125], [55, -135], [60, -165]
+    ];
+    const southAmerica = [
+        [12, -72], [5, -53], [-5, -36], [-20, -40], [-40, -60], [-55, -70], [-45, -75], [-20, -70], [-5, -80]
+    ];
+    const australia = [
+        [-22, 114], [-12, 131], [-11, 142], [-28, 153], [-35, 138], [-35, 117]
+    ];
+    const greenland = [
+        [80, -65], [83, -30], [70, -20], [60, -45], [73, -60]
+    ];
+    const antarctica = [
+        [-70, -180], [-65, -120], [-68, -60], [-72, 0], [-68, 60], [-65, 120], [-70, 180]
+    ];
+
+    const landmasses = [
+        eurasia.map(pt => [pt[0] * Math.PI / 180, pt[1] * Math.PI / 180]),
+        africa.map(pt => [pt[0] * Math.PI / 180, pt[1] * Math.PI / 180]),
+        northAmerica.map(pt => [pt[0] * Math.PI / 180, pt[1] * Math.PI / 180]),
+        southAmerica.map(pt => [pt[0] * Math.PI / 180, pt[1] * Math.PI / 180]),
+        australia.map(pt => [pt[0] * Math.PI / 180, pt[1] * Math.PI / 180]),
+        greenland.map(pt => [pt[0] * Math.PI / 180, pt[1] * Math.PI / 180]),
+        antarctica.map(pt => [pt[0] * Math.PI / 180, pt[1] * Math.PI / 180])
+    ];
     
     const clients = [
-        { lat: 0.12, lon: 1.41, label: "Sri Lanka" },
-        { lat: 0.64, lon: -1.72, label: "USA East" },
-        { lat: 0.89, lon: -0.05, label: "UK / Europe" },
-        { lat: -0.58, lon: 2.63, label: "Australia" },
-        { lat: 0.61, lon: -2.13, label: "USA West" }
+        { lat: 7.87 * Math.PI / 180, lon: 80.77 * Math.PI / 180, label: "Sri Lanka" },
+        { lat: 40.71 * Math.PI / 180, lon: -74.00 * Math.PI / 180, label: "USA East" },
+        { lat: 51.50 * Math.PI / 180, lon: -0.12 * Math.PI / 180, label: "UK / Europe" },
+        { lat: -33.86 * Math.PI / 180, lon: 151.20 * Math.PI / 180, label: "Australia" },
+        { lat: 37.77 * Math.PI / 180, lon: -122.41 * Math.PI / 180, label: "USA West" }
     ];
     
     const project = (lat, lon) => {
@@ -240,9 +274,9 @@ export const initGlobe = () => {
         
         // Background sphere glow
         const glowGradient = ctx.createRadialGradient(centerX, centerY, radius * 0.7, centerX, centerY, radius);
-        glowGradient.addColorStop(0, 'rgba(8, 11, 17, 0)');
-        glowGradient.addColorStop(0.8, 'rgba(16, 185, 129, 0.02)');
-        glowGradient.addColorStop(1, 'rgba(16, 185, 129, 0.12)');
+        glowGradient.addColorStop(0, 'rgba(11, 15, 25, 0)');
+        glowGradient.addColorStop(0.8, 'rgba(59, 130, 246, 0.03)');
+        glowGradient.addColorStop(1, 'rgba(16, 185, 129, 0.08)');
         ctx.beginPath();
         ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
         ctx.fillStyle = glowGradient;
@@ -251,7 +285,7 @@ export const initGlobe = () => {
         // Draw grid outline circle
         ctx.beginPath();
         ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
-        ctx.strokeStyle = 'rgba(16, 185, 129, 0.25)';
+        ctx.strokeStyle = 'rgba(59, 130, 246, 0.25)';
         ctx.lineWidth = 1.3;
         ctx.stroke();
         
@@ -262,7 +296,7 @@ export const initGlobe = () => {
             ctx.beginPath();
             for (let lat = -Math.PI / 2; lat <= Math.PI / 2; lat += 0.06) {
                 const pt = project(lat, lon);
-                if (pt.z >= 0) {
+                if (pt.z >= -10) {
                     if (lat === -Math.PI / 2) {
                         ctx.moveTo(pt.x, pt.y);
                     } else {
@@ -270,7 +304,7 @@ export const initGlobe = () => {
                     }
                 }
             }
-            ctx.strokeStyle = 'rgba(16, 185, 129, 0.1)';
+            ctx.strokeStyle = 'rgba(59, 130, 246, 0.08)';
             ctx.lineWidth = 0.75;
             ctx.stroke();
         }
@@ -282,7 +316,7 @@ export const initGlobe = () => {
             ctx.beginPath();
             for (let lon = -Math.PI; lon <= Math.PI; lon += 0.06) {
                 const pt = project(lat, lon);
-                if (pt.z >= 0) {
+                if (pt.z >= -10) {
                     if (lon === -Math.PI) {
                         ctx.moveTo(pt.x, pt.y);
                     } else {
@@ -290,24 +324,56 @@ export const initGlobe = () => {
                     }
                 }
             }
-            ctx.strokeStyle = 'rgba(16, 185, 129, 0.1)';
+            ctx.strokeStyle = 'rgba(59, 130, 246, 0.08)';
             ctx.lineWidth = 0.75;
             ctx.stroke();
         }
+
+        // Draw Continent Boundaries
+        landmasses.forEach(polygon => {
+            ctx.beginPath();
+            let first = true;
+            polygon.forEach(pt => {
+                const projected = project(pt[0], pt[1]);
+                if (projected.z >= -10) {
+                    if (first) {
+                        ctx.moveTo(projected.x, projected.y);
+                        first = false;
+                    } else {
+                        ctx.lineTo(projected.x, projected.y);
+                    }
+                }
+            });
+            ctx.closePath();
+            ctx.strokeStyle = 'rgba(16, 185, 129, 0.45)';
+            ctx.lineWidth = 1.3;
+            ctx.stroke();
+            
+            // Draw mesh data nodes
+            polygon.forEach(pt => {
+                const projected = project(pt[0], pt[1]);
+                if (projected.z >= 0) {
+                    ctx.beginPath();
+                    ctx.arc(projected.x, projected.y, 2, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(59, 130, 246, 0.8)';
+                    ctx.fill();
+                }
+            });
+        });
         
         // Draw client points
         clients.forEach(client => {
             const pt = project(client.lat, client.lon);
             if (pt.z >= 0) {
-                const pulse = Math.abs(Math.sin(Date.now() * 0.0025 + client.lat * 4)) * 5 + 3;
+                const pulse = Math.abs(Math.sin(Date.now() * 0.0025 + client.lat * 4)) * 6 + 3;
                 
                 ctx.beginPath();
                 ctx.arc(pt.x, pt.y, pulse, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(52, 211, 153, 0.22)';
+                ctx.fillStyle = 'rgba(52, 211, 153, 0.18)';
                 ctx.fill();
                 
                 ctx.beginPath();
-                ctx.arc(pt.x, pt.y, 3.5, 0, Math.PI * 2);
+                ctx.arc(pt.x, pt.y, 4, 0, Math.PI * 2);
                 ctx.fillStyle = 'rgba(16, 185, 129, 0.95)';
                 ctx.fill();
                 
