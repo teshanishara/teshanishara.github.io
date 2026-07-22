@@ -1,6 +1,8 @@
 /* ==========================================================================
    HERO CANVAS & PARTICLES ANIMATIONS
    ========================================================================== */
+import { worldLand } from './world-land.js';
+
 
 export const initParticles = () => {
     const canvas = document.getElementById('data-canvas');
@@ -207,40 +209,10 @@ export const initGlobe = () => {
         lastMouseY = e.clientY;
     });
 
-    // Simplified Continent Boundaries (Coordinates in degrees)
-    const eurasia = [
-        [70, -10], [72, 20], [75, 60], [70, 90], [70, 120], [60, 160], [50, 140], [35, 140], [20, 115],
-        [10, 105], [10, 80], [25, 65], [15, 45], [12, 43], [30, 32], [40, 26], [36, 15], [40, -10]
-    ];
-    const africa = [
-        [36, 10], [30, 32], [15, 39], [5, 48], [-15, 40], [-34, 18], [-15, 12], [5, 10], [5, -12], [15, -17], [32, -15], [37, 10]
-    ];
-    const northAmerica = [
-        [70, -160], [75, -120], [70, -80], [60, -60], [50, -50], [40, -75], [25, -80], [15, -90],
-        [15, -100], [25, -110], [35, -120], [45, -125], [55, -135], [60, -165]
-    ];
-    const southAmerica = [
-        [12, -72], [5, -53], [-5, -36], [-20, -40], [-40, -60], [-55, -70], [-45, -75], [-20, -70], [-5, -80]
-    ];
-    const australia = [
-        [-22, 114], [-12, 131], [-11, 142], [-28, 153], [-35, 138], [-35, 117]
-    ];
-    const greenland = [
-        [80, -65], [83, -30], [70, -20], [60, -45], [73, -60]
-    ];
-    const antarctica = [
-        [-70, -180], [-65, -120], [-68, -60], [-72, 0], [-68, 60], [-65, 120], [-70, 180]
-    ];
-
-    const landmasses = [
-        eurasia.map(pt => [pt[0] * Math.PI / 180, pt[1] * Math.PI / 180]),
-        africa.map(pt => [pt[0] * Math.PI / 180, pt[1] * Math.PI / 180]),
-        northAmerica.map(pt => [pt[0] * Math.PI / 180, pt[1] * Math.PI / 180]),
-        southAmerica.map(pt => [pt[0] * Math.PI / 180, pt[1] * Math.PI / 180]),
-        australia.map(pt => [pt[0] * Math.PI / 180, pt[1] * Math.PI / 180]),
-        greenland.map(pt => [pt[0] * Math.PI / 180, pt[1] * Math.PI / 180]),
-        antarctica.map(pt => [pt[0] * Math.PI / 180, pt[1] * Math.PI / 180])
-    ];
+    // Convert high-fidelity Natural Earth land boundaries to radians
+    const landmasses = worldLand.map(polygon => 
+        polygon.map(pt => [pt[0] * Math.PI / 180, pt[1] * Math.PI / 180])
+    );
     
     const clients = [
         { lat: 7.87 * Math.PI / 180, lon: 80.77 * Math.PI / 180, label: "Sri Lanka" },
@@ -329,36 +301,30 @@ export const initGlobe = () => {
             ctx.stroke();
         }
 
-        // Draw Continent Boundaries
+        // Draw Continent Boundaries (With back-face line clipping)
         landmasses.forEach(polygon => {
             ctx.beginPath();
-            let first = true;
-            polygon.forEach(pt => {
+            let drawing = false;
+            
+            for (let i = 0; i < polygon.length; i++) {
+                const pt = polygon[i];
                 const projected = project(pt[0], pt[1]);
-                if (projected.z >= -10) {
-                    if (first) {
+                
+                if (projected.z >= -8) { // Visible on front half
+                    if (!drawing) {
                         ctx.moveTo(projected.x, projected.y);
-                        first = false;
+                        drawing = true;
                     } else {
                         ctx.lineTo(projected.x, projected.y);
                     }
+                } else {
+                    drawing = false; // Stop drawing segment when it goes behind
                 }
-            });
-            ctx.closePath();
-            ctx.strokeStyle = 'rgba(16, 185, 129, 0.45)';
-            ctx.lineWidth = 1.3;
-            ctx.stroke();
+            }
             
-            // Draw mesh data nodes
-            polygon.forEach(pt => {
-                const projected = project(pt[0], pt[1]);
-                if (projected.z >= 0) {
-                    ctx.beginPath();
-                    ctx.arc(projected.x, projected.y, 2, 0, Math.PI * 2);
-                    ctx.fillStyle = 'rgba(59, 130, 246, 0.8)';
-                    ctx.fill();
-                }
-            });
+            ctx.strokeStyle = 'rgba(16, 185, 129, 0.48)';
+            ctx.lineWidth = 1.25;
+            ctx.stroke();
         });
         
         // Draw client points
