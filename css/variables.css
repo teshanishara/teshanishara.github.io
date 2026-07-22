@@ -1,31 +1,31 @@
 /* ==========================================================================
-   DESIGN TOKENS & CSS VARIABLES - GEOPHOENIX LOGO PALETTE
+   DESIGN TOKENS & CSS VARIABLES - LIGHT GLASSMORPHISM THEME
    ========================================================================== */
 :root {
-    /* Color Palette - Logo-Based Colors (Phoenix Orange, Earth Teal, Obsidian Navy) */
-    --bg-primary: #050911;
-    --bg-secondary: #09101c;
-    --bg-card: rgba(13, 20, 34, 0.75);
-    --bg-card-hover: rgba(22, 33, 54, 0.88);
+    /* Color Palette - Light Blue Glassmorphism Theme (Mockup Matched) */
+    --bg-primary: #f1f5f9;
+    --bg-secondary: #ffffff;
+    --bg-card: rgba(255, 255, 255, 0.45);
+    --bg-card-hover: rgba(255, 255, 255, 0.75);
     
-    --accent-orange: #ff6b18;
+    --accent-orange: #ff6b18; /* GeoPhoenix Logo Orange Flame */
     --accent-amber: #ff8e25;
-    --accent-emerald: #10b981;
-    --accent-mint: #2dd4bf;
-    --accent-teal: #0d9488;
+    --accent-emerald: #0052d4; /* Royal Blue from Hero Mockup */
+    --accent-mint: #00b4db; /* Light Blue/Cyan Accent */
+    --accent-teal: #2563eb;
     
-    --accent-glow: rgba(255, 107, 24, 0.22);
-    --accent-glow-strong: rgba(255, 107, 24, 0.45);
-    --accent-teal-glow: rgba(13, 148, 136, 0.25);
+    --accent-glow: rgba(0, 82, 212, 0.05);
+    --accent-glow-strong: rgba(0, 82, 212, 0.12);
+    --accent-teal-glow: rgba(0, 180, 219, 0.08);
     
-    --text-primary: #f8fafc;
-    --text-secondary: #cbd5e1;
-    --text-muted: #94a3b8;
+    --text-primary: #0f172a; /* Slate 900 for dark readable headings */
+    --text-secondary: #334155; /* Slate 700 for descriptions */
+    --text-muted: #64748b; /* Slate 500 */
     
-    --border-color: rgba(255, 107, 24, 0.2);
-    --border-color-strong: rgba(255, 107, 24, 0.45);
-    --border-teal: rgba(13, 148, 136, 0.3);
-    --border-glow: rgba(255, 107, 24, 0.5);
+    --border-color: rgba(255, 255, 255, 0.6);
+    --border-color-strong: rgba(255, 255, 255, 0.85);
+    --border-teal: rgba(0, 82, 212, 0.15);
+    --border-glow: rgba(0, 82, 212, 0.25);
     
     --font-heading: 'Plus Jakarta Sans', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -36,10 +36,10 @@
     --transition-spring-bouncy: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     
     /* Shadows */
-    --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
-    --shadow-glow: 0 0 25px rgba(255, 107, 24, 0.22), 0 0 15px rgba(13, 148, 136, 0.15);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+    --shadow-lg: 0 10px 30px -5px rgba(31, 38, 135, 0.08);
+    --shadow-glow: 0 0 25px rgba(0, 82, 212, 0.05), 0 0 15px rgba(0, 180, 219, 0.05);
     
     /* Spacing Grid (8pt system) */
     --space-1: 0.25rem;
