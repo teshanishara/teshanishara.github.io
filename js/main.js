@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. Single Page App (SPA) Simulated Multi-Page Router
     const routeMap = {
         '#home': ['#home'],
-        '#about': ['#about', '.stats-section'],
+        '#about': ['#about'],
         '#services': ['#services', '#fiverr', '.testimonials-section'],
         '#skills': ['#skills'],
         '#resume': ['#resume'],
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         '#contact': ['#contact']
     };
     const allSectionSelectors = [
-        '#home', '.stats-section', '#about', '#services', '#fiverr',
+        '#home', '#about', '#services', '#fiverr',
         '#skills', '#resume', '#publications', '#projects', '#courses',
         '#contact', '.testimonials-section'
     ];
