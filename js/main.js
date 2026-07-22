@@ -67,32 +67,96 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(el);
     });
 
-    // 5. Active Link Highlight on Scroll
-    const sections = document.querySelectorAll('section');
-    const navItems = document.querySelectorAll('.nav-link');
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                navItems.forEach(item => {
-                    item.classList.remove('active');
-                    if (item.getAttribute('href') === `#${id}`) {
-                        item.classList.add('active');
-                    }
-                });
+    // 5. Single Page App (SPA) Simulated Multi-Page Router
+    const routeMap = {
+        '#home': ['#home'],
+        '#about': ['#about', '.stats-section'],
+        '#services': ['#services', '#fiverr', '.testimonials-section'],
+        '#skills': ['#skills'],
+        '#resume': ['#resume'],
+        '#publications': ['#publications'],
+        '#projects': ['#projects'],
+        '#courses': ['#courses'],
+        '#contact': ['#contact']
+    };
+    const allSectionSelectors = [
+        '#home', '.stats-section', '#about', '#services', '#fiverr',
+        '#skills', '#resume', '#publications', '#projects', '#courses',
+        '#contact', '.testimonials-section'
+    ];
+
+    function navigateTo(hash) {
+        // Fallback to home if hash is empty or not in routeMap
+        const targetHash = (hash && routeMap[hash]) ? hash : '#home';
+        
+        // Hide all sections
+        allSectionSelectors.forEach(selector => {
+            const els = document.querySelectorAll(selector);
+            els.forEach(el => {
+                el.style.display = 'none';
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(12px)';
+            });
+        });
+        
+        // Show target sections with animation
+        const activeSelectors = routeMap[targetHash];
+        activeSelectors.forEach(selector => {
+            const els = document.querySelectorAll(selector);
+            els.forEach(el => {
+                el.style.display = 'block';
+                // Trigger layout reflow for CSS transition
+                void el.offsetHeight;
+                el.style.transition = 'opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Update nav links active class
+        const navLinksList = document.querySelectorAll('.nav-link');
+        navLinksList.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('href') === targetHash) {
+                item.classList.add('active');
             }
         });
-    }, {
-        root: null,
-        rootMargin: '-20% 0px -60% 0px', // focused viewport band
-        threshold: 0
-    });
+        
+        // Scroll back to top instantly
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        
+        // Trigger reveal scroll animations inside active section immediately
+        const reveals = document.querySelectorAll(`${targetHash} .reveal-on-scroll`);
+        reveals.forEach(el => {
+            el.classList.add('revealed');
+        });
+    }
 
-    sections.forEach(section => {
-        if (section.id) {
-            sectionObserver.observe(section);
+    // Intercept clicks on links pointing to local hashes
+    document.addEventListener('click', (e) => {
+        const link = e.target.closest('a');
+        if (link) {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#') && routeMap[href]) {
+                e.preventDefault();
+                window.location.hash = href;
+                // Close mobile menu if open
+                if (hamburger && navMenu) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                }
+            }
         }
     });
+
+    // Handle hash change routing
+    window.addEventListener('hashchange', () => {
+        navigateTo(window.location.hash);
+    });
+
+    // Run router on initial load
+    navigateTo(window.location.hash);
 
     // 6. Stats Count-Up Animation
     const statsSection = document.querySelector('.stats-section');
