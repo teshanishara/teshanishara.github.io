@@ -2,30 +2,30 @@
    DESIGN TOKENS & CSS VARIABLES - LIGHT GLASSMORPHISM THEME
    ========================================================================== */
 :root {
-    /* Color Palette - Light Blue Glassmorphism Theme (Mockup Matched) */
-    --bg-primary: #f1f5f9;
-    --bg-secondary: #ffffff;
-    --bg-card: rgba(255, 255, 255, 0.45);
-    --bg-card-hover: rgba(255, 255, 255, 0.75);
+    /* Color Palette - Premium Dark Space Glassmorphism Theme (Mockup Aligned) */
+    --bg-primary: #030712; /* Space Black */
+    --bg-secondary: #0b0f19; /* Deep Space Navy */
+    --bg-card: rgba(11, 19, 36, 0.62); /* Translucent navy glass card panels */
+    --bg-card-hover: rgba(11, 19, 36, 0.8);
     
-    --accent-orange: #0d9488; /* GeoPhoenix Logo Teal (Mapped to reduce colors) */
-    --accent-amber: #0f766e;
-    --accent-emerald: #0052d4; /* Royal Blue from Hero Mockup */
-    --accent-mint: #00b4db; /* Light Blue/Cyan Accent */
-    --accent-teal: #0052d4;
+    --accent-orange: #10b981; /* GeoPhoenix Logo Teal (Primary Accent) */
+    --accent-amber: #34d399; /* Light Emerald */
+    --accent-emerald: #3b82f6; /* Vibrant Royal/Electric Blue */
+    --accent-mint: #60a5fa; /* Cyan */
+    --accent-teal: #10b981;
     
-    --accent-glow: rgba(0, 82, 212, 0.05);
-    --accent-glow-strong: rgba(0, 82, 212, 0.12);
-    --accent-teal-glow: rgba(0, 82, 212, 0.05);
+    --accent-glow: rgba(59, 130, 246, 0.12);
+    --accent-glow-strong: rgba(16, 185, 129, 0.18);
+    --accent-teal-glow: rgba(16, 185, 129, 0.08);
     
-    --text-primary: #0f172a; /* Slate 900 for dark readable headings */
-    --text-secondary: #334155; /* Slate 700 for descriptions */
+    --text-primary: #f8fafc; /* High contrast off-white */
+    --text-secondary: #94a3b8; /* Slate grey for descriptions */
     --text-muted: #64748b; /* Slate 500 */
     
-    --border-color: rgba(255, 255, 255, 0.6);
-    --border-color-strong: rgba(255, 255, 255, 0.85);
-    --border-teal: rgba(0, 82, 212, 0.15);
-    --border-glow: rgba(0, 82, 212, 0.25);
+    --border-color: rgba(59, 130, 246, 0.15); /* Translucent blue border */
+    --border-color-strong: rgba(16, 185, 129, 0.35); /* Translucent green highlight border */
+    --border-teal: rgba(16, 185, 129, 0.2);
+    --border-glow: rgba(59, 130, 246, 0.35);
     
     --font-heading: 'Plus Jakarta Sans', sans-serif;
     --font-body: 'Inter', sans-serif;
