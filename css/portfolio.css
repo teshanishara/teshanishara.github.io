@@ -1755,3 +1755,17 @@
     box-shadow: 0 4px 15px rgba(0, 82, 212, 0.2);
 }
 
+/* Prevent Cumulative Layout Shift (CLS) on load by hiding non-home sections initially */
+#about,
+#services,
+#fiverr,
+#skills,
+#resume,
+#publications,
+#projects,
+#courses,
+#contact {
+    display: none;
+    opacity: 0;
+}
+
