@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIS Automation Services | Python GeoPandas, Rasterio & Earth Engine | GeoPhoenix</title>
+    <meta name="description" content="Python GIS automation services by GeoPhoenix. Custom spatial pipelines using GeoPandas, Rasterio, GDAL, Google Earth Engine, and PyQGIS for batch raster/vector geoprocessing and reproducible workflows.">
+    <meta name="keywords" content="Python GIS automation, GeoPandas, Rasterio, Google Earth Engine scripting, automated geospatial processing, GDAL Python, PyQGIS automation, ArcPy scripting, reproducible GIS workflows, batch spatial processing, spatial data engineering">
+    <meta name="author" content="GeoPhoenix">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://geophoenixgis.com/services/gis-automation/">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GeoPhoenix">
+    <meta property="og:title" content="GIS Automation Services | Python GeoPandas, Rasterio & Earth Engine">
+    <meta property="og:description" content="Custom Python geospatial scripts, batch geoprocessing pipelines, Earth Engine algorithms, and automated map atlas creation.">
+    <meta property="og:image" content="https://geophoenixgis.com/assets/geophoenix-logo.jpg">
+    <meta property="og:url" content="https://geophoenixgis.com/services/gis-automation/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GIS Automation Services | GeoPhoenix">
+    <meta name="twitter:description" content="Automated Python GIS scripts, GeoPandas, Rasterio, and Google Earth Engine workflows.">
+    <meta name="twitter:image" content="https://geophoenixgis.com/assets/geophoenix-logo.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../../assets/geophoenix-logo.jpg">
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/portfolio.css">
+    <link rel="stylesheet" href="../../css/site-enhancements.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+
+    <!-- Structured Data: Service + BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://geophoenixgis.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Services",
+              "item": "https://geophoenixgis.com/services/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "GIS Automation Services",
+              "item": "https://geophoenixgis.com/services/gis-automation/"
+            }
+          ]
+        },
+        {
+          "@type": "Service",
+          "serviceType": "GIS Automation Services",
+          "name": "Python GIS Automation & Geospatial Scripting",
+          "provider": {
+            "@type": "ProfessionalService",
+            "name": "GeoPhoenix",
+            "url": "https://geophoenixgis.com/",
+            "telephone": "+94715298267",
+            "email": "contact@geophoenixgis.com",
+            "image": "https://geophoenixgis.com/assets/geophoenix-logo.jpg"
+          },
+          "description": "Custom Python scripting for automated GIS workflows, batch raster/vector processing via GeoPandas and Rasterio, Google Earth Engine API scripting, and automated cartographic atlas pipelines.",
+          "areaServed": "Worldwide",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "GIS Automation Capabilities",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Python GeoPandas & Vector Geoprocessing Automation"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Rasterio & GDAL High-Throughput Raster Pipelines"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Google Earth Engine (GEE) Cloud Processing Scripts"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="../../" class="logo" style="display: inline-flex; align-items: center; gap: var(--space-2);">
+                <img src="../../assets/geophoenix-logo.jpg" alt="GeoPhoenix Logo" style="height: 30px; width: 30px; border-radius: 6px; object-fit: cover;">
+                <span class="logo-text">GeoPhoenix</span>
+            </a>
+            <nav class="nav-links" id="nav-menu">
+                <a href="../../" class="nav-link">Home</a>
+                <div class="nav-item-dropdown">
+                    <a href="../../services/" class="nav-link has-dropdown active">
+                        Services <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="../../services/gis-mapping/" class="dropdown-item">
+                            <i class="fa-solid fa-map-location-dot dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">GIS Mapping Services</span>
+                                <span class="dropdown-desc">Thematic & publication cartography</span>
+                            </div>
+                        </a>
+                        <a href="../../services/remote-sensing/" class="dropdown-item">
+                            <i class="fa-solid fa-satellite dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">Remote Sensing</span>
+                                <span class="dropdown-desc">Satellite imagery & change detection</span>
+                            </div>
+                        </a>
+                        <a href="../../services/spatial-analysis/" class="dropdown-item">
+                            <i class="fa-solid fa-chart-network dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">Spatial Analysis</span>
+                                <span class="dropdown-desc">Geostatistics & hotspot modeling</span>
+                            </div>
+                        </a>
+                        <a href="../../services/environmental-gis/" class="dropdown-item">
+                            <i class="fa-solid fa-tree dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">Environmental GIS</span>
+                                <span class="dropdown-desc">Coastal vulnerability & flood risks</span>
+                            </div>
+                        </a>
+                        <a href="../../services/gis-automation/" class="dropdown-item">
+                            <i class="fa-solid fa-code dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">GIS Automation</span>
+                                <span class="dropdown-desc">Python & Earth Engine workflows</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="../../projects/" class="nav-link">Projects</a>
+                <a href="../../about/" class="nav-link">About</a>
+                <a href="../../contact/" class="nav-link contact-btn">Request a Quote</a>
+            </nav>
+            <button class="hamburger-menu" id="hamburger" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Subpage Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="../../">Home</a></li>
+                    <li class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></li>
+                    <li class="breadcrumb-item"><a href="../../services/">Services</a></li>
+                    <li class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></li>
+                    <li class="breadcrumb-item active" aria-current="page">GIS Automation Services</li>
+                </ol>
+            </nav>
+
+            <div class="page-hero-content">
+                <span class="page-badge"><i class="fa-solid fa-code-branch"></i> Geospatial Programming & Pipelines</span>
+                <h1 class="page-hero-title">Python GIS Automation, GeoPandas & Geospatial Data Engineering</h1>
+                <p class="page-hero-subtitle">
+                    Eliminate repetitive manual clicks and scale your geospatial processing. GeoPhoenix engineers robust, documented Python automation pipelines leveraging GeoPandas, Rasterio, GDAL, and Google Earth Engine to process massive vector and raster datasets with reproducible precision.
+                </p>
+                <div class="page-hero-actions">
+                    <a href="../../contact/" class="btn-primary-geo"><i class="fa-solid fa-file-signature"></i> Request a Project Assessment</a>
+                    <a href="https://wa.me/94715298267?text=Hello%20GeoPhoenix,%20I%20am%20interested%20in%20Python%20GIS%20Automation." class="btn-whatsapp-geo" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Service Scope -->
+    <main class="container">
+        <div class="overview-grid">
+            <div class="overview-text">
+                <span class="section-subtitle">Scalable Geospatial Engineering</span>
+                <h2>Replace Hours of Desktop Clicking with High-Speed Scripted Workflows</h2>
+                <p>
+                    Desktop GIS software is ideal for visual exploration, but performing repetitive geoprocessing across hundreds of files or updating multi-temporal raster cubes manually is slow and prone to human error. GeoPhoenix develops modular, production-ready Python pipelines that automate your entire spatial data lifecycle.
+                </p>
+                <p>
+                    We build automated workflows that download satellite tiles via APIs, reproject coordinate systems on the fly, execute spatial joins across millions of records with GeoPandas and spatial indexes (R-Tree / STRtree), perform chunked out-of-core raster algebra via Rasterio and Dask, and render hundreds of standardized map sheets automatically using PyQGIS and Matplotlib.
+                </p>
+            </div>
+            <div class="capability-card">
+                <h3><i class="fa-brands fa-python"></i> Geospatial Python Tech Stack</h3>
+                <ul class="feature-list">
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> GeoPandas, Shapely, PyProj & Fiona for vector processing</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> Rasterio, GDAL/OGR, Xarray & NetCDF for multidimensional rasters</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> Google Earth Engine (GEE) Python API & geemap integrations</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> PyQGIS headless rendering & automated map book atlases</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> PostGIS database ingestion & automated spatial SQL ETLs</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Target Services Grid -->
+        <section class="capabilities-section">
+            <div class="section-header">
+                <span class="section-subtitle">Automation Capabilities</span>
+                <h2 class="section-title">Specialized GIS Automation Solutions</h2>
+                <p class="section-desc">Custom scripted architectures designed to streamline organizational GIS operations.</p>
+            </div>
+
+            <div class="capabilities-grid">
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-gears"></i></div>
+                    <h4>Batch Vector Geoprocessing</h4>
+                    <p>Automated clipping, buffering, intersecting, dissolving, and attribute cleaning across thousands of Shapefiles or GeoPackages in seconds with spatial indexing.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-cubes-stacked"></i></div>
+                    <h4>High-Throughput Raster Pipelines</h4>
+                    <p>Automated mosaic blending, warp reprojection, nodata masking, and zonal statistics extraction from multi-gigabyte Digital Elevation Models or satellite tiles.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-cloud-arrow-down"></i></div>
+                    <h4>GEE Cloud Analytics Scripting</h4>
+                    <p>Server-side cloud scripting that extracts time-series spectral indices, filters imagery collections, and exports summarized regional tabular stats directly to Google Drive.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-images"></i></div>
+                    <h4>Automated Map Atlas Generation</h4>
+                    <p>Programmatic generation of hundreds of map layouts from a single template, iterating over boundary features with dynamic titles, legends, and scale bars.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-database"></i></div>
+                    <h4>Spatial ETL & Database Ingestion</h4>
+                    <p>Automated scripts connecting directly to REST APIs, downloading spatial feeds (GeoJSON/CSV), cleaning geometric errors, and updating PostgreSQL/PostGIS databases.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-file-code"></i></div>
+                    <h4>Reproducible Research Notebooks</h4>
+                    <p>Clean, PEP-8 compliant Jupyter Notebooks documenting every step of spatial analyses with inline charts, mathematical proofs, and environment requirement files.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodological Workflow -->
+        <section class="workflow-section">
+            <div class="section-header">
+                <span class="section-subtitle">Engineering Lifecycle</span>
+                <h2 class="section-title">Our Software Engineering Workflow</h2>
+                <p class="section-desc">How we engineer reliable, maintainable geospatial automation scripts.</p>
+            </div>
+
+            <div class="workflow-steps-grid">
+                <div class="workflow-step">
+                    <span class="step-number">Stage 01</span>
+                    <h4>Workflow Audit & Architecture Design</h4>
+                    <p>Analyzing manual desktop steps, identifying computational bottlenecks, and defining data schemas, input arguments, and expected output specifications.</p>
+                </div>
+                <div class="workflow-step">
+                    <span class="step-number">Stage 02</span>
+                    <h4>Modular Script Development</h4>
+                    <p>Writing clean, object-oriented or functional Python code utilizing spatial libraries with vectorized calculations, progress logging, and error handling.</p>
+                </div>
+                <div class="workflow-step">
+                    <span class="step-number">Stage 03</span>
+                    <h4>Benchmarking & Edge-Case Testing</h4>
+                    <p>Testing scripts on large datasets, handling corrupt geometry topologies, null attributes, and ensuring memory efficiency with windowed reading.</p>
+                </div>
+                <div class="workflow-step">
+                    <span class="step-number">Stage 04</span>
+                    <h4>Documentation & Client Handover</h4>
+                    <p>Packaging scripts with clear README installation instructions, dependency virtual environment files (`requirements.txt` or `environment.yml`), and run examples.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Relevant Project Showcase -->
+        <section class="project-showcase-section" style="margin: var(--space-16) 0;">
+            <div class="section-header">
+                <span class="section-subtitle">Real-World Code in Production</span>
+                <h2 class="section-title">Featured GIS Automation Deliverables</h2>
+                <p class="section-desc">Examine automated spatial scripts built for production workflows.</p>
+            </div>
+
+            <div class="case-study-grid">
+                <!-- Project 1: Batch Annual Map Generation -->
+                <div class="case-card">
+                    <div class="case-card-inner">
+                        <div class="case-card-img-wrap">
+                            <img src="../../assets/projects/indian-ocean-fishing-hours.png" alt="Python Automated Gridded Spatial Map Generation">
+                            <div class="case-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
+                        </div>
+                        <div class="case-card-content">
+                            <div>
+                                <div class="case-badge-bar">
+                                    <span class="meta-pill"><strong>Language:</strong> Python 3 / Matplotlib / Cartopy</span>
+                                    <span class="meta-pill"><strong>Type:</strong> Batch Map Synthesis Pipeline</span>
+                                </div>
+                                <h3 class="case-title">Automated Decadal Marine Map Pipeline</h3>
+                                <p class="case-summary">
+                                    Engineered a custom Python script that iterates through 13 years of annual gridded fisheries effort data, automatically normalizing color bins, plotting gridded rasters with high-res coastlines, and outputting standardized publication map figures without user intervention.
+                                </p>
+                                <div class="case-specs">
+                                    <div class="spec-item">
+                                        <span class="spec-label">Throughput</span>
+                                        <span class="spec-val">100+ Map Figures in &lt; 3 Mins</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">Deliverable</span>
+                                        <span class="spec-val">Python Script, Processed Rasters</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="../../projects/" class="btn-secondary-geo" style="align-self: flex-start;"><i class="fa-solid fa-arrow-right"></i> Explore Project Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Sales & Spatial Dashboard -->
+                <div class="case-card">
+                    <div class="case-card-inner">
+                        <div class="case-card-img-wrap">
+                            <img src="../../assets/projects/sales-dashboard.png" alt="Interactive Operations and Spatial Data Dashboard">
+                            <div class="case-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
+                        </div>
+                        <div class="case-card-content">
+                            <div>
+                                <div class="case-badge-bar">
+                                    <span class="meta-pill"><strong>Tech:</strong> JavaScript / Python ETL</span>
+                                    <span class="meta-pill"><strong>Type:</strong> Spatial Operations Dashboard</span>
+                                </div>
+                                <h3 class="case-title">Automated Spatial Analytics & Live Dashboard</h3>
+                                <p class="case-summary">
+                                    Constructed an automated ETL data pipeline transforming raw operational coordinates and sales metrics into a dynamic, interactive dashboard with territory breakdowns, performance metrics, and instant visual reporting.
+                                </p>
+                                <div class="case-specs">
+                                    <div class="spec-item">
+                                        <span class="spec-label">Architecture</span>
+                                        <span class="spec-val">JSON Data Pipeline & Chart.js</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">Deliverable</span>
+                                        <span class="spec-val">Interactive Web Application</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="../../projects/" class="btn-secondary-geo" style="align-self: flex-start;"><i class="fa-solid fa-arrow-right"></i> Explore Project Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deliverables Box -->
+        <div class="deliverables-box">
+            <h3 style="font-size: 1.4rem; margin-bottom: 8px;"><i class="fa-solid fa-box-open" style="color: var(--accent-orange); margin-right: 8px;"></i> Automation Deliverable Packages</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">Every automation contract delivers fully documented, self-contained, and tested codebase packages:</p>
+            <div class="deliverables-grid">
+                <div class="deliverable-chip"><i class="fa-brands fa-python"></i> Commented Python (.py) Modules</div>
+                <div class="deliverable-chip"><i class="fa-solid fa-book"></i> Interactive Jupyter Notebooks (.ipynb)</div>
+                <div class="deliverable-chip"><i class="fa-solid fa-terminal"></i> Command-Line Interface (CLI) Tools</div>
+                <div class="deliverable-chip"><i class="fa-solid fa-file-lines"></i> Detailed Documentation & README</div>
+                <div class="deliverable-chip"><i class="fa-solid fa-boxes-packing"></i> Conda / Pip Dependency Manifests</div>
+                <div class="deliverable-chip"><i class="fa-solid fa-cloud"></i> Google Earth Engine Scripts</div>
+            </div>
+        </div>
+
+        <!-- Frequently Asked Questions -->
+        <section class="faq-section">
+            <div class="section-header">
+                <span class="section-subtitle">Developer Inquiries</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-desc">Technical answers to your GIS scripting and automation questions.</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do I need proprietary GIS software (ArcGIS) to run your automation scripts?</span>
+                        <i class="fa-solid fa-plus faq-toggle-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Not unless specifically requested. We prioritize open-source geospatial stacks (GeoPandas, Shapely, Rasterio, GDAL, PostGIS), ensuring your scripts run freely in any Python environment, on virtual servers, or in cloud Docker containers without costly recurring software licenses. If you require ArcPy scripts for an existing Esri enterprise deployment, we can build those as well.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do your scripts handle large datasets that exceed system RAM?</span>
+                        <i class="fa-solid fa-plus faq-toggle-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We implement out-of-core memory strategies: using Rasterio windowed reading/writing to process large rasters block by block, and utilizing spatial indexes (STRtree/R-Tree) or database chunking (PostGIS spatial cursors) so your workflows process 50GB+ datasets smoothly on standard workstations.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can you create custom QGIS Python plugins or processing toolbox scripts?</span>
+                        <i class="fa-solid fa-plus faq-toggle-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. We build custom QGIS Processing Provider algorithms (`QgsProcessingAlgorithm`) that integrate seamlessly into the QGIS Toolbox, featuring custom GUI input parameters, progress bars, and compatibility with the QGIS Graphical Modeler.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Do you provide maintenance and support after script delivery?</span>
+                        <i class="fa-solid fa-plus faq-toggle-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. Every script delivery includes a 30-day warranty window for bug fixes, environmental configuration support, and remote onboarding to ensure your internal engineering or research staff can execute and modify the scripts with complete confidence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Services Internal Linking -->
+        <section style="margin: var(--space-12) 0; padding-top: var(--space-8); border-top: 1px solid var(--border-color);">
+            <h3 style="font-size: 1.25rem; margin-bottom: var(--space-4); color: var(--text-primary);">Explore Complementary Geospatial Capabilities:</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                <a href="../../services/gis-mapping/" class="btn-secondary-geo"><i class="fa-solid fa-map-location-dot"></i> GIS Mapping Services</a>
+                <a href="../../services/remote-sensing/" class="btn-secondary-geo"><i class="fa-solid fa-satellite"></i> Remote Sensing Services</a>
+                <a href="../../services/spatial-analysis/" class="btn-secondary-geo"><i class="fa-solid fa-chart-network"></i> Spatial Analysis & Geostatistics</a>
+                <a href="../../services/environmental-gis/" class="btn-secondary-geo"><i class="fa-solid fa-tree"></i> Environmental & Coastal GIS</a>
+            </div>
+        </section>
+
+        <!-- Inquiry CTA Banner -->
+        <section class="cta-banner">
+            <h2>Accelerate Your Geospatial Workflows with Custom Python</h2>
+            <p>
+                Describe your current repetitive GIS bottlenecks and data volume. GeoPhoenix will deliver a streamlined, reproducible automation roadmap.
+            </p>
+            <div class="cta-buttons">
+                <a href="../../contact/" class="btn-primary-geo"><i class="fa-solid fa-paper-plane"></i> Request a Project Assessment</a>
+                <a href="https://www.fiverr.com/s/AyNPwDX" class="btn-secondary-geo" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Order via Fiverr Gig</a>
+                <a href="https://wa.me/94715298267?text=Hi%20GeoPhoenix,%20I%20am%20interested%20in%20GIS%20Automation%20services." class="btn-whatsapp-geo" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Instant WhatsApp Chat</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal Container -->
+    <div id="geo-image-modal" class="image-modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(2, 6, 17, 0.95); backdrop-filter: blur(10px); padding: 40px; box-sizing: border-box;">
+        <span id="close-modal" style="position: absolute; top: 20px; right: 30px; font-size: 36px; color: #fff; cursor: pointer;">&times;</span>
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+            <img id="modal-img" src="" alt="Enlarged Spatial Deliverable" style="max-height: 80vh; max-width: 90vw; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.8);">
+            <div id="modal-caption" style="color: var(--text-secondary); margin-top: 16px; font-size: 1rem; text-align: center;"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="../../" class="logo" style="display: inline-flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-3);">
+                    <img src="../../assets/geophoenix-logo.jpg" alt="GeoPhoenix Logo" style="height: 28px; width: 28px; border-radius: 6px; object-fit: cover;">
+                    <span class="logo-text">GeoPhoenix</span>
+                </a>
+                <p>
+                    An International Geospatial Intelligence and GIS Solutions Company. Defensible spatial modeling, satellite analytics, and reproducible geospatial pipelines.
+                </p>
+                <div style="margin-top: var(--space-3); font-size: 0.9rem; color: var(--text-secondary);">
+                    <p><i class="fa-solid fa-envelope" style="color: var(--accent-orange); margin-right: 8px;"></i> <a href="mailto:contact@geophoenixgis.com">contact@geophoenixgis.com</a></p>
+                    <p style="margin-top: 6px;"><i class="fa-brands fa-whatsapp" style="color: #25d366; margin-right: 8px;"></i> <a href="https://wa.me/94715298267">+94 71 529 8267</a></p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Specialized Services</h4>
+                <a href="../../services/gis-mapping/">GIS Mapping Services</a>
+                <a href="../../services/remote-sensing/">Remote Sensing & Satellite</a>
+                <a href="../../services/spatial-analysis/">Spatial Analysis & Stats</a>
+                <a href="../../services/environmental-gis/">Environmental & Coastal GIS</a>
+                <a href="../../services/gis-automation/">GIS Automation & Python</a>
+            </div>
+
+            <div class="footer-links">
+                <h4>Company & Practice</h4>
+                <a href="../../about/">About & Founder</a>
+                <a href="../../projects/">Project Case Studies</a>
+                <a href="../../contact/">Request Assessment</a>
+                <a href="../../privacy-policy/">Privacy & Data Policy</a>
+            </div>
+
+            <div class="footer-badges">
+                <h4>Verified Platforms</h4>
+                <a href="https://www.fiverr.com/s/AyNPwDX" target="_blank" rel="noopener noreferrer" class="fiverr-mini-badge" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; background: rgba(29, 191, 115, 0.08); border: 1px solid rgba(29, 191, 115, 0.25); color: #1dbf73; padding: 6px 14px; border-radius: 30px; font-weight: 700; transition: all 0.3s ease;">
+                    <span style="letter-spacing: -0.5px;">fiverr.</span>
+                </a>
+                <div style="display: flex; gap: 12px; margin-top: 16px;">
+                    <a href="https://www.linkedin.com/in/teshan-ishara-80b9bb156" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 1.25rem;"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/teshanishara" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 1.25rem;"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GeoPhoenix. All Rights Reserved. Founder & Lead GIS Specialist: Teshan Ishara. International Geospatial Intelligence.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="../../js/main.js"></script>
+</body>
+</html>

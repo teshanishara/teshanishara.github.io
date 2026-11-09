@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geospatial Project Portfolio & Case Studies | GeoPhoenix</title>
+    <meta name="description" content="Explore verified geospatial case studies by GeoPhoenix: Land Surface Temperature modeling, Coastal Vulnerability Indexing, municipal cadastral mapping, and automated Python GIS pipelines.">
+    <meta name="keywords" content="GIS portfolio, geospatial case studies, remote sensing projects, coastal vulnerability mapping, LST analysis, QGIS mapping examples, ArcGIS Pro projects, spatial data science portfolio, Python GIS examples">
+    <meta name="author" content="GeoPhoenix">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://geophoenixgis.com/projects/">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GeoPhoenix">
+    <meta property="og:title" content="Geospatial Project Portfolio & Case Studies | GeoPhoenix">
+    <meta property="og:description" content="Detailed GIS and remote sensing case studies demonstrating methodology, data sources, and verified spatial deliverables.">
+    <meta property="og:image" content="https://geophoenixgis.com/assets/geophoenix-logo.jpg">
+    <meta property="og:url" content="https://geophoenixgis.com/projects/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Geospatial Project Portfolio | GeoPhoenix">
+    <meta name="twitter:description" content="Verified GIS, remote sensing, and environmental case studies.">
+    <meta name="twitter:image" content="https://geophoenixgis.com/assets/geophoenix-logo.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../assets/geophoenix-logo.jpg">
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/portfolio.css">
+    <link rel="stylesheet" href="../css/site-enhancements.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://geophoenixgis.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Projects",
+              "item": "https://geophoenixgis.com/projects/"
+            }
+          ]
+        },
+        {
+          "@type": "CollectionPage",
+          "name": "GeoPhoenix Geospatial Project Case Studies",
+          "description": "Curated collection of verified GIS, remote sensing, and spatial modeling case studies.",
+          "url": "https://geophoenixgis.com/projects/",
+          "publisher": {
+            "@type": "ProfessionalService",
+            "name": "GeoPhoenix",
+            "url": "https://geophoenixgis.com/"
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="../" class="logo" style="display: inline-flex; align-items: center; gap: var(--space-2);">
+                <img src="../assets/geophoenix-logo.jpg" alt="GeoPhoenix Logo" style="height: 30px; width: 30px; border-radius: 6px; object-fit: cover;">
+                <span class="logo-text">GeoPhoenix</span>
+            </a>
+            <nav class="nav-links" id="nav-menu">
+                <a href="../" class="nav-link">Home</a>
+                <div class="nav-item-dropdown">
+                    <a href="../services/" class="nav-link has-dropdown">
+                        Services <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="../services/gis-mapping/" class="dropdown-item">
+                            <i class="fa-solid fa-map-location-dot dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">GIS Mapping Services</span>
+                                <span class="dropdown-desc">Thematic & publication cartography</span>
+                            </div>
+                        </a>
+                        <a href="../services/remote-sensing/" class="dropdown-item">
+                            <i class="fa-solid fa-satellite dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">Remote Sensing</span>
+                                <span class="dropdown-desc">Satellite imagery & change detection</span>
+                            </div>
+                        </a>
+                        <a href="../services/spatial-analysis/" class="dropdown-item">
+                            <i class="fa-solid fa-chart-network dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">Spatial Analysis</span>
+                                <span class="dropdown-desc">Geostatistics & hotspot modeling</span>
+                            </div>
+                        </a>
+                        <a href="../services/environmental-gis/" class="dropdown-item">
+                            <i class="fa-solid fa-tree dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">Environmental GIS</span>
+                                <span class="dropdown-desc">Coastal vulnerability & flood risks</span>
+                            </div>
+                        </a>
+                        <a href="../services/gis-automation/" class="dropdown-item">
+                            <i class="fa-solid fa-code dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">GIS Automation</span>
+                                <span class="dropdown-desc">Python & Earth Engine workflows</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="../projects/" class="nav-link active">Projects</a>
+                <a href="../about/" class="nav-link">About</a>
+                <a href="../contact/" class="nav-link contact-btn">Request a Quote</a>
+            </nav>
+            <button class="hamburger-menu" id="hamburger" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Subpage Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="../">Home</a></li>
+                    <li class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></li>
+                    <li class="breadcrumb-item active" aria-current="page">Projects</li>
+                </ol>
+            </nav>
+
+            <div class="page-hero-content">
+                <span class="page-badge"><i class="fa-solid fa-folder-tree"></i> Verified Engineering Case Studies</span>
+                <h1 class="page-hero-title">Geospatial Project Portfolio & Technical Case Studies</h1>
+                <p class="page-hero-subtitle">
+                    Examine real-world projects executed by GeoPhoenix across urban planning, coastal resilience, satellite remote sensing, hydrological terrain evaluation, and automated data engineering. Every case study documents the problem, data sources, methodology, and final deliverables.
+                </p>
+                <div class="page-hero-actions">
+                    <a href="../contact/" class="btn-primary-geo"><i class="fa-solid fa-paper-plane"></i> Request a Project Assessment</a>
+                    <a href="https://wa.me/94715298267?text=Hello%20GeoPhoenix,%20I%20am%20reviewing%20your%20projects%20and%20would%20like%20to%20discuss%20a%20similar%20scope." class="btn-whatsapp-geo" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Filter & Grid -->
+    <main class="container">
+        <!-- Interactive Category Filter -->
+        <div class="filter-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: var(--space-12);">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="gis">GIS Mapping</button>
+            <button class="filter-btn" data-filter="remote-sensing">Remote Sensing</button>
+            <button class="filter-btn" data-filter="spatial-analysis">Spatial Analysis</button>
+            <button class="filter-btn" data-filter="environmental">Environmental GIS</button>
+            <button class="filter-btn" data-filter="automation">Automation & Python</button>
+        </div>
+
+        <div class="case-study-grid">
+            
+            <!-- Case Study 1: Municipal Cadastral Overview (Hamilton) -->
+            <div class="case-card project-card" data-category="gis">
+                <div class="case-card-inner">
+                    <div class="case-card-img-wrap">
+                        <img src="../assets/projects/hamilton-city-overview.png" alt="Municipal Cadastral and Zoning Map Delineation for the City of Hamilton">
+                        <div class="case-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
+                    </div>
+                    <div class="case-card-content">
+                        <div>
+                            <div class="case-badge-bar">
+                                <span class="meta-pill"><strong>Category:</strong> GIS Mapping</span>
+                                <span class="meta-pill"><strong>Location:</strong> Ontario, Canada</span>
+                                <span class="meta-pill"><strong>Software:</strong> ArcGIS Pro / QGIS</span>
+                            </div>
+                            <h2 class="case-title">Municipal Cadastral & Zoning Delineation</h2>
+                            <p class="case-summary">
+                                <strong>Objective:</strong> Deliver a publication-grade municipal spatial overview establishing property boundaries, environmental conservation areas, and core transportation arteries for local planning authorities.<br>
+                                <strong>Data Sources:</strong> Municipal cadastral vectors, OpenStreetMap road centerlines, provincial conservation limits.<br>
+                                <strong>Methodology:</strong> Multi-layer topology validation, dynamic label placement hierarchy, scale-dependent symbolization, and dual locator insets in NAD83 / UTM Zone 17N.<br>
+                                <strong>Final Deliverables:</strong> 300 DPI Vector PDF map, clean OGC GeoPackage database, styled layer definitions (.qml).
+                            </p>
+                            <div class="case-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Projection</span>
+                                    <span class="spec-val">NAD83 / UTM Zone 17N</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Quality Check</span>
+                                    <span class="spec-val">Zero overlap verified</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="../services/gis-mapping/" class="btn-secondary-geo" style="align-self: flex-start;"><i class="fa-solid fa-layer-group"></i> Explore Related Mapping Services</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 2: Coastal Vulnerability Index (CVI) -->
+            <div class="case-card project-card" data-category="environmental,spatial-analysis">
+                <div class="case-card-inner">
+                    <div class="case-card-img-wrap">
+                        <img src="../assets/projects/environmental-impact.png" alt="Coastal Vulnerability Index CVI and Shoreline Erosion Hazard Assessment">
+                        <div class="case-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
+                    </div>
+                    <div class="case-card-content">
+                        <div>
+                            <div class="case-badge-bar">
+                                <span class="meta-pill"><strong>Category:</strong> Environmental GIS</span>
+                                <span class="meta-pill"><strong>Focus:</strong> Coastal Resilience</span>
+                                <span class="meta-pill"><strong>Software:</strong> QGIS / Python</span>
+                            </div>
+                            <h2 class="case-title">Coastal Vulnerability Index (CVI) Assessment</h2>
+                            <p class="case-summary">
+                                <strong>Objective:</strong> Quantify physical shoreline exposure under accelerated sea-level rise, storm surge, and coastal erosion scenarios to prioritize coastal protection infrastructure.<br>
+                                <strong>Data Sources:</strong> High-resolution bathymetric contours, wave climate buoy records, tidal harmonics, geological coastal landform classifications.<br>
+                                <strong>Methodology:</strong> USGS CVI formula integrating 6 physical variables normalized to 1–5 risk scores. Shoreline segmented into 250m evaluation transects.<br>
+                                <strong>Final Deliverables:</strong> Segmented hazard vector (.gpkg), high-resolution cartographic atlas, quantitative risk matrix report.
+                            </p>
+                            <div class="case-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Formulation</span>
+                                    <span class="spec-val">USGS CVI Square-Root Model</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Deliverables</span>
+                                    <span class="spec-val">Risk Vector GeoPackage, PDF Atlas</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="../services/environmental-gis/" class="btn-secondary-geo" style="align-self: flex-start;"><i class="fa-solid fa-tree"></i> Explore Environmental Services</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 3: Urban Solar & NDVI Dynamics -->
+            <div class="case-card project-card" data-category="remote-sensing,spatial-analysis">
+                <div class="case-card-inner">
+                    <div class="case-card-img-wrap">
+                        <img src="../assets/projects/urban-design.png" alt="Urban Solar Potential and NDVI Vegetation Dynamics Satellite Mapping">
+                        <div class="case-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
+                    </div>
+                    <div class="case-card-content">
+                        <div>
+                            <div class="case-badge-bar">
+                                <span class="meta-pill"><strong>Category:</strong> Remote Sensing</span>
+                                <span class="meta-pill"><strong>Sensors:</strong> Sentinel-2 & DEM</span>
+                                <span class="meta-pill"><strong>Software:</strong> Earth Engine / QGIS</span>
+                            </div>
+                            <h2 class="case-title">Urban Solar Potential & Canopy Dynamics</h2>
+                            <p class="case-summary">
+                                <strong>Objective:</strong> Model rooftop solar radiation potential against urban green canopy density (NDVI) to identify microclimate heat islands and prime renewable energy targets.<br>
+                                <strong>Data Sources:</strong> ESA Sentinel-2 MSI multispectral surface reflectance (10m) and high-resolution Digital Surface Model (DSM).<br>
+                                <strong>Methodology:</strong> Cloud masking, Normalized Difference Vegetation Index computation, hemispherical viewshed solar irradiance modeling, and zonal rooftop aggregation.<br>
+                                <strong>Final Deliverables:</strong> Calibrated 32-bit Float GeoTIFFs, rooftop solar ranking database, executive municipal summary.
+                            </p>
+                            <div class="case-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Resolution</span>
+                                    <span class="spec-val">10-Meter Multispectral</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Deliverables</span>
+                                    <span class="spec-val">Classified Solar Layers, GeoTIFF</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="../services/remote-sensing/" class="btn-secondary-geo" style="align-self: flex-start;"><i class="fa-solid fa-satellite"></i> Explore Remote Sensing Services</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 4: Forest Wildfire Fuel Mapping -->
+            <div class="case-card project-card" data-category="remote-sensing,environmental">
+                <div class="case-card-inner">
+                    <div class="case-card-img-wrap">
+                        <img src="../assets/projects/fuel-model.png" alt="Forest Wildfire Fuel Mapping and Moisture Deficit Satellite Assessment">
+                        <div class="case-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
+                    </div>
+                    <div class="case-card-content">
+                        <div>
+                            <div class="case-badge-bar">
+                                <span class="meta-pill"><strong>Category:</strong> Remote Sensing</span>
+                                <span class="meta-pill"><strong>Sensors:</strong> Landsat 8 OLI/TIRS</span>
+                                <span class="meta-pill"><strong>Software:</strong> QGIS / Python</span>
+                            </div>
+                            <h2 class="case-title">Forest Fire Fuel Model & Moisture Deficit</h2>
+                            <p class="case-summary">
+                                <strong>Objective:</strong> Delineate high-combustion risk forest parcels by classifying canopy fuel loading and calculating vegetative moisture deficits ahead of seasonal wildfire peaks.<br>
+                                <strong>Data Sources:</strong> Landsat 8 multispectral bands (NIR/SWIR), thermal infrared (Band 10), and SRTM 30m topographic slope.<br>
+                                <strong>Methodology:</strong> Normalized Difference Moisture Index (NDMI) calculation, slope aspect stratification, Rothermel fuel model cross-coding, and thermal anomaly detection.<br>
+                                <strong>Final Deliverables:</strong> Zonal wildfire combustion risk maps, classified GeoTIFF surface, spatial statistics table.
+                            </p>
+                            <div class="case-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Sensor</span>
+                                    <span class="spec-val">Landsat 8 OLI/TIRS (30m)</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Output</span>
+                                    <span class="spec-val">Fuel Risk GeoPackage & Surface Map</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="../services/remote-sensing/" class="btn-secondary-geo" style="align-self: flex-start;"><i class="fa-solid fa-satellite"></i> Explore Remote Sensing Services</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 5: 500m Buffer Proximity Selection (Hamilton) -->
+            <div class="case-card project-card" data-category="gis,spatial-analysis">
+                <div class="case-card-inner">
+                    <div class="case-card-img-wrap">
+                        <img src="../assets/projects/hamilton-buffer-analysis.png" alt="Municipal 500m Buffer Proximity and Parcel Selection Spatial Analysis">
+                        <div class="case-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
+                    </div>
+                    <div class="case-card-content">
+                        <div>
+                            <div class="case-badge-bar">
+                                <span class="meta-pill"><strong>Category:</strong> Spatial Analysis</span>
+                                <span class="meta-pill"><strong>Technique:</strong> Geometric Buffering</span>
+                                <span class="meta-pill"><strong>Software:</strong> ArcGIS Pro / QGIS</span>
+                            </div>
+                            <h2 class="case-title">500m Environmental Proximity & Parcel Selection</h2>
+                            <p class="case-summary">
+                                <strong>Objective:</strong> Identify and isolate all residential and commercial parcels intersecting within 500 meters of environmental conservation zones to ensure municipal compliance.<br>
+                                <strong>Data Sources:</strong> Municipal cadastral parcels, protected conservation boundary shapefiles, road networks.<br>
+                                <strong>Methodology:</strong> Multi-ring Euclidean buffer generation, spatial intersection overlay, attribute query filtering, and selection matrix extraction.<br>
+                                <strong>Final Deliverables:</strong> Filtered parcel selection GeoPackage (.gpkg), detailed analysis report, high-contrast cartographic exhibits.
+                            </p>
+                            <div class="case-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Constraint</span>
+                                    <span class="spec-val">500-Meter Conservation Buffer</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Deliverable</span>
+                                    <span class="spec-val">Filtered Cadastre & Vector Map</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="../services/spatial-analysis/" class="btn-secondary-geo" style="align-self: flex-start;"><i class="fa-solid fa-chart-network"></i> Explore Spatial Analysis Services</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 6: Hydrological Terrain & Slope Stability -->
+            <div class="case-card project-card" data-category="spatial-analysis,environmental">
+                <div class="case-card-inner">
+                    <div class="case-card-img-wrap">
+                        <img src="../assets/projects/slope-analysis.png" alt="Hydrological and Terrain Slope Stability Evaluation Map">
+                        <div class="case-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
+                    </div>
+                    <div class="case-card-content">
+                        <div>
+                            <div class="case-badge-bar">
+                                <span class="meta-pill"><strong>Category:</strong> Spatial Analysis</span>
+                                <span class="meta-pill"><strong>Technique:</strong> Topographic Modeling</span>
+                                <span class="meta-pill"><strong>Software:</strong> QGIS / SAGA</span>
+                            </div>
+                            <h2 class="case-title">Hydrological Terrain & Slope Stability Evaluation</h2>
+                            <p class="case-summary">
+                                <strong>Objective:</strong> Quantify geotechnical slope stability and surface runoff concentration across complex mountainous terrain for infrastructure routing feasibility.<br>
+                                <strong>Data Sources:</strong> High-resolution DEM, soil texture records, precipitation intensity grids.<br>
+                                <strong>Methodology:</strong> Zevenbergen-Thorne slope gradient derivation, Topographic Wetness Index (TWI), stream power index (SPI), and D8 flow accumulation routing.<br>
+                                <strong>Final Deliverables:</strong> Multi-criteria slope stability hazard map, continuous georeferenced rasters, watershed stream vectors.
+                            </p>
+                            <div class="case-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Algorithms</span>
+                                    <span class="spec-val">TWI, SPI & D8 Flow Accumulation</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Output</span>
+                                    <span class="spec-val">Classified Hazard Surface & GeoPackage</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="../services/spatial-analysis/" class="btn-secondary-geo" style="align-self: flex-start;"><i class="fa-solid fa-chart-network"></i> Explore Spatial Analysis Services</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 7: Decadal Marine Fishing Effort Pipeline -->
+            <div class="case-card project-card" data-category="automation,environmental">
+                <div class="case-card-inner">
+                    <div class="case-card-img-wrap">
+                        <img src="../assets/projects/indian-ocean-fishing-hours.png" alt="Automated Python Decadal Marine Fisheries Effort Pipeline">
+                        <div class="case-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
+                    </div>
+                    <div class="case-card-content">
+                        <div>
+                            <div class="case-badge-bar">
+                                <span class="meta-pill"><strong>Category:</strong> GIS Automation</span>
+                                <span class="meta-pill"><strong>Stack:</strong> Python / GeoPandas</span>
+                                <span class="meta-pill"><strong>Domain:</strong> Oceanography</span>
+                            </div>
+                            <h2 class="case-title">Automated Decadal Marine Map Synthesis</h2>
+                            <p class="case-summary">
+                                <strong>Objective:</strong> Automate the annual synthesis and high-resolution cartographic rendering of 13 years of gridded marine fishing effort across the entire Indian Ocean basin.<br>
+                                <strong>Data Sources:</strong> 1-degree gridded vessel monitoring datasets (2013-2025), Natural Earth global coastlines.<br>
+                                <strong>Methodology:</strong> Engineered custom Python script using Pandas, GeoPandas, and Matplotlib to iterate over annual data slices, compute log-scaled effort densities, and plot standardized figures automatically.<br>
+                                <strong>Final Deliverables:</strong> Automated Python script codebase, 13 publication-quality annual map figures, gridded spatial datasets.
+                            </p>
+                            <div class="case-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Runtime</span>
+                                    <span class="spec-val">100+ Maps in &lt; 3 Minutes</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Deliverables</span>
+                                    <span class="spec-val">Python Script & Publication Figures</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="../services/gis-automation/" class="btn-secondary-geo" style="align-self: flex-start;"><i class="fa-solid fa-code"></i> Explore GIS Automation Services</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case Study 8: Interactive Operations Dashboard -->
+            <div class="case-card project-card" data-category="automation">
+                <div class="case-card-inner">
+                    <div class="case-card-img-wrap">
+                        <img src="../assets/projects/sales-dashboard.png" alt="Interactive Operations and Spatial Data Dashboard">
+                        <div class="case-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
+                    </div>
+                    <div class="case-card-content">
+                        <div>
+                            <div class="case-badge-bar">
+                                <span class="meta-pill"><strong>Category:</strong> Spatial Analytics</span>
+                                <span class="meta-pill"><strong>Tech:</strong> JavaScript / Chart.js</span>
+                                <span class="meta-pill"><strong>Format:</strong> Web Application</span>
+                            </div>
+                            <h2 class="case-title">Interactive Operations & Territory Dashboard</h2>
+                            <p class="case-summary">
+                                <strong>Objective:</strong> Transform corporate transactional and branch location data into an interactive, real-time analytics web dashboard for operational monitoring and territory performance tracking.<br>
+                                <strong>Data Sources:</strong> Corporate transaction records, regional logistics zones, geographic coordinates.<br>
+                                <strong>Methodology:</strong> Automated Python ETL aggregating sales metrics by geographic cluster, paired with Chart.js responsive frontend data visualizations.<br>
+                                <strong>Final Deliverables:</strong> Standalone web application, automated data parsing pipeline, interactive charts.
+                            </p>
+                            <div class="case-specs">
+                                <div class="spec-item">
+                                    <span class="spec-label">Architecture</span>
+                                    <span class="spec-val">Vanilla JS / Chart.js Engine</span>
+                                </div>
+                                <div class="spec-item">
+                                    <span class="spec-label">Access</span>
+                                    <span class="spec-val"><a href="sales-dashboard/sales_dashboard.html" target="_blank" style="color: var(--accent-orange); text-decoration: underline;">Open Live Dashboard</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="../contact/" class="btn-primary-geo" style="align-self: flex-start;"><i class="fa-solid fa-paper-plane"></i> Commission a Similar Project</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Master Inquiry CTA -->
+        <section class="cta-banner">
+            <h2>Ready to Deploy Defensible Geospatial Solutions?</h2>
+            <p>
+                Whether you need a scientific research figure, a multi-sensor satellite study, or an automated Python pipeline, GeoPhoenix delivers on time with complete data ownership.
+            </p>
+            <div class="cta-buttons">
+                <a href="../contact/" class="btn-primary-geo"><i class="fa-solid fa-paper-plane"></i> Request a Project Assessment</a>
+                <a href="https://www.fiverr.com/s/AyNPwDX" class="btn-secondary-geo" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Order via Fiverr Gig</a>
+                <a href="https://wa.me/94715298267?text=Hi%20GeoPhoenix,%20I%20am%20interested%20in%20discussing%20a%20project." class="btn-whatsapp-geo" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Instant WhatsApp Chat</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal Container -->
+    <div id="geo-image-modal" class="image-modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(2, 6, 17, 0.95); backdrop-filter: blur(10px); padding: 40px; box-sizing: border-box;">
+        <span id="close-modal" style="position: absolute; top: 20px; right: 30px; font-size: 36px; color: #fff; cursor: pointer;">&times;</span>
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+            <img id="modal-img" src="" alt="Enlarged Spatial Deliverable" style="max-height: 80vh; max-width: 90vw; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.8);">
+            <div id="modal-caption" style="color: var(--text-secondary); margin-top: 16px; font-size: 1rem; text-align: center;"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="../" class="logo" style="display: inline-flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-3);">
+                    <img src="../assets/geophoenix-logo.jpg" alt="GeoPhoenix Logo" style="height: 28px; width: 28px; border-radius: 6px; object-fit: cover;">
+                    <span class="logo-text">GeoPhoenix</span>
+                </a>
+                <p>
+                    An International Geospatial Intelligence and GIS Solutions Company. Defensible spatial modeling, satellite analytics, and reproducible geospatial pipelines.
+                </p>
+                <div style="margin-top: var(--space-3); font-size: 0.9rem; color: var(--text-secondary);">
+                    <p><i class="fa-solid fa-envelope" style="color: var(--accent-orange); margin-right: 8px;"></i> <a href="mailto:contact@geophoenixgis.com">contact@geophoenixgis.com</a></p>
+                    <p style="margin-top: 6px;"><i class="fa-brands fa-whatsapp" style="color: #25d366; margin-right: 8px;"></i> <a href="https://wa.me/94715298267">+94 71 529 8267</a></p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Specialized Services</h4>
+                <a href="../services/gis-mapping/">GIS Mapping Services</a>
+                <a href="../services/remote-sensing/">Remote Sensing & Satellite</a>
+                <a href="../services/spatial-analysis/">Spatial Analysis & Stats</a>
+                <a href="../services/environmental-gis/">Environmental & Coastal GIS</a>
+                <a href="../services/gis-automation/">GIS Automation & Python</a>
+            </div>
+
+            <div class="footer-links">
+                <h4>Company & Practice</h4>
+                <a href="../about/">About & Founder</a>
+                <a href="../projects/">Project Case Studies</a>
+                <a href="../contact/">Request Assessment</a>
+                <a href="../privacy-policy/">Privacy & Data Policy</a>
+            </div>
+
+            <div class="footer-badges">
+                <h4>Verified Platforms</h4>
+                <a href="https://www.fiverr.com/s/AyNPwDX" target="_blank" rel="noopener noreferrer" class="fiverr-mini-badge" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; background: rgba(29, 191, 115, 0.08); border: 1px solid rgba(29, 191, 115, 0.25); color: #1dbf73; padding: 6px 14px; border-radius: 30px; font-weight: 700; transition: all 0.3s ease;">
+                    <span style="letter-spacing: -0.5px;">fiverr.</span>
+                </a>
+                <div style="display: flex; gap: 12px; margin-top: 16px;">
+                    <a href="https://www.linkedin.com/in/teshan-ishara-80b9bb156" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 1.25rem;"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/teshanishara" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 1.25rem;"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GeoPhoenix. All Rights Reserved. Founder & Lead GIS Specialist: Teshan Ishara. International Geospatial Intelligence.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="../js/main.js"></script>
+</body>
+</html>

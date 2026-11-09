@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spatial Analysis Services | Geostatistics & Hotspot Modeling | GeoPhoenix</title>
+    <meta name="description" content="Advanced spatial analysis and geostatistics services by GeoPhoenix. IDW interpolation, Getis-Ord Gi* hotspot analysis, site suitability modeling, network routing, and spatial regression.">
+    <meta name="keywords" content="spatial analysis services, IDW interpolation, Getis-Ord Gi hotspot analysis, spatial regression, exploratory spatial data analysis, site suitability analysis, network analysis, spatial modeling, Moran's I, geostatistics, QGIS spatial analysis, R spatial analysis">
+    <meta name="author" content="GeoPhoenix">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://geophoenixgis.com/services/spatial-analysis/">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GeoPhoenix">
+    <meta property="og:title" content="Spatial Analysis Services | Geostatistics & Hotspot Modeling">
+    <meta property="og:description" content="Rigorous spatial statistics, point pattern analysis, multi-criteria site suitability (MCE/AHP), and network routing.">
+    <meta property="og:image" content="https://geophoenixgis.com/assets/geophoenix-logo.jpg">
+    <meta property="og:url" content="https://geophoenixgis.com/services/spatial-analysis/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Spatial Analysis Services | GeoPhoenix">
+    <meta name="twitter:description" content="Spatial analytics, interpolation, hotspot clustering, and multi-criteria evaluation.">
+    <meta name="twitter:image" content="https://geophoenixgis.com/assets/geophoenix-logo.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../../assets/geophoenix-logo.jpg">
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/portfolio.css">
+    <link rel="stylesheet" href="../../css/site-enhancements.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+
+    <!-- Structured Data: Service + BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://geophoenixgis.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Services",
+              "item": "https://geophoenixgis.com/services/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Spatial Analysis Services",
+              "item": "https://geophoenixgis.com/services/spatial-analysis/"
+            }
+          ]
+        },
+        {
+          "@type": "Service",
+          "serviceType": "Spatial Analysis Services",
+          "name": "Spatial Data Science & Advanced Geostatistics",
+          "provider": {
+            "@type": "ProfessionalService",
+            "name": "GeoPhoenix",
+            "url": "https://geophoenixgis.com/",
+            "telephone": "+94715298267",
+            "email": "contact@geophoenixgis.com",
+            "image": "https://geophoenixgis.com/assets/geophoenix-logo.jpg"
+          },
+          "description": "Exploratory spatial data analysis, Inverse Distance Weighting (IDW) and Kriging interpolation, Getis-Ord Gi* hotspot detection, Multi-Criteria Evaluation (MCE/AHP), network service area routing, and Geographically Weighted Regression (GWR).",
+          "areaServed": "Worldwide",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Spatial Analysis Capabilities",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Spatial Interpolation (IDW, Ordinary Kriging, Spline)"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Spatial Autocorrelation & Hotspot Clustering (Moran's I, Getis-Ord Gi*)"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Multi-Criteria Evaluation (MCE) & Site Suitability Modeling"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="../../" class="logo" style="display: inline-flex; align-items: center; gap: var(--space-2);">
+                <img src="../../assets/geophoenix-logo.jpg" alt="GeoPhoenix Logo" style="height: 30px; width: 30px; border-radius: 6px; object-fit: cover;">
+                <span class="logo-text">GeoPhoenix</span>
+            </a>
+            <nav class="nav-links" id="nav-menu">
+                <a href="../../" class="nav-link">Home</a>
+                <div class="nav-item-dropdown">
+                    <a href="../../services/" class="nav-link has-dropdown active">
+                        Services <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="../../services/gis-mapping/" class="dropdown-item">
+                            <i class="fa-solid fa-map-location-dot dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">GIS Mapping Services</span>
+                                <span class="dropdown-desc">Thematic & publication cartography</span>
+                            </div>
+                        </a>
+                        <a href="../../services/remote-sensing/" class="dropdown-item">
+                            <i class="fa-solid fa-satellite dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">Remote Sensing</span>
+                                <span class="dropdown-desc">Satellite imagery & change detection</span>
+                            </div>
+                        </a>
+                        <a href="../../services/spatial-analysis/" class="dropdown-item">
+                            <i class="fa-solid fa-chart-network dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">Spatial Analysis</span>
+                                <span class="dropdown-desc">Geostatistics & hotspot modeling</span>
+                            </div>
+                        </a>
+                        <a href="../../services/environmental-gis/" class="dropdown-item">
+                            <i class="fa-solid fa-tree dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">Environmental GIS</span>
+                                <span class="dropdown-desc">Coastal vulnerability & flood risks</span>
+                            </div>
+                        </a>
+                        <a href="../../services/gis-automation/" class="dropdown-item">
+                            <i class="fa-solid fa-code dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">GIS Automation</span>
+                                <span class="dropdown-desc">Python & Earth Engine workflows</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="../../projects/" class="nav-link">Projects</a>
+                <a href="../../about/" class="nav-link">About</a>
+                <a href="../../contact/" class="nav-link contact-btn">Request a Quote</a>
+            </nav>
+            <button class="hamburger-menu" id="hamburger" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Subpage Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="../../">Home</a></li>
+                    <li class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></li>
+                    <li class="breadcrumb-item"><a href="../../services/">Services</a></li>
+                    <li class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></li>
+                    <li class="breadcrumb-item active" aria-current="page">Spatial Analysis Services</li>
+                </ol>
+            </nav>
+
+            <div class="page-hero-content">
+                <span class="page-badge"><i class="fa-solid fa-chart-network"></i> Geostatistics & Predictive Modeling</span>
+                <h1 class="page-hero-title">Spatial Analysis, Geostatistics & Predictive Spatial Modeling</h1>
+                <p class="page-hero-subtitle">
+                    Move beyond basic maps to discover underlying spatial dependencies, geographic clusters, and optimal site allocations. GeoPhoenix applies rigorous geostatistical interpolation, spatial econometrics, and multi-criteria evaluation to solve complex commercial and research challenges.
+                </p>
+                <div class="page-hero-actions">
+                    <a href="../../contact/" class="btn-primary-geo"><i class="fa-solid fa-file-signature"></i> Request a Project Assessment</a>
+                    <a href="https://wa.me/94715298267?text=Hello%20GeoPhoenix,%20I%20am%20interested%20in%20Spatial%20Analysis%20and%20Geostatistics." class="btn-whatsapp-geo" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Service Scope -->
+    <main class="container">
+        <div class="overview-grid">
+            <div class="overview-text">
+                <span class="section-subtitle">Mathematical Spatial Rigor</span>
+                <h2>Transforming Dispersed Observations into Defensible Predictive Models</h2>
+                <p>
+                    Spatial patterns rarely occur by chance. Tobler's First Law of Geography establishes that near things are more related than distant things. GeoPhoenix leverages this fundamental principle through robust Exploratory Spatial Data Analysis (ESDA), identifying statistically significant clusters, spatial outliers, and non-stationarity across your operational data.
+                </p>
+                <p>
+                    We deploy deterministic and geostatistical interpolation (IDW, Empirical Bayesian Kriging, Spline) to convert sparse borehole, soil, or environmental monitoring stations into continuous continuous predictive surfaces. Furthermore, our Multi-Criteria Evaluation (MCE) and Analytic Hierarchy Process (AHP) methodologies combine topographic, environmental, and demographic factors into transparent, weighted suitability models for commercial expansion, renewable energy siting, and conservation priority zoning.
+                </p>
+            </div>
+            <div class="capability-card">
+                <h3><i class="fa-solid fa-calculator"></i> Geostatistical Analytical Suite</h3>
+                <ul class="feature-list">
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> Inverse Distance Weighting (IDW) & Ordinary/Universal Kriging</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> Global & Anselin Local Moran's I spatial autocorrelation</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> Getis-Ord Gi* hotspot and coldspot z-score analysis</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> Geographically Weighted Regression (GWR) & OLS spatial diagnostics</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> Isochrone drive-time service areas & network distance matrices</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Target Services Grid -->
+        <section class="capabilities-section">
+            <div class="section-header">
+                <span class="section-subtitle">Core Specializations</span>
+                <h2 class="section-title">Specialized Spatial Analysis Capabilities</h2>
+                <p class="section-desc">Quantitative spatial modeling configured for environmental, engineering, and commercial decision-making.</p>
+            </div>
+
+            <div class="capabilities-grid">
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-braille"></i></div>
+                    <h4>IDW & Kriging Interpolation</h4>
+                    <p>Continuous surface modeling from point sampling arrays (soil pH, groundwater contaminants, particulate matter PM2.5, elevation) with cross-validation error metrics.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-fire"></i></div>
+                    <h4>Getis-Ord Gi* Hotspot Analysis</h4>
+                    <p>Statistically validated identification of high-value clusters (hotspots) and low-value clusters (coldspots) accounting for spatial distance weights and false discovery rates.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <h4>Site Suitability (MCE & AHP)</h4>
+                    <p>Weighted linear combination (WLC) and multi-criteria decision models scoring land parcels for solar farms, logistics hubs, or environmental protected sanctuaries.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-route"></i></div>
+                    <h4>Network Analysis & Routing</h4>
+                    <p>Drive-time isochrones, multi-modal transit catchment areas, closest facility allocation, and vehicle fleet routing utilizing OpenStreetMap and road topology networks.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-chart-line-up"></i></div>
+                    <h4>Spatial Regression (OLS / GWR)</h4>
+                    <p>Explaining spatial non-stationarity and spatial lag effects where traditional linear regression fails, revealing how relationships vary across geographic space.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <h4>Spatial Clustering & Segmentation</h4>
+                    <p>Spatial K-Means, DBSCAN density-based clustering, and demographic territory zoning for corporate market expansion and retail distribution planning.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodological Workflow -->
+        <section class="workflow-section">
+            <div class="section-header">
+                <span class="section-subtitle">Systematic Modeling</span>
+                <h2 class="section-title">The Geostatistical Analytical Workflow</h2>
+                <p class="section-desc">From empirical hypothesis testing to cross-validated predictive surfaces.</p>
+            </div>
+
+            <div class="workflow-steps-grid">
+                <div class="workflow-step">
+                    <span class="step-number">Stage 01</span>
+                    <h4>Exploratory Spatial Data Analysis (ESDA)</h4>
+                    <p>Testing for normal distribution, directional anisotropy, spatial outliers, and computing semivariograms to identify spatial correlation range and sill.</p>
+                </div>
+                <div class="workflow-step">
+                    <span class="step-number">Stage 02</span>
+                    <h4>Weight Matrix Construction</h4>
+                    <p>Defining spatial adjacency matrices (Queen's, Rook's, or Inverse Distance thresholds) reflecting true physical or transport connectivity between spatial units.</p>
+                </div>
+                <div class="workflow-step">
+                    <span class="step-number">Stage 03</span>
+                    <h4>Model Execution & Cross-Validation</h4>
+                    <p>Executing interpolation or spatial regression algorithms with Leave-One-Out Cross-Validation (LOOCV), checking Root Mean Square Error (RMSE) against null models.</p>
+                </div>
+                <div class="workflow-step">
+                    <span class="step-number">Stage 04</span>
+                    <h4>Decision Mapping & Executive Reporting</h4>
+                    <p>Translating mathematical matrices into actionable classification tiers, probability maps, and clear technical documentation for non-GIS stakeholders.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Relevant Project Showcase -->
+        <section class="project-showcase-section" style="margin: var(--space-16) 0;">
+            <div class="section-header">
+                <span class="section-subtitle">Real-World Execution</span>
+                <h2 class="section-title">Featured Spatial Analysis Deliverables</h2>
+                <p class="section-desc">Examine how our spatial modeling uncovers actionable geographic intelligence.</p>
+            </div>
+
+            <div class="case-study-grid">
+                <!-- Project 1: Hamilton 500m Buffer -->
+                <div class="case-card">
+                    <div class="case-card-inner">
+                        <div class="case-card-img-wrap">
+                            <img src="../../assets/projects/hamilton-buffer-analysis.png" alt="Municipal 500m Proximity Buffer Spatial Analysis Map">
+                            <div class="case-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
+                        </div>
+                        <div class="case-card-content">
+                            <div>
+                                <div class="case-badge-bar">
+                                    <span class="meta-pill"><strong>Area:</strong> Ontario, Canada</span>
+                                    <span class="meta-pill"><strong>Method:</strong> Geoprocessing Buffer & Spatial Overlay</span>
+                                </div>
+                                <h3 class="case-title">500m Environmental Proximity & Parcel Selection</h3>
+                                <p class="case-summary">
+                                    Multi-layer geometric buffer analysis identifying residential parcel intersections within critical 500-meter conservation corridors, delivering precise property selection matrices and metric overlap verification.
+                                </p>
+                                <div class="case-specs">
+                                    <div class="spec-item">
+                                        <span class="spec-label">Buffer Radius</span>
+                                        <span class="spec-val">500m Euclidean & Road Distance</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">Output</span>
+                                        <span class="spec-val">Zoned Shapefile & Overlap Report</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="../../projects/" class="btn-secondary-geo" style="align-self: flex-start;"><i class="fa-solid fa-arrow-right"></i> Explore Project Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Slope & Terrain Stability -->
+                <div class="case-card">
+                    <div class="case-card-inner">
+                        <div class="case-card-img-wrap">
+                            <img src="../../assets/projects/slope-analysis.png" alt="Hydrological and Terrain Slope Stability Spatial Suitability Model">
+                            <div class="case-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
+                        </div>
+                        <div class="case-card-content">
+                            <div>
+                                <div class="case-badge-bar">
+                                    <span class="meta-pill"><strong>Input:</strong> High-Res DEM</span>
+                                    <span class="meta-pill"><strong>Method:</strong> Multi-Criteria Slope Reclassification</span>
+                                </div>
+                                <h3 class="case-title">Hydrological Terrain & Slope Stability Evaluation</h3>
+                                <p class="case-summary">
+                                    Multi-criteria terrain analysis deriving slope percentages, aspect, topographic wetness index (TWI), and flow accumulation to evaluate development stability and landslide susceptibility zones.
+                                </p>
+                                <div class="case-specs">
+                                    <div class="spec-item">
+                                        <span class="spec-label">Algorithm</span>
+                                        <span class="spec-val">Zevenbergen-Thorne Slope Model</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">Deliverable</span>
+                                        <span class="spec-val">Classified Hazard Raster, GeoPackage</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="../../projects/" class="btn-secondary-geo" style="align-self: flex-start;"><i class="fa-solid fa-arrow-right"></i> Explore Project Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deliverables Box -->
+        <div class="deliverables-box">
+            <h3 style="font-size: 1.4rem; margin-bottom: 8px;"><i class="fa-solid fa-box-open" style="color: var(--accent-orange); margin-right: 8px;"></i> Spatial Analysis Deliverables</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">All analytical deliverables are accompanied by full mathematical summaries and reproducible scripts:</p>
+            <div class="deliverables-grid">
+                <div class="deliverable-chip"><i class="fa-solid fa-draw-polygon"></i> Continuous Interpolated Rasters</div>
+                <div class="deliverable-chip"><i class="fa-solid fa-chart-column"></i> Semivariogram & Cross-Validation Logs</div>
+                <div class="deliverable-chip"><i class="fa-solid fa-network-wired"></i> Catchment Isochrone Vectors</div>
+                <div class="deliverable-chip"><i class="fa-solid fa-file-code"></i> Python / R Geostatistical Scripts</div>
+                <div class="deliverable-chip"><i class="fa-solid fa-sliders"></i> Weighted Suitability Scoring Matrix</div>
+                <div class="deliverable-chip"><i class="fa-solid fa-file-signature"></i> Technical Methodological Report</div>
+            </div>
+        </div>
+
+        <!-- Frequently Asked Questions -->
+        <section class="faq-section">
+            <div class="section-header">
+                <span class="section-subtitle">Methodological Answers</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-desc">Key statistical considerations for your spatial analysis projects.</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>When should I choose Kriging over Inverse Distance Weighting (IDW)?</span>
+                        <i class="fa-solid fa-plus faq-toggle-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>IDW is a deterministic algorithm best suited when sampling density is high and values depend strictly on Euclidean proximity. Kriging is a geostatistical method that analyzes the spatial autocorrelation structure (semivariogram), accounting for directional trends and spatial clustering, and provides standard error prediction maps alongside the predicted surface.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How does Getis-Ord Gi* differ from simply visualizing a heatmap?</span>
+                        <i class="fa-solid fa-plus faq-toggle-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A simple density heatmap merely reflects where points are concentrated, without considering attribute intensity or statistical significance. Getis-Ord Gi* compares the local sum of values for a feature and its neighbors against the sum of all features. It yields z-scores and p-values, verifying whether a cluster has a less than 1% probability of occurring by random chance.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What criteria can be included in a Site Suitability Model?</span>
+                        <i class="fa-solid fa-plus faq-toggle-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We incorporate both exclusionary constraints (e.g., protected nature reserves, minimum setbacks from waterways, slope > 15%) and continuous evaluation factors (e.g., proximity to transmission lines, solar irradiance, road accessibility, land parcel cost). Weights are assigned via Analytic Hierarchy Process (AHP) pairwise comparison matrices.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can you model travel-time catchment areas using real road networks?</span>
+                        <i class="fa-solid fa-plus faq-toggle-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. Rather than relying on inaccurate circular 'as-the-crow-flies' buffers, we build routable network graphs from OpenStreetMap or municipal road centerlines, factoring in speed limits, one-way restrictions, and turn penalties to compute exact 5, 10, and 20-minute drive-time or walking isochrones.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Services Internal Linking -->
+        <section style="margin: var(--space-12) 0; padding-top: var(--space-8); border-top: 1px solid var(--border-color);">
+            <h3 style="font-size: 1.25rem; margin-bottom: var(--space-4); color: var(--text-primary);">Explore Complementary Geospatial Capabilities:</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                <a href="../../services/gis-mapping/" class="btn-secondary-geo"><i class="fa-solid fa-map-location-dot"></i> GIS Mapping Services</a>
+                <a href="../../services/remote-sensing/" class="btn-secondary-geo"><i class="fa-solid fa-satellite"></i> Remote Sensing Services</a>
+                <a href="../../services/environmental-gis/" class="btn-secondary-geo"><i class="fa-solid fa-tree"></i> Environmental & Coastal GIS</a>
+                <a href="../../services/gis-automation/" class="btn-secondary-geo"><i class="fa-solid fa-code"></i> Python GIS Automation</a>
+            </div>
+        </section>
+
+        <!-- Inquiry CTA Banner -->
+        <section class="cta-banner">
+            <h2>Unlock Deep Spatial Intelligence with GeoPhoenix</h2>
+            <p>
+                Connect with our spatial data science team to review your points, attributes, and research objectives. Receive mathematically sound models and publication-ready results.
+            </p>
+            <div class="cta-buttons">
+                <a href="../../contact/" class="btn-primary-geo"><i class="fa-solid fa-paper-plane"></i> Request a Project Assessment</a>
+                <a href="https://www.fiverr.com/s/AyNPwDX" class="btn-secondary-geo" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Order via Fiverr Gig</a>
+                <a href="https://wa.me/94715298267?text=Hi%20GeoPhoenix,%20I%20am%20interested%20in%20Spatial%20Analysis%20services." class="btn-whatsapp-geo" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Instant WhatsApp Chat</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal Container -->
+    <div id="geo-image-modal" class="image-modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(2, 6, 17, 0.95); backdrop-filter: blur(10px); padding: 40px; box-sizing: border-box;">
+        <span id="close-modal" style="position: absolute; top: 20px; right: 30px; font-size: 36px; color: #fff; cursor: pointer;">&times;</span>
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+            <img id="modal-img" src="" alt="Enlarged Spatial Deliverable" style="max-height: 80vh; max-width: 90vw; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.8);">
+            <div id="modal-caption" style="color: var(--text-secondary); margin-top: 16px; font-size: 1rem; text-align: center;"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="../../" class="logo" style="display: inline-flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-3);">
+                    <img src="../../assets/geophoenix-logo.jpg" alt="GeoPhoenix Logo" style="height: 28px; width: 28px; border-radius: 6px; object-fit: cover;">
+                    <span class="logo-text">GeoPhoenix</span>
+                </a>
+                <p>
+                    An International Geospatial Intelligence and GIS Solutions Company. Defensible spatial modeling, satellite analytics, and reproducible geospatial pipelines.
+                </p>
+                <div style="margin-top: var(--space-3); font-size: 0.9rem; color: var(--text-secondary);">
+                    <p><i class="fa-solid fa-envelope" style="color: var(--accent-orange); margin-right: 8px;"></i> <a href="mailto:contact@geophoenixgis.com">contact@geophoenixgis.com</a></p>
+                    <p style="margin-top: 6px;"><i class="fa-brands fa-whatsapp" style="color: #25d366; margin-right: 8px;"></i> <a href="https://wa.me/94715298267">+94 71 529 8267</a></p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Specialized Services</h4>
+                <a href="../../services/gis-mapping/">GIS Mapping Services</a>
+                <a href="../../services/remote-sensing/">Remote Sensing & Satellite</a>
+                <a href="../../services/spatial-analysis/">Spatial Analysis & Stats</a>
+                <a href="../../services/environmental-gis/">Environmental & Coastal GIS</a>
+                <a href="../../services/gis-automation/">GIS Automation & Python</a>
+            </div>
+
+            <div class="footer-links">
+                <h4>Company & Practice</h4>
+                <a href="../../about/">About & Founder</a>
+                <a href="../../projects/">Project Case Studies</a>
+                <a href="../../contact/">Request Assessment</a>
+                <a href="../../privacy-policy/">Privacy & Data Policy</a>
+            </div>
+
+            <div class="footer-badges">
+                <h4>Verified Platforms</h4>
+                <a href="https://www.fiverr.com/s/AyNPwDX" target="_blank" rel="noopener noreferrer" class="fiverr-mini-badge" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; background: rgba(29, 191, 115, 0.08); border: 1px solid rgba(29, 191, 115, 0.25); color: #1dbf73; padding: 6px 14px; border-radius: 30px; font-weight: 700; transition: all 0.3s ease;">
+                    <span style="letter-spacing: -0.5px;">fiverr.</span>
+                </a>
+                <div style="display: flex; gap: 12px; margin-top: 16px;">
+                    <a href="https://www.linkedin.com/in/teshan-ishara-80b9bb156" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 1.25rem;"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/teshanishara" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 1.25rem;"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GeoPhoenix. All Rights Reserved. Founder & Lead GIS Specialist: Teshan Ishara. International Geospatial Intelligence.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="../../js/main.js"></script>
+</body>
+</html>

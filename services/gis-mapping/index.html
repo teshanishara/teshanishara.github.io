@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIS Mapping Services | Professional Cartography & Spatial Database Solutions | GeoPhoenix</title>
+    <meta name="description" content="Professional GIS mapping services by GeoPhoenix. Publication-quality thematic cartography, cadastral mapping, QGIS and ArcGIS Pro consulting for global engineering and research projects.">
+    <meta name="keywords" content="GIS mapping services, professional GIS mapping, thematic cartography, QGIS mapping services, ArcGIS Pro consultant, cadastral mapping, infrastructure mapping, spatial database preparation">
+    <meta name="author" content="GeoPhoenix">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://geophoenixgis.com/services/gis-mapping/">
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="GeoPhoenix">
+    <meta property="og:title" content="GIS Mapping Services | Professional Cartography & Spatial Database Solutions">
+    <meta property="og:description" content="Publication-grade thematic cartography, infrastructure mapping, and spatial database design using QGIS and ArcGIS Pro.">
+    <meta property="og:image" content="https://geophoenixgis.com/assets/geophoenix-logo.jpg">
+    <meta property="og:url" content="https://geophoenixgis.com/services/gis-mapping/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GIS Mapping Services | GeoPhoenix">
+    <meta name="twitter:description" content="Publication-quality GIS mapping and thematic cartography with QGIS and ArcGIS Pro.">
+    <meta name="twitter:image" content="https://geophoenixgis.com/assets/geophoenix-logo.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="../../assets/geophoenix-logo.jpg">
+
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="../../css/variables.css">
+    <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="../../css/portfolio.css">
+    <link rel="stylesheet" href="../../css/site-enhancements.css">
+    <link rel="stylesheet" href="../../css/animations.css">
+
+    <!-- Structured Data: Service + BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://geophoenixgis.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Services",
+              "item": "https://geophoenixgis.com/services/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "GIS Mapping Services",
+              "item": "https://geophoenixgis.com/services/gis-mapping/"
+            }
+          ]
+        },
+        {
+          "@type": "Service",
+          "serviceType": "GIS Mapping Services",
+          "name": "Professional GIS Mapping & Thematic Cartography",
+          "provider": {
+            "@type": "ProfessionalService",
+            "name": "GeoPhoenix",
+            "url": "https://geophoenixgis.com/",
+            "telephone": "+94715298267",
+            "email": "contact@geophoenixgis.com",
+            "image": "https://geophoenixgis.com/assets/geophoenix-logo.jpg"
+          },
+          "description": "Custom GIS mapping, thematic cartography, cadastral boundaries, infrastructure mapping, and spatial database architecture using QGIS and ArcGIS Pro.",
+          "areaServed": "Worldwide",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "GIS Mapping Capabilities",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Publication-Quality Thematic Cartography"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Cadastral and Land-Use Mapping"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Spatial Database Preparation (GeoPackage / PostGIS)"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="../../" class="logo" style="display: inline-flex; align-items: center; gap: var(--space-2);">
+                <img src="../../assets/geophoenix-logo.jpg" alt="GeoPhoenix Logo" style="height: 30px; width: 30px; border-radius: 6px; object-fit: cover;">
+                <span class="logo-text">GeoPhoenix</span>
+            </a>
+            <nav class="nav-links" id="nav-menu">
+                <a href="../../" class="nav-link">Home</a>
+                <div class="nav-item-dropdown">
+                    <a href="../../services/" class="nav-link has-dropdown active">
+                        Services <i class="fa-solid fa-chevron-down dropdown-arrow"></i>
+                    </a>
+                    <div class="nav-dropdown-menu">
+                        <a href="../../services/gis-mapping/" class="dropdown-item">
+                            <i class="fa-solid fa-map-location-dot dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">GIS Mapping Services</span>
+                                <span class="dropdown-desc">Thematic & publication cartography</span>
+                            </div>
+                        </a>
+                        <a href="../../services/remote-sensing/" class="dropdown-item">
+                            <i class="fa-solid fa-satellite dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">Remote Sensing</span>
+                                <span class="dropdown-desc">Satellite imagery & change detection</span>
+                            </div>
+                        </a>
+                        <a href="../../services/spatial-analysis/" class="dropdown-item">
+                            <i class="fa-solid fa-chart-network dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">Spatial Analysis</span>
+                                <span class="dropdown-desc">Geostatistics & hotspot modeling</span>
+                            </div>
+                        </a>
+                        <a href="../../services/environmental-gis/" class="dropdown-item">
+                            <i class="fa-solid fa-tree dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">Environmental GIS</span>
+                                <span class="dropdown-desc">Coastal vulnerability & flood risks</span>
+                            </div>
+                        </a>
+                        <a href="../../services/gis-automation/" class="dropdown-item">
+                            <i class="fa-solid fa-code dropdown-icon"></i>
+                            <div class="dropdown-text">
+                                <span class="dropdown-title">GIS Automation</span>
+                                <span class="dropdown-desc">Python & Earth Engine workflows</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a href="../../projects/" class="nav-link">Projects</a>
+                <a href="../../about/" class="nav-link">About</a>
+                <a href="../../contact/" class="nav-link contact-btn">Request a Quote</a>
+            </nav>
+            <button class="hamburger-menu" id="hamburger" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Subpage Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+                <ol class="breadcrumb-list">
+                    <li class="breadcrumb-item"><a href="../../">Home</a></li>
+                    <li class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></li>
+                    <li class="breadcrumb-item"><a href="../../services/">Services</a></li>
+                    <li class="breadcrumb-separator"><i class="fa-solid fa-chevron-right"></i></li>
+                    <li class="breadcrumb-item active" aria-current="page">GIS Mapping Services</li>
+                </ol>
+            </nav>
+
+            <div class="page-hero-content">
+                <span class="page-badge"><i class="fa-solid fa-map-location-dot"></i> Cartography & Spatial Databases</span>
+                <h1 class="page-hero-title">Professional GIS Mapping & Publication-Quality Thematic Cartography</h1>
+                <p class="page-hero-subtitle">
+                    Transform complex geospatial data into defensible, publication-grade cartographic assets. GeoPhoenix delivers tailored QGIS and ArcGIS Pro mapping solutions for environmental consultancies, engineering firms, government authorities, and academic research teams worldwide.
+                </p>
+                <div class="page-hero-actions">
+                    <a href="../../contact/" class="btn-primary-geo"><i class="fa-solid fa-file-signature"></i> Request a Project Assessment</a>
+                    <a href="https://wa.me/94715298267?text=Hello%20GeoPhoenix,%20I%20would%20like%20to%20discuss%20a%20GIS%20mapping%20project." class="btn-whatsapp-geo" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Service Scope -->
+    <main class="container">
+        <div class="overview-grid">
+            <div class="overview-text">
+                <span class="section-subtitle">Comprehensive Mapping Capabilities</span>
+                <h2>Defensible Cartographic Design Built to International Geospatial Standards</h2>
+                <p>
+                    Effective spatial decision-making depends on clear, mathematically accurate cartography. At GeoPhoenix, we combine rigorous geodetic principles with high-aesthetic cartographic layout standards. Every map is constructed within precise projected coordinate systems (UTM, State Plane, or national coordinate grids), ensuring metric preservation, accurate scale bars, and zero distortion across study regions.
+                </p>
+                <p>
+                    Whether you require cadastral parcel delineations for municipal asset records, infrastructure distribution layouts, or high-resolution figures for peer-reviewed journal submission (Nature, Elsevier, Springer standards), we deliver complete digital packages accompanied by organized GIS layer structures.
+                </p>
+            </div>
+            <div class="capability-card">
+                <h3><i class="fa-solid fa-shield-halved"></i> Engineering & Research Standards</h3>
+                <ul class="feature-list">
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> Compliant with ISO 19115 and OGC geospatial metadata guidelines</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> Full projection datum transformations (WGS84, ETRS89, GDA2020)</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> High-resolution exports (300 to 600 DPI PDF, TIFF, SVG, AI)</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> Deliverable formats: GeoPackage, ESRI File Geodatabase, GeoJSON</li>
+                    <li class="feature-item"><i class="fa-solid fa-check"></i> Fully structured QGIS (.qgs/.qgz) and ArcGIS Pro (.aprx) map packages</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Target Services Grid -->
+        <section class="capabilities-section">
+            <div class="section-header">
+                <span class="section-subtitle">Target Specializations</span>
+                <h2 class="section-title">Specialized GIS Mapping Offerings</h2>
+                <p class="section-desc">Tailored cartographic and spatial database configurations designed for specific project requirements.</p>
+            </div>
+
+            <div class="capabilities-grid">
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-compass-drafting"></i></div>
+                    <h4>Thematic Cartography</h4>
+                    <p>Choropleth, proportional symbol, isarithmic, and bivariate maps illustrating complex demographic, economic, and physical phenomena with optimized color ramps.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+                    <h4>Academic Publication Maps</h4>
+                    <p>Clean, vector-crisp map figures tailored to editorial styling guidelines of international scientific journals, including detailed insets, scale indicators, and coordinate tick marks.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-city"></i></div>
+                    <h4>Cadastral & Land-Use Mapping</h4>
+                    <p>Precise property boundary digitization, zoning layout configuration, parcel topology verification, and multi-temporal land allocation tracking.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-road"></i></div>
+                    <h4>Infrastructure & Utility Mapping</h4>
+                    <p>Transportation corridors, water distribution networks, electrical transmission rights-of-way, and municipal asset inventories mapped with clean geometric topology.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-database"></i></div>
+                    <h4>Spatial Database Preparation</h4>
+                    <p>Creation and normalization of OGC-standard GeoPackage (.gpkg), PostGIS schemas, and ESRI Geodatabases with domain validation and indexed spatial fields.</p>
+                </div>
+                <div class="cap-card">
+                    <div class="cap-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h4>QGIS & ArcGIS Pro Consulting</h4>
+                    <p>Custom styling templates, layer definitions, map book (atlas) automation, and project workflow migration between open-source and proprietary platforms.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodological Workflow -->
+        <section class="workflow-section">
+            <div class="section-header">
+                <span class="section-subtitle">Methodological Protocol</span>
+                <h2 class="section-title">Our 4-Stage Mapping Workflow</h2>
+                <p class="section-desc">A structured engineering process guaranteeing geometric precision and aesthetic excellence on every delivery.</p>
+            </div>
+
+            <div class="workflow-steps-grid">
+                <div class="workflow-step">
+                    <span class="step-number">Stage 01</span>
+                    <h4>Data Ingestion & CRS Standardization</h4>
+                    <p>Client vector coordinates, CSV records, CAD files, or field GPS points are ingested and unified under the project's optimal projected coordinate reference system (CRS).</p>
+                </div>
+                <div class="workflow-step">
+                    <span class="step-number">Stage 02</span>
+                    <h4>Topology Cleaning & Attribute Structuring</h4>
+                    <p>Overlapping polygons, slivers, undershoots, and attribute nulls are cleaned. Spatial databases are indexed and normalized for efficient spatial queries.</p>
+                </div>
+                <div class="workflow-step">
+                    <span class="step-number">Stage 03</span>
+                    <h4>Cartographic Design & Symbology</h4>
+                    <p>Color theory, typographic hierarchy, visual weight, label placement algorithms, and marginalia elements (north arrows, scale bars, locator insets) are applied.</p>
+                </div>
+                <div class="workflow-step">
+                    <span class="step-number">Stage 04</span>
+                    <h4>Quality Assurance & Package Delivery</h4>
+                    <p>Rigorous pre-flight checks verify scale accuracy, text readability, legend completeness, and color-blind safety before delivering print-ready and raw GIS files.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Relevant Project Showcase -->
+        <section class="project-showcase-section" style="margin: var(--space-16) 0;">
+            <div class="section-header">
+                <span class="section-subtitle">Real-World Execution</span>
+                <h2 class="section-title">Featured GIS Mapping Deliverables</h2>
+                <p class="section-desc">Inspect verified cartographic outputs generated for municipal analysis and regional planning.</p>
+            </div>
+
+            <div class="case-study-grid">
+                <!-- Project 1 -->
+                <div class="case-card">
+                    <div class="case-card-inner">
+                        <div class="case-card-img-wrap">
+                            <img src="../../assets/projects/hamilton-city-overview.png" alt="City of Hamilton Municipal Cadastral Overview Map">
+                            <div class="case-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
+                        </div>
+                        <div class="case-card-content">
+                            <div>
+                                <div class="case-badge-bar">
+                                    <span class="meta-pill"><strong>Area:</strong> Ontario, Canada</span>
+                                    <span class="meta-pill"><strong>Tool:</strong> ArcGIS Pro / QGIS</span>
+                                </div>
+                                <h3 class="case-title">Municipal Cadastral & Zoning Delineation</h3>
+                                <p class="case-summary">
+                                    Comprehensive municipal planning overview for the City of Hamilton, delineating parcel boundaries, historical conservation zones, and urban arterial corridors with clean layout hierarchy and locator map insets.
+                                </p>
+                                <div class="case-specs">
+                                    <div class="spec-item">
+                                        <span class="spec-label">Projection</span>
+                                        <span class="spec-val">NAD83 / UTM Zone 17N</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">Deliverable</span>
+                                        <span class="spec-val">300 DPI PDF, GeoPackage</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="../../projects/" class="btn-secondary-geo" style="align-self: flex-start;"><i class="fa-solid fa-arrow-right"></i> Explore Project Case Study</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="case-card">
+                    <div class="case-card-inner">
+                        <div class="case-card-img-wrap">
+                            <img src="../../assets/projects/property-cadastral.png" alt="Cadastral Property Boundary and Land Use Assessment Map">
+                            <div class="case-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
+                        </div>
+                        <div class="case-card-content">
+                            <div>
+                                <div class="case-badge-bar">
+                                    <span class="meta-pill"><strong>Area:</strong> Regional Land Division</span>
+                                    <span class="meta-pill"><strong>Tool:</strong> QGIS / Python</span>
+                                </div>
+                                <h3 class="case-title">Cadastral Boundary & Land-Use Setup</h3>
+                                <p class="case-summary">
+                                    Detailed property boundary digitization and classification of agricultural, residential, and reserve zoning plots with automated label placement and boundary survey verification.
+                                </p>
+                                <div class="case-specs">
+                                    <div class="spec-item">
+                                        <span class="spec-label">Topology</span>
+                                        <span class="spec-val">Zero overlap verified</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <span class="spec-label">Deliverable</span>
+                                        <span class="spec-val">ESRI Shapefile, QGIS Project</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="../../projects/" class="btn-secondary-geo" style="align-self: flex-start;"><i class="fa-solid fa-arrow-right"></i> Explore Project Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Deliverables Box -->
+        <div class="deliverables-box">
+            <h3 style="font-size: 1.4rem; margin-bottom: 8px;"><i class="fa-solid fa-box-open" style="color: var(--accent-orange); margin-right: 8px;"></i> Standard GIS Deliverable Packages</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem;">Every GIS mapping contract provides full ownership of both final media assets and editable project structures:</p>
+            <div class="deliverables-grid">
+                <div class="deliverable-chip"><i class="fa-solid fa-file-pdf"></i> Vector Print PDF (300/600 DPI)</div>
+                <div class="deliverable-chip"><i class="fa-solid fa-file-image"></i> High-Res PNG / TIFF</div>
+                <div class="deliverable-chip"><i class="fa-solid fa-database"></i> OGC GeoPackage (.gpkg)</div>
+                <div class="deliverable-chip"><i class="fa-solid fa-folder-tree"></i> ESRI Shapefile (.shp/.shx/.dbf)</div>
+                <div class="deliverable-chip"><i class="fa-solid fa-code-merge"></i> QGIS Project (.qgs / .qgz)</div>
+                <div class="deliverable-chip"><i class="fa-solid fa-cubes"></i> ArcGIS Pro Map Package (.mpkx)</div>
+            </div>
+        </div>
+
+        <!-- Frequently Asked Questions -->
+        <section class="faq-section">
+            <div class="section-header">
+                <span class="section-subtitle">Common Inquiries</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-desc">Technical answers to frequent client questions regarding our GIS mapping contracts.</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What file formats can you accept for raw project data?</span>
+                        <i class="fa-solid fa-plus faq-toggle-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We work with virtually all industry formats: ESRI Shapefiles, GeoJSON, KML/KMZ, AutoCAD DWG/DXF, GPS coordinates (GPX), tabular data with coordinates (CSV, Excel), raster GeoTIFFs, and LiDAR LAS/LAZ files. We can also georeference non-spatial historical paper scans and aerial photographs.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>How do you handle Coordinate Reference System (CRS) discrepancies?</span>
+                        <i class="fa-solid fa-plus faq-toggle-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>We perform rigorous datum transformations to ensure your layers align seamlessly. All analysis and cartographic representations are reprojected into appropriate equal-area, conformal, or local transverse Mercator projections depending on whether the project emphasizes area calculation, distance measurement, or navigation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>Can you deliver maps compliant with specific academic journal formatting?</span>
+                        <i class="fa-solid fa-plus faq-toggle-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. We routinely format publication figures according to specific publisher constraints (e.g., single-column 85mm, 1.5-column 120mm, or double-column 175mm widths) with vector typography and 300–600 DPI resolution, meeting the stringent criteria of journals published by Elsevier, Springer, Wiley, and IEEE.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">
+                        <span>What is your typical turnaround time for custom GIS mapping?</span>
+                        <i class="fa-solid fa-plus faq-toggle-icon"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Standard thematic maps and parcel layouts are typically delivered within 24 to 72 hours depending on dataset completeness and required attribute classification. Complex multi-sheet atlas productions or enterprise spatial databases are scheduled with clear milestone deliveries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Services Internal Linking -->
+        <section style="margin: var(--space-12) 0; padding-top: var(--space-8); border-top: 1px solid var(--border-color);">
+            <h3 style="font-size: 1.25rem; margin-bottom: var(--space-4); color: var(--text-primary);">Explore Complementary Geospatial Capabilities:</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+                <a href="../../services/remote-sensing/" class="btn-secondary-geo"><i class="fa-solid fa-satellite"></i> Remote Sensing Services</a>
+                <a href="../../services/spatial-analysis/" class="btn-secondary-geo"><i class="fa-solid fa-chart-network"></i> Spatial Analysis & Geostatistics</a>
+                <a href="../../services/environmental-gis/" class="btn-secondary-geo"><i class="fa-solid fa-tree"></i> Environmental & Coastal GIS</a>
+                <a href="../../services/gis-automation/" class="btn-secondary-geo"><i class="fa-solid fa-code"></i> Python GIS Automation</a>
+            </div>
+        </section>
+
+        <!-- Inquiry CTA Banner -->
+        <section class="cta-banner">
+            <h2>Ready to Commission a Professional GIS Map?</h2>
+            <p>
+                Share your study area, source data, and delivery deadline. GeoPhoenix provides transparent project assessments, defensible cartography, and full spatial data ownership.
+            </p>
+            <div class="cta-buttons">
+                <a href="../../contact/" class="btn-primary-geo"><i class="fa-solid fa-paper-plane"></i> Request a Project Assessment</a>
+                <a href="https://www.fiverr.com/s/AyNPwDX" class="btn-secondary-geo" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i> Order via Fiverr Gig</a>
+                <a href="https://wa.me/94715298267?text=Hi%20GeoPhoenix,%20I%20am%20interested%20in%20a%20GIS%20mapping%20quote." class="btn-whatsapp-geo" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-whatsapp"></i> Instant WhatsApp Chat</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal Container -->
+    <div id="geo-image-modal" class="image-modal" style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(2, 6, 17, 0.95); backdrop-filter: blur(10px); padding: 40px; box-sizing: border-box;">
+        <span id="close-modal" style="position: absolute; top: 20px; right: 30px; font-size: 36px; color: #fff; cursor: pointer;">&times;</span>
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
+            <img id="modal-img" src="" alt="Enlarged Spatial Deliverable" style="max-height: 80vh; max-width: 90vw; border-radius: 8px; box-shadow: 0 20px 60px rgba(0,0,0,0.8);">
+            <div id="modal-caption" style="color: var(--text-secondary); margin-top: 16px; font-size: 1rem; text-align: center;"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="../../" class="logo" style="display: inline-flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-3);">
+                    <img src="../../assets/geophoenix-logo.jpg" alt="GeoPhoenix Logo" style="height: 28px; width: 28px; border-radius: 6px; object-fit: cover;">
+                    <span class="logo-text">GeoPhoenix</span>
+                </a>
+                <p>
+                    An International Geospatial Intelligence and GIS Solutions Company. Defensible spatial modeling, satellite analytics, and reproducible geospatial pipelines.
+                </p>
+                <div style="margin-top: var(--space-3); font-size: 0.9rem; color: var(--text-secondary);">
+                    <p><i class="fa-solid fa-envelope" style="color: var(--accent-orange); margin-right: 8px;"></i> <a href="mailto:contact@geophoenixgis.com">contact@geophoenixgis.com</a></p>
+                    <p style="margin-top: 6px;"><i class="fa-brands fa-whatsapp" style="color: #25d366; margin-right: 8px;"></i> <a href="https://wa.me/94715298267">+94 71 529 8267</a></p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Specialized Services</h4>
+                <a href="../../services/gis-mapping/">GIS Mapping Services</a>
+                <a href="../../services/remote-sensing/">Remote Sensing & Satellite</a>
+                <a href="../../services/spatial-analysis/">Spatial Analysis & Stats</a>
+                <a href="../../services/environmental-gis/">Environmental & Coastal GIS</a>
+                <a href="../../services/gis-automation/">GIS Automation & Python</a>
+            </div>
+
+            <div class="footer-links">
+                <h4>Company & Practice</h4>
+                <a href="../../about/">About & Founder</a>
+                <a href="../../projects/">Project Case Studies</a>
+                <a href="../../contact/">Request Assessment</a>
+                <a href="../../privacy-policy/">Privacy & Data Policy</a>
+            </div>
+
+            <div class="footer-badges">
+                <h4>Verified Platforms</h4>
+                <a href="https://www.fiverr.com/s/AyNPwDX" target="_blank" rel="noopener noreferrer" class="fiverr-mini-badge" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px; background: rgba(29, 191, 115, 0.08); border: 1px solid rgba(29, 191, 115, 0.25); color: #1dbf73; padding: 6px 14px; border-radius: 30px; font-weight: 700; transition: all 0.3s ease;">
+                    <span style="letter-spacing: -0.5px;">fiverr.</span>
+                </a>
+                <div style="display: flex; gap: 12px; margin-top: 16px;">
+                    <a href="https://www.linkedin.com/in/teshan-ishara-80b9bb156" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 1.25rem;"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/teshanishara" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); font-size: 1.25rem;"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 GeoPhoenix. All Rights Reserved. Founder & Lead GIS Specialist: Teshan Ishara. International Geospatial Intelligence.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="../../js/main.js"></script>
+</body>
+</html>
