@@ -175,7 +175,7 @@
                             </div>
                         </a>
                         <a href="/services/spatial-analysis/" class="dropdown-item">
-                            <i class="fa-solid fa-chart-network dropdown-icon"></i>
+                            <i class="fa-solid fa-diagram-project dropdown-icon"></i>
                             <div class="dropdown-text">
                                 <span class="dropdown-title">Spatial Analysis</span>
                                 <span class="dropdown-desc">Geostatistics & hotspot modeling</span>
@@ -255,9 +255,11 @@
                 </div>
             </div>
 
-            <!-- Hero Interactive Globe / Asset -->
-            <div class="hero-visual" style="display: flex; align-items: center; justify-content: center; position: relative;">
-                <img src="assets/hero-globe.png" alt="GeoPhoenix Global Geospatial Intelligence" style="width: 100%; max-width: 480px; filter: drop-shadow(0 20px 40px rgba(16, 185, 129, 0.2));">
+            <!-- Large Centerpiece 3D Canvas Wireframe Globe -->
+            <div class="hero-media">
+                <div class="globe-wrapper">
+                    <canvas id="globe-canvas"></canvas>
+                </div>
             </div>
 
         </div>
@@ -328,7 +330,7 @@
 
                 <!-- Service 3 -->
                 <div class="cap-card">
-                    <div class="cap-icon"><i class="fa-solid fa-chart-network"></i></div>
+                    <div class="cap-icon"><i class="fa-solid fa-diagram-project"></i></div>
                     <h4>Spatial Analysis Services</h4>
                     <p>IDW & Kriging interpolation, Getis-Ord Gi* hotspot detection, Multi-Criteria Evaluation (MCE/AHP), and network routing.</p>
                     <a href="/services/spatial-analysis/" style="color: var(--accent-orange); font-size: 0.85rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; margin-top: 12px;">
@@ -379,7 +381,7 @@
                 <div class="case-card">
                     <div class="case-card-inner">
                         <div class="case-card-img-wrap">
-                            <img src="assets/projects/environmental-impact.png" alt="Coastal Vulnerability Index CVI and Hazard Assessment">
+                            <img src="assets/projects/coastal-vulnerability-cvi.png" alt="Coastal Vulnerability Index CVI and Hazard Assessment">
                             <div class="case-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i> Click to Zoom</div>
                         </div>
                         <div class="case-card-content">
