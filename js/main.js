@@ -4,8 +4,6 @@
    ========================================================================== */
 
 import { initParticles, initGlobe, initScrollBubbles } from './particles.js';
-import { initChatbot } from './chatbot.js';
-import { initLMS } from './lms.js';
 
 // --------------------------------------------------------------------------
 // ANALYTICS & CONVERSION EVENT TRACKING (GA4 / GTM)
@@ -32,10 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
         try { initScrollBubbles(); } catch (e) { console.warn('Scroll bubbles init skipped', e); }
     }
     if (document.getElementById('chatbot-widget') || document.querySelector('.chat-widget-panel')) {
-        try { initChatbot(); } catch (e) { console.warn('Chatbot init skipped', e); }
+        import('./chatbot.js').then(m => m.initChatbot()).catch(e => console.warn('Chatbot init skipped', e));
     }
     if (document.getElementById('lms-dashboard') || document.querySelector('.lms-container')) {
-        try { initLMS(); } catch (e) { console.warn('LMS init skipped', e); }
+        import('./lms.js').then(m => m.initLMS()).catch(e => console.warn('LMS init skipped', e));
     }
 
     // 2. Sticky Header scroll effect
