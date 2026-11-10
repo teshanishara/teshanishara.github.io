@@ -1,16 +1,19 @@
-# Environment and Secrets
+# Sensitive student & private data
+*.private.csv
+lms_students.csv
+*students*.csv
+secrets/
+private-data/
+.secure/
+
+# Environment & Secrets
 .env
 .env.*
 *.secret
 *.pem
 *.key
 
-# Secure data files with credentials
-*.private.csv
-secrets/
-.secure/
-
-# OS and Editor artifacts
+# OS & Editor artifacts
 .DS_Store
 Thumbs.db
 *.swp

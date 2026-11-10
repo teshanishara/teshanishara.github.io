@@ -29,12 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('.scroll-bubbles-container')) {
         try { initScrollBubbles(); } catch (e) { console.warn('Scroll bubbles init skipped', e); }
     }
-    if (document.getElementById('chatbot-widget') || document.querySelector('.chat-widget-panel')) {
-        import('./chatbot.js').then(m => m.initChatbot()).catch(e => console.warn('Chatbot init skipped', e));
-    }
-    if (document.getElementById('lms-dashboard') || document.querySelector('.lms-container')) {
-        import('./lms.js').then(m => m.initLMS()).catch(e => console.warn('LMS init skipped', e));
-    }
 
     // 2. Sticky Header scroll effect
     const header = document.querySelector('.header');
